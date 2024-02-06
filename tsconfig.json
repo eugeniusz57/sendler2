@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "types": ["react", "react-dom"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/api/sending-groups/create/route.js",
+    "app/api/sending-groups/[id]/route.js",
+    "app/api/sending-groups/route.js",
+    "app/layout.jsx",
+    "components/UserSmsBalansInform.tsx",
+    "app/(privatePages)/user/contacts-manage/edit-group/[id]/page.tsx",
+    "app/(privatePages)/user/contacts-manage/update-group/[id]/page.tsx"
+, "app/(privatePages)/user/[userId]/test/page.jsx", "fetch-actions/groupsActions.js"  ],
+  "exclude": ["node_modules"]
+}
