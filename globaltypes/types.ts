@@ -1,6 +1,7 @@
 
 import { number } from "joi";
 import { DateTime } from "next-auth/providers/kakao";
+import { type } from "os";
 
 
 export type ErrorType = 400 | 401 | 403 | 404 | 409;
@@ -191,6 +192,8 @@ export interface IPaymentHistory {
 	transactions_date: string;
 	paymant_date: string | null;
 	paid: boolean;
+	change_date:  string | null;
+	description:  string | null;
 }
 
 export interface IDebts {
@@ -272,13 +275,15 @@ export interface FormInputUpdateUser {
 	email: string;
 }
 
+export type SendMethodType = 'api' | 'web';
+
 export interface ISendSMS {
-	userName: string;
-	recipients: (string | number)[];
-	date?: string;
-	time?: string;
-	contentSMS: string;
-	send_method: 'api' | 'web';
+  userName: string;
+  recipients: (string | number)[];
+  date?: string;
+  time?: string;
+  contentSMS: string;
+  send_method: SendMethodType;
 };
 
 export interface IGetSendSmsClients {
@@ -286,12 +291,12 @@ export interface IGetSendSmsClients {
 }
 
 export interface ISendHistoryDatabase {
-	history_id: number,
-	sending_group_date: Date,
-	send_method: 'api' | 'web',
-	text_sms: string,
-	sending_permission: boolean,
-	userName: string
+  history_id: number;
+  sending_group_date: Date;
+  send_method: SendMethodType;
+  text_sms: string;
+  sending_permission: boolean;
+  userName: string;
 };
 
 export interface ISmsIdentificatorsDatabase {
