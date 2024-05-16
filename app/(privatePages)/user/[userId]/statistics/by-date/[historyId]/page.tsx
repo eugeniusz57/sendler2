@@ -73,6 +73,8 @@ export default function HistoryDetails({
     }
   };
 
+  console.log(userHistoryDetails);
+
   return (
     <section className="container mx-auto">
       <Title type="h1" color="dark">

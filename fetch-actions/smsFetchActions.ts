@@ -9,7 +9,7 @@ export async function sendSMS(
 	userName: string,
 	recipients: (string | number)[],
 	contentSMS: string,
-	date: string | null = '',
+	date: string | undefined = '',
 	time: string | undefined = '',
 	send_method: 'api' | 'web' = 'web',
 ) {
@@ -17,7 +17,7 @@ export async function sendSMS(
 		const res = await api.post<string, AxiosResponse<string>, {
 			userName: string,
 			recipients: (string | number)[],
-			date: string | null,
+			date: string | undefined,
 			time: string | undefined,
 			contentSMS: string,
 			send_method: 'api' | 'web',

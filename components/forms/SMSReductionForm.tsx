@@ -9,10 +9,9 @@ import { IUser } from '@/globaltypes/types';
 
 type Props = {
   userId: number;
-  transactionId: number;
 };
 
-const SMSReductionForm = ({ userId, transactionId }: Props) => {
+const SMSReductionForm = ({ userId }: Props) => {
   const { register, handleSubmit, reset } = useForm();
 
   const [user, setUser] = useState<IUser>();
@@ -32,7 +31,7 @@ const SMSReductionForm = ({ userId, transactionId }: Props) => {
   }, [userId, isUpdated]);
 
   const onSubmit = async (data: any) => {
-    await deleteSMSFromUser(transactionId, data.reduction, data.description);
+    await deleteSMSFromUser(userId, data.reduction);
     reset();
     setisUpdated(prevIsUpdate => !prevIsUpdate);
   };
@@ -56,16 +55,6 @@ const SMSReductionForm = ({ userId, transactionId }: Props) => {
           className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none"
           placeholder="Введіть кількість СМС..."
           onKeyPress={EnterOnlyFigures}
-        />
-        <label htmlFor="description" className="font-roboto text-sm font-medium mb-2 block  mt-4">
-          Додати додаткову інформацію про транзакцію:
-        </label>
-        <textarea
-          id="description"
-          {...register('description')}
-          className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none"
-          rows={4}
-          placeholder="Введіть текст..."
         />
       </div>
       <GreenButton size="big">Зняти</GreenButton>

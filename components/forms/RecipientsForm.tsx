@@ -53,7 +53,6 @@ export default function RecipientsForm({
 	const handleClick = () => {
 		getRecipients([]);
 		setIsSelected(0);
-		reset();
 	};
 
 	return (

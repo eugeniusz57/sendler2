@@ -40,6 +40,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 	const [minute, setMinute] = useState<string | undefined>('');
 	const [second, setSecond] = useState<string | undefined>('');
 	const [groupsNameArray, setGroupsNameArray] = useState<string[] | undefined>([]);
+	const [stringDate, setStringDate] = useState<string | undefined>('');
 	const [date, setDate] = useState(new Date());
 	const [recipients, setRecipients] = useState<(string | number)[]>([]);
 	const [contentSMS, setContentSMS] = useState<string>('');
@@ -57,7 +58,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 	const setDisabledSendBtn = () => {
 		if (!isChecked && contentSMS && recipients.length > 0 && isOfferContractChecked) {
 			return false;
-		};
+		}
 
 		if (
 			isChecked &&
@@ -187,13 +188,13 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 
 	// reset date and time if input is closed
 	const handleClickChecked = () => {
-		setIsChecked(isChecked => !isChecked);
+		setIsChecked(!isChecked);
 		if (isChecked === false) {
-			setDate(new Date());
+			setStringDate('');
 			setHour('');
 			setMinute('');
 			setSecond('');
-		};
+		}
 	};
 
 	const handleChekedOfferContract = () => {
@@ -202,36 +203,20 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 
 	const handleClickSubmit = async () => {
 		setIsDisabled(true);
-		const dateString: string[] = String(date).split(' ');
-		const dateSelected = new Date(`${dateString[1]} ${dateString[2]}, ${dateString[3]} ${hour}:${minute}:${second}`).getTime();
-		if (((dateSelected) - new Date().getTime()) < 0 && isChecked === true) {
-			toast.error('Ви ввели не вірну дату та час.', {
-				position: 'bottom-center',
-				className: 'toast_error',
-				style: {
-					backgroundColor: '#0F3952',
-					color: '#fa9c9c',
-					fontSize: '24px',
-					marginBottom: '50%',
-				},
-			});
-			setIsDisabled(false);
-			return;
-		};
 
 		if (hour && minute && second && date) {
 			await sendSMS(
 				userName,
 				recipients,
 				contentSMS,
-				date.toISOString().split('T')[0],
+				stringDate,
 				`${hour}:${minute}:${second}`,
 				'web'
 			);
 			setContentSMS('');
 			setGroupName('');
 			setRecipients([]);
-			setDate(new Date());
+			setStringDate('');
 			setHour('');
 			setMinute('');
 			setSecond('');
@@ -244,7 +229,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 		}
 
 		// date and time completeness control
-		if (!hour && !minute && !second && date) {
+		if (!hour && !minute && !second) {
 			await sendSMS(userName, recipients, contentSMS, '', '', 'web');
 			setContentSMS('');
 			setRecipients([]);
@@ -312,8 +297,9 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 		memoizedgetUserNamesArray(userId);
 	}, [memoizedgetData, memoizedgetUserNamesArray, userId, recipients, update]);
 
-	const handleChangeDate = (date: Date) => {
+	const handleChangeDate = (date: any) => {
 		setDate(date);
+		setStringDate(date ? date.toISOString().split('T')[0] : null);
 	};
 	return (
 		<>
