@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
-import GreenButton from '../buttons/GreenButton';
 
 interface Props {
   getFilter: (e: any) => void;
@@ -30,7 +29,7 @@ const SearchUserForm = ({ getFilter }: Props) => {
   return (
     <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} className='text-center'>
       <label htmlFor="login" className="block mb-3.5 label">
-        Пошук за номером телефону
+        Пошук за логінем користувача
       </label>
       <div className="flex">
         <input

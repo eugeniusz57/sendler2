@@ -9,7 +9,7 @@ export async function PUT(req: Request) {
     const userById = await db.query('SELECT * FROM transactions_history WHERE user_id = $1 ', [
       user_id,
     ]);
-    const userTransactionsHistory = userById.rows;
+    const userTransactionsHistory = userById.rows.sort((a, b) => b.transaction_id - a.transaction_id);
 
     if (userTransactionsHistory.length === 0) {
       return NextResponse.json(
@@ -17,6 +17,8 @@ export async function PUT(req: Request) {
         { status: 200 }
       );
     }
+console.log("userTransactionsHistory", userTransactionsHistory);
+
 
     return NextResponse.json({ userTransactionsHistory }, { status: 200 });
   } catch (error) {

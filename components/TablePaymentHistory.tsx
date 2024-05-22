@@ -26,7 +26,7 @@ const TablePaymentHistory = ({ userId }: Props) => {
   }, [userId]);
 
   return (
-    <table className="w-full border bg-priceTableBg">
+    <table className="w-full border bg-priceTableBg text-center">
       <caption className=" text-2xl text-right mb-2">Історія оплат користувача</caption>
       <thead>
         <tr className="bg-headerTable text-white text-xl font-roboto leading-[30px]">
@@ -67,7 +67,7 @@ const TablePaymentHistory = ({ userId }: Props) => {
           ))
         ) : (
           <tr className="text-center">
-            <td colSpan={4} className="py-4 px-3 border font-montserrat text-xl">
+            <td colSpan={7} className="py-4 px-3 border font-montserrat text-xl">
               Користувач не має жодної історії транзакцій
             </td>
           </tr>
