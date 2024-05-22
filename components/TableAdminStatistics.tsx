@@ -45,6 +45,25 @@ const TableAdminStatistics = ({ userHistory }: Props) => {
             </td>
           </tr>
         ))}
+        <tr key={"total"}>
+            <td className="py-4 px-3 border font-montserrat text-xl">
+              Всього
+            </td>
+            <td className="py-4 px-3 border font-montserrat text-xl">
+            </td>
+            <td className="py-4 px-3 border font-montserrat text-xl">
+              {userHistory?.reduce((acc, item) => acc + item.recipient_status.length, 0)}
+            </td>
+            <td className="py-4 px-3 border font-montserrat text-xl">
+            {userHistory?.reduce(
+                (acc, item) =>
+                  acc +
+                  item.recipient_status.filter((item: SmsStatusEnum) => item === 'fullfield')
+                    .length,
+                0
+              )}
+            </td>
+          </tr>
       </tbody>
     </table>
   );

@@ -53,10 +53,10 @@ const DayHistory = ({ params: { day } }: { params: { day: string } }) => {
     <>
       <p>Statistics for {day ?? ''}</p>
       <div className="flex gap-4 mb-4 mt-4">
-        <GreenButton size="normal" onClick={() => handleSendMethod('web')}>
+        <GreenButton type = "button" size="normal" onClick={() => handleSendMethod('web')} isActive={sendMethod === "web"}>
           Site
         </GreenButton>
-        <GreenButton size="normal" onClick={() => handleSendMethod('api')}>
+        <GreenButton type = "button" size="normal" onClick={() => handleSendMethod('api')} isActive={sendMethod === "api"}>
           Api
         </GreenButton>
       </div>
