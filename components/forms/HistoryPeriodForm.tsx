@@ -22,8 +22,11 @@ export default function HistoryPeriodForm() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [startDate, setStartDate] = useState<string | null>(searchParams.get('startDate'));
-  const [endDate, setEndDate] = useState<string | null>(searchParams.get('endDate'));
+  const selectedStartDate = searchParams.get('startDate');
+  const selectedEndDate = searchParams.get('endDate');
+
+  const [startDate, setStartDate] = useState<string | null>(selectedStartDate);
+  const [endDate, setEndDate] = useState<string | null>(selectedEndDate);
 
   const {
     register,
@@ -56,9 +59,7 @@ export default function HistoryPeriodForm() {
     const trimmedPath = pathname.match(/(\/user\/\d+\/statistics).*/);
     if (startDate && endDate && trimmedPath) {
       router.push(
-        `${trimmedPath[1]}?startDate=${new Date(startDate).toISOString()}&endDate=${new Date(
-          endDate
-        ).toISOString()}`
+        `${trimmedPath[1]}?startDate=${startDate}&endDate=${endDate}`
       );
     } else {
       router.push(`${pathname}`);
@@ -66,11 +67,11 @@ export default function HistoryPeriodForm() {
   };
 
   const handleChangeStartDate = (date: Date | null) => {
-    setStartDate(date ? date.toISOString().split('T')[0] : null);
+    setStartDate(date ? date.toISOString() : null);
   };
 
   const handleChangeEndDate = (date: Date | null) => {
-    setEndDate(date ? date.toISOString().split('T')[0] : null);
+    setEndDate(date ? date.toISOString() : null);
   };
 
   return (
@@ -80,12 +81,16 @@ export default function HistoryPeriodForm() {
         <label htmlFor="startDate" className="text-xl text-mainTextColor flex cursor-pointer">
           <DatePicker
             id="startDate"
-            selected={startDate ? new Date(startDate) : undefined}
+            selected={startDate ? new Date(startDate) : null}
             onChange={handleChangeStartDate}
+            isClearable
             className="w-[250px] h-12 rounded-[18px] border border-inputBorder outline-none text-xl text-mainTextColor pr-[50px] pl-[50px] cursor-pointer"
             customInput={<input autoComplete="off" />}
             placeholderText="дд.мм.рррр"
             dateFormat="dd.MM.yyyy"
+            startDate={startDate ? new Date(startDate) : null}
+            endDate={endDate ? new Date(endDate) : null}
+            maxDate={endDate ? new Date(endDate) : null}
           />
           <Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="ml-4" />
         </label>
@@ -93,12 +98,16 @@ export default function HistoryPeriodForm() {
         <label className="text-xl text-mainTextColor flex cursor-pointer">
           <DatePicker
             id="endDate"
-            selected={endDate ? new Date(endDate) : undefined}
+            selected={endDate ? new Date(endDate) : null}
             onChange={handleChangeEndDate}
+            isClearable
             className="w-[250px] h-12 rounded-[18px] border border-inputBorder outline-none text-xl text-mainTextColor pr-[50px] pl-[50px] cursor-pointer"
             customInput={<input autoComplete="off" />}
             placeholderText="дд.мм.рррр"
             dateFormat="dd.MM.yyyy"
+            startDate={startDate ? new Date(startDate) : null}
+            endDate={endDate ? new Date(endDate) : null}
+            minDate={startDate ? new Date(startDate) : null}
           />
           <Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="ml-4" />
         </label>
