@@ -44,14 +44,15 @@ export async function PATCH(
 		const { alfa_name, user_id } = value;
 
 		if (alfa_name?.length > 0) {
-			// const user = await fetchUser(String(user_id));
-			// const res = await insertAlfaName(alfa_name, user_id, false);
 			const res = await addAlfaName(alfa_name, user_id);
 			if (res === 1) {
 				return NextResponse.json({ message: `Таке ім'я ${alfa_name} вже існує!` }, { status: 400 });
 			};
 			if (res === 2) {
 				return NextResponse.json({ message: `Таке ім'я ${alfa_name} вже є в списку на активацію!` }, { status: 400 });
+			};
+			if (res === 3) {
+				return NextResponse.json({ message: `Ім'я ${alfa_name} є ім'ям по замовчуванню і вже є в вашому списку!` }, { status: 400 });
 			}
 			return NextResponse.json({
 				message:
