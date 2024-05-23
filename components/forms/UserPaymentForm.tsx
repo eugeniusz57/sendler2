@@ -24,7 +24,13 @@ const UserPaymentForm = ({ userId }: Props) => {
   };
 
   const onSubmit = async (data: any) => {
-    await userPaymant(userId, !isChecked ? data.summ : 0, !isChecked ? String(SMS) : inputValue, isPaid, data.description);
+    await userPaymant(
+      userId,
+      !isChecked ? data.summ : 0,
+      !isChecked ? String(SMS) : `-${inputValue}`,
+      isPaid,
+      data.description
+    );
 
     setInputValue('0');
     setIsPaid(false);
@@ -40,7 +46,6 @@ const UserPaymentForm = ({ userId }: Props) => {
   const handleClickCheckedCorect = () => {
     setIsChecked(isChecked => !isChecked);
   };
-
 
   return (
     <form
@@ -67,7 +72,7 @@ const UserPaymentForm = ({ userId }: Props) => {
               onClick={handleClickCheckedCorect}
             />
           )}
-          Korekta
+          Перерахувати к-ть СМС
         </span>
         <label htmlFor="summ" className="font-roboto text-sm font-medium mb-2 block">
           Сумма:
@@ -76,23 +81,27 @@ const UserPaymentForm = ({ userId }: Props) => {
           id="summ"
           {...register('summ')}
           className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none"
-          placeholder="Введіть сумму..."
+          placeholder={isChecked ? '' : 'Введіть сумму...'}
           onKeyPress={EnterOnlyFigures}
-          value={inputValue}
+          value={!isChecked ? inputValue : ''}
           onChange={handleInputChange}
           disabled={isChecked}
         />
         <label htmlFor="countSms" className="font-roboto text-sm font-medium mb-2 block mt-4">
           Kількість СМС:
         </label>
-        <input
-          id="countSms"
-          {...register('countSms')}
-          className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none"
-          onKeyPress={EnterOnlyFigures}
-          value={isChecked ? inputValue : SMS}
-          onChange={handleInputChange}
-        />
+        <div className="flex relative">
+         {isChecked && <span className="absolute left-3 top-[9px]">-</span>}
+          <input
+            id="countSms"
+            {...register('countSms')}
+            className={`w-full border py-2 ${isChecked ? 'pr-11 pl-[20px]' : ' px-3'} focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none`}
+            onKeyPress={EnterOnlyFigures}
+            value={isChecked ? inputValue : SMS}
+            onChange={handleInputChange}
+            placeholder={isChecked ? 'Введіть к-ть СМС яку потрібно відняти' : ''}
+          />
+        </div>
         <label htmlFor="description" className="font-roboto text-sm font-medium mb-2 block  mt-4">
           Додати додаткову інформацію про транзакцію:
         </label>

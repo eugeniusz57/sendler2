@@ -48,13 +48,13 @@ const SMSReductionForm = ({ userId, transactionId }: Props) => {
       </p>
       <div className="text-left w-full mb-8">
         <label htmlFor="reduction" className="font-roboto text-sm font-medium mb-2 block">
-          Зняти SMS з рахунку клієнта(шт):
+          Змінити к-ть SMS в транзакції клієнта(шт):
         </label>
         <input
           id="reduction"
           {...register('reduction')}
           className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none"
-          placeholder="Введіть кількість СМС..."
+          placeholder="Введіть нову кількість СМС..."
           onKeyPress={EnterOnlyFigures}
         />
         <label htmlFor="description" className="font-roboto text-sm font-medium mb-2 block  mt-4">
@@ -68,7 +68,7 @@ const SMSReductionForm = ({ userId, transactionId }: Props) => {
           placeholder="Введіть текст..."
         />
       </div>
-      <GreenButton size="big">Зняти</GreenButton>
+      <GreenButton size="big">Змінити</GreenButton>
     </form>
   );
 };

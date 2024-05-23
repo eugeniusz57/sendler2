@@ -15,7 +15,6 @@ const Detail = ({ params }: { params: { userId: string } }) => {
 	const [user, setUser] = useState<IUser>();
 	const [isUpdated, setisUpdated] = useState(false);
 
-	console.log('ID page', params.userId)
 
 	const handleDelete = async (userId: number) => {
 		await DeleteUser(userId);
