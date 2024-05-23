@@ -9,6 +9,11 @@ export default async function addAlfaName(alfa_name: string, user_id: number) {
 	) {
 		return 1;
 	}
+	if (
+		user?.alfa_names_disable.find((name) => name === alfa_name)
+	) {
+		return 2;
+	}
 	const res = await insertAlfaName(alfa_name, user_id, false);
 	return res;
 }
