@@ -2,11 +2,13 @@
 import Image from 'next/image';
 import GreenButton from '../buttons/GreenButton';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { userPaymant } from '@/helpers/fetchUserId';
 import { EnterOnlyFigures } from '@/helpers/EnterOnlyFigures';
 import { defineSmsCount } from '@/helpers/DefinSum';
 import { fetchUserBalance, updateUserBalance } from '@/api-actions';
+import { IUser } from '@/globaltypes/types';
+import { getUser } from '@/fetch-actions/usersFetchActions';
 
 type Props = {
   userId: number;
@@ -14,6 +16,8 @@ type Props = {
 
 const UserPaymentForm = ({ userId }: Props) => {
   const { register, handleSubmit, reset } = useForm();
+  const [user, setUser] = useState<IUser>();
+  const [isUpdated, setisUpdated] = useState(false);
 
   const [isPaid, setIsPaid] = useState(false);
   const [inputValue, setInputValue] = useState<string>('');
@@ -22,6 +26,19 @@ const UserPaymentForm = ({ userId }: Props) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
+
+  useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				const response = await getUser(userId);
+				setUser(response?.data.user);
+			} catch (error) {
+				console.error('Error fetching user data:', error);
+			}
+		};
+
+		fetchUserData();
+	}, [userId, isUpdated]);
 
   const onSubmit = async (data: any) => {
     await userPaymant(
@@ -35,6 +52,7 @@ const UserPaymentForm = ({ userId }: Props) => {
     setInputValue('0');
     setIsPaid(false);
     setIsChecked(false);
+    setisUpdated(prevIsUpdate => !prevIsUpdate);
     reset();
   };
 
@@ -53,7 +71,10 @@ const UserPaymentForm = ({ userId }: Props) => {
       onSubmit={handleSubmit(onSubmit)}
       className="w-1/3 flex justify-items-center h-auto  py-4 items-center flex-col leading-6 px-[26px] border rounded-[18px] bg-priceTableBg"
     >
-      <div className="text-left w-full mb-8">
+      <div className="text-left w-full mb-8 ">
+      <p className=" text-center text-l mb-8 italic">
+        Поточний баланс: <span className=" text-xl ">{user?.balance}</span>СМС
+      </p>
         <span className="flex items-center gap-1">
           {!isChecked ? (
             <Image
@@ -72,7 +93,7 @@ const UserPaymentForm = ({ userId }: Props) => {
               onClick={handleClickCheckedCorect}
             />
           )}
-          Перерахувати к-ть СМС
+          Корегувати к-ть СМС
         </span>
         <label htmlFor="summ" className="font-roboto text-sm font-medium mb-2 block">
           Сумма:
@@ -135,7 +156,7 @@ const UserPaymentForm = ({ userId }: Props) => {
           </span>
         )}
       </div>
-      <GreenButton size="big">{isChecked ? 'Korekta' : 'Поповнити'}</GreenButton>
+      <GreenButton size="big">{isChecked ? 'Корегувати' : 'Поповнити'}</GreenButton>
     </form>
   );
 };
