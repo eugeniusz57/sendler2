@@ -14,6 +14,8 @@ const Admin = () => {
     allUsersAlfaNames ? allUsersAlfaNames : []
   );
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const getFilter = (e: any) => {
     setFilter(e.target.value);
   };
@@ -34,9 +36,11 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const res = await CombinedAlfaNamesAndUser();
         const alfaNames = res.mappedUsers;
         setallUsersAlfaNames(alfaNames);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error while fetching users:', error);
       }
@@ -63,6 +67,7 @@ const Admin = () => {
             <th className="w-full border px-4 py-3 font-normal">Додаткова інформація</th>
           </tr>
         </thead>
+        { !isLoading && 
         <tbody className="text-center">
           {sortAllUsersAlfaNames.length !== 0 ? (
             sortAllUsersAlfaNames.map(elem => (
@@ -90,7 +95,7 @@ const Admin = () => {
               </td>
             </tr>
           )}
-        </tbody>
+        </tbody>}
       </table>
     </div>
   );
