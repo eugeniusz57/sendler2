@@ -112,6 +112,10 @@ export interface IClientReq {
 
 export interface IClientArray {
 	clients: IClientDatabase[];
+};
+
+export interface IQuantityClients {
+	clients: number;
 }
 
 export interface IClientInput extends IClient {
@@ -192,8 +196,8 @@ export interface IPaymentHistory {
 	transactions_date: string;
 	paymant_date: string | null;
 	paid: boolean;
-	change_date:  string | null;
-	description:  string | null;
+	change_date: string | null;
+	description: string | null;
 }
 
 export interface IDebts {
@@ -278,12 +282,12 @@ export interface FormInputUpdateUser {
 export type SendMethodType = 'api' | 'web';
 
 export interface ISendSMS {
-  userName: string;
-  recipients: (string | number)[];
-  date?: string;
-  time?: string;
-  contentSMS: string;
-  send_method: SendMethodType;
+	userName: string;
+	recipients: (string | number)[];
+	date?: string;
+	time?: string;
+	contentSMS: string;
+	send_method: SendMethodType;
 };
 
 export interface IGetSendSmsClients {
@@ -291,12 +295,12 @@ export interface IGetSendSmsClients {
 }
 
 export interface ISendHistoryDatabase {
-  history_id: number;
-  sending_group_date: Date;
-  send_method: SendMethodType;
-  text_sms: string;
-  sending_permission: boolean;
-  userName: string;
+	history_id: number;
+	sending_group_date: Date;
+	send_method: SendMethodType;
+	text_sms: string;
+	sending_permission: boolean;
+	userName: string;
 };
 
 export interface ISmsIdentificatorsDatabase {

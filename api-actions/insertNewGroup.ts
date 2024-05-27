@@ -9,13 +9,11 @@ export default async function insertNewGroup(name: string, id: number, automatic
 		const res: QueryResult<IGroupDatabase> = await db.query(
 			`INSERT INTO send_groups (group_name, user_id, automatically_generated)	values($1, $2, $3) RETURNING *`,
 			[name, id, automaticallyGenerated]);
-
 		return res;
 	} else {
 		const res: QueryResult<IGroupDatabase> = await db.query(
 			`INSERT INTO send_groups (group_name, user_id) values($1, $2) RETURNING *`,
 			[name, id]);
-
 		return res;
 	};
 };
