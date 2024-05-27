@@ -14,8 +14,6 @@ import {
 
 export default async function createClient(client: IClient, userId: number, groupId: number): Promise<ErrorCase | undefined> {
 	try {
-		const { tel } = client;
-
 		//checking user_id existense
 		const usersIdRes: QueryResult<IUserId> = await fetchUsersId();
 		const usersIdInDatabase: IUserId[] = usersIdRes.rows;
@@ -31,7 +29,7 @@ export default async function createClient(client: IClient, userId: number, grou
 		//and adding client
 		const userClientsTelInDtabase = userClientsTelResData.rows;
 
-		if (userClientsTelInDtabase.find((userClientTelInDtabase: ITelRes) => userClientTelInDtabase.tel === String(tel))) {
+		if (userClientsTelInDtabase.find((userClientTelInDtabase: ITelRes) => userClientTelInDtabase.tel === client.tel)) {
 			await insertGroupMember(client.tel, userId, groupId);
 			return;
 		}

@@ -30,9 +30,9 @@ const SendSmsModal = ({ handleClickSubmit, setDisabledSendBtn, isDisabled, recip
 	};
 
 	const handleClick = async () => {
-		const res = await getSendSmsClients(recipients);
-		setClientsQuantity(res?.length);
-		if (balance && res?.length && balance > res?.length) {
+		const clientsQuatity = await getSendSmsClients(recipients);
+		setClientsQuantity(clientsQuatity);
+		if (balance && clientsQuatity && balance > clientsQuatity) {
 			handleClickSubmit();
 		} else {
 			openModal();

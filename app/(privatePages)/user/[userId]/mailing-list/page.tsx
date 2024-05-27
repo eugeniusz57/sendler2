@@ -31,6 +31,7 @@ import SendSmsModal from '@/components/SendSmsModal';
 const MailingList = ({ params }: { params: { userId: string } }) => {
 	const userId = Number(params.userId);
 	const [charCount, setCharCount] = useState<number>(0);
+	// const [doubleCharCount, setDoubleCharCount] = useState<number>(0);
 	const [smsCount, setSmsCount] = useState<number>(0);
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -48,8 +49,8 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 	const [isOfferContractChecked, setIsOfferContractChecked] = useState(false);
 	const [isDisabled, setIsDisabled] = useState<boolean>(false);
 	const [user, setUser] = useState<IUser>();
-	// update page after update database
 
+	// update page after update database
 	const getUpdate = () => {
 		setUpdate(!update);
 	};
@@ -81,7 +82,14 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 
 	// set values of sms and character counters
 	const setCharAndSmsCount = () => {
-		setCharCount(contentSMS.length);
+		const characterArray = contentSMS.split('');
+		let doubleCharCount = 0;
+		characterArray.forEach(character => {
+			if (character === '~' || character === '^' || character === '[' || character === ']' || character === '{' || character === '}' || character === '|' || character === '\\') {
+				doubleCharCount = doubleCharCount + 1;
+			}
+		});
+		setCharCount(contentSMS.length + doubleCharCount);
 		if (isKyr(contentSMS)) {
 			const smsCounter = Math.floor(contentSMS.length / 70) + 1;
 			setSmsCount(smsCounter);
@@ -170,7 +178,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 			}
 			const recipientsArray = [...recipients, tel];
 			setRecipients(recipientsArray);
-		}
+		};
 	};
 
 	const handleClickAddClientName = () => {

@@ -80,34 +80,34 @@ export async function POST(request: Request): Promise<NextResponse<{
 
 		if (diff < 0) {
 			return NextResponse.json(
-				{ message: "Your date or time is rong." },
+				{ message: "Ваша дата або час вибрані неправильно." },
 				{ status: 400 }
 			);
 		};
 
 		if (!userName) {
 			return NextResponse.json(
-				{ message: "Enter user name, please." },
+				{ message: "Будь ласка, введіть ім'я користувача." },
 				{ status: 400 }
 			);
 		};
 
 		if (!(recipients.length > 0)) {
 			return NextResponse.json(
-				{ message: "Enter recipients, please." },
+				{ message: "Будь ласка, введіть отримувачів." },
 				{ status: 400 }
 			);
 		};
 
 		if (!contentSMS) {
 			return NextResponse.json(
-				{ message: "Enter text sms, please." },
+				{ message: "Будь ласка, введіть текст SMS повідомлення." },
 				{ status: 400 }
 			);
 		};
 
 		const authRes = await resellerAuth();
-		if (!authRes) throw new Error("Authorisation error");
+		if (!authRes) throw new Error("Помилка авторизації.");
 
 		const clients: IClientDatabaseWithGroupId[] = [];
 		const groupIdArray: number[] = [];

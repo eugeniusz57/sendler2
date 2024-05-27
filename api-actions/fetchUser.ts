@@ -87,7 +87,7 @@ export default async function fetchUser(id: string): Promise<IUser | null> {
 			user = userRes.value.rows[0];
 
 			if (AlfaNames.status === 'fulfilled') {
-				const alfaNamesActive: string[] = [];
+				const alfaNamesActive: string[] = ['Outlet'];
 				const alfaNamesDisable: string[] = [];
 				for (const resAlfaName of AlfaNames.value.rows) {
 					if (resAlfaName.alfa_name_active) {
