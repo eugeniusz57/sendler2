@@ -1,5 +1,4 @@
 'use client';
-
 import DetailBtn from '@/components/buttons/Details';
 import ManageContactBtn from '@/components/buttons/ManageContactBtn';
 import SearchUserForm from '@/components/forms/SearchUserForm';
@@ -15,7 +14,6 @@ const Admin = () => {
   );
 
   const [isLoading, setIsLoading] = useState(false);
-
   const getFilter = (e: any) => {
     setFilter(e.target.value);
   };
