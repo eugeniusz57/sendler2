@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const { RESELLER_URL, RESELLER_SOURSE_ADRESS } = process.env;
+const { RESELLER_URL } = process.env;
 export const smsSender = async (
 	authRes: string,
 	smsQuerystr: string,
@@ -9,7 +9,7 @@ export const smsSender = async (
 ): Promise<string[]> => {
 	const sendOption = clientsLength > 1 ? "SendBulk" : "Send";
 	const sendedSmsRes = await axios.post(
-		`${RESELLER_URL}/rest/Sms/${sendOption}?SessionID=${authRes}&SourceAddress=${RESELLER_SOURSE_ADRESS}&${smsQuerystr}`,
+		`${RESELLER_URL}/rest/Sms/${sendOption}?SessionID=${authRes}&SourceAddress=${userName}&${smsQuerystr}`,
 		{
 			headers: {
 				"Content-Type": "application/ x - www - form - urlencoded",

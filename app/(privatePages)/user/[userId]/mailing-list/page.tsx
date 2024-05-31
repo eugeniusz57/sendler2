@@ -35,7 +35,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 	const [smsCount, setSmsCount] = useState<number>(0);
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const [isOpened, setIsOpened] = useState<boolean>(false);
-	const [userName, setUserName] = useState<string>('Outlet');
+	const [userName, setUserName] = useState<string>('');
 	const [groupName, setGroupName] = useState<string>('');
 	const [hour, setHour] = useState<string | undefined>('');
 	const [minute, setMinute] = useState<string | undefined>('');
