@@ -22,7 +22,6 @@ import OfferContract from '@/components/OfferContact';
 import { getUserGroups } from '@/fetch-actions/groupsFetchActions';
 import { getUser } from '@/fetch-actions/usersFetchActions';
 import { sendSMS } from '@/fetch-actions/smsFetchActions';
-// import { isKyr } from '@/helpers/isKyr';
 import { charAndSmsCount } from '@/app/utils/charAndSmsCount';
 import { getTimeOptionsValues } from '@/helpers/getTimeOptionsValues';
 
