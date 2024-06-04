@@ -22,7 +22,7 @@ import OfferContract from '@/components/OfferContact';
 import { getUserGroups } from '@/fetch-actions/groupsFetchActions';
 import { getUser } from '@/fetch-actions/usersFetchActions';
 import { sendSMS } from '@/fetch-actions/smsFetchActions';
-import { isKyr } from '@/helpers/isKyr';
+import { charAndSmsCount } from '@/app/utils/charAndSmsCount';
 import { getTimeOptionsValues } from '@/helpers/getTimeOptionsValues';
 
 import { IUser } from '@/globaltypes/types';
@@ -82,21 +82,9 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 
 	// set values of sms and character counters
 	const setCharAndSmsCount = () => {
-		const characterArray = contentSMS.split('');
-		let doubleCharCount = 0;
-		characterArray.forEach(character => {
-			if (character === '~' || character === '^' || character === '[' || character === ']' || character === '{' || character === '}' || character === '|' || character === '\\') {
-				doubleCharCount = doubleCharCount + 1;
-			}
-		});
-		setCharCount(contentSMS.length + doubleCharCount);
-		if (isKyr(contentSMS)) {
-			const smsCounter = Math.floor(contentSMS.length / 70) + 1;
-			setSmsCount(smsCounter);
-		} else {
-			const smsCounter = Math.floor(contentSMS.length / 160) + 1;
-			setSmsCount(smsCounter);
-		}
+		const { charQuantity, smsQuantity } = charAndSmsCount(contentSMS);
+		setCharCount(charQuantity);
+		setSmsCount(smsQuantity);
 	};
 
 	const getUserName = (item: string) => {
