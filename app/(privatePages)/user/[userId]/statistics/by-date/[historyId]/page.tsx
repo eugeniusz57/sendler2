@@ -30,8 +30,6 @@ export default function HistoryDetails({
     memoizedUserHistoryDetails();
   }, [memoizedUserHistoryDetails]);
 
-  console.log(userHistoryDetails)
-
   const handleClick = async () => {
     try {
       const formatedHistory: any[] = [];

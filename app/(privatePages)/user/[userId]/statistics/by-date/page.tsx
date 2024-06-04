@@ -37,8 +37,6 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
     memoizedUserHistory();
   }, [memoizedUserHistory]);
 
-  console.log(userHistory)
-
   return (
     <section className="container mx-auto">
       <Title type="h1" color="dark">
