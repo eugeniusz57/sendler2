@@ -6,6 +6,8 @@ import { schemaReqCreateAlfaName } from '@/models/users';
 import { fetchUser } from '@/api-actions';
 import addAlfaName from '../controllers/users/addAlfaName';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getServerSession } from 'next-auth';
+import { options } from '../auth/[...nextauth]/options';
 
 export async function POST(req: Request) {
 	try {
@@ -65,16 +67,34 @@ export async function PATCH(
 }
 
 export async function GET() {
+	const session = await getServerSession(options);
+
+ 
+
 	try {
-		const getAllUsers = await db.query(
-			'SELECT user_id, user_name, tel, user_login, balance  FROM users'
-		);
-
-		const AllUsers = getAllUsers.rows;
-
-		if (AllUsers) {
-			return NextResponse.json({ AllUsers, message: 'All users' }, { status: 200 });
+		if (session) {
+			console.log("session=",session);
+		
+			const getAllUsers = await db.query(
+				'SELECT user_id, user_name, tel, user_login, balance  FROM users'
+			);
+	
+			const AllUsers = getAllUsers.rows;
+	
+			if (AllUsers) {
+				return NextResponse.json({ AllUsers, message: 'All users' }, { status: 200 });
+			}
+	
+		} else {
+			// Not Signed in
+	
+			console.log("notsession===",session);
+			return NextResponse.json(
+				{ message: `Session is  not has ` },
+				{ status: 401 }
+			);
 		}
+		
 	} catch (error) {
 		return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 });
 	}
