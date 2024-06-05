@@ -74,18 +74,18 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
                     </p>
                     <p className="w-[118px]">{item.alfa_name}</p>
                     <p className="w-[126px]">
-                      {item.sending_group_date >= new Date() && item.sending_permission === true
+                      {new Date(item.sending_group_date) >= new Date() && item.sending_permission === true
                         ? 'Заплановано'
                         : item.sending_permission === false
                         ? 'Зупинено'
-                        : item.sending_group_date < new Date() &&
+                        : new Date(item.sending_group_date) < new Date() &&
                           item.recipient_status.some(item => item === 'pending')
                         ? 'Відправлено'
                         : 'Завершено'}
                     </p>
                     <p className="w-[160px]">
                       {item.recipient_status.filter(item => item === 'fullfield').length}/
-                      {item.recipient_status.length}
+                      {new Date(item.sending_group_date).getTime() < new Date().getTime() ? item.recipient_status.length : (Math.ceil(item.text_sms?.length / 160)) * Array.from(new Set(item.clients)).length}
                     </p>
                     <p className="w-[200px]">
                       {countSuccessfullySentNumbers(item)}/

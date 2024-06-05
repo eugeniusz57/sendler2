@@ -15,6 +15,7 @@ export function summarizeHistoryByDate(userHistory: IHistoryResponce[]) {
         send_method: entry.send_method,
         recipient_status: entry.recipient_status,
         clients: Array.from(new Set(entry.clients)),
+        text_sms: entry.text_sms,
       };
     } else {
       mergedData[dateKey].recipient_status = [

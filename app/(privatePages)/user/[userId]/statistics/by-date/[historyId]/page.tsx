@@ -90,8 +90,8 @@ export default function HistoryDetails({
             <p>Повернутись до статистики за день</p>
           </BackStatisticsBtn>
           <div className="flex mb-10 text-xl font-roboto text-[#1B1B30]">
-            <div className="mr-8">
-              <p className="mb-4">Відправник</p>
+            <div className="flex-none w-40 mr-8">
+              <p className="mb-4 ">Відправник</p>
               <p className="mb-4">Статус розсилки</p>
               <p>Назва групи</p>
             </div>
@@ -104,16 +104,16 @@ export default function HistoryDetails({
                   history.recipient_status.some(status => status === 'pending');
                 })
                   ? 'Відправлено'
-                  : userHistoryDetails[0]?.sending_group_date >= new Date() &&
+                  : new Date(userHistoryDetails[0]?.sending_group_date).getTime() > new Date().getTime() &&
                     userHistoryDetails[0]?.sending_permission === true
                   ? 'Заплановано'
                   : userHistoryDetails[0]?.sending_permission === false
                   ? 'Зупинено'
                   : 'Завершено'}
               </p>
-              <p>Україна</p>
+              <p>{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
             </div>
-            <div>
+            <div className="grow">
               <p className="mb-4">Текст sms</p>
               <p className="mr-28 font-montserrat text-base">
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.text_sms : '-'}
@@ -142,7 +142,7 @@ export default function HistoryDetails({
                     {String(item.sending_group_date)}
                     {/* {new Date(item.sending_group_date).toLocaleString('uk-UA', { timeZone: 'UTC' })} */}
                   </p>
-                  <p className="w-[130px]">{item.recipient_status.length}</p>
+                  <p className="w-[130px]">{new Date(item.sending_group_date).getTime() < new Date().getTime() ? item.recipient_status.length :  Math.ceil(item.text_sms.length / 160) }</p>
                   <p className="w-[130px]">
                     {item.recipient_status.every(item => item === 'fullfield')
                       ? 'Доставлено'

@@ -8,7 +8,7 @@ export interface IHistoryResponce extends IGroupName {
   sending_group_date: Date;
   send_method: string;
   recipient_status: SmsStatusEnum[];
-  text_sms?: string;
+  text_sms: string;
   user_name?: string;
   alfa_name?: string;
   clients?: string[];
