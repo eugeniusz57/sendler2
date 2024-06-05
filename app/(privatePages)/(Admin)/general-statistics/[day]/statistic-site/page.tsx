@@ -43,9 +43,7 @@ const SiteHistoryDetails = () => {
               {userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
             </p>
             <p className="mb-4">
-              {userHistoryDetails.some(history => {
-                history.recipient_status.some(status => status === 'pending');
-              })
+              {userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
                 ? 'Відправлено'
                 : userHistoryDetails[0]?.sending_group_date >= new Date() &&
                   userHistoryDetails[0]?.sending_permission === true

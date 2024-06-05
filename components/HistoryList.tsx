@@ -36,7 +36,7 @@ export default function HistoryList({ userHistory }: Props) {
                   {formatTableDate(item.sending_group_date)}
                 </Link>
               </p>
-              <p className="w-[150px]">{new Date(item.sending_group_date).getTime() < new Date().getTime() ? item.recipient_status.length : (Math.ceil(item.text_sms?.length / 160)) * Array.from(new Set(item.clients)).length}</p>
+              <p className="w-[150px]">{item.recipient_status.length }</p>
               <p className="w-[150px]">
                 {item.recipient_status.filter((item: SmsStatusEnum) => item === 'fullfield').length}
               </p>

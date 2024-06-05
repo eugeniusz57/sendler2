@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import HttpError from '@/helpers/HttpError';
+import {charAndSmsCount} from '@/app/utils/charAndSmsCount';
 import { getUserHistory, createUserHistory } from '@/app/api/controllers/sending-history';
 import { IErrorResponse, SmsStatusEnum, SendMethodType } from '@/globaltypes/types';
 import { IHistoryProps, IHistoryResponce } from '@/globaltypes/historyTypes';
@@ -36,9 +37,9 @@ export async function GET(
     const formatedHistory = result.map(history => {
       return {
         ...history,
-        recipient_status: `${history.recipient_status as unknown as string}`
+        recipient_status: history.recipient_status ? `${history.recipient_status as unknown as string}`
           ?.replace(/{|}/g, '')
-          .split(',') as SmsStatusEnum[],
+          .split(',') as SmsStatusEnum[] : new Array(charAndSmsCount(history.text_sms).smsQuantity * Array.from(new Set(history.clients)).length).fill('pending'),
       };
     });
 

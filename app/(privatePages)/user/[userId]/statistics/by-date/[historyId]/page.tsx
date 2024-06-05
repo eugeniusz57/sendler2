@@ -6,6 +6,7 @@ import * as XLSX from 'xlsx/xlsx.mjs';
 import Title from '@/components/Title';
 import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
+import {charAndSmsCount} from '@/app/utils/charAndSmsCount';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
 
 export default function HistoryDetails({
@@ -100,9 +101,7 @@ export default function HistoryDetails({
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
               </p>
               <p className="mb-4">
-                {userHistoryDetails.some(history => {
-                  history.recipient_status.some(status => status === 'pending');
-                })
+                {userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
                   ? 'Відправлено'
                   : new Date(userHistoryDetails[0]?.sending_group_date).getTime() > new Date().getTime() &&
                     userHistoryDetails[0]?.sending_permission === true
@@ -142,7 +141,7 @@ export default function HistoryDetails({
                     {String(item.sending_group_date)}
                     {/* {new Date(item.sending_group_date).toLocaleString('uk-UA', { timeZone: 'UTC' })} */}
                   </p>
-                  <p className="w-[130px]">{new Date(item.sending_group_date).getTime() < new Date().getTime() ? item.recipient_status.length :  Math.ceil(item.text_sms.length / 160) }</p>
+                  <p className="w-[130px]">{item.recipient_status.length}</p>
                   <p className="w-[130px]">
                     {item.recipient_status.every(item => item === 'fullfield')
                       ? 'Доставлено'

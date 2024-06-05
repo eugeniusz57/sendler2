@@ -21,7 +21,7 @@ export default async function fetchUserHistoryDetails(
     SELECT 
         gm.client_id, 
         sm.group_id, 
-        'pending' AS recipient_status, 
+        NULL AS recipient_status, 
         sm.history_id
     FROM 
         sending_members sm
@@ -44,7 +44,7 @@ SELECT
     to_char(sh.sending_group_date::timestamptz AT TIME ZONE 'Europe/Vilnius', 'DD.MM.YYYY HH24:MI:SS') AS sending_group_date, 
     sg.group_name, 
     u.user_name,
-    ARRAY_AGG(DISTINCT COALESCE(combined.recipient_status, 'pending')) AS recipient_status
+    ARRAY_AGG(DISTINCT COALESCE(combined.recipient_status)) AS recipient_status
 FROM 
     sending_history sh
 LEFT JOIN combined ON combined.history_id = sh.history_id
