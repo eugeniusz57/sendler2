@@ -5,6 +5,7 @@ import {
   getUserHistoryDetails,
   toggleSendingPermission,
 } from '@/app/api/controllers/sending-history';
+import {charAndSmsCount} from '@/app/utils/charAndSmsCount';
 
 import { IErrorResponse, SmsStatusEnum } from '@/globaltypes/types';
 import {
@@ -33,9 +34,9 @@ export async function GET(
     const formatedHistory = result.map(history => {
       return {
         ...history,
-        recipient_status: `${history.recipient_status as unknown as string}`
-          ?.replace(/{|}/g, '')
-          .split(',') as SmsStatusEnum[],
+        recipient_status: history.recipient_status as any !== '{NULL}' ? `${history.recipient_status as unknown as string}`
+        ?.replace(/{|}/g, '')
+        .split(',') as SmsStatusEnum[] : new Array(charAndSmsCount(history.text_sms).smsQuantity).fill('pending'),
       };
     });
 

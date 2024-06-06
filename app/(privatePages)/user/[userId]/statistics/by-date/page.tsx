@@ -85,7 +85,7 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
                     </p>
                     <p className="w-[160px]">
                       {item.recipient_status.filter(item => item === 'fullfield').length}/
-                      {new Date(item.sending_group_date).getTime() < new Date().getTime() ? item.recipient_status.length : (Math.ceil(item.text_sms?.length / 160)) * Array.from(new Set(item.clients)).length}
+                      {item.recipient_status.length}
                     </p>
                     <p className="w-[200px]">
                       {countSuccessfullySentNumbers(item)}/
