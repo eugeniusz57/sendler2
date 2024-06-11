@@ -42,7 +42,7 @@ footer {
 
 @layer components {
   .container {
-    @apply lg:w-[1326px] w-[710px] py-0 px-[15px];
+    @apply  py-0 px-[16px];
   }
 }
 
