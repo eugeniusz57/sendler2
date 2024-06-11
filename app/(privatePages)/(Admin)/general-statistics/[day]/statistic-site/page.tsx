@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Title from '@/components/Title';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
+import formatToDate from '@/app/utils//fotmatToDate';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
 
 type Props = {};
@@ -43,14 +44,14 @@ const SiteHistoryDetails = () => {
               {userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
             </p>
             <p className="mb-4">
-              {userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
-                ? 'Відправлено'
-                : userHistoryDetails[0]?.sending_group_date >= new Date() &&
-                  userHistoryDetails[0]?.sending_permission === true
-                ? 'Заплановано'
-                : userHistoryDetails[0]?.sending_permission === false
-                ? 'Зупинено'
-                : 'Завершено'}
+              {userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime()  >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
+                        ? 'Заплановано'
+                        : userHistoryDetails[0]?.sending_permission === false
+                        ? 'Зупинено'
+                        : new Date(userHistoryDetails[0]?.sending_group_date) < new Date() &&
+                        userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
+                        ? 'Відправлено'
+                        : 'Завершено'}
             </p>
             <p className="max-w-[300px]">{sendingGroups}</p>
           </div>
@@ -79,7 +80,7 @@ const SiteHistoryDetails = () => {
                 className="flex items-center gap-[100px] h-[47px] px-[26px] font-roboto text-l text-black border-b border-[#B5C9BE]"
               >
                 <p className="w-[166px]">{item.tel}</p>
-                <p className="w-[196px]">{item.sending_group_date.toLocaleString('uk-UA')}</p>
+                <p className="w-[196px]">{item.sending_group_date.toLocaleString()}</p>
                 <p className="w-[130px]">{item.recipient_status.length}</p>
                 <p className="w-[130px]">
                   {item.recipient_status.every(item => item === 'fullfield')

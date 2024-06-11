@@ -17,7 +17,7 @@ export interface IHistoryResponce extends IGroupName {
 }
 
 export interface ISendingHistoryResponce extends IHistoryId {
-	sending_group_date: Date;
+	sending_group_date: string;
 	send_method: string;
 	text_sms: string;
 	sending_permission: boolean;
@@ -25,7 +25,7 @@ export interface ISendingHistoryResponce extends IHistoryId {
 }
 
 export interface IHistoryDetailsResponce extends IHistoryId, IGroupName, ITel {
-	sending_group_date: Date;
+	sending_group_date: string;
 	send_method: string;
 	recipient_status: SmsStatusEnum[];
 	text_sms: string;

@@ -7,6 +7,7 @@ import Title from '@/components/Title';
 import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
 import {charAndSmsCount} from '@/app/utils/charAndSmsCount';
+import formatToDate from '@/app/utils//fotmatToDate';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
 
 export default function HistoryDetails({
@@ -40,13 +41,6 @@ export default function HistoryDetails({
           ['Одержувач']: history.tel,
           ['Відправник']: history.alfa_name,
           ['Відправлено']: history.sending_group_date,
-          // ['Відправлено']: new Date(history.sending_group_date).toLocaleDateString('uk-UA', {
-          // 	year: 'numeric',
-          // 	month: 'numeric',
-          // 	day: 'numeric',
-          // 	hour: 'numeric',
-          // 	minute: 'numeric',
-          // 	second: 'numeric',
           ['Статус']: history.recipient_status.every(item => item === 'fullfield')
             ? 'Доставлено'
             : 'Недоставлено',
@@ -101,14 +95,14 @@ export default function HistoryDetails({
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
               </p>
               <p className="mb-4">
-                {userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
-                  ? 'Відправлено'
-                  : new Date(userHistoryDetails[0]?.sending_group_date).getTime() > new Date().getTime() &&
-                    userHistoryDetails[0]?.sending_permission === true
-                  ? 'Заплановано'
-                  : userHistoryDetails[0]?.sending_permission === false
-                  ? 'Зупинено'
-                  : 'Завершено'}
+                   {userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime()  >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
+                        ? 'Заплановано'
+                        : userHistoryDetails[0]?.sending_permission === false
+                        ? 'Зупинено'
+                        : new Date(userHistoryDetails[0]?.sending_group_date) < new Date() &&
+                        userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
+                        ? 'Відправлено'
+                        : 'Завершено'}
               </p>
               <p>{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
             </div>
@@ -139,7 +133,6 @@ export default function HistoryDetails({
                   <p className="w-[166px]">{item.tel}</p>
                   <p className="w-[196px]">
                     {String(item.sending_group_date)}
-                    {/* {new Date(item.sending_group_date).toLocaleString('uk-UA', { timeZone: 'UTC' })} */}
                   </p>
                   <p className="w-[130px]">{item.recipient_status.length}</p>
                   <p className="w-[130px]">

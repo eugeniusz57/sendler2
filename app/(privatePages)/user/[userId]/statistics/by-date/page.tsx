@@ -46,7 +46,7 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
         <div className="content-block">
           <div className="ml-[26px]">
             <p className="mb-5 text-xl font-roboto text-[#1B1B30]">
-              Розсилки за {historyDate ? formatTableDate(new Date(historyDate)) : '-'}
+            Розсилки за {historyDate ? `${String(new Date(historyDate).getDate()).padStart(2, '0')}.${String(new Date(historyDate).getMonth() + 1).padStart(2, '0')}.${new Date(historyDate).getFullYear()}` : '-'}
             </p>
             <BackStatisticsBtn>
               <p>Повернутись до загальної статистики за період</p>
