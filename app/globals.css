@@ -271,9 +271,6 @@ footer {
   @apply block lg:hidden;
 }
 
-.burger-menu-show {
-}
-
 select {
   font: inherit;
   letter-spacing: inherit;
