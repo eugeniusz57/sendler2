@@ -83,10 +83,10 @@ const LoginForm = () => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      className="w-[526px] flex justify-items-center  items-center flex-col leading-6 px-[26px] "
+      className="w-[308px] md:w-[526px] flex justify-items-center  items-center flex-col leading-6 px-0 md:px-[26px] "
     >
       <div className="text-left w-full mb-8">
-        <label htmlFor="login" className="font-roboto text-sm font-medium mb-2 block">
+        <label htmlFor="login" className="font-roboto text-xs md:text-sm font-medium mb-2 block">
           Логін<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">
@@ -100,7 +100,7 @@ const LoginForm = () => {
           {errors.login && <span className="form-errors">{errors.login.message}</span>}
         </div>
 
-        <label htmlFor="password" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="password" className="font-roboto text-xs md:text-sm font-medium mb-2  mt-8 block">
           Пароль<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">

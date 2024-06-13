@@ -13,8 +13,10 @@ import { fetchUserId } from '@/helpers/fetchUserId';
 import { EnterOnlyFigures } from '@/helpers/EnterOnlyFigures';
 import axios from 'axios';
 import Image from 'next/image';
+import useWindowWidth from '@/helpers/windowsSize';
 
 const SingUpForm = () => {
+  const width = useWindowWidth() ?? 0;
   const {
     register,
     handleSubmit,
@@ -87,10 +89,10 @@ const SingUpForm = () => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      className="w-[526px] flex justify-items-center  items-center flex-col leading-6 px-[26px] "
+      className="w-[308px] md:w-[526px] flex justify-items-center  items-center flex-col leading-6 px-0 md:px-[26px] "
     >
       <div className="text-left w-full mb-8">
-        <label htmlFor="name" className="font-roboto text-sm font-medium mb-2 block">
+        <label htmlFor="name" className="font-roboto text-xs md:text-sm font-medium mb-2 block">
           Ім’я<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">
@@ -106,7 +108,7 @@ const SingUpForm = () => {
           {errors.name && <span className="form-errors block">{errors.name.message}</span>}
         </div>
 
-        <label htmlFor="phone" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="phone" className="font-roboto text-xs md:text-sm font-medium mb-2  mt-8 block">
           Телефон<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">
@@ -122,7 +124,7 @@ const SingUpForm = () => {
           {errors.phone && <span className="form-errors block">{errors.phone.message}</span>}
         </div>
 
-        <label htmlFor="email" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="email" className="font-roboto text-xs md:text-sm font-medium mb-2  mt-8 block">
           Пошта<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">
@@ -137,7 +139,7 @@ const SingUpForm = () => {
           {errors.email && <span className="form-errors block">{errors.email.message}</span>}
         </div>
 
-        <label htmlFor="login" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="login" className="font-roboto text-xs md:text-sm font-medium mb-2  mt-8 block">
           Логін<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">
@@ -152,7 +154,7 @@ const SingUpForm = () => {
           {errors.login && <span className="form-errors block">{errors.login.message}</span>}
         </div>
 
-        <label htmlFor="password" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="password" className="font-roboto text-xs md:text-sm font-medium mb-2  mt-8 block">
           Пароль<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">
@@ -169,7 +171,7 @@ const SingUpForm = () => {
 
         <label
           htmlFor="repeatPassword"
-          className="font-roboto text-sm font-medium mb-2  mt-8 block"
+          className="font-roboto text-xs md:text-sm font-medium mb-2  mt-8 block"
         >
           Підтвердіть пароль<span className=" text-redStar">*</span>
         </label>
@@ -186,25 +188,25 @@ const SingUpForm = () => {
             <span className="form-errors ">{errors.repeatPassword.message}</span>
           )}
         </div>
-        <span className="flex items-center justify-center mt-4">
+        <span className="flex items-center justify-center mt-4 text-[11px] md:text-sm">
           {isDisabled ? (
             <Image
               src="/svg/checkbox-empty.svg"
-              width={24}
-              height={24}
+              width={width<710 ? 15 : 24}
+              height={width<710 ? 15 : 24}
               alt="Check box"
               onClick={handleClickChecked}
             />
           ) : (
             <Image
               src="/svg/checkbox-checked.svg"
-              width={24}
-              height={24}
+              width={width<710 ? 15 : 24}
+              height={width<710 ? 15 : 24}
               alt="Check box checked"
               onClick={handleClickChecked}
             />
           )}
-          <span className=" text-redStar"> * </span> Я даю згоду на обробку моїх персональних даних
+          <span className="  text-redStar"> * </span> Я даю згоду на обробку моїх персональних даних
         </span>
       </div>
       <GreenButton size="big" isDisabled={isDisabled}>

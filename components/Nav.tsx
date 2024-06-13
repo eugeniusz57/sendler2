@@ -40,7 +40,7 @@ const Nav = () => {
     <>
       <nav className={`flex  justify-between lg:items-center container mx-auto relative z-10`}>
         {isOpen && (
-          <div className="z-20 h-[49px] lg:h-[51px]">
+          <div className="z-20 w-[157px] h-[49px] lg:h-[51px]">
             <LogoNav />
           </div>
         )}
@@ -69,7 +69,7 @@ const Nav = () => {
             <>
               {admin
                 ? privateNavigationAdmin.map(({ id, title, path }) => (
-                    <li key={id} className="mb-10 lg:mb-0">
+                    <li key={id} className=" mb-7 md:mb-10  lg:mb-0">
                       <Link
                         href={`${path}`}
                         className="hover:underline hover:underline-offset-4 py-4 transition-all"
@@ -79,7 +79,7 @@ const Nav = () => {
                     </li>
                   ))
                 : privateNavigation.map(({ id, title, path }) => (
-                    <li key={id} className="mb-10 lg:mb-0">
+                    <li key={id} className=" mb-7 md:mb-10  lg:mb-0">
                       <Link
                         href={`/user/${userId}/${path}`}
                         className="hover:underline hover:underline-offset-4 py-4 transition-all"
@@ -93,7 +93,7 @@ const Nav = () => {
           {status !== 'authenticated' && (
             <>
               {publicNavigation.map(({ id, title, path }) => (
-                <li className="mb-10 lg:mb-0" key={id}>
+                <li className=" mb-7 md:mb-10  lg:mb-0" key={id}>
                   <Link
                     href={path}
                     className={`hover:underline hover:underline-offset-4 py-4 transition-all ${
@@ -112,7 +112,7 @@ const Nav = () => {
 
       <ModalBurgerMenu isOpen={isModalOpen} onClose={closeModal}>
         <ul
-          className={`absolute top-0 left-0 z-10 py-5 pl-[84px] min-h-screen block w-[436px] bg-bgFooter text-2xl text-white burger-menu-overlay duration-500 transition-all `}
+          className={`absolute top-0 left-0 z-10 py-5 pl-[84px] min-h-screen block w-[436px] bg-bgFooter  text-lg md:text-[22px] lg:text-2xl text-white burger-menu-overlay duration-500 transition-all `}
         >
           <div className=" mb-[120px] h-[49px]  ml-[-64px]">
             <LogoNav onClose={closeModal} />
@@ -121,7 +121,7 @@ const Nav = () => {
             <>
               {admin
                 ? privateNavigationAdmin.map(({ id, title, path }) => (
-                    <li key={id} className="mb-10 lg:mb-0">
+                    <li key={id} className=" mb-7 md:mb-10  lg:mb-0">
                       <Link
                         onClick={toggleModal}
                         href={`${path}`}
@@ -132,7 +132,7 @@ const Nav = () => {
                     </li>
                   ))
                 : privateNavigation.map(({ id, title, path }) => (
-                    <li key={id} className="mb-10 lg:mb-0">
+                    <li key={id} className=" mb-7 md:mb-10  lg:mb-0">
                       <Link
                         onClick={toggleModal}
                         href={`/user/${userId}/${path}`}
@@ -145,7 +145,7 @@ const Nav = () => {
             </>
           ) : (
             publicNavigation.map(({ id, title, path }) => (
-              <li className="mb-10 lg:mb-0" key={id}>
+              <li className=" mb-7 md:mb-10  lg:mb-0" key={id}>
                 <Link
                   onClick={toggleModal}
                   href={path}
