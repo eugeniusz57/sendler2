@@ -36,7 +36,7 @@ const SearchUserForm = ({ getFilter }: Props) => {
           id="login"
           type="login"
           {...register('login')}
-          className="w-[474px] h-12  px-4 input"
+          className=" w-[300px] md:w-[474px] h-12  px-4 input"
           onChange={onChange}
           required
         />
