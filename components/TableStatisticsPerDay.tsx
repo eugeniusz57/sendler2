@@ -31,14 +31,14 @@ const TableStatisticsPerDay = ({ userHistory }: Props) => {
             <td className="py-4 px-3 border font-montserrat text-xl">{elem.text_sms}</td>
             <td className="py-4 px-3 border font-montserrat text-xl">{elem.alfa_name}</td>
             <td className="py-4 px-3 border font-montserrat text-xl">
-              {elem.sending_group_date >= new Date() && elem.sending_permission === true
-                ? 'Заплановано'
-                : elem.sending_permission === false
-                ? 'Зупинено'
-                : elem.sending_group_date < new Date() &&
-                  elem.recipient_status.some(item => item === 'pending')
-                ? 'Відправлено'
-                : 'Завершено'}
+                {new Date(elem.sending_group_date) >= new Date() && elem.sending_permission === true
+                        ? 'Заплановано'
+                        : elem.sending_permission === false
+                        ? 'Зупинено'
+                        : new Date(elem.sending_group_date) < new Date() &&
+                        elem.recipient_status.some(item => item === 'pending')
+                        ? 'Відправлено'
+                        : 'Завершено'}
             </td>
             <td className="py-4 px-3 border font-montserrat text-xl">
               {elem.recipient_status.length}

@@ -45,17 +45,18 @@ export default function HistoryTable({ id }: Props) {
       }
     }
     fetchAPI();
-  }, [historyPeriod]);
+  }, [historyPeriod, id]);
 
   return (
     <>
       <div className="content-block">
         <HistoryPeriodForm />
-        <div className="flex items-center gap-[100px] h-[58px] px-[26px] font-roboto text-[20px] text-white bg-[#417D8A]">
-          <p className="w-[194px]">Шлях відправлення</p>
-          <p className="w-[184px]">Дата</p>
-          <p className="w-[150px]">Відправленно </p>
-          <p className="w-[150px]">Отримано</p>
+        <div className="justify-center lg:justify-start flex items-center gap-[100px] h-[58px] px-[26px] font-roboto text-[20px] text-white bg-[#417D8A]">
+          <p className="lg:hidden">Розсилки</p>
+          <p className="hidden lg:block w-[194px]">Шлях відправлення</p>
+          <p className="hidden lg:block w-[184px]">Дата</p>
+          <p className="hidden lg:block w-[150px]">Відправленно </p>
+          <p className="hidden lg:block w-[150px]">Отримано</p>
         </div>
         <HistoryList userHistory={userHistory} />
       </div>
