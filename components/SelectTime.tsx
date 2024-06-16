@@ -15,11 +15,10 @@ const SelectTime = ({ selectOptions,
 	selectedOption,
 	getSelect,
 	openSelect,
-	widthValue = 474,
+	widthValue,
 	startValue,
 	isModal }: Props) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;
 

@@ -58,7 +58,7 @@ export default function RecipientsForm({
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className='scroll-bar z-999'>
-			<ul className=' w-[611px] h-[336px] mb-8 py-3 rounded-[18px] border-[1px] border-[#E6E6E6] bg-white overflow-y-auto'>
+			<ul className=' md:w-[611px] w-full md:h-[336px] h-[205px] mb-8 py-3 rounded-[18px] border-[1px] border-[#E6E6E6] bg-white overflow-y-auto'>
 				<RSC style={{ height: "100%" }}>
 					{recipients.map((recipient, index) => (
 						<Recipient

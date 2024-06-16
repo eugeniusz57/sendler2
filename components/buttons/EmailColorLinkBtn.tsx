@@ -11,7 +11,7 @@ const EmailColorLinkBtn = ({ onClick, children, isDisabled, type = "submit" }: I
 	return (
 		<button
 			type={type}
-			className={`mt-2 text-emailColorLink ${isDisabled ? 'opacity-50' : 'opacity-100 cursor-pointer'}`}
+			className={`mt-2 text-emailColorLink md:text-base text-sm md:leading-6 leading-[21px]  ${isDisabled ? 'opacity-50' : 'opacity-100 cursor-pointer'}`}
 			onClick={onClick}
 			disabled={isDisabled}
 		>
