@@ -6,7 +6,7 @@ type Props = {
 	selectedOption: string | undefined;
 	getSelect: (item: string | undefined) => void;
 	openSelect: (isOpen: boolean) => void;
-	widthValue?: number;
+	widthValue?: number | string;
 	startValue?: string;
 	isModal?: boolean;
 }
@@ -15,7 +15,7 @@ const SelectTime = ({ selectOptions,
 	selectedOption,
 	getSelect,
 	openSelect,
-	widthValue = 474,
+	widthValue,
 	startValue,
 	isModal }: Props) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);

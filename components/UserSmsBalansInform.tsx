@@ -49,11 +49,11 @@ export default function UserSmsInform({ session }: { session: ISession | Session
 	}, [userId, message, roomName, NEXT_PUBLIC_SOCKET_URL, user?.balance]);
 
 	return (
-		<div className="flex justify-end mb-[50px]">
-			<div className="flex flex-row justify-center items-center px-[35px] py-[14px] text-2xl rounded-[18px] bg-formBg">
-				<div className='min-w-[100px] mr-1'>{user?.user_login}</div>
-				<div className='mr-2'>:</div>
-				<div className='min-w-[40px] text-end mr-2'>{user?.balance}</div>
+		<div className="flex justify-end lg:mb-[50px] md:mb-[80px] mb-[50px]">
+			<div className="flex flex-row justify-center items-center md:px-[35px] px-[20px] md:py-[14px] py-[10px] md:text-[22px] text-lg rounded-[18px] bg-formBg">
+				<div>{user?.user_login}</div>
+				<div className='mr-[14px]'>:</div>
+				<div className='mr-2'>{user?.balance}</div>
 				<div>SMS</div>
 			</div>
 		</div>

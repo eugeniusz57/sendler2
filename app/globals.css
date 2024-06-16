@@ -42,7 +42,7 @@ footer {
 
 @layer components {
   .container {
-    @apply  py-0 px-[16px];
+    @apply py-0 px-[16px];
   }
 }
 
@@ -201,7 +201,7 @@ footer {
 }
 
 .title_h1 {
-  @apply text-[40px] font-semibold font-montserrat leading-[60px];
+  @apply lg:text-[40px] md:text-[32px] sm:text-[22px] font-semibold font-montserrat lg:leading-[60px] md:leading-[48px] sm:leading-[33px];
 }
 
 .title_h2 {
@@ -317,7 +317,17 @@ select::-ms-expand {
 }
 
 .select-item {
-  @apply h-6 px-7 hover:bg-formBg font-montserrat font-normal text-base leading-6;
+  @apply h-6 mt-[5px] px-7 hover:bg-formBg font-montserrat font-normal text-base leading-6;
+}
+
+/* .sms-page-box {
+  padding: 50px 26px;
+  border-radius: 14px;
+  background-color: #cdeae3;
+} */
+
+.sms-page-box {
+  @apply py-[50px] px-[26px] md:px-[20px] sm:px-[10px] rounded-[14px] bg-[#cdeae3];
 }
 
 input[type='checkbox']:checked,
@@ -381,12 +391,6 @@ input[type='checkbox']:not(:checked) + label:after {
 
 input[type='checkbox']:checked + label:after {
   opacity: 1;
-}
-
-.sms-page-box {
-  padding: 50px 26px;
-  border-radius: 14px;
-  background-color: #cdeae3;
 }
 
 .toast-success {

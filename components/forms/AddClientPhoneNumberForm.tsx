@@ -68,7 +68,7 @@ export default function AddClientPhoneNumberForm({ handleClick }: Props) {
 					type='text'
 					defaultValue={''}
 					{...register("tel")}
-					className='w-[474px] border py-[11px] pr-11 pl-[50px] input'
+					className='xl:w-[474px] lg:w-[420px] md:w-[474px] w-full border py-[11px] pr-11 pl-[50px] input'
 					placeholder="675555544"
 					required
 					maxLength={9}

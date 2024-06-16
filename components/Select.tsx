@@ -17,7 +17,7 @@ const Select = ({
 	selectedOption,
 	getSelect,
 	openSelect,
-	widthValue = 474,
+	widthValue,
 	startValue,
 	defaultValue,
 }: Props) => {
@@ -64,10 +64,10 @@ const Select = ({
 	return (
 		<div
 			onClick={onClose}
-			className={`select-wrap w-[${widthValue}px] ${isOpen ? ` rounded-t-[18px]` : `border-[#E6E6E6] rounded-[18px]`}`}
+			className={`select-wrap ${widthValue ? ` w-[${widthValue}px]` : `w-full`} ${isOpen ? ` rounded-t-[18px]` : `border-[#E6E6E6] rounded-[18px]`}`}
 		>
 			<div className="select">
-				<div className="absolute top-1/2 -translate-y-1/2 left-7 font-montserrat font-normal text-lg leading-6">
+				<div className="absolute top-1/2 -translate-y-1/2 left-7 font-montserrat font-normal text-base md:text-base sm:text-sm leading-6">
 					{!isOpen && !selectedOption && <div>{defaultValue}</div>}
 					{isOpen && !selectedOption ? defaultValue : selectedOption}
 				</div>
@@ -91,7 +91,7 @@ const Select = ({
 			</div>
 			{isOpen && (
 				<div
-					className={`w-[${widthValue}px] overflow-auto h-32 -ml-[1px] -mt-[2px] bg-white rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0`}
+					className={`w-[${widthValue}px] overflow-auto h-32 sm:h-28 -ml-[1px] -mt-[2px] bg-white rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0`}
 					ref={selectBodyRef}
 				>
 					<RSC>
