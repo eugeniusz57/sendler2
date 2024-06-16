@@ -10,7 +10,7 @@ type Props = {
 export default function ManageContactBtn({ id, children }: Props) {
 
 	return (
-		<Link href={`admin/${id}/edit`} className="row-table__btn mr-2 px-2">
+		<Link href={`admin/${id}/edit`} className="row-table__btn md:mr-2 block md:mb-2 lg:mb-0 lg:inline ">
 			{children}
 		</Link>
 	)

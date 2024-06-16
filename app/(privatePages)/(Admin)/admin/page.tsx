@@ -55,8 +55,8 @@ const Admin = () => {
     <div className="flex flex-col items-center justify-center">
       <SearchUserForm getFilter={getFilter} />
       <table className="mt-10 w-full border bg-priceTableBg text-center">
-        <thead>
-          <tr className="bg-headerTable text-white text-xl font-roboto  leading-[30px]">
+        <thead className="hidden md:table-header-group align-middle border-inherit">
+          <tr className="bg-headerTable text-white text-sm lg:text-xl font-roboto lg:leading-[30px]">
             <th className="w-1/8 border px-4 py-3 font-normal">ID клієнта</th>
             <th className="w-1/4 border px-4 py-3 font-normal">Альфа ім&apos;я</th>
             <th className="w-1/4 border px-4 py-3 font-normal">Логін</th>
@@ -65,35 +65,36 @@ const Admin = () => {
             <th className="w-full border px-4 py-3 font-normal">Додаткова інформація</th>
           </tr>
         </thead>
-        { !isLoading && 
-        <tbody className="text-center">
-          {sortAllUsersAlfaNames.length !== 0 ? (
-            sortAllUsersAlfaNames.map(elem => (
-              <tr
-                className={` text-center ${elem.user_active ? '' : ' bg-gray-500'}`}
-                key={elem.user_id}
-              >
-                <td className="py-4 px-3 border font-montserrat text-xl">{elem.user_id}</td>
-                <td className="py-4 px-3 border font-montserrat text-xl">
-                  {elem?.alfa_name?.join(', ')}
+        {!isLoading && (
+          <tbody className="text-center">
+            {sortAllUsersAlfaNames.length !== 0 ? (
+              sortAllUsersAlfaNames.map(elem => (
+                <tr 
+                  className={`block md:table-row text-center border border-zinc-800 border-b-transparent md:border-none ${elem.user_active ? '' : ' bg-gray-500'} w-[300px] md:w-auto`}
+                  key={elem.user_id}
+                >
+                  <td data-title="ID :"  className="block md:table-cell text-right md:text-center  py-4 px-3 border font-montserrat text-base lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.user_id}</td>
+                  <td className="hidden md:table-cell py-4 px-3 border font-montserrat text-base lg:text-xl">
+                    {elem?.alfa_name?.join(', ')}
+                  </td>
+                  <td data-title="Логін :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.user_login}</td>
+                  <td data-title="Баланс :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.balance}</td>
+                  <td   className="flex items-center justify-between text-left md:table-cell py-4 px-3 border font-montserrat text-base lg:text-xl ">
+                    <ManageContactBtn id={elem.user_id}>Manage </ManageContactBtn>{' '}
+                    <DetailBtn id={elem.user_id}>Detail </DetailBtn>
+                  </td>
+                  <td className=" hidden md:table-cell py-4 px-3 border font-montserrat text-sm ">{elem.description}</td>
+                </tr>
+              ))
+            ) : (
+              <tr className="text-center">
+                <td colSpan={6} className="py-4 px-3 border font-montserrat text-m lg:text-xl">
+                  Не має жодного логіна з таким ім'ям
                 </td>
-                <td className="py-4 px-3 border font-montserrat text-xl">{elem.user_login}</td>
-                <td className="py-4 px-3 border font-montserrat text-xl">{elem.balance}</td>
-                <td className="py-4 px-3 border font-montserrat text-xl ">
-                  <ManageContactBtn id={elem.user_id}>Manage Contact </ManageContactBtn>{' '}
-                  <DetailBtn id={elem.user_id}>Detail </DetailBtn>
-                </td>
-                <td className="py-4 px-3 border font-montserrat text-sm">{elem.description}</td>
               </tr>
-            ))
-          ) : (
-            <tr className="text-center">
-              <td colSpan={6} className="py-4 px-3 border font-montserrat text-xl">
-                Не має жодного логіна з таким ім'ям
-              </td>
-            </tr>
-          )}
-        </tbody>}
+            )}
+          </tbody>
+        )}
       </table>
     </div>
   );
