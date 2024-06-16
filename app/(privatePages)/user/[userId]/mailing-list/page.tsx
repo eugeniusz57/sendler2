@@ -329,7 +329,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 							Ім’я відправника
 						</p>
 						<div className="flex md:flex-row flex-col gap-8 md:gap-[22px] gap-[24px] items-center md:mt-3 mt-2">
-							<div className="md:w-[474px] sm:w-[308px]">
+							<div className="md:w-[474px] w-[308px]">
 								<Select
 									openSelect={(a: boolean) => a}
 									selectOptions={user?.alfa_names_active}

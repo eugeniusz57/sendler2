@@ -6,7 +6,7 @@ type Props = {
 	selectedOption: string | undefined;
 	getSelect: (item: string | undefined) => void;
 	openSelect: (isOpen: boolean) => void;
-	widthValue?: number | string;
+	widthValue?: number;
 	startValue?: string;
 	isModal?: boolean;
 }
@@ -19,9 +19,10 @@ const SelectTime = ({ selectOptions,
 	startValue,
 	isModal }: Props) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;
+
+	console.log('WIDTH', widthValue)
 
 	const onClose = () => {
 		setIsOpen(!isOpen);
