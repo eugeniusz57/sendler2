@@ -22,8 +22,6 @@ const SelectTime = ({ selectOptions,
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;
 
-	console.log('WIDTH', widthValue)
-
 	const onClose = () => {
 		setIsOpen(!isOpen);
 	};
