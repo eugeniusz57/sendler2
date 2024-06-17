@@ -76,7 +76,7 @@ export default function HistoryDetails({
       <div className="content-block mt-[60px]">
         <div className="ml-[26px]">
           <div className="flex items-center gap-3 mb-5">
-            <p className="text-xl font-roboto text-[#1B1B30]">Розсилки за</p>
+            <p className="text-lg lg:text-xl font-roboto text-[#1B1B30]">Розсилки за</p>
             <button type="button" onClick={handleClick}>
               <Image src="/svg/excel.svg" alt="Excel icon" width={42} height={42} />
             </button>
@@ -84,7 +84,7 @@ export default function HistoryDetails({
           <BackStatisticsBtn>
             <p>Повернутись до статистики за день</p>
           </BackStatisticsBtn>
-          <div className="flex mb-10 text-xl font-roboto text-[#1B1B30]">
+          <div className="flex flex-wrap lg:items-center gap-y-[40px] lg:flex-nowrap flex mb-10 text-lg lg:text-xl font-roboto text-[#1B1B30]">
             <div className="flex-none w-40 mr-8">
               <p className="mb-4 ">Відправник</p>
               <p className="mb-4">Статус розсилки</p>
@@ -95,7 +95,7 @@ export default function HistoryDetails({
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
               </p>
               <p className="mb-4">
-                   {userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime()  >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
+                    {userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime()  >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
                         ? 'Заплановано'
                         : userHistoryDetails[0]?.sending_permission === false
                         ? 'Зупинено'
@@ -104,8 +104,9 @@ export default function HistoryDetails({
                         ? 'Відправлено'
                         : 'Завершено'}
               </p>
-              <p>{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
+              <p  className="max-w-[300px]">{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
             </div>
+            <br/>
             <div className="grow">
               <p className="mb-4">Текст sms</p>
               <p className="mr-28 font-montserrat text-base">
@@ -114,11 +115,12 @@ export default function HistoryDetails({
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-[100px] h-[58px] px-[26px] font-roboto text-[20px] text-white bg-[#417D8A]">
-          <p className="w-[166px]">Номер телефону</p>
-          <p className="w-[196px]">Дати відправки</p>
-          <p className="w-[130px]">Кількість sms</p>
-          <p className="w-[130px]">Статус</p>
+        <div className="justify-center lg:justify-start flex items-center gap-[100px] h-[58px] px-[26px] font-roboto text-lg lg:text-xl text-white bg-[#417D8A]">
+          <p className="lg:hidden">Повідомлення</p>
+          <p className="hidden lg:block w-[166px]">Номер телефону</p>
+          <p className="hidden lg:block w-[196px]">Дати відправки</p>
+          <p className="hidden lg:block w-[130px]">Кількість sms</p>
+          <p className="hidden lg:block w-[130px]">Статус</p>
         </div>
 
         <ul>
@@ -128,18 +130,27 @@ export default function HistoryDetails({
               return (
                 <li
                   key={index}
-                  className="flex items-center gap-[100px] h-[47px] px-[26px] font-roboto text-l text-black border-b border-[#B5C9BE]"
+                  className="flex items-center gap-x-8 mb-8 py-3 px-[26px] font-roboto text-l text-black border-b border-[#B5C9BE] lg:h-[47px] lg:mb-0 lg:py-0 lg:gap-[100px]"
                 >
-                  <p className="w-[166px]">{item.tel}</p>
-                  <p className="w-[196px]">
-                    {String(item.sending_group_date)}
-                  </p>
-                  <p className="w-[130px]">{item.recipient_status.length}</p>
-                  <p className="w-[130px]">
-                    {item.recipient_status.every(item => item === 'fullfield')
-                      ? 'Доставлено'
-                      : 'Недоставлено'}
-                  </p>
+                  <div className="flex flex-col gap-y-8 font-medium lg:hidden">
+                    <p className="">Номер телефону</p>
+                    <p className="">Дати відправки</p>
+                    <p className="">Кількість sms</p>
+                    <p className="">Статус</p>
+                  </div>
+
+                  <div className="flex flex-col gap-y-8 lg:flex-row lg:items-center lg:gap-[100px]">
+                    <p className="w-[166px]">{item.tel}</p>
+                    <p className="w-[196px]">
+                      {String(item.sending_group_date)}
+                    </p>
+                    <p className="w-[130px]">{item.recipient_status.length}</p>
+                    <p className="w-[130px]">
+                      {item.recipient_status.every(item => item === 'fullfield')
+                        ? 'Доставлено'
+                        : 'Недоставлено'}
+                    </p>
+                  </div>
                 </li>
               );
             })}
@@ -149,7 +160,7 @@ export default function HistoryDetails({
               return (
                 <li
                   key={index}
-                  className="flex items-center justify-between h-[47px] px-[26px] font-roboto text-lg text-black border-b border-[#B5C9BE]"
+                  className="flex items-center justify-between mb-8 py-3 lg:mb-0 lg:py-0 lg:h-[47px] px-[26px] font-roboto text-lg text-black border-b border-[#B5C9BE]"
                 ></li>
               );
             })}

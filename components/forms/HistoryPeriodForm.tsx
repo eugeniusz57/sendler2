@@ -75,16 +75,16 @@ export default function HistoryPeriodForm() {
   };
 
   return (
-    <div className="ml-[26px]">
+    <div className="px-[20px] lg:px-[26px]">
       <p className="mb-10 text-xl font-roboto text-[#1B1B30]">Пeріод відправки SMS</p>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex items-center gap-8 w-full mb-10">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex justify-end flex-wrap lg:justify-start lg:items-center lg:flex-nowrap gap-8 w-full mb-10">
         <label htmlFor="startDate" className="text-xl text-mainTextColor flex cursor-pointer">
           <DatePicker
             id="startDate"
             selected={startDate ? new Date(startDate) : null}
             onChange={handleChangeStartDate}
             isClearable
-            className="w-[250px] h-12 rounded-[18px] border border-inputBorder outline-none text-xl text-mainTextColor pr-[50px] pl-[50px] cursor-pointer"
+            className="w-[196px] h-12 rounded-[18px] border border-inputBorder outline-none text-xl text-mainTextColor pr-[50px] pl-3 cursor-pointer lg:pl-[50px]"
             customInput={<input autoComplete="off" />}
             placeholderText="дд.мм.рррр"
             dateFormat="dd.MM.yyyy"
@@ -94,14 +94,14 @@ export default function HistoryPeriodForm() {
           />
           <Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="ml-4" />
         </label>
-        <div className="h-px w-6 bg-black"></div>
+        <div className="h-px w-6 bg-black self-center"></div>
         <label className="text-xl text-mainTextColor flex cursor-pointer">
           <DatePicker
             id="endDate"
             selected={endDate ? new Date(endDate) : null}
             onChange={handleChangeEndDate}
             isClearable
-            className="w-[250px] h-12 rounded-[18px] border border-inputBorder outline-none text-xl text-mainTextColor pr-[50px] pl-[50px] cursor-pointer"
+            className="w-[196px] h-12 rounded-[18px] border border-inputBorder outline-none text-xl text-mainTextColor pr-[50px] pl-3 cursor-pointer lg:pl-[50px]"
             customInput={<input autoComplete="off" />}
             placeholderText="дд.мм.рррр"
             dateFormat="dd.MM.yyyy"
@@ -111,6 +111,7 @@ export default function HistoryPeriodForm() {
           />
           <Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="ml-4" />
         </label>
+        <br/>
         <button className="flex items-center justify-center py-2.5 px-9 font-roboto bg-[#32BB79] text-white rounded-[14px] text-[16px]">
           Дивитись
         </button>
