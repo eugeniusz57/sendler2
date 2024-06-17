@@ -13,11 +13,11 @@ const EditTransaction = async ({
   return (
     <>
       <BackBtn />{' '}
-      <div className="flex items-center flex-col">
-        <p className="text-xl m-8">
+      <div className="flex items-center flex-col justify-center text-center">
+        <p className="text-lg md:text-xl my-4 md:m-8">
           {' '}
           Ви працюєте з обліковим записом користувача{' '}
-          <span className=" text-2xl">{userInfo?.user_login}</span> (транзакція{' '}
+          <span className="text-lg font-bold md:text-2xl">{userInfo?.user_login}</span> (транзакція{' '}
           {params.transactionId})
         </p>
         {userInfo?.user_id && <SMSReductionForm userId={userInfo?.user_id} transactionId={Number(params.transactionId)} />}

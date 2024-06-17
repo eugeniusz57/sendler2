@@ -41,7 +41,7 @@ const SMSReductionForm = ({ userId, transactionId }: Props) => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      className="w-1/3 flex justify-items-center h-auto  py-4 items-center flex-col leading-6 px-[26px] border rounded-[18px] bg-priceTableBg ml-10"
+      className="w-full md:w-[426px] flex justify-items-center h-auto  py-4 items-center flex-col leading-6 px-4 lg:px-[26px] border rounded-[18px] bg-priceTableBg "
     >
       <p className=" text-left text-l mb-8 italic">
         Поточний баланс: <span className=" text-xl ">{user?.balance}</span>СМС

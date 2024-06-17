@@ -19,7 +19,7 @@ const DescUserForm = ({ userId }: Props) => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      className="w-1/3 flex justify-items-center h-auto  py-4 items-center flex-col leading-6 px-[26px] border rounded-[18px] bg-priceTableBg"
+      className="w-full md:w-1/3 flex justify-items-center h-auto  py-4 items-center flex-col leading-6 px-[26px] border rounded-[18px] bg-priceTableBg"
     >
       
       <div className="text-left w-full mb-8">

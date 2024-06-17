@@ -70,7 +70,7 @@ const Admin = () => {
             {sortAllUsersAlfaNames.length !== 0 ? (
               sortAllUsersAlfaNames.map(elem => (
                 <tr 
-                  className={`block md:table-row text-center border border-zinc-800 border-b-transparent md:border-none ${elem.user_active ? '' : ' bg-gray-500'} w-[300px] md:w-auto`}
+                  className={`block md:table-row text-center border border-zinc-800 border-b-transparent md:border-none ${elem.user_active ? '' : ' bg-gray-500'} `}
                   key={elem.user_id}
                 >
                   <td data-title="ID :"  className="block md:table-cell text-right md:text-center  py-4 px-3 border font-montserrat text-base lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.user_id}</td>
@@ -79,7 +79,7 @@ const Admin = () => {
                   </td>
                   <td data-title="Логін :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.user_login}</td>
                   <td data-title="Баланс :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.balance}</td>
-                  <td   className="flex items-center justify-between text-left md:table-cell py-4 px-3 border font-montserrat text-base lg:text-xl ">
+                  <td   className="flex items-center justify-between  md:table-cell py-4 px-3 border font-montserrat text-base lg:text-xl ">
                     <ManageContactBtn id={elem.user_id}>Manage </ManageContactBtn>{' '}
                     <DetailBtn id={elem.user_id}>Detail </DetailBtn>
                   </td>

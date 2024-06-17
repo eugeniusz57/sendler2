@@ -6,7 +6,7 @@ const Debts = async () => {
   return (
     <>
       <BackBtn/>
-      <div>
+      <div className='mt-10'>
         <TableDebts />
       </div>
     </>

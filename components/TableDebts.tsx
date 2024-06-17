@@ -29,28 +29,27 @@ const TableDebts = () => {
   }, [isUpdated]);
   return (
     <table className="w-full border bg-priceTableBg text-center">
-      <thead className="bg-lightGreen ">
+      <thead className="bg-lightGreen hidden md:table-header-group ">
         <tr className="bg-headerTable text-white text-xl font-roboto leading-[30px] ">
           <th className="py-[10px] px-3 border font-roboto text-xl font-normal">Логін</th>
-
           <th className="py-[10px] px-3 border font-roboto text-xl font-normal">Сумма(грн).</th>
           <th className="py-[10px] px-3 border font-roboto text-xl font-normal">СМС</th>
           <th className="py-[10px] px-3 border font-roboto text-xl font-normal">Дата поповнення</th>
-          <th className="py-[10px] px-3 border font-roboto text-xl font-normal"></th>
+          <th className="py-[10px] px-3 border font-roboto text-xl font-normal">Оплачено</th>
         </tr>
       </thead>
       {debts && (
         <tbody className=" text-xl">
           {debts.length !== 0 ? (
             debts.map(elem => (
-              <tr key={elem.transaction_id}>
-                <td className="py-4 px-3 border font-montserrat text-xl">{elem.user_login}</td>
-                <td className="py-4 px-3 border font-montserrat text-xl">{elem.money_count}</td>
-                <td className="py-4 px-3 border font-montserrat text-xl">{elem.sms_count}</td>
-                <td className="py-4 px-3 border font-montserrat text-xl">
+              <tr className='block md:table-row text-center border border-zinc-800  md:border-none' key={elem.transaction_id}>
+                <td  data-title="Логін :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.user_login}</td>
+                <td  data-title="Сумма :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.money_count}</td>
+                <td  data-title="СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.sms_count}</td>
+                <td  data-title="Дата :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
                   {elem.transactions_date.toString().split('T')[0]}
                 </td>
-                <td className="py-4 px-3 border font-montserrat text-xl">
+                <td   className="block md:table-cell  md:text-center py-4 px-3 border font-montserrat text-xl ">
                   <button
                     className={`row-table__btn px-2 ${
                       isLoading ? 'text-slate-400 hover:bg-slate-500' : ''
@@ -67,7 +66,7 @@ const TableDebts = () => {
             ))
           ) : (
             <tr className="text-center">
-              <td colSpan={4} className="py-4 px-3 border font-montserrat text-xl">
+              <td colSpan={5} className="py-4 px-3 border font-montserrat text-xl">
                 Не має жодної неоплаченої транзакцій
               </td>
             </tr>

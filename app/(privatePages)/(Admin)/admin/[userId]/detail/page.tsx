@@ -11,38 +11,38 @@ import { DeleteUser } from '@/helpers/fetchUserId';
 import { useEffect, useState } from 'react';
 
 const Detail = ({ params }: { params: { userId: string } }) => {
-	const userId = Number(params.userId);
-	const [user, setUser] = useState<IUser>();
-	const [isUpdated, setisUpdated] = useState(false);
+  const userId = Number(params.userId);
+  const [user, setUser] = useState<IUser>();
+  const [isUpdated, setisUpdated] = useState(false);
 
+  const handleDelete = async (userId: number) => {
+    await DeleteUser(userId);
+    setisUpdated(prevIsUpdate => !prevIsUpdate);
+  };
 
-	const handleDelete = async (userId: number) => {
-		await DeleteUser(userId);
-		setisUpdated(prevIsUpdate => !prevIsUpdate);
-	};
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await getUser(userId);
+        setUser(response?.data.user);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
 
-	useEffect(() => {
-		const fetchUserData = async () => {
-			try {
-				const response = await getUser(userId);
-				setUser(response?.data.user);
-			} catch (error) {
-				console.error('Error fetching user data:', error);
-			}
-		};
+    fetchUserData();
+  }, [userId, isUpdated]);
 
-		fetchUserData();
-	}, [userId, isUpdated]);
-
-	return (
-		<><BackBtn/>
-			<div className="flex mt-10 justify-center items-center">
-				{user && <TableUserInfo user={user} handleDelete={handleDelete} />}
-				{user && <DescUserForm userId={userId} />}
-			</div>
-			{user && <TablePaymentHistory userId={userId} />}
-		</>
-	);
+  return (
+    <>
+      <BackBtn />
+      <div className="flex mt-10 justify-center items-center flex-col md:flex-row">
+        {user && <TableUserInfo user={user} handleDelete={handleDelete} />}
+        {user && <DescUserForm userId={userId} />}
+      </div>
+      {user && <TablePaymentHistory userId={userId} />}
+    </>
+  );
 };
 
 export default Detail;
