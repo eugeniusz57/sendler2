@@ -129,7 +129,7 @@ footer {
 }
 
 .row-table__btn {
-  @apply w-[110px] py-[3px] hover:bg-blueHoverBtn hover:text-white hover:border-transparent text-base  text-center font-roboto font-normal border border-headerTable rounded-xl;
+  @apply w-[110px] py-[3px] px-2 hover:bg-blueHoverBtn hover:text-white hover:border-transparent text-base  text-center font-roboto font-normal border border-headerTable rounded-xl;
 }
 
 .row-table__btn_delete {
@@ -327,7 +327,7 @@ select::-ms-expand {
 } */
 
 .sms-page-box {
-  @apply py-[50px] px-[26px] md:px-[20px] sm:px-[10px] rounded-[14px] bg-[#cdeae3];
+  @apply py-[50px] lg:px-[26px] md:px-[20px] px-[10px] rounded-[14px] bg-[#cdeae3];
 }
 
 input[type='checkbox']:checked,

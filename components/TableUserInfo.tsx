@@ -13,9 +13,9 @@ const TableUserInfo = ({ user, handleDelete }: TableUserInfoProps) => {
   const formattedDate = date.toISOString().split('T')[0];
 
   return (
-    <table className="table-auto w-1/2 border bg-priceTableBg  mr-5">
-      <caption className=" text-2xl mb-2">Персональна інформація про користувача</caption>
-      <tbody className=" text-center text-xl font-roboto  leading-[30px]">
+    <table className="table-auto w-full md:w-1/2 border bg-priceTableBg  md:mr-5 mb-8 md:mb-0 ">
+      <caption className="text-lg md:text-2xl mb-2">Персональна інформація про користувача</caption>
+      <tbody className=" text-center text-base md:text-xl font-roboto  leading-[30px] rounded-[18px] ">
         <tr>
           <td className="bg-headerTable text-white  font-roboto  leading-[30px] border">ID</td>
           <td className="border px-4 py-2">{user.user_id}</td>
@@ -43,7 +43,7 @@ const TableUserInfo = ({ user, handleDelete }: TableUserInfoProps) => {
           <td className="border px-4 py-2">{user.balance} SMS</td>
         </tr>
         <tr>
-          <td className="bg-headerTable text-white  font-roboto  leading-[30px] border">
+          <td className="bg-headerTable text-white  font-roboto  leading-[30px] border px-1">
             Дата реєстрації
           </td>
           <td className="border px-4 py-2">{formattedDate}</td>

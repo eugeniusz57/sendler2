@@ -69,13 +69,13 @@ const UserPaymentForm = ({ userId }: Props) => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      className="w-1/3 flex justify-items-center h-auto  py-4 items-center flex-col leading-6 px-[26px] border rounded-[18px] bg-priceTableBg"
+      className="lg:w-[426px] flex justify-items-center h-auto py-3  md:py-4 items-center flex-col leading-6 px-3 md:px-[26px] border rounded-[18px] bg-priceTableBg"
     >
       <div className="text-left w-full mb-8 ">
       <p className=" text-center text-l mb-8 italic">
-        Поточний баланс: <span className=" text-xl ">{user?.balance}</span>СМС
+        Поточний баланс: <span className=" text-lg md:text-xl ">{user?.balance}</span>СМС
       </p>
-        <span className="flex items-center gap-1">
+        <span className="flex items-center gap-1 text-base md:text-lg">
           {!isChecked ? (
             <Image
               src="/svg/checkbox-empty.svg"
@@ -95,7 +95,7 @@ const UserPaymentForm = ({ userId }: Props) => {
           )}
           Корегувати к-ть СМС
         </span>
-        <label htmlFor="summ" className="font-roboto text-sm font-medium mb-2 block">
+        <label htmlFor="summ" className="font-roboto text-sm font-medium mb-2 block mt-2">
           Сумма:
         </label>
         <input

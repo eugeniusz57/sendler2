@@ -14,7 +14,7 @@ const Edit = async ({ params }: { params: { userId: string } }) => {
     <>
       {' '}
       <BackBtn />
-      <div className="text-center">
+      <div className="text-center mt-6">
         {userInfo?.user_active ? (
           <>
             <p className=" text-xl mb-8">
