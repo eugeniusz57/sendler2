@@ -495,32 +495,35 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 							</div>
 							<p className=" text-xl text-mainTextColor  md:ml-5 md:mr-2 md:mb-3 mb-2">Час</p>
 							<div className="flex gap-3 items-center">
-								<SelectTime
-									openSelect={(a: boolean) => a}
-									selectOptions={getTimeOptionsValues(0, 24)}
-									getSelect={getHour}
-									selectedOption={hour}
-									widthValue={window.innerWidth < 710 ? 93 : 150}
-									startValue=""
-								/>
+								<div className='md:w-[150px] w-[93px]'>
+									<SelectTime
+										openSelect={(a: boolean) => a}
+										selectOptions={getTimeOptionsValues(0, 24)}
+										getSelect={getHour}
+										selectedOption={hour}
+										startValue=""
+									/>
+								</div>
 								<p className='md:block hidden'>год</p>
-								<SelectTime
-									openSelect={(a: boolean) => a}
-									selectOptions={getTimeOptionsValues(0, 60)}
-									getSelect={getMinute}
-									selectedOption={minute}
-									widthValue={window.innerWidth < 710 ? 93 : 150}
-									startValue=""
-								/>
+								<div className='md:w-[150px] w-[93px]'>
+									<SelectTime
+										openSelect={(a: boolean) => a}
+										selectOptions={getTimeOptionsValues(0, 60)}
+										getSelect={getMinute}
+										selectedOption={minute}
+										startValue=""
+									/>
+								</div>
 								<p className='md:block hidden'>хв</p>
-								<SelectTime
-									openSelect={(a: boolean) => a}
-									selectOptions={getTimeOptionsValues(0, 60)}
-									getSelect={getSecond}
-									selectedOption={second}
-									widthValue={window.innerWidth < 710 ? 93 : 150}
-									startValue=""
-								/>
+								<div className='md:w-[150px] w-[93px]'>
+									<SelectTime
+										openSelect={(a: boolean) => a}
+										selectOptions={getTimeOptionsValues(0, 60)}
+										getSelect={getSecond}
+										selectedOption={second}
+										startValue=""
+									/>
+								</div>
 								<p className='md:block hidden'>сек</p>
 							</div>
 						</div>
