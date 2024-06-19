@@ -14,36 +14,46 @@ type Props = {
 export default function GroupsList({ groups, getGroups }: Props) {
 
 	return (
-		<div className="mb-[80px]">
-			<div className='flex w-full px-[26px] pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable'>
-				<p className='w-[110px] mr-[60px]'>Група</p>
-				<p className='w-[186px] mr-[91px]'>Оновлення</p>
-				<p>Кількість</p>
-			</div>
-			<ul>
-				{groups?.length ? groups?.map((group: IGroupDatabase) => (
-					<li key={group.group_id} className="flex  px-[26px] items-center h-[58px]  text-base font-montserrat font-normal border-b border-rowUnderLine">
-						<div className="w-[120px] mr-[50px] text-left overflow-hidden">{group.group_name}</div>
-						<div className="w-[186px] mr-[91px] text-left">{group.group_create_date}</div>
-						<div className="w-[100px] mr-[91px] text-left">{group.number_members}</div>
-						<div className="flex gap-x-[15px]">
-							<EditGroupBtn id={group.group_id} >Редагувати</EditGroupBtn>
-							<DeleteGroupBtn id={group.group_id} getGroups={getGroups}>Видалити</DeleteGroupBtn>
-							<ImportGroupBtn id={group.group_id}>Імпорт</ImportGroupBtn>
-							<ExportGroupBtn id={group.group_id} group={group}>Експорт</ExportGroupBtn>
-						</div>
-					</li>
-				)) :
-					<>
-						<div className="flex  px-[26px] items-center h-[58px]  text-base font-montserrat font-normal border-b border-rowUnderLine">
-							<span>1</span>
-						</div>
-						<div className="h-[48px] border-b border-rowUnderLine"></div>
-						<div className="h-[48px] border-b border-rowUnderLine"></div>
-					</>
-				}
-			</ul>
-		</div>
+		<>
+			<table className="w-full lg:mb-[80px] md:mb-[50px] mb-[28px] border-collapse border-headerTable">
+				<thead className="hidden lg:table-header-group">
+					<tr className='text-xl text-white font-roboto bg-headerTable'>
+						<th className='w-1/6 pl-[26px] pt-[18px] pb-[13px] text-left font-normal bg-headerTable'>Група</th>
+						<th className='w-1/5 pt-[18px] pb-[13px] text-left font-normal  bg-headerTable'>Оновлення</th>
+						<th className="w-[16%] pt-[18px] pb-[13px] text-left font-normal bg-headerTable">Кількість</th>
+						<th className="w-full pt-[18px] pb-[13px] text-left font-normal bg-headerTable"></th>
+					</tr>
+				</thead>
+				<thead className="lg:hidden table-header-group">
+					<tr className='text-xl text-white font-roboto bg-headerTable'>
+						<th className=' lg:w-1/6 lg:pl-[26px] md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-base text-center font-normal'>Групи</th>
+					</tr>
+				</thead>
+				<tbody>
+					{groups?.length ? groups?.map((group: IGroupDatabase) => (
+						<tr key={group.group_id} className="block lg:table-row items-center text-base font-montserrat font-normal border-b border-rowUnderLine">
+							<td data-title='Група' className="block lg:table-cell lg:mt-0 mt-[22px] lg:mb-0 mb-[22px] lg:pl-[26px] md:pl-[20px] pl-[10px] lg:pt-[18px] lg:pb-[13px] lg:text-left text-center overflow-hidden before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold">{group.group_name}</td>
+							<td data-title='Оновлення' className="block lg:table-cell lg:mb-0 mb-[22px] lg:pl-0 md:pl-[20px] pl-[10px] lg:pt-[18px] lg:pb-[13px] lg:text-left text-center before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold">{group.group_create_date}</td>
+							<td data-title='Кількість' className="block lg:table-cell lg:mb-0 mb-[22px] lg:pl-0 md:pl-[20px] pl-[10px] lg:pt-[18px] lg:pb-[13px] lg:text-left text-center before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold">{group.number_members}</td>
+							<td className="block lg:table-cell lg:mb-0 mb-[14px] lg:pl-0 md:pl-[20px] lg:pt-[18px] lg:pb-[13px] text-left before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold">
+								<div className="flex gap-[15px] md:flex-nowrap flex-wrap items-center md:justify-start justify-center">
+									<EditGroupBtn id={group.group_id} >Редагувати</EditGroupBtn>
+									<DeleteGroupBtn id={group.group_id} getGroups={getGroups}>Видалити</DeleteGroupBtn>
+									<ImportGroupBtn id={group.group_id}>Імпорт</ImportGroupBtn>
+									<ExportGroupBtn id={group.group_id} group={group}>Експорт</ExportGroupBtn>
+								</div>
+							</td>
+						</tr>
+					)) :
+						<>
+							<tr className="h-[48px] border-b border-rowUnderLine"></tr>
+							<tr className="h-[48px] border-b border-rowUnderLine"></tr>
+							<tr className="h-[48px] border-b border-rowUnderLine"></tr>
+						</>
+					}
+				</tbody>
+			</table>
+		</>
 	)
 }
 

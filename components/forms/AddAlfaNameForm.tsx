@@ -76,25 +76,27 @@ export default function AddAlfaNameForm({ userId, getUserNamesArray, getIsOpened
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
 			className='mt-8'>
-			<p className="mb-[22px] text-mainTextColor text-base font-montserrat">
+			<p className="hidden md:block mb-[22px] text-mainTextColor text-base font-montserrat">
 				Ім&apos;я відправника має бути не більше ніж 11 латинських символів
 			</p>
 			<label htmlFor='alfa_name' className='block mb-3.5 label'>
 				Нове ім&apos;я
 			</label>
-			<div className='flex items-center'>
-				<input id="alfa_name"
-					type='text'
-					{...register("alfa_name")}
-					className='w-[474px] h-12 mr-8 px-4 input'
-					required
-					onKeyDown={EnterOnlyLetters}
-					onChange={handleOnChange}
-					maxLength={11}
-				/>
-				{errors.alfa_name && (
-					<span className="text-red-500 ">{errors.alfa_name.message}</span>
-				)}
+			<div className="flex md:flex-row flex-col md:gap-[22px] gap-6 items-center md:mt-3 mt-2">
+				<div className="md:w-[474px] w-[308px]">
+					<input id="alfa_name"
+						type='text'
+						{...register("alfa_name")}
+						className='w-full h-12 mr-8 px-4 input'
+						required
+						onKeyDown={EnterOnlyLetters}
+						onChange={handleOnChange}
+						maxLength={11}
+					/>
+					{errors.alfa_name && (
+						<span className="text-red-500 ">{errors.alfa_name.message}</span>
+					)}
+				</div>
 				<GreenButton isDisabled={isDisabled} type="submit" size="normal">Додати</GreenButton>
 			</div>
 		</form>

@@ -27,18 +27,18 @@ export default function ContactManagmentPage({ params }: { params: { userId: str
 	}, [memoizedgetData]);
 
 	return (
-		<section className="container mx-auto">
+		<>
 			<Title type="h1" color="dark">
 				Управління контактами
 			</Title>
-			<div className="content-block mt-[60px]">
-				<p className='w-[724px] mb-[50px] ml-[26px] main-text'>Для початку роботи Вам потрібно створити нову Групу контактів та додати до неї номери. Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.</p>
+			<div className="content-block md:mt-[60px] mt-[28px]">
+				<p className='md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]'>Для початку роботи Вам потрібно створити нову Групу контактів та додати до неї номери. Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.</p>
 				<CreateGroupForm id={userId} getGroups={getData} />
 				<GroupsList groups={groups} getGroups={getData} />
-				<div className="ml-[26px]">
+				<div className=" lg:px-[26px] md:px-[20px] px-[10px]">
 					<p className="accent-main_text mb-3">Всі контакти</p>
-					<div className="flex items-center">
-						<p className="mr-8 main-text">За бажанням ви можете переглянути всі свої контакти</p>
+					<div className="flex md:flex-row flex-col items-center">
+						<p className="lg:mr-8 md:mr-[22px] md:mb-0 mb-6">За бажанням ви можете переглянути всі свої контакти</p>
 						<GreenButton size="normal">
 							<Link href={`/user/${userId}/clients`}>
 								Переглянути
@@ -47,7 +47,7 @@ export default function ContactManagmentPage({ params }: { params: { userId: str
 					</div>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 }
 
