@@ -42,17 +42,17 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
       <Title type="h1" color="dark">
         Статистика за датою
       </Title>
-      <div className="mt-[60px]">
+      <div className="mt-[28px] md:mt-[60px]">
         <div className="content-block">
-          <div className="ml-[26px]">
-            <p className="mb-5 text-lg font-roboto text-[#1B1B30] lg:text-xl">
+          <div className="pl-[10px] md:pl-[26px]">
+            <p className="mb-[14px] md:mb-5 text-base md:text-lg font-roboto text-[#1B1B30] lg:text-xl">
             Розсилки за {historyDate ? `${String(new Date(historyDate).getDate()).padStart(2, '0')}.${String(new Date(historyDate).getMonth() + 1).padStart(2, '0')}.${new Date(historyDate).getFullYear()}` : '-'}
             </p>
             <BackStatisticsBtn>
-              <p>Повернутись до загальної статистики за період</p>
+              <p className='text-left text-sm md:text-base'>Повернутись до загальної статистики за період</p>
             </BackStatisticsBtn>
           </div>
-          <div className="justify-center flex items-center lg:justify-between h-[58px] px-[26px] font-roboto text-lg lg:text-xl text-white bg-[#417D8A]">
+          <div className="justify-center flex items-center lg:justify-between h-[40px] md:h-[58px] px-[26px] font-roboto text-lg lg:text-xl text-white bg-[#417D8A]">
             <p className="lg:hidden">Розсилки</p>
             <p className="hidden lg:block w-[130px]">Текст sms</p>
             <p className="hidden lg:block w-[118px]">Відправник</p>
@@ -68,9 +68,9 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
                 return (
                   <li
                     key={item.history_id as number}
-                    className="flex items-center mb-8 gap-x-8 py-3 px-[26px] font-roboto text-lg text-black border-b border-[#B5C9BE] lg:h-[47px] lg:py-0"
+                    className="flex items-center mb-8 px-[10px] gap-x-8 py-3 md:px-[26px] font-roboto text-lg text-black border-b border-[#B5C9BE] lg:h-[47px] lg:mb-1 lg:py-0"
                   >
-                    <div className="flex flex-col gap-y-8 font-medium lg:hidden">
+                    <div className="hidden md:flex flex-col gap-y-7 font-medium lg:hidden">
                       <p className="">Текст sms</p>
                       <p className="">Відправник</p>
                       <p className="">Статус</p>
@@ -79,12 +79,15 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
                       <p className="">Дії</p>
                     </div>
                     
-                    <div className="flex flex-col gap-y-8 lg:flex-row lg:items-center lg:gap-[100px]">
-                      <p className="w-[130px] text-[#2366E8] text-ellipsis whitespace-nowrap overflow-hidden">
+                    <div className="flex flex-col gap-y-2 text-base md:gap-y-8 lg:flex-row lg:justify-between lg:items-center lg:grow">
+                      <p className="font-medium md:hidden">Текст sms</p>
+                      <p className="w-[130px] montserrat text-sm md:text-base text-[#2366E8] text-ellipsis whitespace-nowrap overflow-hidden">
                         <Link href={`by-date/${item.history_id}`}>{item.text_sms}</Link>
                       </p>
-                      <p className="w-[118px]">{item.alfa_name}</p>
-                      <p className="w-[126px]">
+                      <p className="font-medium mt-4 md:hidden">Відправник</p>
+                      <p className="w-[118px] montserrat text-sm md:text-base">{item.alfa_name}</p>
+                      <p className="font-medium mt-4 md:hidden">Статус</p>
+                      <p className="w-[126px] montserrat text-sm md:text-base">
                         {new Date(item.sending_group_date) >= new Date() && item.sending_permission === true
                           ? 'Заплановано'
                           : item.sending_permission === false
@@ -94,15 +97,18 @@ export default function DayHistory({ params }: { params: { userId: string } }) {
                           ? 'Відправлено'
                           : 'Завершено'}
                       </p>
-                      <p className="w-[160px]">
+                      <p className="font-medium mt-4 md:hidden">Доставлено sms</p>
+                      <p className="w-[160px] montserrat text-sm md:text-base">
                         {item.recipient_status.filter(item => item === 'fullfield').length}/
                         {item.recipient_status.length}
                       </p>
-                      <p className="w-[200px]">
+                      <p className="font-medium mt-4 md:hidden">Доставлено номерів</p>
+                      <p className="w-[200px] montserrat text-sm md:text-base">
                         {countSuccessfullySentNumbers(item)}/
                         {Array.from(new Set(item.clients)).length}
                       </p>
-                      <p className="w-[113px]">
+                      <p className="font-medium mt-4 md:hidden">Дії</p>
+                      <p className="w-[113px] montserrat text-sm md:text-base">
                         {new Date(item.sending_group_date) > new Date() ? (
                           <SendingPermissionBtn history={item} />
                         ) : (

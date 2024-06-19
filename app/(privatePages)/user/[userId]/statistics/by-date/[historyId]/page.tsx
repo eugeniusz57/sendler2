@@ -73,28 +73,29 @@ export default function HistoryDetails({
       <Title type="h1" color="dark">
         Детальна статистика
       </Title>
-      <div className="content-block mt-[60px]">
-        <div className="ml-[26px]">
-          <div className="flex items-center gap-3 mb-5">
-            <p className="text-lg lg:text-xl font-roboto text-[#1B1B30]">Розсилки за</p>
+      <div className="content-block mt-[28px] md:mt-[60px]">
+        <div className="ml-[10px] md:ml-[26px]">
+          <div className="flex items-center gap-3 mb-[14px] md:mb-5">
+            <p className="text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30]">Розсилки за</p>
             <button type="button" onClick={handleClick}>
-              <Image src="/svg/excel.svg" alt="Excel icon" width={42} height={42} />
+              <Image src="/svg/excel.svg" alt="Excel icon" width={42} height={42} className="hidden md:block"/>
+              <Image src="/svg/excel.svg" alt="Excel icon" width={30} height={30} className="md:hidden"/>
             </button>
           </div>
           <BackStatisticsBtn>
-            <p>Повернутись до статистики за день</p>
+            <p className='text-left text-sm md:text-base'>Повернутись до загальної статистики за день</p>
           </BackStatisticsBtn>
-          <div className="flex flex-wrap lg:items-center gap-y-[40px] lg:flex-nowrap flex mb-10 text-lg lg:text-xl font-roboto text-[#1B1B30]">
-            <div className="flex-none w-40 mr-8">
+          <div className="flex flex-wrap gap-y-[40px] lg:flex-nowrap mb-10 text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30]">
+            <div className="flex-none md:w-40 mr-8">
               <p className="mb-4 ">Відправник</p>
               <p className="mb-4">Статус розсилки</p>
               <p>Назва групи</p>
             </div>
-            <div className="mr-28 font-montserrat text-lg">
-              <p className="mb-4 text-[#2366E8]">
+            <div className="w-2/5 font-montserrat self-stretch text-sm md:mr-28 md:w-1/2 md:text-base lg:text-lg">
+              <p className="mb-[22px] lg:mb-4 text-[#2366E8]">
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
               </p>
-              <p className="mb-4">
+              <p className="mb-[22px] lg:mb-4">
                     {userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime()  >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
                         ? 'Заплановано'
                         : userHistoryDetails[0]?.sending_permission === false
@@ -104,12 +105,12 @@ export default function HistoryDetails({
                         ? 'Відправлено'
                         : 'Завершено'}
               </p>
-              <p  className="max-w-[300px]">{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
+              <p  className="max-w-[300px] break-words">{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
             </div>
             <br/>
             <div className="grow">
-              <p className="mb-4">Текст sms</p>
-              <p className="mr-28 font-montserrat text-base">
+              <p className="mb-3 md:mb-4">Текст повідомлення</p>
+              <p className="lg:mr-8 font-montserrat text-sm break-words md:text-base">
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.text_sms : '-'}
               </p>
             </div>
@@ -130,22 +131,26 @@ export default function HistoryDetails({
               return (
                 <li
                   key={index}
-                  className="flex items-center gap-x-8 mb-8 py-3 px-[26px] font-roboto text-l text-black border-b border-[#B5C9BE] lg:h-[47px] lg:mb-0 lg:py-0 lg:gap-[100px]"
+                  className="flex items-center gap-x-8 mb-8 py-3 px-[10px] font-roboto text-l text-black border-b border-[#B5C9BE] md:px-[26px] lg:h-[47px] lg:mb-0 lg:py-0 lg:gap-[100px]"
                 >
-                  <div className="flex flex-col gap-y-8 font-medium lg:hidden">
+                  <div className="hidden md:flex flex-col gap-y-8 font-medium lg:hidden">
                     <p className="">Номер телефону</p>
                     <p className="">Дати відправки</p>
                     <p className="">Кількість sms</p>
                     <p className="">Статус</p>
                   </div>
 
-                  <div className="flex flex-col gap-y-8 lg:flex-row lg:items-center lg:gap-[100px]">
-                    <p className="w-[166px]">{item.tel}</p>
-                    <p className="w-[196px]">
+                  <div className="flex flex-col gap-y-2 text-base md:gap-y-8 lg:flex-row lg:items-center lg:gap-[100px]">
+                    <p className="font-medium md:hidden">Номер телефону</p>
+                    <p className="w-[166px] montserrat text-sm md:text-lg">{item.tel}</p>
+                    <p className="font-medium mt-4 md:hidden">Дати відправки</p>
+                    <p className="w-[196px] montserrat text-sm md:text-lg">
                       {String(item.sending_group_date)}
                     </p>
-                    <p className="w-[130px]">{item.recipient_status.length}</p>
-                    <p className="w-[130px]">
+                    <p className="font-medium mt-4 md:hidden">Кількість sms</p>
+                    <p className="w-[130px] montserrat text-sm md:text-lg">{item.recipient_status.length}</p>
+                    <p className="font-medium mt-4 md:hidden">Статус</p>
+                    <p className="w-[130px] montserrat text-sm md:text-lg">
                       {item.recipient_status.every(item => item === 'fullfield')
                         ? 'Доставлено'
                         : 'Недоставлено'}
