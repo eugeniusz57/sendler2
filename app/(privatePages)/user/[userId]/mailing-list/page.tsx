@@ -317,41 +317,37 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 				Розсилка SMS
 			</Title>
 			<div className="flex flex-col md:gap-[80px] gap-[50px] md:mt-[60px] mt-[28px]">
-				<div className="sms-page-box flex">
-					<div className="mr-32">
-						<div className="flex relative">
-							<p className="lg:w-[724px] md:w-[640px] w-[308px] text-mainTextColor md:text-base text-sm md:leading-6 leading-[21px] font-montserrat">
-								Виберіть підпис (Ім&#39;я відправника), який буде відображатися замість номера
-								відправника SMS-повідомлення
-							</p>
-						</div>
-						<p className=" text-mainTextColor font-normal md:text-xl text-base md:mt-[50px] mt-[40px] label">
-							Ім’я відправника
-						</p>
-						<div className="flex md:flex-row flex-col gap-8 md:gap-[22px] gap-[24px] items-center md:mt-3 mt-2">
-							<div className="md:w-[474px] w-[308px]">
-								<Select
-									openSelect={(a: boolean) => a}
-									selectOptions={user?.alfa_names_active}
-									getSelect={getUserName}
-									selectedOption={userName}
-									// widthValue={474}
-									startValue="Обрати"
-									defaultValue="Outlet"
-								/>
-							</div>
-							<GreenButton size="normal" onClick={getIsOpened}>
-								Додати ім’я
-							</GreenButton>
-						</div>
-						{isOpened && (
-							<AddAlfaNameForm
-								userId={userId}
-								getUserNamesArray={getUserNamesArray}
-								getIsOpened={getIsOpened}
+				<div className="sms-page-box">
+					<p className="lg:w-[724px] md:w-[640px] w-[308px] text-mainTextColor md:text-base text-sm md:leading-6 leading-[21px] font-montserrat">
+						Виберіть підпис (Ім&#39;я відправника), який буде відображатися замість номера
+						відправника SMS-повідомлення
+					</p>
+					<p className=" text-mainTextColor font-normal md:text-xl text-base md:mt-[50px] mt-[40px] label">
+						Ім’я відправника
+					</p>
+					<div className="flex md:flex-row flex-col gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2">
+						<div className="md:w-[474px] w-[308px]">
+							<Select
+								openSelect={(a: boolean) => a}
+								selectOptions={user?.alfa_names_active}
+								getSelect={getUserName}
+								selectedOption={userName}
+								// widthValue={474}
+								startValue="Обрати"
+								defaultValue="Outlet"
 							/>
-						)}
+						</div>
+						<GreenButton size="normal" onClick={getIsOpened}>
+							Додати ім’я
+						</GreenButton>
 					</div>
+					{isOpened && (
+						<AddAlfaNameForm
+							userId={userId}
+							getUserNamesArray={getUserNamesArray}
+							getIsOpened={getIsOpened}
+						/>
+					)}
 					{!(
 						user?.alfa_names_disable?.length === undefined || user?.alfa_names_disable?.length === 0
 					) && (

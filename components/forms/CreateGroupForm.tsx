@@ -55,20 +55,22 @@ export default function CreateGroupForm({ id, getGroups }: Props) {
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className='mb-[50px] ml-[26px]'>
+			className='md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]'>
 			<label htmlFor='group_name' className='block mb-3.5 label'>
 				Назва групи
 			</label>
-			<div className='flex items-center'>
-				<input id="group_name"
-					type='text'
-					{...register("group_name")}
-					className='w-[474px] h-12 mr-8 px-4 input'
-					required
-				/>
-				{errors.group_name && (
-					<span className="text-red-500">{errors.group_name.message}</span>
-				)}
+			<div className='flex md:flex-row flex-col lg:gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2'>
+				<div className="md:w-[474px] w-full">
+					<input id="group_name"
+						type='text'
+						{...register("group_name")}
+						className='md:w-[474px] w-full h-12 px-4 input'
+						required
+					/>
+					{errors.group_name && (
+						<span className="text-red-500">{errors.group_name.message}</span>
+					)}
+				</div>
 				<GreenButton size="normal">Створити</GreenButton>
 			</div>
 		</form>

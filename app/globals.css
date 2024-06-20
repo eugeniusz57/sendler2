@@ -109,11 +109,15 @@ footer {
 }
 
 .content-block {
-  @apply w-full py-[50px] text-lg font-montserrat font-normal rounded-2xl bg-formBg;
+  @apply md:py-[50px] py-[28px] text-mainTextColor md:text-base text-sm md:leading-6 leading-[21px] font-montserrat rounded-[14px] bg-formBg;
 }
 
 .content-block__title {
   @apply text-2xl font-roboto font-medium;
+}
+
+.sms-page-box {
+  @apply md:py-[50px] py-[28px] lg:px-[26px] md:px-[20px] px-[10px] rounded-[14px] bg-formBg;
 }
 
 .action__btn {
@@ -213,7 +217,7 @@ footer {
 }
 
 .accent-main_text {
-  @apply text-xl font-normal font-roboto leading-[30px];
+  @apply lg:text-xl md:text-lg text-base font-normal font-roboto leading-[30px];
 }
 
 .main_text {
@@ -318,16 +322,6 @@ select::-ms-expand {
 
 .select-item {
   @apply h-6 mt-[5px] px-7 hover:bg-formBg font-montserrat font-normal text-base leading-6;
-}
-
-/* .sms-page-box {
-  padding: 50px 26px;
-  border-radius: 14px;
-  background-color: #cdeae3;
-} */
-
-.sms-page-box {
-  @apply py-[50px] lg:px-[26px] md:px-[20px] px-[10px] rounded-[14px] bg-[#cdeae3];
 }
 
 input[type='checkbox']:checked,
