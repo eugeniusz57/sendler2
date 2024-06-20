@@ -51,7 +51,7 @@ export default function HistoryTable({ id }: Props) {
     <>
       <div className="content-block">
         <HistoryPeriodForm />
-        <div className="justify-center lg:justify-start flex items-center gap-[100px] h-[58px] px-[26px] font-roboto text-[20px] text-white bg-[#417D8A]">
+        <div className="justify-center lg:justify-start flex items-center gap-[100px] h-[40px] md:h-[58px] px-[26px] font-roboto text-base md:text-xl text-white bg-[#417D8A]">
           <p className="lg:hidden">Розсилки</p>
           <p className="hidden lg:block w-[194px]">Шлях відправлення</p>
           <p className="hidden lg:block w-[184px]">Дата</p>
