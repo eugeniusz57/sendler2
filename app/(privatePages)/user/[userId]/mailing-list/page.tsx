@@ -322,7 +322,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 						Виберіть підпис (Ім&#39;я відправника), який буде відображатися замість номера
 						відправника SMS-повідомлення
 					</p>
-					<p className=" text-mainTextColor font-normal md:text-xl text-base md:mt-[50px] mt-[40px] label">
+					<p className=" text-mainTextColor font-normal lg:text-xl  md:text-lg sm:text-base md:mt-[50px] mt-[40px] label">
 						Ім’я відправника
 					</p>
 					<div className="flex md:flex-row flex-col gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2">

@@ -18,7 +18,7 @@ export default async function RootLayout({
 }) {
 	const session: ISession | null = await getServerSession(options);
 	return (
-		<main className="w-full pt-[60px] pb-20 flex flex-col items-center bg-white">
+		<main className="w-full pt-6 md:pt-[50px] md:pb-20 pb-[50px] flex flex-col items-center bg-white">
 			<section className="container">
 				{session?.user.user_role === 'user' && <UserSmsBalansInform session={session} />}
 				{children}

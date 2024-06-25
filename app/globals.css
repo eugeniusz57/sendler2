@@ -213,7 +213,7 @@ footer {
 }
 
 .title_block {
-  @apply text-[22px] font-normal font-roboto leading-[33px];
+  @apply lg:text-[22px] md:text-lg text-base font-normal font-roboto leading-[33px];
 }
 
 .accent-main_text {

@@ -19,14 +19,14 @@ export default function GroupsList({ groups, getGroups }: Props) {
 				<thead className="hidden lg:table-header-group">
 					<tr className='text-xl text-white font-roboto bg-headerTable'>
 						<th className='w-1/6 pl-[26px] pt-[18px] pb-[13px] text-left font-normal bg-headerTable'>Група</th>
-						<th className='w-1/5 pt-[18px] pb-[13px] text-left font-normal  bg-headerTable'>Оновлення</th>
+						<th className='w-1/4 pt-[18px] pb-[13px] text-left font-normal  bg-headerTable'>Оновлення</th>
 						<th className="w-[16%] pt-[18px] pb-[13px] text-left font-normal bg-headerTable">Кількість</th>
 						<th className="w-full pt-[18px] pb-[13px] text-left font-normal bg-headerTable"></th>
 					</tr>
 				</thead>
 				<thead className="lg:hidden table-header-group">
 					<tr className='text-xl text-white font-roboto bg-headerTable'>
-						<th className=' lg:w-1/6 lg:pl-[26px] md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-base text-center font-normal'>Групи</th>
+						<th className='md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-base text-center font-normal'>Групи</th>
 					</tr>
 				</thead>
 				<tbody>
