@@ -78,16 +78,17 @@ export default function ClientsList({
 	};
 
 	return (
-		<div className="mb-[80px]">
-			<div className="flex gap-x-8 w-full px-[26px] pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
+		<div>
+			<div className="hidden lg:flex gap-x-8 w-full px-[26px] pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
 				<p className="w-[158px] pl-[38px]">Номер</p>
 				<p className="w-[346px]">Ім&apos;я(П.І.Б.)</p>
 				<p className="w-[170px]">Дата народження</p>
 				<p className="w-[150px]">Параметр 1</p>
 				<p>Параметр 2</p>
 			</div>
+			<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Контакти групи</p>
 			<form onSubmit={handleSubmit(onSubmit)} className='scroll-bar'>
-				<ul className='h-[432px] overflow-auto'>
+				<ul className='h-[840px] md:h-[432px] overflow-auto'>
 					{convertClients?.length ? (
 						<RSC style={{ height: "100%" }}>
 							{convertClients.map(convertClient => (
@@ -122,18 +123,20 @@ export default function ClientsList({
 						</>
 					)}
 				</ul>
-				<div className="flex mr-[26px] pt-[50px] justify-end">
-					<div className="flex mr-[26px] justify-end">
+				<div className="flex gap-x-4 gap-x-3 lg:mr-[26px] md:mr-[20px] pt-6 md:pt-[50px] justify-center md:justify-end">
+					<div className="flex w-[144px] md:w-[198px]">
 						{groupId &&
 							<AddClient
 								groupId={groupId}
 								updateClients={updateClients}
 								getUpdate={getUpdate} />}
 					</div>
-					<GreenButton
-						isDisabled={convertClients?.length && isSelected ? false : true || isDisabled} size="big">
-						Видалити
-					</GreenButton>
+					<div className='w-[144px] md:w-[198px]'>
+						<GreenButton
+							isDisabled={convertClients?.length && isSelected ? false : true || isDisabled} size="big">
+							Видалити
+						</GreenButton>
+					</div>
 				</div>
 			</form>
 		</div>

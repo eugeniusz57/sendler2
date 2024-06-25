@@ -73,23 +73,25 @@ export default function SearchClientForm({ getFilter, resetFilter }: Props) {
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className='mb-[50px] ml-[26px]'>
-			<label htmlFor='tel' className='block mb-3.5 label'>
+			className='md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]'>
+			<label htmlFor='tel' className='block mb-3.5 label lg:text-xl md:text-lg sm:text-base text-base'>
 				Пошук за номером телефону
 			</label>
-			<div className="flex">
-				<input id="tel"
-					type='tel'
-					value={filter}
-					{...register("tel")}
-					className='w-[474px] h-12 mr-8 px-4 input'
-					onChange={onChange}
-					onKeyDown={EnterOnlyFigures}
-					required
-				/>
-				{errors.tel && (
-					<span className="form-errors">{errors.tel.message}</span>
-				)}
+			<div className="flex md:flex-row flex-col lg:gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2">
+				<div className="md:w-[474px] w-full">
+					<input id="tel"
+						type='tel'
+						value={filter}
+						{...register("tel")}
+						className='md:w-[474px] w-full h-12 px-4 input'
+						onChange={onChange}
+						onKeyDown={EnterOnlyFigures}
+						required
+					/>
+					{errors.tel && (
+						<span className="form-errors">{errors.tel.message}</span>
+					)}
+				</div>
 				<GreenButton size="normal" isDisabled={isDisabled}>Скинути</GreenButton>
 			</div>
 		</form>

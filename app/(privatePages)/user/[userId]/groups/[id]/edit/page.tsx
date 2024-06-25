@@ -52,14 +52,23 @@ export default function EditGroupPage({ params }: { params: { id: IGroupId, user
 	}, [memoizedupdateData, isUpdated])
 
 	return (
-		<section className="container mx-auto">
-			<Title type="h1" color="dark">Управління контактами</Title>
-			<div className="content-block mt-[60px]">
-				<div className="ml-[26px] mb-[50px]">
-					<Title type="title_block" color="dark">Редагування групи: <span className="ml-4 text-headerTable">{groupName}</span></Title>
+		<>
+			<Title type="h1" color="dark">
+				Управління контактами
+			</Title>
+			<div className="content-block md:mt-[60px] mt-[28px]">
+				<div className='md:mb-[50px] mb-[28px] lg:px-[26px] md:px-[20px] px-[10px]'>
+					<Title
+						type="title_block"
+						color="dark">
+						Редагування групи:
+						<span className="ml-4 text-headerTable">
+							{groupName}
+						</span>
+					</Title>
 				</div>
 				<SearchClientForm getFilter={getFilter} resetFilter={resetFilter} />
-				<div className="mt-[60px]">
+				<div>
 					<ClientsList
 						groupId={groupId}
 						filter={filter}
@@ -72,6 +81,6 @@ export default function EditGroupPage({ params }: { params: { id: IGroupId, user
 					/>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 }

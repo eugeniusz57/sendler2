@@ -13,7 +13,7 @@ const GreenButton = ({ size, onClick, children, isDisabled, isActive, type = "su
 	return (
 		<button
 			type={type}
-			className={`${size === "big" ? "w-[198px]" : "md:w-[144px] w-full"
+			className={`${size === "big" ? "md:w-[198px] w-full" : "md:w-[144px] w-full"
 				} py-[10px] rounded-[14px] ${isDisabled ? 'bg-disable text-textDisable' : isActive ? 'bg-hoverGreenBtn text-white' : 'bg-greenBtn hover:bg-hoverGreenBtn text-white'} text-base leading-6 flex items-center justify-center transition-colors`}
 			onClick={onClick}
 			disabled={isDisabled}
