@@ -71,7 +71,7 @@ const GeneralStatistics = () => {
   return (
     <>
     <BackBtn/>
-      <div className="flex items-center mb-8">
+      <div className="flex flex-wrap gap-y-4 md:flex-nowrap items-center mb-8 mt-4">
         <Link
           href={{
             pathname: `general-statistics/${day}/`,
@@ -82,7 +82,7 @@ const GeneralStatistics = () => {
         >
           id
         </Link>
-        <h1 className=" text-xl mr-4">Сортувати по місяцю: </h1>
+        <h2 className="text-medium md:text-xl mr-4">Сортувати по місяцю: </h2>
         <SelectMonth options={months} value={selectedMonth} onChange={handleMonthChange} />
       </div>
       <TableAdminStatistics userHistory={userHistory} />
