@@ -53,11 +53,7 @@ footer {
 }
 
 .form-title {
-  font-family: Roboto;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
+  @apply font-roboto text-xl md:text-[22px] not-italic font-medium leading-normal;
 }
 
 .modal-overlay-burger {

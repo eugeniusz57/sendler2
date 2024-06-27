@@ -125,16 +125,15 @@ const CreateClientForm = ({
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className="w-[526px] mx-auto pb-11 pt-[29px]  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg px-[26px]"
+			className="w-[328px] md:w-[526px] mx-auto pb-[28px] pt-11 px-[10px] md:px-[26px] flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg"
 			ref={refForm}
 		>
-			{title && !groupName && <p className="form-title mb-8 mt-[15px]">{title}</p>}
-			{title && groupName && <p className="form-title mb-8 mt-[15px]">{`${title} - ${groupName}`}</p>}
-			<div className="text-left w-full mb-8">
-
+			{title && !groupName && <p className="form-title mb-[22px] md:mb-8">{title}</p>}
+			{title && groupName && <p className="form-title mb-[22px] md:mb-8">{`${title} - ${groupName}`}</p>}
+			<div className="text-left w-full mb-[22px] mb-8">
 				<label
 					htmlFor="phone"
-					className="font-roboto text-sm font-medium mb-2  mt-8 block"
+					className="font-roboto text-xs md:text-sm font-medium mb-2 block"
 				>
 					Номер телефону
 					<span className="ml-1 text-red-700">*</span>
@@ -159,7 +158,7 @@ const CreateClientForm = ({
 
 				<label
 					htmlFor="lastName"
-					className="font-roboto text-sm font-medium mb-2 mt-8 block"
+					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
 					Прізвище
 				</label>
@@ -179,7 +178,7 @@ const CreateClientForm = ({
 
 				<label
 					htmlFor="firstName"
-					className="font-roboto text-sm font-medium mb-2 mt-8 block"
+					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
 					Ім&apos;я
 				</label>
@@ -199,7 +198,7 @@ const CreateClientForm = ({
 
 				<label
 					htmlFor="midleName"
-					className="font-roboto text-sm font-medium mb-2 mt-8 block"
+					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
 					По-батькові
 				</label>
@@ -219,19 +218,25 @@ const CreateClientForm = ({
 
 				<label
 					htmlFor="day"
-					className="font-roboto text-sm font-medium mb-2 mt-8 block"
+					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
 					Дата народження
 				</label>
-				<div className="flex gap-x-3 justify-center">
-					<SelectTime openSelect={openSelect} isModal={true} selectOptions={getTimeOptionsValues(1, 31)} getSelect={getDay} selectedOption={day} widthValue={118} startValue='' />
-					<SelectTime openSelect={openSelect} isModal={true} selectOptions={getTimeOptionsValues(1, 12)} getSelect={getMonth} selectedOption={month} widthValue={130} startValue='' />
-					<SelectTime openSelect={openSelect} isModal={true} selectOptions={getTimeOptionsValues(1900, new Date().getFullYear())} getSelect={getYear} selectedOption={year} widthValue={198} startValue='' />
+				<div className="flex gap-x-2 md:gap-x-3 justify-center">
+					<div className="w-[80px] md:w-[118px]">
+						<SelectTime openSelect={openSelect} isModal={true} selectOptions={getTimeOptionsValues(1, 31)} getSelect={getDay} selectedOption={day} startValue='' />
+					</div>
+					<div className="w-[92px] md:w-[130px]">
+						<SelectTime openSelect={openSelect} isModal={true} selectOptions={getTimeOptionsValues(1, 12)} getSelect={getMonth} selectedOption={month} startValue='' />
+					</div>
+					<div className="w-[120px] md:w-[194px]">
+						<SelectTime openSelect={openSelect} isModal={true} selectOptions={getTimeOptionsValues(1900, new Date().getFullYear())} getSelect={getYear} selectedOption={year} startValue='' />
+					</div>
 				</div>
 
 				<label
 					htmlFor="parameter1"
-					className="font-roboto text-sm font-medium mb-2 mt-8 block"
+					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
 					Параметр 1
 				</label>
@@ -250,7 +255,7 @@ const CreateClientForm = ({
 
 				<label
 					htmlFor="parameter2"
-					className="font-roboto text-sm font-medium mb-2 mt-8 block"
+					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
 					Параметр 2
 				</label>

@@ -47,7 +47,7 @@ const EditClient = ({ groupId,
 						currentClient={client}
 						updateClients={updateClients}
 						getUpdate={getUpdate}
-						title='Редагування групи'
+						title='Редагування контакту'
 					/> :
 					<CreateClientForm
 						onClose={closeModal}

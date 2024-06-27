@@ -50,7 +50,7 @@ const AddClient = ({ groupId, updateClients, getUpdate }: Props) => {
 					openSelect={openSelect}
 					updateClients={updateClients}
 					groupId={groupId}
-					getUpdate={getUpdate} title='Редагування групи' />
+					getUpdate={getUpdate} title='Додати контакт' />
 			</Modal>
 		</>
 	);
