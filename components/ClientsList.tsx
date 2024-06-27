@@ -86,7 +86,7 @@ export default function ClientsList({
 				<p className="w-[150px]">Параметр 1</p>
 				<p>Параметр 2</p>
 			</div>
-			<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Контакти групи</p>
+			<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Контакти</p>
 			<form onSubmit={handleSubmit(onSubmit)} className='scroll-bar'>
 				<ul className='h-[840px] md:h-[432px] overflow-auto'>
 					{convertClients?.length ? (
