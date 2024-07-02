@@ -48,17 +48,19 @@ export default function AllContactsUserPage({ params }: { params: { id: string, 
 	}, [memoizedupdateData, isUpdated]);
 
 	return (
-		<section className="container mx-auto">
+		<>
 			<Title type="h1" color="dark">
 				Управління контактами
 			</Title>
-			<div className="content-block mt-[60px]">
-				<div className="ml-[26px] mb-[50px]">
-					<Title type="accent-main_text" color="dark">
+			<div className="content-block md:mt-[60px] mt-[28px]">
+				<div className="md:mb-[50px] mb-[28px] lg:px-[26px] md:px-[20px] px-[10px]">
+					<Title
+						type="accent-main_text"
+						color="dark">
 						Всі контакти
 					</Title>
 				</div>
-				<p className="w-[684px] ml-[26px] mt-10 mb-[50px] font-montserrat text-base font-normal leading-6">
+				<p className="lg:w-[724px] md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px] leading-6">
 					У данній таблиці представленні всі ваші контакти. Ви можете переглянути детальну
 					інформацію, а також редагувати контакт.
 				</p>
@@ -75,7 +77,7 @@ export default function AllContactsUserPage({ params }: { params: { id: string, 
 					/>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 }
 

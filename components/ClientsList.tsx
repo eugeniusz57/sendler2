@@ -124,19 +124,28 @@ export default function ClientsList({
 					)}
 				</ul>
 				<div className="flex gap-x-4 gap-x-3 lg:mr-[26px] md:mr-[20px] pt-6 md:pt-[50px] justify-center md:justify-end">
-					<div className="flex w-[144px] md:w-[198px]">
-						{groupId &&
-							<AddClient
-								groupId={groupId}
-								updateClients={updateClients}
-								getUpdate={getUpdate} />}
-					</div>
-					<div className='w-[144px] md:w-[198px]'>
-						<GreenButton
-							isDisabled={convertClients?.length && isSelected ? false : true || isDisabled} size="big">
-							Видалити
-						</GreenButton>
-					</div>
+					{groupId ?
+						<>
+							<div className="flex w-[144px] md:w-[198px]">
+								<AddClient
+									groupId={groupId}
+									updateClients={updateClients}
+									getUpdate={getUpdate} />
+							</div>
+							<div className='w-[144px] md:w-[198px]'>
+								<GreenButton
+									isDisabled={convertClients?.length && isSelected ? false : true || isDisabled} size="big">
+									Видалити
+								</GreenButton>
+							</div>
+						</> :
+						<div className='w-full md:w-[198px] px-[10px] md:px-0'>
+							<GreenButton
+								isDisabled={convertClients?.length && isSelected ? false : true || isDisabled} size="big">
+								Видалити
+							</GreenButton>
+						</div>
+					}
 				</div>
 			</form>
 		</div>

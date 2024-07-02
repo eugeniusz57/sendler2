@@ -32,7 +32,7 @@ export default function ContactManagmentPage({ params }: { params: { userId: str
 				Управління контактами
 			</Title>
 			<div className="content-block md:mt-[60px] mt-[28px]">
-				<p className='md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]'>Для початку роботи Вам потрібно створити нову Групу контактів та додати до неї номери. Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.</p>
+				<p className='lg:w-[776px] md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px] leading-6'>Для початку роботи Вам потрібно створити нову Групу контактів та додати до неї номери. Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.</p>
 				<CreateGroupForm id={userId} getGroups={getData} />
 				<GroupsList groups={groups} getGroups={getData} />
 				<div className=" lg:px-[26px] md:px-[20px] px-[10px]">

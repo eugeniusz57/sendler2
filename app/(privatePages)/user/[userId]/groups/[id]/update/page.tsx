@@ -65,26 +65,26 @@ export default function UpdateGroupPage({ params }: { params: { id: IGroupId, us
 	}, [file, groupId, router, userId]);
 
 	return (
-		<section className="container mx-auto">
+		<>
 			<Title type="h1" color="dark">
 				Управління контактами
 			</Title>
-			<div className="content-block mt-[53px]">
-				<div className=" ml-[26px]">
+			<div className="content-block md:mt-[60px] mt-[28px] lg:px-[26px] md:px-[20px] px-[10px]">
+				<div className='md:mb-[50px] mb-[28px]'>
 					<Title type="title_block" color="dark">
 						Редагування групи:
 						<span className="ml-4 text-headerTable">{`${groupName} (${numberClients})`}</span>
 					</Title>
 				</div>
-				<p className="w-[724px] mb-[50px] mt-10 ml-[26px] text-left main_text">
+				<p className="lg:w-[724px] md:mb-[50px] mb-[40px] leading-6">
 					Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.
 					Виберіть файл, який містить Ваші контакти:
 				</p>
-				<p className="block ml-[26px] mb-3 label"> Додати контакт з файлу</p>
-				<div className="relative flex flex-row text-base flex items-center justify-start ml-[26px]">
+				<p className="block mb-2 md:mb-3 label"> Додати контакт з файлу</p>
+				<div className="relative flex flex-col md:flex-row gap-6 md:gap-0 text-base flex items-center justify-start">
 					<label
 						htmlFor="file"
-						className="flex items-center justify-between w-[474px] block input w-8 h-[48px] mr-8 pr-[28px]  pl-[28px] bg-slate-300 hover:cursor-pointer"
+						className="flex items-center justify-between w-full md:w-[474px] block input w-8 h-[48px] md:mr-8 pr-[28px] pl-[28px] bg-slate-300 hover:cursor-pointer"
 					>
 						<div className="grow main_text">{file?.name}</div>
 						<Image src="/svg/paper-clip.svg" alt="paper clip" width={32} height={32} className="" />
@@ -102,6 +102,6 @@ export default function UpdateGroupPage({ params }: { params: { id: IGroupId, us
 					</GreenButton>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 }
