@@ -92,9 +92,9 @@ const UpdateUserForm = ({ userId }: Props) => {
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className={`max-w-[526px] mx-auto p-[26px] ${isOpen ? "form-visible" : "form-hidden"} justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg overflow-hidden`}
+			className={`w-[328px] md:w-[526px] mx-auto p-[26px] ${isOpen ? "form-visible" : "form-hidden"} justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg overflow-hidden`}
 		>
-			<div className="relative w-full text-center">
+			<div className="relative w-full text-center mb-8">
 				<p color="dark" className="form-title">Анкета користувача</p>
 				<button type="button" onClick={onClick} className="absolute top-1/2 right-0 translate-y-[-50%]">
 					{isOpen ? <Image
@@ -126,7 +126,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							type="text"
 							defaultValue={user_login}
 							{...register("login")}
-							className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 input"
+							className="w-full h-12 border py-2 px-3 focus:outline-none focus:border-blue-500 input"
 							placeholder="Your login"
 							required
 						/>
@@ -137,7 +137,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 
 					<label
 						htmlFor="password"
-						className="font-roboto text-sm font-medium mb-2  mt-8 block"
+						className="font-roboto text-sm font-medium mb-2 mt-8 block"
 					>
 						Пароль
 						<span className="ml-1 text-red-700">*</span>
@@ -147,7 +147,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							id="password"
 							type="password"
 							{...register("password")}
-							className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 input"
+							className="w-full h-12 border py-2 px-3 focus:outline-none focus:border-blue-500 input"
 							required
 						/>
 						{errors.password && (
@@ -167,7 +167,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							id="newPassword"
 							type="password"
 							{...register("newPassword")}
-							className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 input"
+							className="w-full h-12 border py-2 px-3 focus:outline-none focus:border-blue-500 input"
 							required
 						/>
 						{errors.newPassword && (
@@ -188,7 +188,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							type="text"
 							defaultValue={user_name}
 							{...register("userName")}
-							className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 input"
+							className="w-full h-12 border py-2 px-3 focus:outline-none focus:border-blue-500 input"
 							placeholder="Менеджер Петренко"
 							required
 						/>
@@ -205,13 +205,13 @@ const UpdateUserForm = ({ userId }: Props) => {
 						<span className="ml-1 text-red-700">*</span>
 					</label>
 					<div className="flex relative">
-						<span className="absolute left-3 top-[9px]">+380</span>
+						<span className="absolute left-3 top-[13px]">+380</span>
 						<input
 							id="phone"
 							type="text"
 							defaultValue={(tel).slice(3, (tel).length)}
 							{...register("phone")}
-							className="w-full border py-2 pr-11 pl-[50px] focus:outline-none focus:border-blue-500 input"
+							className="w-full h-12 border py-2 pr-11 pl-[50px] focus:outline-none focus:border-blue-500 input"
 							placeholder="675555544"
 							required
 						/>
@@ -233,7 +233,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							type="email"
 							defaultValue={email}
 							{...register("email")}
-							className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 input"
+							className="w-full h-12 border py-2 px-3 focus:outline-none focus:border-blue-500 input"
 							placeholder="example@mail.com"
 							required
 						/>

@@ -189,7 +189,7 @@ footer {
 }
 
 .form-visible {
-  height: 744px;
+  height: 815px;
   -webkit-transition: height 1s;
   transition: height;
   transition-duration: 200ms;
