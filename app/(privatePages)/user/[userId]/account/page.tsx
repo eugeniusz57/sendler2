@@ -73,129 +73,131 @@ export default function UserAccountPage() {
 
 	return (
 		<>
-			<Title type="h2" color="dark">
+			<Title type="h1" color="dark">
 				Особистий кабінет
 			</Title>
-			<div className="content-block mb-20 mt-[50px] px-[26px] r">
-				<div className='flex  items-center mb-20'>
-					<div>
-						<div className="mb-10">
-							<Title type="accent-main_text" color="dark">
-								Кількість СМС
-							</Title>
-						</div>
-						<div className="flex gap-16">
-							<div className="flex flex-col gap-8">
-								<div className="flex">
-									<div className="w-44 mr-2">Проплачено СМС</div>
-									<div className="min-w-[80px] text-end text-xl font-montserrat font-normal mr-2">{user?.paid_sms}</div>
-									<div className="text-xl font-montserrat font-normal">SMS</div>
+			<div className="flex flex-col md:gap-[80px] gap-[50px] md:mt-[60px] mt-[28px]">
+				<div className="content-block px-[10px] md:px-[20px] lg:px-[26px]">
+					<div className='flex flex-col md:flex-row'>
+						<div>
+							<div className="mb-10">
+								<Title type="accent-main_text" color="dark">
+									Кількість СМС
+								</Title>
+							</div>
+							<div className="flex flex-col lg:flex-row gap-16">
+								<div className="flex flex-col gap-8">
+									<div className="flex">
+										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">Проплачено СМС</div>
+										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.paid_sms}</div>
+										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
+									</div>
+									<div className="flex">
+										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">Скореговано СМС</div>
+										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.adjusment_sms}</div>
+										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
+									</div>
+									<div className="flex">
+										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">Баланс на рахунку</div>
+										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.balance}</div>
+										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
+									</div>
 								</div>
-								<div className="flex">
-									<div className="w-44 mr-2">Скореговано СМС</div>
-									<div className="min-w-[80px] text-end text-xl font-montserrat font-normal mr-2">{user?.adjusment_sms}</div>
-									<div className="text-xl font-montserrat font-normal">SMS</div>
-								</div>
-								<div className="flex">
-									<div className="w-44 mr-2">Баланс на рахунку</div>
-									<div className="min-w-[80px] text-end text-xl font-montserrat font-normal mr-2">{user?.balance}</div>
-									<div className="text-xl font-montserrat font-normal">SMS</div>
+								<div className="flex flex-col gap-8">
+									<div className="flex">
+										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">Всього відправлено</div>
+										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.sent_sms}</div>
+										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
+									</div>
+									<div className="flex relative">
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">Усього доставлено</div>
+										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.delivered_sms}</div>
+										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
+										<div className="h-5 w-5 rounded-full bg-[#FFBB28]  absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
+									</div>
+									<div className="flex relative">
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">В процесі відправки</div>
+										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.pending_sms}</div>
+										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
+										<div className="h-5 w-5 rounded-full bg-[#00C49F] absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
+									</div>
+									<div className="flex relative">
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">Відхилені</div>
+										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.rejected_sms}</div>
+										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
+										<div className="h-5 w-5 rounded-full  bg-[#0088FE] absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
+									</div>
 								</div>
 							</div>
-							<div className="flex flex-col gap-8">
-								<div className="flex">
-									<div className="w-52 mr-2">Всього відправлено</div>
-									<div className="min-w-[80px] text-end text-xl font-montserrat font-normal mr-2">{user?.sent_sms}</div>
-									<div className="text-xl font-montserrat font-normal">SMS</div>
-								</div>
-								<div className="flex relative">
-									<div className="w-52 mr-2">Усього доставлено</div>
-									<div className="min-w-[80px] text-end text-xl font-montserrat font-normal mr-2">{user?.delivered_sms}</div>
-									<div className="text-xl font-montserrat font-normal">SMS</div>
-									<div className="h-5 w-5 rounded-full bg-[#FFBB28]  absolute right-[-30px] top-1/2 transform -translate-y-1/2"></div>
-								</div>
-								<div className="flex relative">
-									<div className="w-52 mr-2  ">В процесі відправки</div>
-									<div className="min-w-[80px] text-end text-xl font-montserrat font-normal mr-2">{user?.pending_sms}</div>
-									<div className="text-xl font-montserrat font-normal">SMS</div>
-									<div className="h-5 w-5 rounded-full bg-[#00C49F] absolute right-[-30px] top-1/2 transform -translate-y-1/2"></div>
-								</div>
-								<div className="flex relative">
-									<div className="w-52 mr-2">Відхилені</div>
-									<div className="min-w-[80px] text-end text-xl font-montserrat font-normal mr-2">{user?.rejected_sms}</div>
-									<div className="text-xl font-montserrat font-normal">SMS</div>
-									<div className="h-5 w-5 rounded-full  bg-[#0088FE] absolute right-[-30px] top-1/2 transform -translate-y-1/2"></div>
-								</div>
-							</div>
+						</div>
+						<div className="md:self-end w-full md:w-[280px] lg:w-[300px] h-[180px] lg:h-[300px] p-2 xl:ml-40 lg:ml-16">
+							<CircleDiagram data={data} />
 						</div>
 					</div>
-					<div className="w-[300px] h-[300px] p-2 ml-40">
-						<CircleDiagram data={data} />
-					</div>
+					{!((user?.sendingSms)?.length === 0) && (
+						<>
+							<p className='mb-2 lg:mb-4 mt-4 md:mt-8 lg:mt-0'>Стан відправки СМС в реальному часі:</p>
+							<ul>
+								{user?.sendingSms?.map((item, index) => (
+									<li key={index}>
+										<LineDiagram process={item} />
+									</li>
+								))}
+							</ul>
+						</>
+					)}
 				</div>
-				{!((user?.sendingSms)?.length === 0) && (
-					<>
-						<p className='mb-4'>Стан відправки СМС в реальному часі:</p>
-						<ul>
-							{user?.sendingSms?.map((item, index) => (
-								<li key={index}>
-									<LineDiagram process={item} />
-								</li>
-							))}
-						</ul>
-					</>
-				)}
-			</div>
-			<div className="content-block mb-20">
-				<div className="pl-[26px]">
+				<div className="content-block">
+					<div className="pl-[26px]">
+						<Title type="accent-main_text" color="dark">
+							Історія платежів
+						</Title>
+					</div>
+					{userId && <PaymentsList arrayUserPaymentHistory={user?.paymentHistory} />}
+				</div>
+				<div className="content-block px-[10px] md:px-[20px] lg:px-[26px]">
 					<Title type="accent-main_text" color="dark">
-						Історія платежів
+						Поповнити рахунок
 					</Title>
+					<p className="mt-10 mb-3">Введіть потрібну кількість SMS</p>
+					<CreateAccount />
+					<button
+						onClick={toggleDescription}
+						className="flex justify-between  items-center text-start w-full md:w-[626px] lg:w-[746px] px-4 md:px-6 py-3 md:py-4 lg:py-5 mb-[28px] md:mb-12 border border-cyan-700 rounded-[18px] lg:ml-6"
+					>
+						<h3 className="max-w-[575px] lg:max-w-none lg:text-xl text-base md:text-lg font-roboto block">Переглянути ціну за SMS</h3>
+						<span className="block ml-10">
+							{expanded ? (
+								<Image
+									src="/svg/arrow-down.svg"
+									alt="buton detailes"
+									width={32}
+									height={32}
+								/>
+							) : (
+								<Image
+									src="/svg/arrow-up.svg"
+									alt="buton detailes"
+									width={32}
+									height={32}
+								/>
+							)}
+						</span>
+					</button>
+					<div
+						className={` text-[16px] mt-4 lg:mt-5 lg:pr-[196px] pb-4 lg:pb-5 ${expanded ? "hidden " : " blok"
+							}`}
+					>
+						<TablePrices />
+					</div>
+					<p className="w-fullmd:w-[906px] text-base md:text-lg lg:text-xl accent-main_text">
+						Якщо Ви працюєте з ТОВ &quot;Інноваційні медіа рішення&quot; за договором як Юридична
+						особа, то для виставлення рахунку Вам потрібно зв&apos;язатися з нами або зателефонувати
+						нам за номером (097) 678-12-59.
+					</p>
 				</div>
-				{userId && <PaymentsList arrayUserPaymentHistory={user?.paymentHistory} />}
+				<UpdateUserForm userId={userId} />
 			</div>
-			<div className="content-block mb-20 pl-[26px]">
-				<Title type="accent-main_text" color="dark">
-					Поповнити рахунок
-				</Title>
-				<p className="mt-10 mb-3">Введіть потрібну кількість SMS</p>
-				<CreateAccount />
-				<button
-					onClick={toggleDescription}
-					className="flex justify-between  items-center text-start lg:w-[746px] w-[626px] py-4 lg:py-5 mb-12 border border-cyan-700 rounded-[18px] px-6 lg:ml-6"
-				>
-					<h3 className="max-w-[575px] lg:max-w-none lg:text-xl text-lg font-roboto block">Переглянути ціну за SMS</h3>
-					<span className="block ml-10">
-						{expanded ? (
-							<Image
-								src="/svg/arrow-down.svg"
-								alt="buton detailes"
-								width={32}
-								height={32}
-							/>
-						) : (
-							<Image
-								src="/svg/arrow-up.svg"
-								alt="buton detailes"
-								width={32}
-								height={32}
-							/>
-						)}
-					</span>
-				</button>
-				<div
-					className={` text-[16px] mt-4 lg:mt-5 lg:pr-[196px] pb-4 lg:pb-5 ${expanded ? "hidden " : " blok"
-						}`}
-				>
-					<TablePrices />
-				</div>
-				<p className="w-[906px] text-xl accent-main_text">
-					Якщо Ви працюєте з ТОВ &quot;Інноваційні медіа рішення&quot; за договором як Юридична
-					особа, то для виставлення рахунку Вам потрібно зв&apos;язатися з нами або зателефонувати
-					нам за номером (097) 678-12-59.
-				</p>
-			</div>
-			<UpdateUserForm userId={userId} />
 		</>
 	);
 }
