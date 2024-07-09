@@ -57,6 +57,8 @@ export default function UpdateGroupPage({ params }: { params: { id: IGroupId, us
 			const wsname = wb.SheetNames[0];
 			const clients = XLSX.utils.sheet_to_json(wb.Sheets[wsname], { header });
 
+			clients.shift();
+
 			await updateGroup(clients, groupId);
 			router.push(`/user/${userId}/groups`);
 		} else {

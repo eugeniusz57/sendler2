@@ -40,7 +40,6 @@ export default async function fetchUser(id: string): Promise<IUser | null> {
 		const rejectedSmsData = fetchUserRejectedSms(Number(id));
 		const paidSmsData = fetchUserPaidSms(Number(id));
 		const adjusmentSmsData = fetchUserAdjusmentSms(Number(id));
-		const paymentHistoryData = fetchUserPaymentHistory(Number(id));
 		const userResData = fetchUserDataFromDatabase(Number(id));
 		const updateUserBalanceData = updateUserBalance(Number(id));
 		const sendingSmsData = fetchUserSmsSendingInProgress(Number(id));
@@ -53,7 +52,6 @@ export default async function fetchUser(id: string): Promise<IUser | null> {
 			rejectedSms,
 			paidSms,
 			adjusmentSms,
-			paymentHistory,
 			userRes,
 			updateUserBal,
 			sendingSms
@@ -64,7 +62,6 @@ export default async function fetchUser(id: string): Promise<IUser | null> {
 				PromiseSettledResult<QueryResult<IResRejectedSms>>,
 				PromiseSettledResult<QueryResult<IResPaidSms>>,
 				PromiseSettledResult<QueryResult<IResAjustmentSms>>,
-				PromiseSettledResult<QueryResult<IPaymentHistory>>,
 				PromiseSettledResult<QueryResult<IUser>>,
 				PromiseSettledResult<number | null>,
 				PromiseSettledResult<ISendingProcess[]>
@@ -76,7 +73,6 @@ export default async function fetchUser(id: string): Promise<IUser | null> {
 				rejectedSmsData,
 				paidSmsData,
 				adjusmentSmsData,
-				paymentHistoryData,
 				userResData,
 				updateUserBalanceData,
 				sendingSmsData
@@ -136,12 +132,6 @@ export default async function fetchUser(id: string): Promise<IUser | null> {
 				user.adjusment_sms = Number(adjusmentSms?.value.rows[0].sum);
 			} else {
 				throw adjusmentSms.reason;
-			};
-
-			if (paymentHistory.status === 'fulfilled') {
-				user.paymentHistory = paymentHistory?.value.rows;
-			} else {
-				throw paymentHistory.reason;
 			};
 
 			if (sendingSms.status === 'fulfilled') {

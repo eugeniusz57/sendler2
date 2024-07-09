@@ -9,7 +9,7 @@ import { IUser } from "@/globaltypes/types";
 import { fetchUser } from "@/api-actions";
 
 
-export async function GET(req: Request, { params }: { params: { id: string } }): Promise<NextResponse<{
+export async function GET(request: Request, { params }: { params: { id: string } }): Promise<NextResponse<{
 	message: string;
 }> | NextResponse<{
 	user: IUser | NextResponse<{
@@ -40,7 +40,6 @@ export async function GET(req: Request, { params }: { params: { id: string } }):
 			{ error: error.message },
 			{ status: 500 });
 	}
-
 };
 
 // update user

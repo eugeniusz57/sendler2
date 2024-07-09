@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { io } from 'socket.io-client';
 import { useSession } from 'next-auth/react';
 
@@ -9,8 +9,9 @@ import { UpdateUserForm } from '@/components/forms/UpdateUserForm';
 import CreateAccount from '@/components/CreateAccount';
 import PaymentsList from '@/components/PaymentsList';
 import { getUser } from '@/fetch-actions/usersFetchActions';
+import { getUserPaymentHistory } from '@/fetch-actions/usersFetchActions';
 
-import { IUser } from '@/globaltypes/types';
+import { IPaymentHistory, IUser } from '@/globaltypes/types';
 import React from 'react';
 import CircleDiagram from '@/components/CircleDiagram';
 
@@ -18,14 +19,16 @@ import LineDiagram from '@/components/LineDiagram';
 import TablePrices from '@/components/TablePrices';
 import Image from 'next/image';
 
+const LIMIT = 5;
 
 export default function UserAccountPage() {
 	const { data: session } = useSession();
 
 	const userId = session?.user.user_id;
 	const [user, setUser] = useState<IUser>();
+	const [payments, setPayments] = useState<IPaymentHistory[] | undefined>([]);
 	const [socket, setSocket] = useState<any>(undefined);
-	// const [sending, setSending] = useState<ISendingProcess>();
+	const [isUpdated, setIsUpdated] = useState<boolean>(false);
 	const message = userId;
 	const roomName = userId;
 	let NEXT_PUBLIC_SOCKET_URL: string;
@@ -40,8 +43,10 @@ export default function UserAccountPage() {
 		const getData = async () => {
 			if (userId) {
 				const res = await getUser(userId);
+				const paymentRes = await getUserPaymentHistory(userId, LIMIT, 0);
 				if (res) {
 					setUser(res.data.user);
+					setPayments(paymentRes?.data.payments)
 				};
 			};
 		};
@@ -54,8 +59,6 @@ export default function UserAccountPage() {
 				setUser(user);
 			};
 		});
-
-		// console.log("USER", user)
 	}, [userId, message, roomName, NEXT_PUBLIC_SOCKET_URL]);
 
 
@@ -153,7 +156,13 @@ export default function UserAccountPage() {
 							Історія платежів
 						</Title>
 					</div>
-					{userId && <PaymentsList arrayUserPaymentHistory={user?.paymentHistory} />}
+					{userId &&
+						<PaymentsList
+							userId={userId}
+							arrayUserPaymentHistory={payments}
+							isUpdated={isUpdated}
+							LIMIT={LIMIT}
+						/>}
 				</div>
 				<div className="content-block px-[10px] md:px-[20px] lg:px-[26px]">
 					<Title type="accent-main_text" color="dark">

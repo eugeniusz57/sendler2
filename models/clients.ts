@@ -10,11 +10,11 @@ import {
 
 export const schemaClient: Joi.ObjectSchema<IClient> = Joi.object({
 	tel: Joi.string()
-		.pattern(/^\d{12,}$/)
+		.pattern(/^\d{12}$/)
 		.required()
 		.messages({
 			"string.pattern.base":
-				'Phone number must  have at least 13 digits',
+				'Phone number must  have at least 12 digits',
 		}),
 	first_name: Joi.string().allow(""),
 	middle_name: Joi.string().allow(""),
@@ -27,11 +27,11 @@ export const schemaClient: Joi.ObjectSchema<IClient> = Joi.object({
 export const schemaClientDataBase: Joi.ObjectSchema<IClient> = Joi.object({
 	client_id: Joi.number().required(),
 	tel: Joi.string()
-		.pattern(/^\d{12,}$/)
+		.pattern(/^\d{12}$/)
 		.required()
 		.messages({
 			"string.pattern.base":
-				'Phone number must have at least 13 digits',
+				'Phone number must have at least 12 digits',
 		}),
 	first_name: Joi.string().allow(""),
 	middle_name: Joi.string().allow(""),

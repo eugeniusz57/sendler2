@@ -42,7 +42,6 @@ export default function AllContactsUserPage({ params }: { params: { id: string, 
 	};
 
 	const memoizedupdateData = useCallback(updateData, [filter, userId]);
-
 	useEffect(() => {
 		memoizedupdateData();
 	}, [memoizedupdateData, isUpdated]);
