@@ -78,7 +78,7 @@ export default function UserAccountPage() {
 			</Title>
 			<div className="flex flex-col md:gap-[80px] gap-[50px] md:mt-[60px] mt-[28px]">
 				<div className="content-block px-[10px] md:px-[20px] lg:px-[26px]">
-					<div className='flex flex-col md:flex-row'>
+					<div className='flex flex-col gap-y-4 md:gap-y-0 md:flex-row justify-between lg:justify-start'>
 						<div>
 							<div className="mb-10">
 								<Title type="accent-main_text" color="dark">
@@ -110,19 +110,19 @@ export default function UserAccountPage() {
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 									</div>
 									<div className="flex relative">
-										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">Усього доставлено</div>
+										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">Усього доставлено</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.delivered_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 										<div className="h-5 w-5 rounded-full bg-[#FFBB28]  absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
 									</div>
 									<div className="flex relative">
-										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">В процесі відправки</div>
+										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">В процесі відправки</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.pending_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 										<div className="h-5 w-5 rounded-full bg-[#00C49F] absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
 									</div>
 									<div className="flex relative">
-										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">Відхилені</div>
+										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">Відхилені</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.rejected_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 										<div className="h-5 w-5 rounded-full  bg-[#0088FE] absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
@@ -163,7 +163,7 @@ export default function UserAccountPage() {
 					<CreateAccount />
 					<button
 						onClick={toggleDescription}
-						className="flex justify-between  items-center text-start w-full md:w-[626px] lg:w-[746px] px-4 md:px-6 py-3 md:py-4 lg:py-5 mb-[28px] md:mb-12 border border-cyan-700 rounded-[18px] lg:ml-6"
+						className="flex justify-between  items-center text-start w-full md:w-[626px] lg:w-[746px] px-4 md:px-6 py-3 md:py-4 lg:py-5 mb-[28px] md:mb-12 border border-cyan-700 rounded-[18px]"
 					>
 						<h3 className="max-w-[575px] lg:max-w-none lg:text-xl text-base md:text-lg font-roboto block">Переглянути ціну за SMS</h3>
 						<span className="block ml-10">
