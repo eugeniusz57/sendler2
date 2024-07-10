@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -38,7 +36,6 @@ export default function LoadMore({
 	const [ref, inView] = useInView();
 
 	const loadMoreClients = async () => {
-
 		if (visible <= clients.length + LIMIT)
 			if (groupId) {
 				const res = await getGroupClientsAndGroupName(groupId, filter, LIMIT, visible);

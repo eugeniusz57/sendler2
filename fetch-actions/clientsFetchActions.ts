@@ -25,7 +25,7 @@ export async function getGroupClientsAndGroupName(
 		if (groupId) {
 			const res = await api.get<IGetGroupClientsAndGroupName, AxiosResponse<IGetGroupClientsAndGroupName>, {
 				filter: string,
-				limit: number,
+				limit: number | null,
 				visible: number
 			}>
 				(`api/sending-groups/${groupId}`, {

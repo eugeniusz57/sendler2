@@ -112,7 +112,6 @@ export default function ClientsList({
 								getUpdate={getUpdate}
 							/>
 						</RSC>
-
 					) : (
 						<>
 							<div className="flex  px-[26px] items-center h-[48px]  text-base font-montserrat font-normal border-b border-rowUnderLine">

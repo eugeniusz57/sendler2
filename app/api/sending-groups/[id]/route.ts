@@ -1,5 +1,4 @@
 import { NextResponse, NextRequest } from "next/server";
-
 import HttpError from "@/helpers/HttpError";
 
 import {
@@ -9,10 +8,8 @@ import {
 	editGroup,
 } from '@/app/api/controllers/sending-groups';
 
-
 import { IClientDatabase } from "@/globaltypes/types";
 import { IQieryParamsUpdateGroup } from "./types";
-
 import { schemaReqUpdateGroup, schemaReqEditGroup } from '@/models/sending-groups';
 
 // get one group with id from params
@@ -27,14 +24,13 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 	message: string;
 	error: any;
 }>> {
-
-	const { searchParams }: URL = new URL(request.url);
-	const groupId = Number(params.id);
-	const filter = String(searchParams.get("filter"));
-	const visible = Number(searchParams.get("visible"));
-	const limit = searchParams.get("limit") === null ? null : Number(searchParams.get("limit"));
-
 	try {
+		const { searchParams }: URL = new URL(request.url);
+		const groupId = Number(params.id);
+		const filter = String(searchParams.get("filter"));
+		const visible = Number(searchParams.get("visible"));
+		const limit = searchParams.get("limit") === null ? null : Number(searchParams.get("limit"));
+
 		const res: { groupName: string, clients: IClientDatabase[] } | NextResponse<{ message: string; }> | null = await getGroupClients(groupId, limit, visible, filter);
 		if (res === null) {
 			return HttpError(400, `The group with id = ${groupId} does not exist`);
@@ -49,8 +45,8 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 			{ message: "Failed to get a groups list", error: error.message },
 			{ status: 500 }
 		);
-	}
-}
+	};
+};
 
 // delete one group with id from params
 export async function DELETE(_request: NextRequest, { params }: { params: { id: string } }): Promise<NextResponse<{ message: string; }> | NextResponse<{ error: string; }>> {
@@ -73,8 +69,8 @@ export async function DELETE(_request: NextRequest, { params }: { params: { id: 
 			{ message: "Failed to delete a group", error: error.message },
 			{ status: 500 }
 		);
-	}
-}
+	};
+};
 
 //update one group with id from params
 export async function PUT(request: NextRequest, { params }: { params: { id: string } }): Promise<NextResponse<{
@@ -82,7 +78,6 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 }> | NextResponse<{
 	error: any;
 }>> {
-
 	try {
 		const body: IQieryParamsUpdateGroup = await request.json();
 		const { error, value } = schemaReqUpdateGroup.validate(body);
@@ -92,7 +87,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 				{ error: error.message },
 				{ status: 400 }
 			);
-		}
+		};
 
 		const { clients } = value;
 
@@ -112,7 +107,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 
 		if (resUpdate === null) {
 			return HttpError(400, `The group with id = ${groupId} does not exist`);
-		}
+		};
 
 		return NextResponse.json(
 			{ message: `The group has been updated` },
@@ -139,7 +134,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
 				{ error: error.message },
 				{ status: 400 }
 			);
-		}
+		};
 
 		const { clients } = value;
 
@@ -148,11 +143,10 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
 				{ message: `The group is empty` },
 				{ status: 200 }
 			);
-		}
+		};
 
 		const groupId = Number(params.id);
 		const method: string = request.method;
-
 
 		const resUpdate: null | NextResponse<{
 			error: string;
@@ -160,7 +154,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
 
 		if (resUpdate === null) {
 			return HttpError(400, `The group with id = ${groupId} does not exist`);
-		}
+		};
 
 		return NextResponse.json(
 			{ message: `Clients have been deleted` },
@@ -168,7 +162,6 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
 		);
 	} catch (error: any) {
 		return NextResponse.json({ error: error.message }, { status: 500 });
-
-	}
-}
+	};
+};
 

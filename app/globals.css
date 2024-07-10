@@ -350,8 +350,7 @@ input[type='checkbox']:not(:checked) + label:before {
   transform: translateY(-50%);
 }
 
-input[type='checkbox']:checked + label:after,
-input[type='checkbox']:not(:checked) + label:after {
+input[type='checkbox']:checked + label:after {
   content: '';
   position: absolute;
   -webkit-transition: all 0.2s ease;
@@ -360,10 +359,9 @@ input[type='checkbox']:not(:checked) + label:after {
   transition: all 0.2s ease;
 }
 
-input[type='checkbox']:checked + label:after,
-input[type='checkbox']:not(:checked) + label:after {
+input[type='checkbox']:checked + label:after {
   left: 5px;
-  bottom: -2px;
+  bottom: 10px;
   width: 15px;
   height: 8px;
   border-radius: 1px;
