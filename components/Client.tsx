@@ -19,8 +19,8 @@ const Client = ({
 	register,
 	onSelect }: Props) => {
 	return (
-		<li className="lg:flex w-full block gap-x-6 px-[26px] items-center lg:h-[48px] text-base font-montserrat font-normal border-b border-rowUnderLine">
-			<div className='md:flex block mt-[14px] lg:mt-0'>
+		<li className="block lg:flex w-full gap-x-6 px-[26px] items-center lg:h-[48px] text-base font-montserrat font-normal border-b border-rowUnderLine">
+			<div className='block md:flex mt-[14px] lg:mt-0'>
 				<p className='w-full md:w-2/6 lg:hidden mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Номер</p>
 				<div className='flex gap-x-2 md:gap-x-4 w-full md:w-4/6 lg:w-full'>
 					<input
