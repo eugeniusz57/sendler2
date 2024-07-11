@@ -13,6 +13,6 @@ export default async function fetchGroupClients(id: number, limit: number | null
 		ORDER BY tel
 		LIMIT ${limit}
 		OFFSET ${visible}
-		`	);
+		`);
 	return res;
 };

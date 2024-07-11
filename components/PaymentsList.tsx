@@ -28,7 +28,7 @@ export default function PaymentsList({
 			<div className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">
 				<p>Історія платежів</p>
 			</div>
-			<div className='h-[575px] md:h-[490px] lg:h-[180px] overflow-auto'>
+			<div className='h-[370px] md:h-[325px] lg:h-[180px] overflow-auto'>
 				{arrayUserPaymentHistory?.length ? (
 					<RSC style={{ height: "100%" }}>
 						{arrayUserPaymentHistory?.map(payment => (

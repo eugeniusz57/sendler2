@@ -88,7 +88,7 @@ export default function ClientsList({
 			</div>
 			<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Контакти</p>
 			<form onSubmit={handleSubmit(onSubmit)} className='scroll-bar'>
-				<ul className='h-[750px] md:h-[432px] overflow-auto'>
+				<ul className='h-[840px] md:h-[520px] overflow-auto'>
 					{convertClients?.length ? (
 						<RSC style={{ height: "100%" }}>
 							{convertClients.map(convertClient => (
