@@ -6,14 +6,21 @@ import { IClientDatabase, IGroupDatabase } from '@/globaltypes/types';
 
 const api = axiosInstance;
 
-export async function getUserGroups(userId: number) {
+export async function getUserGroups(
+	userId: number,
+	limit: number | null,
+	visible: number) {
 	try {
 		const res = await api.get<IGetUserGroups, AxiosResponse<IGetUserGroups>, {
-			userId: number
+			userId: number,
+			limit: number | null,
+			visible: number
 		}>
 			(`api/sending-groups`, {
 				params: {
 					userId: userId,
+					limit: limit,
+					visible: visible,
 				},
 			});
 		return res.data.groups;

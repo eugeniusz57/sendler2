@@ -33,11 +33,13 @@ export async function GET(request: NextRequest): Promise<NextResponse<{
 
 	const { searchParams }: URL = new URL(request.url);
 	const userId = Number(searchParams.get("userId"));
+	const visible = Number(searchParams.get("visible"));
+	const limit = searchParams.get("limit") === null ? null : Number(searchParams.get("limit"));
 
 	//checking user_id existense
 	if (userId) {
 		try {
-			const res: null | IGroupDatabase[] = await getGroupsByUserId(userId);
+			const res: null | IGroupDatabase[] = await getGroupsByUserId(userId, limit, visible);
 
 			if (res === null) {
 				return HttpError(400, `The user with id = ${userId} does not exist.`);

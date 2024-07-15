@@ -9,7 +9,7 @@ import {
 } from "@/api-actions";
 
 // get all groups for one user by user ID
-export default async function getGroupsByUserId(userId: number): Promise<IGroupDatabase[] | null> {
+export default async function getGroupsByUserId(userId: number, limit: number | null, visible: number): Promise<IGroupDatabase[] | null> {
 
 	try {
 		const usersIdRes: QueryResult<IUserId> = await fetchUsersId();
@@ -19,7 +19,7 @@ export default async function getGroupsByUserId(userId: number): Promise<IGroupD
 			return null;
 		};
 
-		const groups: QueryResult<IGroupDatabase> = await fetchUserGroups(userId);
+		const groups: QueryResult<IGroupDatabase> = await fetchUserGroups(userId, limit, visible);
 
 		return groups.rows;
 	} catch (error: any) {

@@ -267,7 +267,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 
 	// get array of group's name
 	const getData = async () => {
-		const resGroups = await getUserGroups(userId);
+		const resGroups = await getUserGroups(userId, null, 0);
 		const groupsName = resGroups?.map(group => group.group_name);
 		setGroupsNameArray(groupsName);
 	};
