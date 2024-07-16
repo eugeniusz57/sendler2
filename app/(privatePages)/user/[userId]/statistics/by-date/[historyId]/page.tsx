@@ -74,7 +74,7 @@ export default function HistoryDetails({
         Детальна статистика
       </Title>
       <div className="content-block mt-[28px] md:mt-[60px]">
-        <div className="ml-[10px] md:ml-[26px]">
+        <div className="mx-[10px] md:mx-[26px]">
           <div className="flex items-center gap-3 mb-[14px] md:mb-5">
             <p className="text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30]">Розсилки за</p>
             <button type="button" onClick={handleClick}>
@@ -91,7 +91,7 @@ export default function HistoryDetails({
               <p className="mb-4">Статус розсилки</p>
               <p>Назва групи</p>
             </div>
-            <div className="w-2/5 font-montserrat self-stretch text-sm md:mr-28 md:w-1/2 md:text-base lg:text-lg">
+            <div className="w-2/5 font-montserrat self-stretch text-sm md:mr-28 md:text-base lg:text-lg">
               <p className="mb-[22px] lg:mb-4 text-[#2366E8]">
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
               </p>
@@ -108,9 +108,9 @@ export default function HistoryDetails({
               <p  className="max-w-[300px] break-words">{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
             </div>
             <br/>
-            <div className="grow">
+            <div className="w-full">
               <p className="mb-3 md:mb-4">Текст повідомлення</p>
-              <p className="lg:mr-8 font-montserrat text-sm break-words md:text-base">
+              <p className="lg:w-[440px] xl:w-[560px] font-montserrat text-sm break-words md:text-base">
                 {userHistoryDetails[0] ? userHistoryDetails[0]?.text_sms : '-'}
               </p>
             </div>
