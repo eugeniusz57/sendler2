@@ -486,12 +486,12 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 									id="calendar"
 									selected={date ? new Date(date) : null}
 									onChange={handleChangeDate}
-									className="xl:w-[474px] lg:w-[250px] md:w-[474px] w-full h-12 lg:mb-0 md:mb-[50px] mb-[28px] rounded-[18px] border border-inputBorder outline-none text-xl text-mainTextColor pr-[50px] pl-[50px] cursor-pointer"
+									className="xl:w-[474px] lg:w-[250px] md:w-[160px] w-[306px] h-12 lg:mb-0 md:mb-[50px] mb-[28px] rounded-[18px] border border-inputBorder outline-none text-xl text-center text-mainTextColor cursor-pointer"
 								/>
 							</div>
 							<p className=" text-xl text-mainTextColor  md:ml-5 md:mr-2 md:mb-3 mb-2">Час</p>
 							<div className="flex gap-3 items-center">
-								<div className='md:w-[150px] w-[93px]'>
+								<div className='md:w-[160px] w-[93px]'>
 									<SelectTime
 										openSelect={(a: boolean) => a}
 										selectOptions={getTimeOptionsValues(0, 24)}
@@ -501,7 +501,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 									/>
 								</div>
 								<p className='md:block hidden'>год</p>
-								<div className='md:w-[150px] w-[93px]'>
+								<div className='md:w-[160px] w-[93px]'>
 									<SelectTime
 										openSelect={(a: boolean) => a}
 										selectOptions={getTimeOptionsValues(0, 60)}
@@ -511,7 +511,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 									/>
 								</div>
 								<p className='md:block hidden'>хв</p>
-								<div className='md:w-[150px] w-[93px]'>
+								<div className='md:w-[160px] w-[93px]'>
 									<SelectTime
 										openSelect={(a: boolean) => a}
 										selectOptions={getTimeOptionsValues(0, 60)}

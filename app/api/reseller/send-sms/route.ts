@@ -185,7 +185,7 @@ export async function POST(request: Request): Promise<NextResponse<{
 				const identificators = await smsSender(authRes, smsQuerystr, clientsInBalance.length, userName);
 				await addSmsIdentificators(history_id, clientsInBalance, identificators);
 				await correctUserBalance(userId, (-clientsInBalance.length));
-				await updateSmsStatusesInRealTime(21600000);
+				await updateSmsStatusesInRealTime(172800000);
 				return;
 			};
 			await deleteHistoryId(history_id);

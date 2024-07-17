@@ -20,7 +20,7 @@ export default function GroupsList({ groups, getGroups, getUpdate, userId, isUpd
 	return (
 		<>
 			<div>
-				<div className="hidden lg:flex gap-x-8 lg:gap-x-0 w-full px-[26px] pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
+				<div className="hidden lg:flex gap-x-0 xl:gap-x-2 w-full px-[26px] pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
 					<p className='w-1/6'>Група</p>
 					<p className='w-1/4'>Оновлення</p>
 					<p className="w-[12%]">Кількість</p>

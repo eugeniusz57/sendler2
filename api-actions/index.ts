@@ -42,7 +42,7 @@ export { default as fetchUserRejectedSms } from './fetchUserRejectedSms';
 export { default as fetchUserAlfaNames } from './fetchUserAlfaNames';
 export { default as fetchUserDataFromDatabase } from './fetchUserDataFromDatabase';
 export { default as fetchUserSmsSendingInProgress } from './fetchUserSmsSendingInProgress';
-
+export { default as deleteOutdatePendingStatus } from './deleteOutdatePendingStatus';
 
 
 
