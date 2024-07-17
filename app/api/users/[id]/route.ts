@@ -6,7 +6,7 @@ import { QueryResult } from "pg";
 import { schemaNewDateUser, schemaUpdateUserPassword } from "@/models/users";
 import { userActive } from "@/helpers/Users";
 import { IUser } from "@/globaltypes/types";
-import { fetchUser } from "@/api-actions";
+import { deleteOutdatePendingStatus, fetchUser } from "@/api-actions";
 
 
 export async function GET(request: Request, { params }: { params: { id: string } }): Promise<NextResponse<{
@@ -20,6 +20,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
 }> | undefined> {
 	try {
 		const id = params.id;
+
+		await deleteOutdatePendingStatus(Number(id));
 
 		const user: IUser | null = await fetchUser(id);
 		if (user === null) {

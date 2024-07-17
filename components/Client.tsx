@@ -36,9 +36,9 @@ const Client = ({
 					</div>
 				</div>
 			</div>
-			<div className='md:flex block w-full lg:w-[354px] mt-6 lg:mt-0 mb-6 lg:mb-0'>
+			<div className='md:flex block w-full lg:w-[195px] xl:w-[354px] mt-6 lg:mt-0 mb-6 lg:mb-0'>
 				<p className='w-full md:w-2/6 lg:hidden mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Ім&apos;я(П.І.Б.)</p>
-				<div className="flex w-full md:w-4/6 lg:w-full gap-x-2 flex-nowrap text-left overflow-hidden">
+				<div className="flex w-full md:w-4/6 lg:w-full gap-x-2 flex-wrap lg:flex-nowrap text-left overflow-hidden">
 					<div>{convertClient.last_name}</div>
 					<div>{convertClient.first_name}</div>
 					<div>{convertClient.middle_name}</div>
@@ -50,27 +50,25 @@ const Client = ({
 					{convertClient.ua_date_of_birth}
 				</div>
 			</div>
-			<div className='md:flex block w-full lg:w-[158px] mb-6 lg:mb-0'>
+			<div className='md:flex block w-full lg:w-[154px] mb-6 lg:mb-0'>
 				<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Параметр 1</p>
-				<div className="w-full md:w-4/6 lg:w-[158px] text-left overflow-hidden">
+				<div className="w-full max-h-6 md:w-4/6 lg:w-[154px] text-left overflow-hidden">
 					{convertClient.parameter_1}
 				</div>
 			</div>
-			<div className='md:flex block'>
-				<div className='md:flex block w-full lg:w-[150px]'>
-					<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Параметр 2</p>
-					<div className="w-full text-left overflow-hidden">
-						{convertClient.parameter_2}
-					</div>
+			<div className='md:flex block w-full lg:w-[154px]'>
+				<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Параметр 2</p>
+				<div className="w-full max-h-6 md:w-4/6 lg:w-[154px] text-left overflow-hidden">
+					{convertClient.parameter_2}
 				</div>
-				<div className='text-right lg:text-left mb-4 lg:mb-0 md:mt-0 mt-[-20px]'>
-					<EditClient
-						groupId={groupId}
-						client={convertClient}
-						updateClients={updateClients}
-						getUpdate={getUpdate}
-					/>
-				</div>
+			</div>
+			<div className='text-right lg:text-left mb-4 lg:mb-0'>
+				<EditClient
+					groupId={groupId}
+					client={convertClient}
+					updateClients={updateClients}
+					getUpdate={getUpdate}
+				/>
 			</div>
 		</li>
 	)
