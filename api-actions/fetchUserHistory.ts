@@ -11,7 +11,7 @@ export default async function fetchUserHistory(
   userId: number,
   sendMethod: SendMethodType | null,
   { startDate, endDate }: IHistoryPeriod,
-  limit: number | null, visible: number
+  limit: number | null, visible: number | null
 ): Promise<QueryResult<IHistoryResponce>> {
   const query = `
 SELECT

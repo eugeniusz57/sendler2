@@ -9,7 +9,7 @@ export default async function getUserHistory(
   sendMethod: SendMethodType | null,
   historyPeriod: IHistoryPeriod,
   limit: number | null, 
-  visible: number
+  visible: number | null
 ): Promise<IHistoryResponce[] | null> {
   try {
     const history: QueryResult<IHistoryResponce> = await fetchUserHistory(
