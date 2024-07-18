@@ -39,9 +39,9 @@ const Client = ({
 			<div className='md:flex block w-full lg:w-[195px] xl:w-[354px] mt-6 lg:mt-0 mb-6 lg:mb-0'>
 				<p className='w-full md:w-2/6 lg:hidden mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Ім&apos;я(П.І.Б.)</p>
 				<div className="flex w-full md:w-4/6 lg:w-full gap-x-2 flex-wrap lg:flex-nowrap text-left overflow-hidden">
-					<div>{convertClient.last_name}</div>
-					<div>{convertClient.first_name}</div>
-					<div>{convertClient.middle_name}</div>
+					<div className='truncate'>{convertClient.last_name}</div>
+					<div className='truncate'>{convertClient.first_name}</div>
+					<div className='truncate'>{convertClient.middle_name}</div>
 				</div>
 			</div>
 			<div className='md:flex block w-full lg:w-[178px] mb-6 lg:mb-0'>
@@ -52,13 +52,13 @@ const Client = ({
 			</div>
 			<div className='md:flex block w-full lg:w-[154px] mb-6 lg:mb-0'>
 				<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Параметр 1</p>
-				<div className="w-full max-h-6 md:w-4/6 lg:w-[154px] text-left overflow-hidden">
+				<div className="w-full md:w-4/6 lg:w-[154px] text-left truncate overflow-hidden">
 					{convertClient.parameter_1}
 				</div>
 			</div>
-			<div className='md:flex block w-full lg:w-[154px]'>
+			<div className='md:flex block w-full lg:w-[154px] mb-2 md:mb-4 lg:mb-0'>
 				<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Параметр 2</p>
-				<div className="w-full max-h-6 md:w-4/6 lg:w-[154px] text-left overflow-hidden">
+				<div className="w-full md:w-4/6 lg:w-[154px] text-left truncate overflow-hidden">
 					{convertClient.parameter_2}
 				</div>
 			</div>

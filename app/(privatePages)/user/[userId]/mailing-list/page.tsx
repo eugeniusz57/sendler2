@@ -31,7 +31,6 @@ import SendSmsModal from '@/components/SendSmsModal';
 const MailingList = ({ params }: { params: { userId: string } }) => {
 	const userId = Number(params.userId);
 	const [charCount, setCharCount] = useState<number>(0);
-	// const [doubleCharCount, setDoubleCharCount] = useState<number>(0);
 	const [smsCount, setSmsCount] = useState<number>(0);
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const [isOpened, setIsOpened] = useState<boolean>(false);

@@ -70,13 +70,13 @@ export default function EditGroupPage({ params }: { params: { id: IGroupId, user
 			</Title>
 			<div className="content-block md:mt-[60px] mt-[28px]">
 				<div className='md:mb-[50px] mb-[28px] lg:px-[26px] md:px-[20px] px-[10px]'>
-					<div className="flex items-center flex-wrap gap-2 md:gap-4">
+					<div className="flex items-center gap-2 md:gap-4">
 						<Title
 							type="title_block"
 							color="dark">
 							Редагування групи:
 						</Title>
-						<span className="text-headerTable title_block overflow-hidden">
+						<span className="text-headerTable title_block overflow-hidden truncate">
 							{groupName}
 						</span>
 					</div>
