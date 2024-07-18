@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import formatTableDate from '@/app/utils/formatTableDate';
 import { summarizeHistoryByDate } from '@/helpers/SortHistoryByDate';
@@ -7,16 +9,24 @@ import { SmsStatusEnum } from '@/globaltypes/types';
 
 type Props = {
   userHistory: IHistoryResponce[] | undefined;
+  loadMoreHistory: () => void
 };
 
-export default function HistoryList({ userHistory }: Props) {
+export default function HistoryList({ userHistory, loadMoreHistory }: Props) {
   const sortHistory = userHistory ? summarizeHistoryByDate(userHistory) : undefined;
+  const { ref, inView } = useInView()
+
+  useEffect(() => {
+    if (inView) {
+      loadMoreHistory()
+    }
+  }, [inView])
 
   return (
     <ul className="flex flex-col">
       {sortHistory &&
         sortHistory.length !== 0 &&
-        sortHistory.map(item => {
+        sortHistory.map((item, index) => {
           return (
             <li
               key={typeof item.history_id === 'number' ? item.history_id : item.history_id[0]}
@@ -52,11 +62,12 @@ export default function HistoryList({ userHistory }: Props) {
                   {item.recipient_status.filter((item: SmsStatusEnum) => item === 'fullfield').length}
                 </p>
               </div>
+              {(index + 1 === sortHistory.length) && <div ref={ref}></div>}
             </li>
           );
         })}
       {sortHistory && sortHistory.length > 0 && (
-          <li className="order-first flex flex-wrap gap-y-1 items-center lg:h-[47px] w-full mb-3 md:mb-8 py-3 px-[10px] font-roboto font-medium text-sm md:px-[26px] md:text-lg text-black lg:border-b lg:border-[#B5C9BE] lg:text-xl lg:gap-[100px] lg:order-none lg:font-normal">
+          <li className="flex flex-wrap gap-y-1 items-center lg:h-[47px] w-full mb-3 md:mb-8 py-3 px-[10px] font-roboto font-medium text-sm md:px-[26px] md:text-lg text-black lg:border-b lg:border-[#B5C9BE] lg:text-xl lg:gap-[100px] lg:order-none lg:font-normal">
             <p className="grow w-4/12 md:grow-0 text-base md:text-lg lg:text-xlw-[202px] lg:w-[194px]">Всього</p>
             <p className="block md:hidden w-[184px] text-[#2366E8] lg:block"></p>
             <p className="mr-3 md:mr-[18px] lg:hidden">Відправлено</p> 

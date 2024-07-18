@@ -12,7 +12,7 @@ import { IGetUserHistory, IGetUserHistoryDetails } from './types';
 
 const api = axiosInstance;
 
-export async function getUserHistory({ id, sendMethod, historyPeriod }: IGetHistoryProps) {
+export async function getUserHistory({ id, sendMethod, historyPeriod, limit, visible }: IGetHistoryProps) {
   try {
     const response = await api.get<
       IGetUserHistory,
@@ -22,6 +22,8 @@ export async function getUserHistory({ id, sendMethod, historyPeriod }: IGetHist
         sendMethod: SendMethodType | undefined;
         start_date: Date | undefined;
         end_date: Date | undefined;
+        limit: number | null;
+        visible: number
       }
     >(`api/sending-history`, {
       params: {
@@ -29,6 +31,8 @@ export async function getUserHistory({ id, sendMethod, historyPeriod }: IGetHist
         send_method: sendMethod,
         start_date: historyPeriod?.startDate,
         end_date: historyPeriod?.endDate,
+        limit, 
+        visible
       },
     });
 

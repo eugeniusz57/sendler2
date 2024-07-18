@@ -7,13 +7,17 @@ import { SendMethodType } from '@/globaltypes/types';
 export default async function getUserHistory(
   userId: number,
   sendMethod: SendMethodType | null,
-  historyPeriod: IHistoryPeriod
+  historyPeriod: IHistoryPeriod,
+  limit: number | null, 
+  visible: number
 ): Promise<IHistoryResponce[] | null> {
   try {
     const history: QueryResult<IHistoryResponce> = await fetchUserHistory(
       userId,
       sendMethod,
-      historyPeriod
+      historyPeriod,
+      limit, 
+      visible
     );
 
     return history.rows;
