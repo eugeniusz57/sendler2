@@ -6,7 +6,7 @@ import { ArrayQuestions } from '@/data/data';
 const Question = () => {
   return (
     <>
-      <section className=" bg-[url('/bg-questions.jpg')]  bg-cover flex flex-col items-center pt-[193px]  h-[606px] w-full ">
+      <section className=" bg-[url('/bg-questions.jpg')]  bg-cover flex flex-col items-center pt-[193px]  h-[400px]  md:h-[532px]  lg:h-[606px] w-full ">
         <div className="container ">
           <Title type="h1" color="light">
             Питання-відповідь
@@ -19,7 +19,7 @@ const Question = () => {
             return (
               <li
                 key={id}
-                className="bg-formBg pr-3 lg:pr-7 lg:pl-5 pl-3  rounded-[18px] mb-[22px] lg:max-w-[1076px] w-full"
+                className="bg-formBg pr-3 lg:pr-7 lg:pl-5 pl-3  rounded-[18px] mb-[14px] md:mb-[22px] lg:max-w-[1076px] w-full"
               >
                 <QuestionSegment title={title} desc={desc} email={email} />
               </li>
@@ -28,13 +28,13 @@ const Question = () => {
         </ul>
       </section>
 
-      <section className="container pt-20 flex flex-col items-start">
+      <section className="container pt-[62px]  md:pt-20 flex flex-col items-start">
         <Title type="h1" color="dark">
           Не знайшли відповідь на своє питання?
         </Title>
-        <div className="block lg:flex mt-[60px] lg:justify-between w-full">
-          <ul className="lg:max-w-[625px] mb-20 lg:mb-0 lg:pt-[86px]">
-            <li className="pb-8">
+        <div className="block lg:flex mt-7 md:mt-[60px] lg:justify-between w-full">
+          <ul className="lg:max-w-[625px] mb-[50px] mb:mb-20 lg:mb-0 lg:pt-[86px]">
+            <li className="pb-[24px] md:pb-8">
               <p>
                 Шановний клієнте,
                 <br />

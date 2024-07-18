@@ -8,11 +8,11 @@ const Footer = () => {
 	return (
 		<footer
 			id="footer"
-			className=" w-full flex justify-center bg-bgFooter pt-[50px] pb-[38px] text-white font-roboto text-lg font-normal"
+			className=" w-full flex justify-center bg-bgFooter md:pt-[60px] pt-[30px] lg:pt-[50px] pb-[38px] text-white font-roboto text-lg font-normal"
 		>
 			<div className="container ">
 				<LogoFooter />
-				<ul className="flex flex-wrap lg:flex-wrap-no-wrap justify-between items-center pt-[60px]">
+				<ul className="flex flex-wrap lg:flex-wrap-no-wrap justify-between items-center pt-10 md:pt-[60px]">
 					<li className="flex flex-col gap-[14px] justify-center mb-[50px] lg:mb-0">
 						<p className=" lg:text-base text-sm font-medium ">
 							Компанія ТОВ &quot;Інноваційні медіа рішення&quot;
@@ -43,7 +43,7 @@ const Footer = () => {
 							Мобільний маркетинг, Масові SMS розсилки
 						</p>
 					</li>
-					<li className="flex flex-col gap-[14px] justify-center">
+					<li className="flex flex-col gap-[14px] justify-center w-full">
 						<Feedback />
 					</li>
 					<li className="block lg:hidden">
