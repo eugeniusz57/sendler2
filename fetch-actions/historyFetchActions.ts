@@ -23,7 +23,7 @@ export async function getUserHistory({ id, sendMethod, historyPeriod, limit, vis
         start_date: Date | undefined;
         end_date: Date | undefined;
         limit: number | null;
-        visible: number
+        visible: number | null
       }
     >(`api/sending-history`, {
       params: {

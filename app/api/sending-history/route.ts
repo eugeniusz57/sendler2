@@ -14,14 +14,15 @@ export async function GET(
     const userId = Number(searchParams.get('userId'));
     const start_date = searchParams.get('start_date');
     const end_date = searchParams.get('end_date');
-    const limit = Number(searchParams.get('limit'));
-    const visible = Number(searchParams.get('visible'));
+    const limit = searchParams.get('limit') ? Number(searchParams.get('limit')) : null;
+    const visible = searchParams.get('visible') ? Number(searchParams.get('visible')) : null;
     const sendMethod: any = searchParams.get('send_method') ?? null;
 
     const startDate = start_date ? new Date(start_date) : undefined;
     const endDate = end_date ? new Date(end_date) : undefined;
     startDate?.setHours(0, 0, 0, 0);
     endDate?.setHours(23, 59, 59, 999);
+
 
     if (!userId) {
       return HttpError(400, `ID required for getting user's history`);
