@@ -96,7 +96,7 @@ const Select = ({
 				>
 					<RSC>
 						{selectOptions?.map(selectOption => (
-							<div key={key++} onClick={() => getSelect(selectOption)} className="select-item">
+							<div key={key++} onClick={() => getSelect(selectOption)} className="select-item truncate">
 								{selectOption}
 							</div>
 						))}

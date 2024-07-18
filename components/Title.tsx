@@ -20,7 +20,7 @@ export default function Title({ type, color, children }: ITitleProps) {
 			return <h2 className="title_h2 text-whiteText">{children}</h2>;
 
 		case "title_block-light":
-			return <h3 className="title_block text-whiteText">{children}</h3>;
+			return <h3 className="title_block whitespace-nowrap text-whiteText">{children}</h3>;
 
 		case "accent-main_text-light":
 			return <p className="accent-main_text text-whiteText">{children}</p>;
@@ -35,11 +35,11 @@ export default function Title({ type, color, children }: ITitleProps) {
 			return <h2 className="title_h2 text-mainTextColor">{children}</h2>;
 
 		case "title_block-dark":
-			return <h3 className="title_block text-mainTextColor">{children}</h3>;
+			return <h3 className="title_block whitespace-nowrap text-mainTextColor">{children}</h3>;
 
 		case "accent-main_text-dark":
 			return <p className="accent-main_text text-mainTextColor">{children}</p>;
-		
+
 		default:
 			return <p className="accent-main_text text-mainTextColor">{children}</p>;
 

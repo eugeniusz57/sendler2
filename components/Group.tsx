@@ -12,14 +12,17 @@ interface Props {
 const Group = ({ group, getGroups }: Props) => {
 	return (
 		<li className="block lg:flex w-full gap-x-6 lg:gap-x-2 px-[26px] items-center lg:h-[48px] text-base font-montserrat font-normal border-b border-rowUnderLine">
-			<div data-title='Група' className="w-full md:w-3/5 lg:w-1/6 max-h-6 lg:mt-0 mt-[22px] lg:mb-0 mb-[22px] lg:text-left text-center overflow-hidden before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold before:w-2/5 before:text-left">
-				<div className="w-full text-left">{group.group_name}</div>
+			<div className="flex items-center lg:w-1/6">
+				<div className="lg:hidden w-2/5 md:w-1/4 lg:w-1/6 lg:mt-0 mt-[22px] lg:mb-0 mb-[22px] font-bold">Група</div>
+				<div className="w-3/5 md:w-3/4 lg:w-full truncate">{group.group_name}</div>
 			</div>
-			<div data-title='Оновлення' className="w-full md:w-3/5 lg:w-1/4 lg:mb-0 mb-[22px] lg:text-left text-center before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold before:w-2/5 before:text-left">
-				<div className="w-full text-left">{group.group_create_date}</div>
+			<div className="flex items-center lg:w-1/4  lg:mb-0 mb-[22px]">
+				<div className="lg:hidden w-2/5 md:w-1/4 font-bold">Оновлення</div>
+				<div className="w-3/5 md:w-3/4 lg:w-full truncate">{group.group_create_date}</div>
 			</div>
-			<div data-title='Кількість' className="w-full md:w-3/5 lg:w-[12%] lg:mb-0 mb-[22px] lg:text-left text-center before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold before:w-2/5 before:text-left">
-				<div className="w-full text-left">{group.number_members}</div>
+			<div className="flex items-center lg:w-[12%] lg:mb-0 mb-[22px]">
+				<div className="lg:hidden w-2/5 md:w-1/4 font-bold">Кількість</div>
+				<div className="w-3/5 md:w-3/4 lg:w-full truncate">{group.number_members}</div>
 			</div>
 			<div className="lg:mb-0 mb-[14px] text-left before:content-[attr(data-title)] before:float-left lg:before:content-none before:font-bold">
 				<div className="flex gap-[15px] md:flex-nowrap flex-wrap items-center md:justify-start justify-center">
