@@ -10,7 +10,8 @@ const sendMethod = 'api';
 export default async function fetchUserHistory(
   userId: number,
   sendMethod: SendMethodType | null,
-  { startDate, endDate }: IHistoryPeriod
+  { startDate, endDate }: IHistoryPeriod,
+  limit: number | null, visible: number
 ): Promise<QueryResult<IHistoryResponce>> {
   const query = `
 SELECT
@@ -51,8 +52,10 @@ GROUP BY
     sh.text_sms, 
     sh.sending_group_date, 
     u.user_name
-ORDER BY sh.sending_group_date DESC;
+ORDER BY sh.sending_group_date DESC
+LIMIT $5
+OFFSET $6;
         `;
 
-  return await db.query(query, [userId, sendMethod, startDate, endDate]);
+  return await db.query(query, [userId, sendMethod, startDate, endDate, limit, visible]);
 }

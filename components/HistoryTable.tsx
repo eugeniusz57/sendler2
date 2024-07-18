@@ -1,11 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useSearchParams } from 'next/navigation';
 import { getUserHistory } from '@/fetch-actions/historyFetchActions';
 import HistoryList from './HistoryList';
 import HistoryPeriodForm from './forms/HistoryPeriodForm';
 import { IHistoryResponce, IHistoryPeriod } from '@/globaltypes/historyTypes';
+
+const LIMIT = 20;
 
 type Props = {
   id: number | undefined;
@@ -18,6 +21,8 @@ export default function HistoryTable({ id }: Props) {
 
   const [userHistory, setUserHistory] = useState<IHistoryResponce[] | undefined>([]);
   const [historyPeriod, setHistoryPeriod] = useState<IHistoryPeriod | undefined>(undefined);
+  const [offset, setOffset] = useState(LIMIT);
+  const { ref, inView } = useInView()
 
   useEffect(() => {
     if (startDate && endDate) {
@@ -36,6 +41,8 @@ export default function HistoryTable({ id }: Props) {
         const userHistory: IHistoryResponce[] | undefined = await getUserHistory({
           id,
           historyPeriod,
+          limit: LIMIT,
+          visible: null
         });
 
         setUserHistory(userHistory);
@@ -46,6 +53,17 @@ export default function HistoryTable({ id }: Props) {
     }
     fetchAPI();
   }, [historyPeriod, id]);
+
+  const loadMoreHistory = async () => {
+    const apiUserHistory: IHistoryResponce[] | undefined = await getUserHistory({
+      id,
+      historyPeriod,
+      limit: LIMIT,
+      visible: offset
+    });
+    setUserHistory([...userHistory, ...apiUserHistory])
+    setOffset(offset + LIMIT)
+  };
 
   return (
     <>
@@ -58,7 +76,7 @@ export default function HistoryTable({ id }: Props) {
           <p className="hidden lg:block w-[150px]">Відправленно </p>
           <p className="hidden lg:block w-[150px]">Отримано</p>
         </div>
-        <HistoryList userHistory={userHistory} />
+        <HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory}/>
       </div>
     </>
   );

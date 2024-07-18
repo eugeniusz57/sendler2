@@ -14,6 +14,8 @@ export async function GET(
     const userId = Number(searchParams.get('userId'));
     const start_date = searchParams.get('start_date');
     const end_date = searchParams.get('end_date');
+    const limit = searchParams.get('limit');
+    const visible = searchParams.get('visible');
     const sendMethod: any = searchParams.get('send_method') ?? null;
 
     const startDate = start_date ? new Date(start_date) : undefined;
@@ -28,7 +30,8 @@ export async function GET(
     const result: null | IHistoryResponce[] = await getUserHistory(userId, sendMethod, {
       startDate,
       endDate,
-    });
+    },
+    limit, visible);
 
     if (!result) {
       return HttpError(400, `Failed to get user's history by userID = ${userId}`);
