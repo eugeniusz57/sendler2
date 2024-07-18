@@ -21,10 +21,10 @@ const QuestionSegment = ({ title, desc, email }: Props) => {
     <>
       <button
         onClick={toggleDescription}
-        className="flex justify-between  items-center text-start w-full py-4 lg:py-5"
+        className="flex justify-between items-center text-start w-full py-3 md:py-5 lg:py-[22px] "
       >
-        <h3 className="max-w-[575px] lg:max-w-none lg:text-xl text-lg font-roboto block">{title}</h3>
-        <span className="block ml-10">
+        <h3 className="w-[276px] md:w-[575px] lg:max-w-none text-base lg:text-xl md:text-lg font-roboto block">{title}</h3>
+        <span className="block ml-2 md:ml-8 lg:ml-10 w-8 h-8">
           {expanded ? (
             <Image
               src="/svg/arrow-down.svg"
@@ -43,7 +43,7 @@ const QuestionSegment = ({ title, desc, email }: Props) => {
         </span>
       </button>
       <p
-        className={` text-[16px] mt-4 lg:mt-5 lg:pr-[196px] pb-4 lg:pb-5 ${
+        className={` text-sm md:text-[16px] w-full mt-3 lg:mt-[18px] lg:pr-[196px] pb-4 lg:pb-5 ${
           expanded ? "hidden " : " blok"
         }`}
       >

@@ -60,7 +60,7 @@ const FormFeedback = ({ onClose, title, cross }: Props) => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
-      className=" relative w-[526px] mx-auto pb-11 pt-[29px]  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg px-[26px]"
+      className=" relative md:w-[526px] w-full mx-auto pb-7 md:pb-11 pt-[29px]  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg px-[10px] md:px-[26px]"
     >
       {cross && (
         <button
@@ -72,7 +72,7 @@ const FormFeedback = ({ onClose, title, cross }: Props) => {
       )}
       {title && <h1 className="form-title mb-8 mt-[15px]">{title}</h1>}
       <div className="text-left w-full mb-8">
-        <label htmlFor="name" className="font-roboto text-sm font-medium mb-2 block">
+        <label htmlFor="name" className="font-roboto text-xs md:text-sm font-medium mb-2 block">
           П.І.Б
         </label>
         <div className="flex relative">
@@ -87,7 +87,7 @@ const FormFeedback = ({ onClose, title, cross }: Props) => {
           {errors.name && <span className="form-errors">{errors.name.message}</span>}
         </div>
 
-        <label htmlFor="phone" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="phone" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
           Номер телефону
         </label>
         <div className="flex relative">
@@ -102,7 +102,7 @@ const FormFeedback = ({ onClose, title, cross }: Props) => {
           {errors.phone && <span className="form-errors">{errors.phone.message}</span>}
         </div>
 
-        <label htmlFor="email" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="email" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
           Електронна пошта<span className=" text-redStar">*</span>
         </label>
 
@@ -119,7 +119,7 @@ const FormFeedback = ({ onClose, title, cross }: Props) => {
           {errors.email && <span className="form-errors">{errors.email.message}</span>}
         </div>
 
-        <label htmlFor="desc" className="font-roboto text-sm font-medium mb-2  mt-8 block">
+        <label htmlFor="desc" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
           Текст повідомлення<span className=" text-redStar">*</span>
         </label>
         <div className="flex relative">
