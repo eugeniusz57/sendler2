@@ -14,8 +14,8 @@ export async function GET(
     const userId = Number(searchParams.get('userId'));
     const start_date = searchParams.get('start_date');
     const end_date = searchParams.get('end_date');
-    const limit = searchParams.get('limit');
-    const visible = searchParams.get('visible');
+    const limit = Number(searchParams.get('limit'));
+    const visible = Number(searchParams.get('visible'));
     const sendMethod: any = searchParams.get('send_method') ?? null;
 
     const startDate = start_date ? new Date(start_date) : undefined;

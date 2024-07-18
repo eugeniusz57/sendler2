@@ -9,7 +9,7 @@ import { SmsStatusEnum } from '@/globaltypes/types';
 
 type Props = {
   userHistory: IHistoryResponce[] | undefined;
-  loadMoreHistory: () => expression
+  loadMoreHistory: () => void
 };
 
 export default function HistoryList({ userHistory, loadMoreHistory }: Props) {

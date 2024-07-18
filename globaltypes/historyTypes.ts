@@ -56,6 +56,6 @@ export interface IGetHistoryProps {
   id: number | undefined;
   sendMethod?: SendMethodType | null;
   historyPeriod?: IHistoryPeriod;
-	limit: number | null;
-	visible: number
+	limit?: number | null;
+	visible?: number | null;
 }

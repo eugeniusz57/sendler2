@@ -61,7 +61,7 @@ export default function HistoryTable({ id }: Props) {
       limit: LIMIT,
       visible: offset
     });
-    setUserHistory([...userHistory, ...apiUserHistory])
+    setUserHistory([...(userHistory ?? []), ...(apiUserHistory ?? [])])
     setOffset(offset + LIMIT)
   };
 
