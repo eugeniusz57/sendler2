@@ -6,7 +6,7 @@ import { ArrayQuestions } from '@/data/data';
 const Question = () => {
   return (
     <>
-      <section className=" bg-[url('/bg-questions.jpg')]  bg-cover flex flex-col items-center pt-[193px]  h-[400px]  md:h-[532px]  lg:h-[606px] w-full ">
+      <section className="bg-[url('/bg-questions-mobile.jpg')] md:bg-[url('/bg-questions-tablet.jpg')] lg:bg-[url('/bg-questions.jpg')]  bg-cover flex flex-col items-center pt-[193px]  h-[400px]  md:h-[532px]  lg:h-[606px] w-full ">
         <div className="container ">
           <Title type="h1" color="light">
             Питання-відповідь
