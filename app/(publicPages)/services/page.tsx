@@ -4,7 +4,7 @@ import Image from "next/image";
 const Services = () => {
   return (
     <>
-      <section className="bg-[url('/bg-services.jpg')]  bg-cover flex flex-col items-center pt-[206px]  h-[606px] w-full">
+      <section className="bg-[url('/bg-services-mobile.jpg')] md:bg-[url('/bg-services-tablet.jpg')] lg:bg-[url('/bg-services.jpg')]  bg-cover flex flex-col items-center pt-[206px]  h-[400px]  md:h-[532px]  lg:h-[606px] w-full">
         <div className="container ">
           <Title type="h1" color="light">
             {" "}

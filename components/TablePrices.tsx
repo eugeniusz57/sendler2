@@ -11,11 +11,11 @@ const TablePrices = () => {
 					</th>
 				</tr>
 			</thead>
-			<tbody className=" text-xl">
+			<tbody className="text-sm md:text-xl">
 				{PricesArray.map(elem => (
 					<tr key={elem.id}>
-						<td className="py-2 md:py-4 px-3 border font-montserrat text-base md:text-xl">Від {elem.count}</td>
-						<td className="py-2 md:py-4 px-3 border font-montserrat text-base md:text-xl">
+						<td className="py-2 md:py-4 px-3 border font-montserrat text-xs md:text-lg">Від {elem.count}</td>
+						<td className="py-2 md:py-4 px-3 border font-montserrat text-xs md:text-lg">
 							{elem.price} {elem.desc}
 						</td>
 					</tr>
