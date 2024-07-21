@@ -22,7 +22,7 @@ export const schemaCreateNewUser = Joi.object({
 });
 
 export const schemaNewDateUser = Joi.object({
-	userLogin: Joi.string().required().min(3),
+	userLogin: Joi.string().required().min(3).max(21),
 	tel: Joi.string()
 		.pattern(/^\d{12,}$/)
 		.required()

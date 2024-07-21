@@ -67,7 +67,7 @@ export const validationSchemaCreateClient = Joi.object({
 });
 
 export const validationSchemaUpdateUser = Joi.object({
-	login: Joi.string().required().min(3),
+	login: Joi.string().required().min(3).max(21),
 	password: Joi.string()
 		.required()
 		.min(8)

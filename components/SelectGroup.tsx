@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import RSC from 'react-scrollbars-custom';
+import ItemGroupSelect from './ItemGroupSelect';
+import LoadMoreItemSelectGroup from './LoadMoreItemSelectGroup';
 
 type Props = {
 	selectOptions?: string[];
@@ -10,9 +12,12 @@ type Props = {
 	widthValue?: number;
 	startValue?: string;
 	defaultValue?: string;
+	userId: number;
+	LIMIT: number;
+	isUpdated: boolean;
 };
 
-const Select = ({
+const SelectGroup = ({
 	selectOptions,
 	selectedOption,
 	getSelect,
@@ -20,6 +25,9 @@ const Select = ({
 	widthValue,
 	startValue,
 	defaultValue,
+	userId,
+	LIMIT,
+	isUpdated
 }: Props) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
@@ -67,7 +75,7 @@ const Select = ({
 			className={`select-wrap ${widthValue ? ` w-[${widthValue}px]` : `w-full`}`}
 		>
 			<div className={`select bg-white ${isOpen ? ` rounded-t-[18px] border-[1px]` : `border-[#E6E6E6] border-[1px] rounded-[18px]`}`}>
-				<div className="absolute top-1/2 -translate-y-1/2 left-7 font-montserrat font-normal text-base md:text-base sm:text-sm leading-6">
+				<div className="absolute w-[210px] md:w-[360px] lg:w-[320px] xl:w-[360px] top-1/2 -translate-y-1/2 left-7 font-montserrat font-normal text-base md:text-base sm:text-sm leading-6 truncate">
 					{!isOpen && !selectedOption && <div>{defaultValue}</div>}
 					{isOpen && !selectedOption ? defaultValue : selectedOption}
 				</div>
@@ -90,21 +98,24 @@ const Select = ({
 				)}
 			</div>
 			{isOpen && (
-				<div
-					className={`w-[${widthValue}px] overflow-auto h-32 sm:h-28 -mt-[2px] bg-white rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0`}
+				<div className={`${widthValue ? ` w-[${widthValue}px]` : `w-full`} overflow-auto h-32 sm:h-28 -mt-[2px] bg-white rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0`}
 					ref={selectBodyRef}
 				>
-					<RSC>
+					<RSC style={{ height: "100%" }}>
 						{selectOptions?.map(selectOption => (
-							<div key={key++} onClick={() => getSelect(selectOption)} className="select-item truncate">
-								{selectOption}
-							</div>
+							<ItemGroupSelect key={key++} getSelect={getSelect} selectOption={selectOption} />
 						))}
+						<LoadMoreItemSelectGroup
+							userId={userId}
+							LIMIT={LIMIT}
+							getSelect={getSelect}
+							isUpdated={isUpdated}
+						/>
 					</RSC>
 				</div>
 			)}
 		</div>
 	);
 };
-export default Select;
+export default SelectGroup;
 

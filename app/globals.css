@@ -306,7 +306,7 @@ select::-ms-expand {
 }
 
 .select-wrap {
-  @apply relative h-12 bg-white border-[1px] justify-center cursor-pointer;
+  @apply relative h-12 border-[1px] justify-center cursor-pointer;
 }
 
 .select {

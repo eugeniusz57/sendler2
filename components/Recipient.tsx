@@ -14,7 +14,7 @@ const Recipient = ({
 	onSelect
 }: Props) => {
 	return (
-		<li className="flex  px-[26px] items-center h-[36px] text-base font-montserrat font-normal">
+		<li className="flex w-max-full px-[26px] items-center h-[36px] text-base font-montserrat font-normal">
 			<input
 				id={String(index)}
 				{...register(`${index}`)}
@@ -23,10 +23,8 @@ const Recipient = ({
 				onChange={onSelect}
 			/>
 			<label htmlFor={String(index)} className=""></label>
-			<div className="flex items-center ml-[15px]">
-				<div className="w-full text-left overflow-hidden">
-					{(typeof recipient) === 'number' ? `+${recipient}` : recipient}
-				</div>
+			<div className="ml-[15px] text-left truncate">
+				{(typeof recipient) === 'number' ? `+${recipient}` : recipient}
 			</div>
 		</li>
 	)
