@@ -23,7 +23,6 @@ const UpdateUserForm = ({ userId }: Props) => {
 		user_name: ''
 	});
 
-
 	const { user_login, tel, email, user_name } = userState;
 
 	const onClick = () => {
@@ -80,7 +79,6 @@ const UpdateUserForm = ({ userId }: Props) => {
 	}, [memoizedgetData]);
 
 	const onSubmit: SubmitHandler<FormInputUpdateUser> = async (data) => {
-
 		setIsDisabled(true);
 		await updateUser(userId, data.login, data.password, data.newPassword, data.userName, `380${data.phone}`, data.email);
 		getData();
@@ -128,6 +126,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							{...register("login")}
 							className="w-full h-12 border py-2 px-3 focus:outline-none focus:border-blue-500 input"
 							placeholder="Your login"
+							maxLength={21}
 							required
 						/>
 						{errors.login && (
@@ -191,6 +190,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							className="w-full h-12 border py-2 px-3 focus:outline-none focus:border-blue-500 input"
 							placeholder="Менеджер Петренко"
 							required
+							maxLength={21}
 						/>
 						{errors.userName && (
 							<span className="form-errors">{errors.userName.message}</span>
@@ -214,6 +214,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 							className="w-full h-12 border py-2 pr-11 pl-[50px] focus:outline-none focus:border-blue-500 input"
 							placeholder="675555544"
 							required
+							maxLength={9}
 						/>
 						{errors.phone && (
 							<span className="form-errors">{errors.phone.message}</span>

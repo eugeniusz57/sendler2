@@ -3,20 +3,20 @@ import { useInView } from "react-intersection-observer";
 
 import { getUserGroups } from '@/fetch-actions/groupsFetchActions';
 import { IGroupDatabase } from "@/globaltypes/types";
-import Group from "./Group";
+import ItemGroupSelect from "./ItemGroupSelect";
 
 type Props = {
 	userId: number;
 	isUpdated: boolean;
 	LIMIT: number;
-	getGroups: () => void,
+	getSelect: (item: string) => void,
 };
 
-export default function LoadMoreGroups({
+export default function LoadMoreItemSelectGroup({
 	userId,
 	isUpdated,
 	LIMIT,
-	getGroups }: Props) {
+	getSelect }: Props) {
 	const [groups, setGroups] = useState<IGroupDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
 
@@ -50,10 +50,10 @@ export default function LoadMoreGroups({
 	return (
 		<>
 			{groups?.map((group: IGroupDatabase) => (
-				<Group
+				<ItemGroupSelect
 					key={group.group_id}
-					group={group}
-					getGroups={getGroups}
+					selectOption={group.group_name}
+					getSelect={getSelect}
 				/>
 			))}
 			<div ref={ref}>

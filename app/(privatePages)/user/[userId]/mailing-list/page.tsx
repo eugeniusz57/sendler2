@@ -27,6 +27,8 @@ import { getTimeOptionsValues } from '@/helpers/getTimeOptionsValues';
 
 import { IUser } from '@/globaltypes/types';
 import SendSmsModal from '@/components/SendSmsModal';
+import SelectGroup from '@/components/SelectGroup';
+const LIMIT = 5;
 
 const MailingList = ({ params }: { params: { userId: string } }) => {
 	const userId = Number(params.userId);
@@ -43,7 +45,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 	const [date, setDate] = useState(new Date());
 	const [recipients, setRecipients] = useState<(string | number)[]>([]);
 	const [contentSMS, setContentSMS] = useState<string>('');
-	const [update, setUpdate] = useState<boolean>(false);
+	const [isUpdated, setIsUpdated] = useState<boolean>(false);
 	const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
 	const [isOfferContractChecked, setIsOfferContractChecked] = useState(false);
 	const [isDisabled, setIsDisabled] = useState<boolean>(false);
@@ -51,7 +53,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 
 	// update page after update database
 	const getUpdate = () => {
-		setUpdate(!update);
+		setIsUpdated(!isUpdated);
 	};
 
 	const setDisabledSendBtn = () => {
@@ -266,7 +268,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 
 	// get array of group's name
 	const getData = async () => {
-		const resGroups = await getUserGroups(userId, null, 0);
+		const resGroups = await getUserGroups(userId, 5, 0);
 		const groupsName = resGroups?.map(group => group.group_name);
 		setGroupsNameArray(groupsName);
 	};
@@ -305,7 +307,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 	useEffect(() => {
 		memoizedgetData();
 		memoizedgetUserNamesArray(userId);
-	}, [memoizedgetData, memoizedgetUserNamesArray, userId, recipients, update]);
+	}, [memoizedgetData, memoizedgetUserNamesArray, userId, recipients, isUpdated]);
 
 	const handleChangeDate = (date: Date) => {
 		setDate(date);
@@ -331,7 +333,6 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 								selectOptions={user?.alfa_names_active}
 								getSelect={getUserName}
 								selectedOption={userName}
-								// widthValue={474}
 								startValue="Обрати"
 								defaultValue="Outlet"
 							/>
@@ -426,12 +427,15 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 						<div className="flex flex-col md:gap-8 gap-[22px] justify-start">
 							<AddClientPhoneNumberForm handleClick={handleClickAddPhoneNumber} />
 							<div className='xl:w-[474px] lg:w-[420px] md:w-[474px] w-full'>
-								<Select
+								<SelectGroup
+									userId={userId}
 									openSelect={openSelect}
 									selectOptions={groupsNameArray}
 									getSelect={getGroupName}
 									selectedOption={groupName}
 									startValue="Обрати"
+									LIMIT={LIMIT}
+									isUpdated={isUpdated}
 								/>
 								<div className={`${isSelectOpen && 'hidden'}`}>
 									<EmailColorLinkBtn

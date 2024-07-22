@@ -81,8 +81,8 @@ const SelectTime = ({ selectOptions,
 	}, [memoizedClose, getSelect, startValue, isModal, openSelect, isOpen]);
 
 	return (
-		<div onClick={onClose} className={`select-wrap relative ${widthValue ? ` w-[${widthValue}px]` : `w-full`} ${isOpen ? `rounded-t-[18px]` : `border-[#E6E6E6] rounded-[18px]`}`}>
-			<div className='select'>
+		<div onClick={onClose} className={`select-wrap relative ${widthValue ? ` w-[${widthValue}px]` : `w-full`}`}>
+			<div className={`select bg-white  ${isOpen ? `rounded-t-[18px] border-[1px]` : `border-[#E6E6E6] border-[1px] rounded-[18px]`}`}>
 				<div className='absolute top-1/2 -translate-y-1/2  md:left-7 left-4 font-montserrat font-normal text-lg leading-6'>
 					{isOpen && !selectedOption ? startValue : selectedOption}</div>
 				{isOpen ?
@@ -121,7 +121,7 @@ const SelectTime = ({ selectOptions,
 					</>}
 			</div>
 
-			{isOpen && <div className={`${widthValue ? ` w-[${widthValue}px]` : `w-full`} absolute overflow-auto h-60 -ml-[1px] -mt-[2px] bg-white rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0`} ref={selectBodyRef}>
+			{isOpen && <div className={`${widthValue ? ` w-[${widthValue}px]` : `w-full`} absolute overflow-auto h-60 -mt-[2px] bg-white rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0`} ref={selectBodyRef}>
 				<RSC>
 					{selectOptions?.map((selectOption) => (
 						<div key={key++} onClick={() => getSelect(selectOption)} className="select-item">{selectOption}</div>

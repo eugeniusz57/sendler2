@@ -15,7 +15,7 @@ type Props = {
 	isUpdated: boolean;
 }
 
-export default function GroupsList({ groups, getGroups, getUpdate, userId, isUpdated, LIMIT }: Props) {
+export default function GroupsList({ groups, getGroups, userId, isUpdated, LIMIT }: Props) {
 
 	return (
 		<>
@@ -40,7 +40,6 @@ export default function GroupsList({ groups, getGroups, getUpdate, userId, isUpd
 							<LoadMoreGroups
 								userId={userId}
 								isUpdated={isUpdated}
-								getUpdate={getUpdate}
 								LIMIT={LIMIT}
 								getGroups={getGroups}
 							/>
