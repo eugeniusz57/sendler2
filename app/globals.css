@@ -10,15 +10,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
 * {
   margin: 0;
   padding: 0;
@@ -206,7 +197,7 @@ footer {
 }
 
 .title_h2 {
-  @apply lg:text-[40px] text-[32px] font-semibold font-montserrat lg:leading-[60px] leading-[48px];
+  @apply text-[22px]  md:text-[32px] lg:text-[40px] font-semibold font-montserrat md:leading-[48px] lg:leading-[60px];
 }
 
 .title_block {
@@ -226,12 +217,9 @@ footer {
 }
 
 .smsServiseCard {
-  width: 416px;
-  height: 288px;
   border-radius: 18px;
   background-color: #cde8ea;
   box-shadow: 0px 8px 8px 0px #a3d6d94d;
-  padding: 40px 26px;
 }
 
 .caruselBg {
@@ -245,8 +233,12 @@ footer {
   color: white;
 }
 
-.swiperOnMove {
+/* .swiperOnMove {
   transform: translateX(-655px);
+} */
+
+.swiperOnMove {
+  @apply lg:translate-x-[-990px] xl:translate-x-[-655px];
 }
 
 .swiperTransition {

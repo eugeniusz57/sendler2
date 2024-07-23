@@ -18,11 +18,11 @@ function Swiper() {
 
 	return (
 		<>
-			<div className="container relative mx-auto">
+			<div className="container lg:w-[998px] xl:w-full relative mx-auto">
 				<div className="flex gap-3  absolute right-[15px] top-[-50px]">
 					<button
 						type="button"
-						className={` cursor-pointer ${!isActive && "opacity-[0.3]"} `}
+						className={`hidden lg:block cursor-pointer ${!isActive && "opacity-[0.3]"} `}
 						onClick={hanleClick}
 						disabled={!isActive}
 					>
@@ -37,7 +37,7 @@ function Swiper() {
 
 					<button
 						type="button"
-						className={` cursor-pointer ${isActive && "opacity-[0.3]"} `}
+						className={`hidden lg:block cursor-pointer ${isActive && "opacity-[0.3]"} `}
 						onClick={hanleClick}
 						disabled={isActive}
 					>
@@ -51,8 +51,8 @@ function Swiper() {
 				</div>
 			</div>
 
-			<div className="container overflow-hidden mx-auto  ">
-				<ul className={`flex gap-6 ${extra} swiperTransition`}>
+			<div className="container lg:w-[998px] xl:w-full overflow-hidden mx-auto  ">
+				<ul className={`flex flex-wrap lg:flex-nowrap gap-6 place-content-center lg:place-content-start ${extra} swiperTransition`}>
 					<SwiperCard idx="1">
 						<Image
 							src="/svg/swiper-check-circle.svg"
@@ -136,7 +136,7 @@ function SwiperCard({ children, idx }: { children: ReactNode; idx: string }) {
 	return (
 		<li
 			key={idx}
-			className=" min-w-[306px] h-[275px] rounded-[18px] border-[#E2E2E2] border bg-[#d8d8d819] px-[30px] py-[26px] flex flex-col gap-[22px] items-center"
+			className="w-[328px] md:w-[306px] lg:min-w-[306px] h-[240px] md:h-[275px] rounded-[18px] border-[#E2E2E2] border bg-[#d8d8d819] px-[30px] py-[26px] flex flex-col gap-[22px] items-center"
 		>
 			{children}
 		</li>
