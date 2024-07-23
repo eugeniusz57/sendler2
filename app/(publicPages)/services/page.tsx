@@ -17,7 +17,7 @@ const Services = () => {
         <div className=" flex  flex-col lg:flex-row w-full  ">
           <ul className=" md:mr-[88px] lg:mr-[174px] lg:w-[636px] lg:pt-[100px]">
             <li className=" mb-6 md:mb-8">
-              <p>
+              <p className=" text-sm md:text-base">
                 Якщо Ви зацікавлені в залученні нової аудиторії до Вашого товару
                 або сервісу і при цьому бажаєте використовувати один із
                 найефективніших способів цільової реклами — SMS-Розсилку,
@@ -26,7 +26,7 @@ const Services = () => {
               </p>
             </li>
             <li>
-              <p>
+              <p className=" text-sm md:text-base">
                 Ви самі вибираєте цільову аудиторію та потрібну кількість
                 контактів, яким буде доставлено Ваше повідомлення. Можливі такі
                 параметри вибору:
