@@ -13,11 +13,11 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="container pt-20 flex flex-col">
+      <section className="container pt-7 md:pt-20 flex flex-col">
         <div className=" flex  flex-col lg:flex-row w-full  ">
-          <ul className="mr-[174px] w-[636px] pt-[100px]">
-            <li className="mb-8">
-              <p>
+          <ul className=" md:mr-[88px] lg:mr-[174px] lg:w-[636px] lg:pt-[100px]">
+            <li className=" mb-6 md:mb-8">
+              <p className=" text-sm md:text-base">
                 Якщо Ви зацікавлені в залученні нової аудиторії до Вашого товару
                 або сервісу і при цьому бажаєте використовувати один із
                 найефективніших способів цільової реклами — SMS-Розсилку,
@@ -26,7 +26,7 @@ const Services = () => {
               </p>
             </li>
             <li>
-              <p>
+              <p className=" text-sm md:text-base">
                 Ви самі вибираєте цільову аудиторію та потрібну кількість
                 контактів, яким буде доставлено Ваше повідомлення. Можливі такі
                 параметри вибору:
@@ -34,7 +34,7 @@ const Services = () => {
             </li>
           </ul>
           <ul className="flex flex-col ml-auto lg:ml-0 mt-[50px] lg:mt-0 gap-[22px] font-montserrat">
-            <li className="flex items-center  bg-formBg py-[10px] px-[14px] rounded-[18px] w-[486px]">
+            <li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
               <span>
                 <Image
                   src="/svg/services/1.svg"
@@ -43,11 +43,11 @@ const Services = () => {
                   alt="number"
                 ></Image>
               </span>
-              <p className="ml-10 text-lg  lg:text-xl">
+              <p className=" ml-7 md:ml-10 text-sm md:text-lg  lg:text-xl">
                 Витрати абонента на місяць
               </p>
             </li>
-            <li className="flex items-center  bg-formBg py-[10px] px-[14px] rounded-[18px] w-[486px]">
+            <li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
               <span>
                 <Image
                   src="/svg/services/2.svg"
@@ -56,11 +56,11 @@ const Services = () => {
                   alt="number"
                 ></Image>
               </span>
-              <p className="ml-6 text-lg  lg:text-xl">
+              <p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
                 Місце розташування абонента
               </p>
             </li>
-            <li className="flex items-center  bg-formBg py-[10px] px-[14px] rounded-[18px] w-[486px]">
+            <li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
               <span>
                 <Image
                   src="/svg/services/3.svg"
@@ -69,11 +69,11 @@ const Services = () => {
                   alt="number"
                 ></Image>
               </span>
-              <p className="ml-6 text-lg  lg:text-xl">
+              <p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
                 Знаходження абонента у роумінгу
               </p>
             </li>
-            <li className="flex items-center  bg-formBg py-[10px] px-[14px] rounded-[18px] w-[486px]">
+            <li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
               <span>
                 <Image
                   src="/svg/services/4.svg"
@@ -82,11 +82,11 @@ const Services = () => {
                   alt="number"
                 ></Image>
               </span>
-              <p className="ml-6 text-lg  lg:text-xl">
+              <p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
                 Тип абонента (контракт, pre-paid)
               </p>
             </li>
-            <li className="flex items-center  bg-formBg py-[10px] px-[14px] rounded-[18px] w-[486px]">
+            <li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
               <span>
                 <Image
                   src="/svg/services/5.svg"
@@ -95,13 +95,13 @@ const Services = () => {
                   alt="number"
                 ></Image>
               </span>
-              <p className="ml-6 text-lg  lg:text-xl">
+              <p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
                 Використання додаткових послуг
               </p>
             </li>
           </ul>
         </div>
-        <p className="mt-20 font-roboto text-[18px] lg:text-[20px]">
+        <p className="mt-[50px] md:mt-20 font-roboto text-base md:text-[18px] lg:text-[20px]">
           Зв&apos;яжіться з нами для отримання детальної інформації про вартість
           Цільової SMS-Розсилки.
         </p>
