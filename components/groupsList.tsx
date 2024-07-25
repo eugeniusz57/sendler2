@@ -27,7 +27,7 @@ export default function GroupsList({ groups, getGroups, userId, isUpdated, LIMIT
 					<p></p>
 				</div>
 				<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Групи</p>
-				<ul className='h-[520px] md:h-[432px] overflow-auto'>
+				<ul className='h-[520px] md:h-[432px] lg:h-[380px] overflow-auto'>
 					{groups?.length ? (
 						<RSC style={{ height: "100%" }}>
 							{groups?.map((group: IGroupDatabase) => (

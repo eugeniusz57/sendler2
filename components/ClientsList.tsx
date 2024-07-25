@@ -79,7 +79,7 @@ export default function ClientsList({
 
 	return (
 		<div>
-			<div className="hidden lg:flex gap-x-8 w-full px-[26px] pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
+			<div className="hidden lg:flex gap-x-8 w-full pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
 				<p className="w-[158px] pl-[38px]">Номер</p>
 				<p className="w-[346px] lg:w-[190px] xl:w-[346px]">Ім&apos;я(П.І.Б.)</p>
 				<p className="w-[170px]">Дата народження</p>
@@ -88,7 +88,7 @@ export default function ClientsList({
 			</div>
 			<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Контакти</p>
 			<form onSubmit={handleSubmit(onSubmit)} className='scroll-bar'>
-				<ul className='h-[840px] md:h-[520px] overflow-auto'>
+				<ul className='h-[840px] md:h-[520px] lg:h-[380px] overflow-auto'>
 					{convertClients?.length ? (
 						<RSC style={{ height: "100%" }}>
 							{convertClients.map(convertClient => (

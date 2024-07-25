@@ -63,8 +63,8 @@ export default function AllContactsUserPage({ params }: { params: { id: string, 
 			<Title type="h1" color="dark">
 				Управління контактами
 			</Title>
-			<div className="content-block md:mt-[60px] mt-[28px] lg:px-[26px] md:px-[20px] px-[10px]">
-				<div className="mb-[28px] md:mb-[40px]">
+			<div className="content-block md:mt-[60px] mt-[28px]">
+				<div className="mb-[28px] md:mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]">
 					<Title
 						type="accent-main_text"
 						color="dark">
@@ -72,7 +72,7 @@ export default function AllContactsUserPage({ params }: { params: { id: string, 
 					</Title>
 					<EmailColorLinkBtn isDisabled={false} onClick={handleClick}>Повернутись до списку груп</EmailColorLinkBtn>
 				</div>
-				<p className="lg:w-[724px] md:mb-[50px] mb-[40px] leading-6">
+				<p className="lg:w-[724px] md:mb-[50px] mb-[40px] leading-6  lg:px-[26px] md:px-[20px] px-[10px]">
 					У данній таблиці представленні всі ваші контакти. Ви можете переглянути детальну
 					інформацію, а також редагувати контакт.
 				</p>
