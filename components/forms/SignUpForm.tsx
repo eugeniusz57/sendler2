@@ -116,6 +116,7 @@ const SingUpForm = () => {
           <input
             id="phone"
             type="tel"
+            maxLength={9}
             onKeyPress={EnterOnlyFigures}
             {...register('phone')}
             className="w-full border py-2 pr-11 pl-[50px] focus:outline-none focus:border-blue-500 rounded-[18px] input"
