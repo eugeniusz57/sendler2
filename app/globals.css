@@ -8,6 +8,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --displacement: 0;
 }
 
 * {
@@ -33,7 +34,7 @@ footer {
 
 @layer components {
   .container {
-    @apply py-0 px-[16px];
+    @apply py-0 px-[15px];
   }
 }
 
@@ -233,12 +234,14 @@ footer {
   color: white;
 }
 
-/* .swiperOnMove {
-  transform: translateX(-655px);
-} */
-
 .swiperOnMove {
   @apply lg:translate-x-[-990px] xl:translate-x-[-655px];
+}
+
+@media screen and (max-width: 709px) {
+  .swiperOnMoveMobile {
+    transform: translateX(var(--displacement));
+  }
 }
 
 .swiperTransition {
