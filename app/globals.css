@@ -218,9 +218,7 @@ footer {
 }
 
 .smsServiseCard {
-  border-radius: 18px;
-  background-color: #cde8ea;
-  box-shadow: 0px 8px 8px 0px #a3d6d94d;
+  @apply rounded-[18px] bg-smsServiceCardBg shadow-smsServiceCardShadow shadow-3xl;
 }
 
 .caruselBg {
@@ -228,20 +226,15 @@ footer {
 }
 
 .swiperCardText {
-  font-size: 16px;
-  line-height: 24px;
-  font-family: 'Montserrat';
-  color: white;
+  @apply text-sm md:text-lg leading-[21px] md:leading-6 font-montserrat text-white;
 }
 
 .swiperOnMove {
   @apply lg:translate-x-[-990px] xl:translate-x-[-655px];
 }
 
-@media screen and (max-width: 709px) {
-  .swiperOnMoveMobile {
-    transform: translateX(var(--displacement));
-  }
+.swiperOnMoveMobile {
+  @apply translate-x-[var(--displacement)] md:translate-x-[0px];
 }
 
 .swiperTransition {

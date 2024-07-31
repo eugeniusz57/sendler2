@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 
 let count = 0;
@@ -50,6 +50,66 @@ function SliderAdvantages() {
 			setIsActiveRight(true);
 		};
 	};
+
+	useEffect(() => {
+		let xStart: number | null = null;
+		let yStart: number | null = null;
+
+		function handleTouchStart(e: any) {
+			const firstTouch = e.touches[0];
+			xStart = firstTouch.clientX;
+			yStart = firstTouch.clientY;
+		};
+
+		function handleTouchMove(e: any) {
+			if (!xStart || !yStart) {
+				return false;
+			}
+			let xEnd = e.changedTouches[0].clientX;
+			let yEnd = e.changedTouches[0].clientY;
+			let xDiff = xEnd - xStart;
+			let yDiff = yEnd - yStart;
+
+			if (Math.abs(xDiff) > Math.abs(yDiff)) {
+				if (xDiff > 0) {
+					if (count > 0) {
+						count = count - 1;
+					};
+					if (0 <= count && count <= 5) {
+						setIsActiveRight(false);
+						setSliderDisplacement(count, 352);
+						setExtra('swiperOnMoveMobile');
+					}
+					if (count === 0) {
+						setIsActiveLeft(true);
+						setIsActiveRight(false);
+					};
+				} else {
+					if (count < 5) {
+						count = count + 1
+					};
+					if (0 <= count && count <= 5) {
+						setIsActiveLeft(false);
+						setSliderDisplacement(count, 352);
+						setExtra('swiperOnMoveMobile');
+					}
+					if (count === 5) {
+						setIsActiveLeft(false);
+						setIsActiveRight(true);
+					};
+				};
+			}
+			xStart = null;
+			yStart = null;
+		};
+		const sliderAdvantages = document.getElementById('sliderAdvantages');
+		sliderAdvantages?.addEventListener('touchstart', handleTouchStart, false);
+		sliderAdvantages?.addEventListener('touchend', handleTouchMove, false);
+		return () => {
+			sliderAdvantages?.removeEventListener('touchstart', handleTouchStart, false);
+			sliderAdvantages?.removeEventListener('touchend', handleTouchMove, false);
+		}
+	}, []);
 
 	return (
 		<>
@@ -114,7 +174,7 @@ function SliderAdvantages() {
 			</div>
 
 			<div className="container lg:w-[998px] xl:w-full overflow-hidden mx-auto  ">
-				<ul className={`flex md:flex-wrap lg:flex-nowrap gap-6 ${extra} swiperTransition`}>
+				<ul id='sliderAdvantages' className={`flex md:flex-wrap lg:flex-nowrap gap-6 ${extra} swiperTransition`}>
 					<SwiperCard idx="1">
 						<Image
 							src="/svg/swiper-check-circle.svg"

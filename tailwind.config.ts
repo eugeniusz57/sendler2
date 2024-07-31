@@ -44,7 +44,9 @@ const config: Config = {
 				textDisable: '#6C6C6C',
 				rowBtnDisableText: '#858585',
 				rowBtnDisableBorder: '#6C6C6C',
-				disableAlfaName: '#372037'
+				disableAlfaName: '#372037',
+				smsServiceCardShadow: '#a3d6d94d',
+				smsServiceCardBg: '#cde8ea'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -53,6 +55,9 @@ const config: Config = {
 			transitionDuration: {
 				DEFAULT: '300ms',
 			},
+			boxShadow: {
+				'3xl': '0 8px 8px 0 #a3d6d94d',
+			}
 		},
 	},
 	plugins: [],

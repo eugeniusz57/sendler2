@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
-import SmsServiceList from "@/components/startPageComp/SmsServicelist";
 import Title from "@/components/Title";
 import HeroBtn from "@/components/buttons/HeroBtn";
 import Image from "next/image";
@@ -56,7 +55,6 @@ export default function Home() {
 							Як працює SMS сервіс
 						</Title>
 					</div>
-					{/* <SmsServiceList /> */}
 					<SliderSmsService />
 
 				</section>
