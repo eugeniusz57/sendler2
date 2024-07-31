@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { ReactNode, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 
 let count = 0;
@@ -12,15 +12,9 @@ function SliderSmsService() {
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);
 
-	const hanleClick = (): void => {
-		if (extra === "") {
-			setExtra("swiperOnMove");
-			setIsActive(true);
-		} else {
-			setExtra("");
-			setIsActive(false);
-		}
-	};
+
+
+
 
 	const hanleClickLeft = (): void => {
 		if (count > 0) {
@@ -51,6 +45,66 @@ function SliderSmsService() {
 			setIsActiveRight(true);
 		};
 	};
+
+	useEffect(() => {
+		let xStart: number | null = null;
+		let yStart: number | null = null;
+
+		function handleTouchStart(e: any) {
+			const firstTouch = e.touches[0];
+			xStart = firstTouch.clientX;
+			yStart = firstTouch.clientY;
+		};
+
+		function handleTouchMove(e: any) {
+			if (!xStart || !yStart) {
+				return false;
+			}
+			let xEnd = e.changedTouches[0].clientX;
+			let yEnd = e.changedTouches[0].clientY;
+			let xDiff = xEnd - xStart;
+			let yDiff = yEnd - yStart;
+
+			if (Math.abs(xDiff) > Math.abs(yDiff)) {
+				if (xDiff > 0) {
+					if (count > 0) {
+						count = count - 1;
+					};
+					if (0 <= count && count <= 5) {
+						setIsActiveRight(false);
+						setSliderDisplacement(count, 352);
+						setExtra('swiperOnMoveMobile');
+					}
+					if (count === 0) {
+						setIsActiveLeft(true);
+						setIsActiveRight(false);
+					};
+				} else {
+					if (count < 5) {
+						count = count + 1
+					};
+					if (0 <= count && count <= 5) {
+						setIsActiveLeft(false);
+						setSliderDisplacement(count, 352);
+						setExtra('swiperOnMoveMobile');
+					}
+					if (count === 5) {
+						setIsActiveLeft(false);
+						setIsActiveRight(true);
+					};
+				};
+			}
+			xStart = null;
+			yStart = null;
+		};
+		const sliderServices = document.getElementById('sliderServices');
+		sliderServices?.addEventListener('touchstart', handleTouchStart, false);
+		sliderServices?.addEventListener('touchend', handleTouchMove, false);
+		return () => {
+			sliderServices?.removeEventListener('touchstart', handleTouchStart, false);
+			sliderServices?.removeEventListener('touchend', handleTouchMove, false);
+		}
+	}, []);
 
 	return (
 		<>
@@ -88,7 +142,7 @@ function SliderSmsService() {
 			</div>
 
 			<div className="container lg:w-[1130px] xl:w-full overflow-hidden mx-auto  ">
-				<ul className={`flex md:flex-wrap gap-6 ${extra} swiperTransition`}>
+				<ul id='sliderServices' className={`flex md:flex-wrap gap-6 ${extra} swiperTransition`}>
 					<SmsServiseCard
 						title="Створення та керування СМС-розсилкою"
 						descr="Ви задаєте текст повідомлення, вибираєте групи абонентів, які отримають повідомлення, і вказуєте час, коли повідомлення будуть відправленні отримувачам."
