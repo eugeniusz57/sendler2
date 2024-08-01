@@ -11,6 +11,9 @@ function SliderAdvantages() {
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);
 
+	let xStart: number | null = null;
+	let yStart: number | null = null;
+
 	const hanleClick = (): void => {
 		if (extra === "") {
 			setExtra("swiperOnMove");
@@ -18,7 +21,7 @@ function SliderAdvantages() {
 		} else {
 			setExtra("");
 			setIsActive(false);
-		}
+		};
 	};
 
 	const hanleClickLeft = (): void => {
@@ -29,7 +32,7 @@ function SliderAdvantages() {
 			setIsActiveRight(false);
 			setSliderDisplacement(count, 352);
 			setExtra('swiperOnMoveMobile');
-		}
+		};
 		if (count === 0) {
 			setIsActiveLeft(true);
 			setIsActiveRight(false);
@@ -44,72 +47,62 @@ function SliderAdvantages() {
 			setIsActiveLeft(false);
 			setSliderDisplacement(count, 352);
 			setExtra('swiperOnMoveMobile');
-		}
+		};
 		if (count === 5) {
 			setIsActiveLeft(false);
 			setIsActiveRight(true);
 		};
 	};
 
-	useEffect(() => {
-		let xStart: number | null = null;
-		let yStart: number | null = null;
+	const handleTouchStart = (e: any): void => {
+		const firstTouch = e.touches[0];
+		xStart = firstTouch.clientX;
+		yStart = firstTouch.clientY;
+	};
 
-		function handleTouchStart(e: any) {
-			const firstTouch = e.touches[0];
-			xStart = firstTouch.clientX;
-			yStart = firstTouch.clientY;
+	const handleTouchMove = (e: any): void => {
+
+		if (!xStart || !yStart) {
+			return;
 		};
 
-		function handleTouchMove(e: any) {
-			if (!xStart || !yStart) {
-				return false;
-			}
-			let xEnd = e.changedTouches[0].clientX;
-			let yEnd = e.changedTouches[0].clientY;
-			let xDiff = xEnd - xStart;
-			let yDiff = yEnd - yStart;
+		let xEnd = e.changedTouches[0].clientX;
+		let yEnd = e.changedTouches[0].clientY;
+		let xDiff = xEnd - xStart;
+		let yDiff = yEnd - yStart;
 
-			if (Math.abs(xDiff) > Math.abs(yDiff)) {
-				if (xDiff > 0) {
-					if (count > 0) {
-						count = count - 1;
-					};
-					if (0 <= count && count <= 5) {
-						setIsActiveRight(false);
-						setSliderDisplacement(count, 352);
-						setExtra('swiperOnMoveMobile');
-					}
-					if (count === 0) {
-						setIsActiveLeft(true);
-						setIsActiveRight(false);
-					};
-				} else {
-					if (count < 5) {
-						count = count + 1
-					};
-					if (0 <= count && count <= 5) {
-						setIsActiveLeft(false);
-						setSliderDisplacement(count, 352);
-						setExtra('swiperOnMoveMobile');
-					}
-					if (count === 5) {
-						setIsActiveLeft(false);
-						setIsActiveRight(true);
-					};
+		if (Math.abs(xDiff) > Math.abs(yDiff)) {
+			if (xDiff > 0) {
+				if (count > 0) {
+					count = count - 1;
 				};
-			}
-			xStart = null;
-			yStart = null;
+				if (0 <= count && count <= 5) {
+					setIsActiveRight(false);
+					setSliderDisplacement(count, 352);
+					setExtra('swiperOnMoveMobile');
+				}
+				if (count === 0) {
+					setIsActiveLeft(true);
+					setIsActiveRight(false);
+				};
+			} else {
+				if (count < 5) {
+					count = count + 1
+				};
+				if (0 <= count && count <= 5) {
+					setIsActiveLeft(false);
+					setSliderDisplacement(count, 352);
+					setExtra('swiperOnMoveMobile');
+				};
+				if (count === 5) {
+					setIsActiveLeft(false);
+					setIsActiveRight(true);
+				};
+			};
 		};
-		const sliderAdvantages = document.getElementById('sliderAdvantages');
-		sliderAdvantages?.addEventListener('touchstart', handleTouchStart, false);
-		sliderAdvantages?.addEventListener('touchend', handleTouchMove, false);
-		return () => {
-			sliderAdvantages?.removeEventListener('touchstart', handleTouchStart, false);
-			sliderAdvantages?.removeEventListener('touchend', handleTouchMove, false);
-		}
-	}, []);
+		xStart = null;
+		yStart = null;
+	};
 
 	return (
 		<>
@@ -174,7 +167,7 @@ function SliderAdvantages() {
 			</div>
 
 			<div className="container lg:w-[998px] xl:w-full overflow-hidden mx-auto  ">
-				<ul id='sliderAdvantages' className={`flex md:flex-wrap lg:flex-nowrap gap-6 ${extra} swiperTransition`}>
+				<ul onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} id='sliderAdvantages' className={`flex md:flex-wrap lg:flex-nowrap gap-6 ${extra} swiperTransition`}>
 					<SwiperCard idx="1">
 						<Image
 							src="/svg/swiper-check-circle.svg"
