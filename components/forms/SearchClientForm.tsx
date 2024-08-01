@@ -12,7 +12,7 @@ interface IFormInput {
 }
 
 interface Props {
-	getFilter: (e: any) => void;
+	getFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	resetFilter: () => void;
 }
 
@@ -50,7 +50,7 @@ export default function SearchClientForm({ getFilter, resetFilter }: Props) {
 		},
 	});
 
-	const onChange = (e: any) => {
+	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		getFilter(e);
 		setFilter(e.target.value);
 		if (e.target.value) {

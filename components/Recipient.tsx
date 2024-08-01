@@ -4,7 +4,7 @@ interface Props {
 	recipient: string | number;
 	index: number;
 	register: UseFormRegister<FieldValues>
-	onSelect: (e: any) => void;
+	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Recipient = ({

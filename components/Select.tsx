@@ -12,7 +12,7 @@ type Props = {
 	defaultValue?: string;
 };
 
-const Select = ({
+const Select: React.FC<Props> = ({
 	selectOptions,
 	selectedOption,
 	getSelect,
@@ -20,7 +20,7 @@ const Select = ({
 	widthValue,
 	startValue,
 	defaultValue,
-}: Props) => {
+}) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;
@@ -41,7 +41,7 @@ const Select = ({
 		};
 
 		// close select if click outside of select
-		const handleClickCloseInput = (e: any) => {
+		function handleClickCloseInput(e: MouseEvent): void {
 			if (selectBodyRef?.current && !selectBodyRef?.current?.contains(e.target as Node)) {
 				memoizedClose();
 				if (startValue === '00') {

@@ -6,7 +6,7 @@ import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 let count = 0;
 
 function SliderAdvantages() {
-	const [extra, setExtra] = useState<string>("");
+	const [extra, setExtra] = useState("");
 	const [isActive, setIsActive] = useState(false);
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);
@@ -54,20 +54,24 @@ function SliderAdvantages() {
 		};
 	};
 
-	const handleTouchStart = (e: any): void => {
+	const handleTouchStart = (e: React.TouchEvent<HTMLUListElement>): void => {
 		const firstTouch = e.touches[0];
 		xStart = firstTouch.clientX;
 		yStart = firstTouch.clientY;
 	};
 
-	const handleTouchMove = (e: any): void => {
+	const handleTouchEnd = (e: React.TouchEvent<HTMLUListElement>): void => {
 
 		if (!xStart || !yStart) {
 			return;
 		};
 
-		let xEnd = e.changedTouches[0].clientX;
-		let yEnd = e.changedTouches[0].clientY;
+		let xEnd = 0;
+		let yEnd = 0;
+
+		xEnd = e.changedTouches[0].clientX;
+		yEnd = e.changedTouches[0].clientY;
+
 		let xDiff = xEnd - xStart;
 		let yDiff = yEnd - yStart;
 
@@ -167,7 +171,7 @@ function SliderAdvantages() {
 			</div>
 
 			<div className="container lg:w-[998px] xl:w-full overflow-hidden mx-auto  ">
-				<ul onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} id='sliderAdvantages' className={`flex md:flex-wrap lg:flex-nowrap gap-6 ${extra} swiperTransition`}>
+				<ul onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} id='sliderAdvantages' className={`flex md:flex-wrap lg:flex-nowrap gap-6 ${extra} swiperTransition`}>
 					<SwiperCard idx="1">
 						<Image
 							src="/svg/swiper-check-circle.svg"

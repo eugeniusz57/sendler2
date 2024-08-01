@@ -21,7 +21,7 @@ export default function AddAlfaNameForm({ userId, getUserNamesArray, getIsOpened
 	const [isDisabled, setIsDisabled] = useState<boolean>(true);
 	const [name, setName] = useState<string>('');
 
-	const handleOnChange = (e: any) => {
+	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setName(e.target.value);
 	};
 

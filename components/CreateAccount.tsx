@@ -2,15 +2,14 @@
 import { defineSum } from '@/helpers/DefinSum';
 import { EnterOnlyFigures } from '@/helpers/EnterOnlyFigures';
 import { useState } from 'react';
-import GreenButton from './buttons/GreenButton';
 import Modal from './Modal/Modal';
 import AccountInPdf from './AccountInPdf';
 
 const CreateAccount = () => {
 	const [inputValue, setInputValue] = useState<string>('');
 
-	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setInputValue(event.target.value);
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setInputValue(e.target.value);
 	};
 
 	const summ = defineSum(Number(inputValue));

@@ -14,7 +14,7 @@ type Props = {
 	filter: string;
 	userId: number;
 	register: UseFormRegister<FieldValues>
-	onSelect: (e: any) => void;
+	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	getUpdate: () => void;
 	isUpdated: boolean;
 	LIMIT: number;
