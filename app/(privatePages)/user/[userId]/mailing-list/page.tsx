@@ -124,7 +124,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 		setIsOpened(!isOpened);
 	};
 
-	const handleChangeTextSms = (e: any) => {
+	const handleChangeTextSms = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setContentSMS(e.target.value);
 	};
 

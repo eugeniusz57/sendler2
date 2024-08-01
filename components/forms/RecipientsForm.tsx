@@ -22,7 +22,7 @@ export default function RecipientsForm({
 	const { register, handleSubmit, reset } = useForm();
 
 	// variable for control of state of delete button
-	const onSelect = (e: any) => {
+	const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { checked } = e.target;
 		if (checked) {
 			setIsSelected(isSelected + 1);

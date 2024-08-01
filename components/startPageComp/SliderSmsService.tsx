@@ -1,14 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 
 let count = 0;
 
 function SliderSmsService() {
 	const [extra, setExtra] = useState<string>("");
-	const [isActive, setIsActive] = useState(false);
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);
 
@@ -45,18 +44,23 @@ function SliderSmsService() {
 	let xStart: number | null = null;
 	let yStart: number | null = null;
 
-	const handleTouchStart = (e: any) => {
+	const handleTouchStart = (e: React.TouchEvent<HTMLUListElement>): void => {
 		const firstTouch = e.touches[0];
 		xStart = firstTouch.clientX;
 		yStart = firstTouch.clientY;
 	};
 
-	const handleTouchMove = (e: any) => {
+	const handleTouchMove = (e: React.TouchEvent<HTMLUListElement>): void => {
 		if (!xStart || !yStart) {
-			return false;
-		}
-		let xEnd = e.changedTouches[0].clientX;
-		let yEnd = e.changedTouches[0].clientY;
+			return;
+		};
+
+		let xEnd = 0;
+		let yEnd = 0;
+
+		xEnd = e.changedTouches[0].clientX;
+		yEnd = e.changedTouches[0].clientY;
+
 		let xDiff = xEnd - xStart;
 		let yDiff = yEnd - yStart;
 

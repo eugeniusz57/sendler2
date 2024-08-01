@@ -42,7 +42,7 @@ const SelectTime = ({ selectOptions,
 		};
 
 		// close select if click outside of select
-		const handleClickCloseInput = (e: any) => {
+		const handleClickCloseInput = (e: MouseEvent) => {
 			if (selectBodyRef?.current && !selectBodyRef?.current?.contains(e.target as Node)) {
 				memoizedClose();
 				if (startValue === '00') {

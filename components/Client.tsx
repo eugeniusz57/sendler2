@@ -8,7 +8,7 @@ interface Props {
 	updateClients: () => void;
 	getUpdate: () => void;
 	register: UseFormRegister<FieldValues>
-	onSelect: (e: any) => void;
+	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Client = ({

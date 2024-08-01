@@ -36,7 +36,7 @@ export default function AllContactsUserPage({ params }: { params: { id: string, 
 	};
 
 	// update list of clients if filter is changed
-	const getFilter = (e: any) => {
+	const getFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFilter(e.target.value);
 	};
 

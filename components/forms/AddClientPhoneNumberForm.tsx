@@ -53,7 +53,7 @@ export default function AddClientPhoneNumberForm({ handleClick }: Props) {
 		setTel('');
 	};
 
-	const handleChange = (e: any) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTel(e.target.value);
 	};
 
