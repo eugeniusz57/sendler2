@@ -18,9 +18,8 @@ const ModalBurgerMenu: React.FC<ModalProps> = ({ isOpen, onClose, children }) =>
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
+    if (event.key === 'Escape' && isOpen) {
       onClose();
     }
   };
@@ -30,11 +29,15 @@ const ModalBurgerMenu: React.FC<ModalProps> = ({ isOpen, onClose, children }) =>
   }, []);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleKeyDown]);
+  }, [ isOpen]);
 
   const modalContent = isOpen ? (
     <div className="modal-overlay-burger relative" onClick={handleOverlayClick}>
@@ -46,6 +49,8 @@ const ModalBurgerMenu: React.FC<ModalProps> = ({ isOpen, onClose, children }) =>
 
   if (isBrowser) {
     return createPortal(modalContent, document.body);
+  } else {
+    return null;
   }
 };
 
