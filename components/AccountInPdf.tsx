@@ -10,7 +10,7 @@ interface Props {
 
 const AccountInPdf = ({ summ }: Props) => {
   const { data: session, status } = useSession();
-  const userName = session?.user.user_name;
+  const userName = session?.user.user_login;
   const currentDate = new Date();
   const day = currentDate.getDate().toString().padStart(2, '0'); // Dodaje zero przed jednocyfrowymi dniami
   const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Dodaje zero przed jednocyfrowymi miesiącami
