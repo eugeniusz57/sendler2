@@ -5,7 +5,7 @@ interface SelectProps {
 	options: Option[];
 	value: string | undefined;
 	onChange: (value: string) => void;
-}
+};
 
 const SelectMonth: React.FC<SelectProps> = ({ options, value, onChange }) => {
 	const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -23,4 +23,4 @@ const SelectMonth: React.FC<SelectProps> = ({ options, value, onChange }) => {
 	);
 };
 
-export default SelectMonth
+export default SelectMonth;

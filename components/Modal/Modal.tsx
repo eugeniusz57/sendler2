@@ -7,7 +7,7 @@ interface ModalProps {
 	onClose: () => void;
 	isSelectOpen?: boolean;
 	children: React.ReactNode;
-}
+};
 
 const Modal: React.FC<ModalProps> = ({
 	isOpen,

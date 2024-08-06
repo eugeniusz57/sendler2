@@ -13,7 +13,7 @@ const SelectSendSmsForm: React.FC<Props> = ({
 	handleClickSubmit,
 	closeModal,
 	balance,
-	clientsQuantity }: Props) => {
+	clientsQuantity }) => {
 
 	const handleSendButton = () => {
 		handleClickSubmit();

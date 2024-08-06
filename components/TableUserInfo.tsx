@@ -7,7 +7,7 @@ interface TableUserInfoProps {
 	handleDelete: (userId: number) => void;
 };
 
-const TableUserInfo: React.FC<TableUserInfoProps> = ({ user, handleDelete }: TableUserInfoProps) => {
+const TableUserInfo: React.FC<TableUserInfoProps> = ({ user, handleDelete }) => {
 	const userCreateDate = user.user_create_date;
 	const date = new Date(userCreateDate);
 	const formattedDate = date.toISOString().split('T')[0];

@@ -1,13 +1,12 @@
 import Title from './Title';
 
-type Props = {};
-
-const OfferContract: React.FC<Props> = (props: Props) => {
+const OfferContract: React.FC = () => {
 	return (
 		<div className="w-[300px] h-[200px]	xl:w-[1200px] 	xl:h-[1000px] lg:w-[1000px] lg:h-[800px] md:w-[700px] md:h-[500px] overflow-auto  bg-white p-12  text-xl flex  flex-col text-justify">
-			<div className=' text-center'>  <Title type="h1" color="dark">
-				Договір оферти (надання послуг)
-			</Title></div>
+			<div className=' text-center'>
+				<Title type="h1" color="dark">
+					Договір оферти (надання послуг)
+				</Title></div>
 
 			<p className=" mt-8 ">
 				<span className="font-semibold">

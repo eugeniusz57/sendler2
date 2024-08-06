@@ -7,7 +7,7 @@ type Props = {
 	userId: number;
 };
 
-const DescUserForm: React.FC<Props> = ({ userId }: Props) => {
+const DescUserForm: React.FC<Props> = ({ userId }) => {
 	const { register, handleSubmit, reset } = useForm();
 
 	const onSubmit = async (data: any) => {

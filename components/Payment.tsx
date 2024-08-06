@@ -2,9 +2,9 @@ import { IPaymentHistory } from "@/globaltypes/types"
 
 interface Props {
 	payment: IPaymentHistory
-}
+};
 
-const Payment: React.FC<Props> = ({ payment }: Props) => {
+const Payment: React.FC<Props> = ({ payment }) => {
 	return (
 		<div>
 			<li key={payment.transaction_id} className="block lg:flex lg:flex-row items-center text-base font-montserrat font-normal border-b border-rowUnderLine">
@@ -14,6 +14,6 @@ const Payment: React.FC<Props> = ({ payment }: Props) => {
 			</li>
 		</div>
 	)
-}
+};
 
 export default Payment

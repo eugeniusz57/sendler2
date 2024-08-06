@@ -7,9 +7,9 @@ import { IGroupDatabase } from "@/globaltypes/types";
 interface Props {
 	group: IGroupDatabase;
 	getGroups: () => void,
-}
+};
 
-const Group: React.FC<Props> = ({ group, getGroups }: Props) => {
+const Group: React.FC<Props> = ({ group, getGroups }) => {
 	return (
 		<li className="block lg:flex w-full gap-x-6 lg:gap-x-2 px-[26px] items-center lg:h-[48px] text-base font-montserrat font-normal border-b border-rowUnderLine">
 			<div className="flex items-center lg:w-1/6">
@@ -33,7 +33,6 @@ const Group: React.FC<Props> = ({ group, getGroups }: Props) => {
 				</div>
 			</div>
 		</li>
-	)
-}
-
+	);
+};
 export default Group;

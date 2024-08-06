@@ -2,13 +2,15 @@ import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 interface ChartData {
-	name: string;
-	value: number | undefined;
-}
+	data: {
+		name: string;
+		value: number | undefined;
+	}[]
+};
 
 const COLORS = ['#0088FE', '#FFBB28', '#00C49F'];
 
-const renderCustomizedLabel: React.FC<ChartData> = ({
+const renderCustomizedLabel: React.FC<any> = ({
 	cx,
 	cy,
 	midAngle,
@@ -16,7 +18,7 @@ const renderCustomizedLabel: React.FC<ChartData> = ({
 	outerRadius,
 	percent,
 	index,
-}: any) => {
+}) => {
 	const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
 	const x = cx + radius * Math.cos(-midAngle * (Math.PI / 180));
 	const y = cy + radius * Math.sin(-midAngle * (Math.PI / 180));
@@ -34,7 +36,7 @@ const renderCustomizedLabel: React.FC<ChartData> = ({
 	);
 };
 
-const CircleDiagram = ({ data }: { data: ChartData[] }) => (
+const CircleDiagram: React.FC<ChartData> = ({ data }) => (
 	<>
 		<div className='hidden xl:block'>
 			<ResponsiveContainer width="100%" height={400}>
@@ -100,8 +102,6 @@ const CircleDiagram = ({ data }: { data: ChartData[] }) => (
 			</ResponsiveContainer>
 		</div>
 	</>
-
-
 );
 
 export default CircleDiagram;

@@ -28,7 +28,7 @@ const SelectGroup: React.FC<Props> = ({
 	userId,
 	LIMIT,
 	isUpdated
-}: Props) => {
+}) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;

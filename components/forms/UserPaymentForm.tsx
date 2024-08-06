@@ -14,7 +14,7 @@ type Props = {
 	userId: number;
 };
 
-const UserPaymentForm: React.FC<Props> = ({ userId }: Props) => {
+const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 	const { register, handleSubmit, reset } = useForm();
 	const [user, setUser] = useState<IUser>();
 	const [isUpdated, setisUpdated] = useState(false);

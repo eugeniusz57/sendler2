@@ -12,9 +12,9 @@ interface Props {
 	onClose: (() => void) | undefined;
 	title?: string;
 	cross?: boolean;
-}
+};
 
-const FormFeedback: React.FC<Props> = ({ onClose, title, cross }: Props) => {
+const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 	const {
 		register,
 		handleSubmit,

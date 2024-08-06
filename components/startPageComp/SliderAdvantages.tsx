@@ -249,7 +249,7 @@ const SliderAdvantages: React.FC = () => {
 			</div>
 		</>
 	);
-}
+};
 
 function SwiperCard({ children, idx }: { children: ReactNode; idx: string }) {
 	return (
@@ -260,7 +260,7 @@ function SwiperCard({ children, idx }: { children: ReactNode; idx: string }) {
 			{children}
 		</li>
 	);
-}
+};
 
 export default SliderAdvantages;
 

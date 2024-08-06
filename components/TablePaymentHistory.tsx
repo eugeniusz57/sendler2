@@ -7,7 +7,7 @@ type Props = {
 	userId: number;
 };
 
-const TablePaymentHistory: React.FC<Props> = ({ userId }: Props) => {
+const TablePaymentHistory: React.FC<Props> = ({ userId }) => {
 	const [userTransactionsHistory, setUserTransactionsHistory] = useState<
 		IPaymentHistory[] | undefined
 	>();

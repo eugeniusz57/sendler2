@@ -6,7 +6,7 @@ import { IHistoryResponce } from '@/globaltypes/historyTypes';
 
 type Props = { userHistory: IHistoryResponce[] };
 
-const TableAdminStatistics: React.FC<Props> = ({ userHistory }: Props) => {
+const TableAdminStatistics: React.FC<Props> = ({ userHistory }) => {
 	return (
 		<table className="w-full border bg-priceTableBg text-center">
 			<thead className="bg-lightGreen ">

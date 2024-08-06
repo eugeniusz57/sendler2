@@ -4,11 +4,17 @@ import { getServerSession } from 'next-auth';
 import { options } from '@/app/api/auth/[...nextauth]/options';
 
 export const metadata: Metadata = {
-  title: 'BSender',
-  description: 'BSender sms sending application',
+	title: 'BSender',
+	description: 'BSender sms sending application',
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session: ISession | null = await getServerSession(options);
-  return <div className="sms-page-box">{children}</div>;
-}
+interface Props {
+	children: React.ReactNode;
+};
+
+const RootLayout: React.FC<Props> = async ({ children }) => {
+	const session: ISession | null = await getServerSession(options);
+	return <div className="sms-page-box">{children}</div>;
+};
+
+export default RootLayout;

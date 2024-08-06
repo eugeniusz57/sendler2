@@ -10,7 +10,7 @@ type Props = {
 	email?: string;
 };
 
-const QuestionSegment: React.FC<Props> = ({ title, desc, email }: Props) => {
+const QuestionSegment: React.FC<Props> = ({ title, desc, email }) => {
 	const [expanded, setExpanded] = useState(true);
 
 	const toggleDescription = () => {

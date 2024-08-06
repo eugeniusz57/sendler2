@@ -28,7 +28,7 @@ const LoadMore: React.FC<Props> = ({
 	onSelect,
 	getUpdate,
 	isUpdated,
-	LIMIT }: Props) => {
+	LIMIT }) => {
 	const [clients, setClients] = useState<IClientDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
 	const convertClients: IClientDatabase[] | undefined = convertClientsBirthdayFormat(clients);

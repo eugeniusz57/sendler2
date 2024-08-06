@@ -16,7 +16,7 @@ interface Props {
 const EditClient: React.FC<Props> = ({ groupId,
 	client,
 	updateClients,
-	getUpdate }: Props) => {
+	getUpdate }) => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 	const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
 

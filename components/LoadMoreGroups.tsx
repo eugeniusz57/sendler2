@@ -16,7 +16,7 @@ const LoadMoreGroups: React.FC<Props> = ({
 	userId,
 	isUpdated,
 	LIMIT,
-	getGroups }: Props) => {
+	getGroups }) => {
 	const [groups, setGroups] = useState<IGroupDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
 	const [ref, inView] = useInView();

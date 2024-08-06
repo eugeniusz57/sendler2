@@ -12,7 +12,7 @@ type Props = {
 	loadMoreHistory: () => void
 };
 
-const HistoryList: React.FC<Props> = ({ userHistory, loadMoreHistory }: Props) => {
+const HistoryList: React.FC<Props> = ({ userHistory, loadMoreHistory }) => {
 	const sortHistory = userHistory ? summarizeHistoryByDate(userHistory) : undefined;
 	const { ref, inView } = useInView()
 

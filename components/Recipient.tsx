@@ -5,14 +5,14 @@ interface Props {
 	index: number;
 	register: UseFormRegister<FieldValues>
 	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
 const Recipient: React.FC<Props> = ({
 	recipient,
 	index,
 	register,
 	onSelect
-}: Props) => {
+}) => {
 	return (
 		<li className="flex w-max-full px-[26px] items-center h-[36px] text-base font-montserrat font-normal">
 			<input
@@ -27,8 +27,8 @@ const Recipient: React.FC<Props> = ({
 				{(typeof recipient) === 'number' ? `+${recipient}` : recipient}
 			</div>
 		</li>
-	)
-}
+	);
+};
 
 export default Recipient;
 

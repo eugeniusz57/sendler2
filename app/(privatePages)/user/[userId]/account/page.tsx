@@ -21,9 +21,8 @@ import Image from 'next/image';
 
 const LIMIT = 5;
 
-export default function UserAccountPage() {
+const UserAccountPage: React.FC = () => {
 	const { data: session } = useSession();
-
 	const userId = session?.user.user_id;
 	const [user, setUser] = useState<IUser>();
 	const [payments, setPayments] = useState<IPaymentHistory[] | undefined>([]);
@@ -209,4 +208,6 @@ export default function UserAccountPage() {
 			</div>
 		</>
 	);
-}
+};
+
+export default UserAccountPage;

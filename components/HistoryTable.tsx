@@ -14,7 +14,7 @@ type Props = {
 	id: number | undefined;
 };
 
-const HistoryTable: React.FC<Props> = ({ id }: Props) => {
+const HistoryTable: React.FC<Props> = ({ id }) => {
 	const searchParams = useSearchParams();
 	const startDate = searchParams.get('startDate');
 	const endDate = searchParams.get('endDate');
