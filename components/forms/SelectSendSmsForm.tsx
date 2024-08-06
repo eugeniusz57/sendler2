@@ -9,7 +9,7 @@ interface Props {
 	clientsQuantity: number | undefined;
 };
 
-const SelectSendSmsForm = ({
+const SelectSendSmsForm: React.FC<Props> = ({
 	handleClickSubmit,
 	closeModal,
 	balance,

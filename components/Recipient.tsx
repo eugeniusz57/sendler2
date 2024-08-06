@@ -7,7 +7,7 @@ interface Props {
 	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Recipient = ({
+const Recipient: React.FC<Props> = ({
 	recipient,
 	index,
 	register,

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Modal from './Modal/Modal';
 import AccountInPdf from './AccountInPdf';
 
-const CreateAccount = () => {
+const CreateAccount: React.FC = () => {
 	const [inputValue, setInputValue] = useState<string>('');
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

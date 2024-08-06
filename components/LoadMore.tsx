@@ -20,7 +20,7 @@ type Props = {
 	LIMIT: number;
 };
 
-export default function LoadMore({
+const LoadMore: React.FC<Props> = ({
 	userId,
 	filter,
 	groupId,
@@ -28,11 +28,10 @@ export default function LoadMore({
 	onSelect,
 	getUpdate,
 	isUpdated,
-	LIMIT }: Props) {
+	LIMIT }: Props) => {
 	const [clients, setClients] = useState<IClientDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
-	const convertClients = convertClientsBirthdayFormat(clients);
-
+	const convertClients: IClientDatabase[] | undefined = convertClientsBirthdayFormat(clients);
 	const [ref, inView] = useInView();
 
 	const loadMoreClients = async () => {
@@ -85,3 +84,5 @@ export default function LoadMore({
 		</>
 	);
 };
+
+export default LoadMore;

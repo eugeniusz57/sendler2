@@ -1,6 +1,6 @@
 import { PricesArray } from '@/data/data';
 
-const TablePrices = () => {
+const TablePrices: React.FC = () => {
 	return (
 		<table className="w-full md:w-[626px] lg:w-[746px] ml-auto bg-priceTableBg  border border-priceTableBorderColor lg:ml-6">
 			<thead className="bg-lightGreen">

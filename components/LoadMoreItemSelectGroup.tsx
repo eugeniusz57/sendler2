@@ -12,14 +12,13 @@ type Props = {
 	getSelect: (item: string) => void,
 };
 
-export default function LoadMoreItemSelectGroup({
+const LoadMoreItemSelectGroup: React.FC<Props> = ({
 	userId,
 	isUpdated,
 	LIMIT,
-	getSelect }: Props) {
+	getSelect }: Props) => {
 	const [groups, setGroups] = useState<IGroupDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
-
 	const [ref, inView] = useInView();
 
 	const loadMorePayments = async () => {
@@ -64,3 +63,5 @@ export default function LoadMoreItemSelectGroup({
 		</>
 	);
 };
+
+export default LoadMoreItemSelectGroup;

@@ -12,11 +12,11 @@ type Props = {
 	LIMIT: number;
 };
 
-export default function PaymentsList({
+const PaymentsList: React.FC<Props> = ({
 	userId,
 	arrayUserPaymentHistory,
 	isUpdated,
-	LIMIT }: Props) {
+	LIMIT }: Props) => {
 
 	return (
 		<div className="mt-10 w-full">
@@ -56,4 +56,6 @@ export default function PaymentsList({
 			</div>
 		</div>
 	);
-}
+};
+
+export default PaymentsList;

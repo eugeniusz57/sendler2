@@ -14,7 +14,7 @@ type Props = {
 	handleClick: (tel: number) => void;
 };
 
-export default function AddClientPhoneNumberForm({ handleClick }: Props) {
+const AddClientPhoneNumberForm: React.FC<Props> = ({ handleClick }: Props) => {
 	const [tel, setTel] = useState('');
 	const {
 		register,
@@ -84,4 +84,4 @@ export default function AddClientPhoneNumberForm({ handleClick }: Props) {
 	);
 };
 
-
+export default AddClientPhoneNumberForm;

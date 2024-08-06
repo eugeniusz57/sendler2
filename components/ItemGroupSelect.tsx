@@ -3,7 +3,7 @@ interface Props {
 	selectOption: string;
 }
 
-const ItemGroupSelect = ({ getSelect, selectOption }: Props) => {
+const ItemGroupSelect: React.FC<Props> = ({ getSelect, selectOption }: Props) => {
 	return (
 		<div onClick={() => getSelect(selectOption)} className="select-item truncate">
 			{selectOption}

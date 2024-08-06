@@ -24,7 +24,7 @@ type Props = {
 	LIMIT: number;
 };
 
-export default function ClientsList({
+const ClientsList: React.FC<Props> = ({
 	groupId,
 	filter,
 	userId,
@@ -32,7 +32,7 @@ export default function ClientsList({
 	updateClients,
 	clients,
 	isUpdated,
-	LIMIT }: Props) {
+	LIMIT }: Props) => {
 
 	const [isSelected, setIsSelected] = useState(0);
 	const { register, handleSubmit, reset } = useForm();
@@ -149,5 +149,7 @@ export default function ClientsList({
 		</div>
 	);
 };
+
+export default ClientsList;
 
 

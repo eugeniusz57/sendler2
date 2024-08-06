@@ -553,7 +553,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 					<div className='md:text-base text-sm md:leading-6 leading-[21px]'>
 						Натискаючи кнопку Надіслати ви підтверджуєте відправлення форми, та що всі данні введенні
 						правильно, а також підверджуєте ознайомлення з
-						<span onClick={openModal} className={`text-emailColorLink  md:text-base text-sm md:leading-6 leading-[21px] ml-1`}>
+						<span onClick={openModal} className={`text-emailColorLink  md:text-base text-sm md:leading-6 leading-[21px] ml-1 cursor-pointer`}>
 							договором оферти.
 						</span>
 					</div>

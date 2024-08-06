@@ -1,13 +1,13 @@
 'use client';
 import React, { useState } from 'react';
 
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 interface Props {
 	getFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchUserForm = ({ getFilter }: Props) => {
+const SearchUserForm: React.FC<Props> = ({ getFilter }: Props) => {
 	const [isDisabled, setIsDisabled] = useState(true);
 	const { register, handleSubmit, reset } = useForm();
 

@@ -13,7 +13,7 @@ interface Props {
 	getUpdate: () => void;
 };
 
-const EditClient = ({ groupId,
+const EditClient: React.FC<Props> = ({ groupId,
 	client,
 	updateClients,
 	getUpdate }: Props) => {

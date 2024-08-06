@@ -12,14 +12,13 @@ type Props = {
 	getGroups: () => void,
 };
 
-export default function LoadMoreGroups({
+const LoadMoreGroups: React.FC<Props> = ({
 	userId,
 	isUpdated,
 	LIMIT,
-	getGroups }: Props) {
+	getGroups }: Props) => {
 	const [groups, setGroups] = useState<IGroupDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
-
 	const [ref, inView] = useInView();
 
 	const loadMorePayments = async () => {
@@ -64,3 +63,5 @@ export default function LoadMoreGroups({
 		</>
 	);
 };
+
+export default LoadMoreGroups;

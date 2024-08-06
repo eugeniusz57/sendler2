@@ -18,7 +18,7 @@ export interface IHistoryPeriodFormProps {
 	setHistoryPeriod: (startDate: Date, endDate: Date) => void;
 }
 
-export default function HistoryPeriodForm() {
+const HistoryPeriodForm: React.FC = () => {
 	const router = useRouter();
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
@@ -118,4 +118,6 @@ export default function HistoryPeriodForm() {
 			</form>
 		</div>
 	);
-}
+};
+
+export default HistoryPeriodForm;

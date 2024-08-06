@@ -13,7 +13,7 @@ type Props = {
 	getGroups: () => void;
 };
 
-export default function CreateGroupForm({ id, getGroups }: Props) {
+const CreateGroupForm = ({ id, getGroups }: Props) => {
 
 	const {
 		register,
@@ -77,4 +77,4 @@ export default function CreateGroupForm({ id, getGroups }: Props) {
 	);
 };
 
-
+export default CreateGroupForm;

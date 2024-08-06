@@ -7,7 +7,7 @@ interface IPickerState {
 	pickerState: string;
 }
 
-function DateTimePicker({ handlePick, timeArr, pickerState }: IPickerState) {
+const DateTimePicker: React.FC<IPickerState> = ({ handlePick, timeArr, pickerState }: IPickerState) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	return (

@@ -6,7 +6,7 @@ import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 
 let count = 0;
 
-function SliderSmsService() {
+const SliderSmsService: React.FC = () => {
 	const [extra, setExtra] = useState<string>("");
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);

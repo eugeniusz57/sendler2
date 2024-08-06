@@ -11,7 +11,7 @@ interface Props {
 	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Client = ({
+const Client: React.FC<Props> = ({
 	convertClient,
 	groupId,
 	updateClients,

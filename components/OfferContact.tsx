@@ -6,8 +6,8 @@ import { useReactToPrint } from 'react-to-print';
 
 type Props = {};
 
-const OfferContract = (props: Props) => {
-  const contentRef = useRef<HTMLDivElement>(null);
+const OfferContract: React.FC<Props> = (props: Props) => {
+	const contentRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
     content: () => contentRef.current,
