@@ -5,7 +5,7 @@ import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 
 let count = 0;
 
-function SliderAdvantages() {
+const SliderAdvantages: React.FC = () => {
 	const [extra, setExtra] = useState("");
 	const [isActive, setIsActive] = useState(false);
 	const [isActiveRight, setIsActiveRight] = useState(false);

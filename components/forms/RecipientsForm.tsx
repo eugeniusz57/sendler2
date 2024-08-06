@@ -13,11 +13,10 @@ type Props = {
 	getRecipients: (recipientsArray: (string | number)[]) => void;
 };
 
-export default function RecipientsForm({
+const RecipientsForm: React.FC<Props> = ({
 	recipients,
-	getRecipients
+	getRecipients }: Props) => {
 
-}: Props) {
 	const [isSelected, setIsSelected] = useState(0);
 	const { register, handleSubmit, reset } = useForm();
 
@@ -80,4 +79,4 @@ export default function RecipientsForm({
 	);
 };
 
-
+export default RecipientsForm;

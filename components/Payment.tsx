@@ -4,7 +4,7 @@ interface Props {
 	payment: IPaymentHistory
 }
 
-const Payment = ({ payment }: Props) => {
+const Payment: React.FC<Props> = ({ payment }: Props) => {
 	return (
 		<div>
 			<li key={payment.transaction_id} className="block lg:flex lg:flex-row items-center text-base font-montserrat font-normal border-b border-rowUnderLine">

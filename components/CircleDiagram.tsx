@@ -8,7 +8,7 @@ interface ChartData {
 
 const COLORS = ['#0088FE', '#FFBB28', '#00C49F'];
 
-const renderCustomizedLabel = ({
+const renderCustomizedLabel: React.FC<ChartData> = ({
 	cx,
 	cy,
 	midAngle,

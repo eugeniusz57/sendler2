@@ -3,14 +3,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useSession } from "next-auth/react";
 import { useState, useRef } from "react";
-import toast from "react-hot-toast";
 
 import { validationSchemaCreateClient } from "@/models/forms";
 import GreenButton from "../buttons/GreenButton";
 import SelectTime from "../SelectTime";
 import { createGroupClient, updateUserClient } from "@/fetch-actions/clientsFetchActions";
 import { getTimeOptionsValues } from '@/helpers/getTimeOptionsValues';
-import checkDate from "@/helpers/checkDate";
 
 import { FormInputCreateClient, IClientDatabase } from "@/globaltypes/types";
 
@@ -25,7 +23,7 @@ interface Props {
 	currentClient?: IClientDatabase;
 };
 
-const CreateClientForm = ({
+const CreateClientForm: React.FC<Props> = ({
 	onClose,
 	updateClients,
 	getUpdate,

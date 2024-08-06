@@ -17,7 +17,7 @@ type Props = {
 	isUpdated: boolean;
 };
 
-const SelectGroup = ({
+const SelectGroup: React.FC<Props> = ({
 	selectOptions,
 	selectedOption,
 	getSelect,

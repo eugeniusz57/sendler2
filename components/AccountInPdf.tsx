@@ -8,7 +8,7 @@ interface Props {
   summ: string;
 }
 
-const AccountInPdf = ({ summ }: Props) => {
+const AccountInPdf:React.FC<Props> = ({ summ }: Props) => {
   const { data: session, status } = useSession();
   const userName = session?.user.user_name;
   const currentDate = new Date();

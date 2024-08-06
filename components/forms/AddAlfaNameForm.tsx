@@ -16,7 +16,7 @@ type Props = {
 	getIsOpened: () => void;
 };
 
-export default function AddAlfaNameForm({ userId, getUserNamesArray, getIsOpened }: Props) {
+const AddAlfaNameForm: React.FC<Props> = ({ userId, getUserNamesArray, getIsOpened }: Props) => {
 
 	const [isDisabled, setIsDisabled] = useState<boolean>(true);
 	const [name, setName] = useState<string>('');
@@ -103,4 +103,4 @@ export default function AddAlfaNameForm({ userId, getUserNamesArray, getIsOpened
 	);
 };
 
-
+export default AddAlfaNameForm;

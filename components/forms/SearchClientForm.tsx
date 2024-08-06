@@ -16,7 +16,7 @@ interface Props {
 	resetFilter: () => void;
 }
 
-export default function SearchClientForm({ getFilter, resetFilter }: Props) {
+const SearchClientForm: React.FC<Props> = ({ getFilter, resetFilter }: Props) => {
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [filter, setFilter] = useState('380');
 	const {
@@ -99,3 +99,4 @@ export default function SearchClientForm({ getFilter, resetFilter }: Props) {
 	);
 };
 
+export default SearchClientForm;

@@ -11,7 +11,7 @@ type Props = {
 	isModal?: boolean;
 }
 
-const SelectTime = ({ selectOptions,
+const SelectTime: React.FC<Props> = ({ selectOptions,
 	selectedOption,
 	getSelect,
 	openSelect,
