@@ -16,7 +16,7 @@ type Props = {
 	getIsOpened: () => void;
 };
 
-const AddAlfaNameForm: React.FC<Props> = ({ userId, getUserNamesArray, getIsOpened }: Props) => {
+const AddAlfaNameForm: React.FC<Props> = ({ userId, getUserNamesArray, getIsOpened }) => {
 
 	const [isDisabled, setIsDisabled] = useState<boolean>(true);
 	const [name, setName] = useState<string>('');

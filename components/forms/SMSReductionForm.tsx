@@ -12,7 +12,7 @@ type Props = {
 	transactionId: number;
 };
 
-const SMSReductionForm: React.FC<Props> = ({ userId, transactionId }: Props) => {
+const SMSReductionForm: React.FC<Props> = ({ userId, transactionId }) => {
 	const { register, handleSubmit, reset } = useForm();
 
 	const [user, setUser] = useState<IUser>();

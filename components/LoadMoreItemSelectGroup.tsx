@@ -16,7 +16,7 @@ const LoadMoreItemSelectGroup: React.FC<Props> = ({
 	userId,
 	isUpdated,
 	LIMIT,
-	getSelect }: Props) => {
+	getSelect }) => {
 	const [groups, setGroups] = useState<IGroupDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
 	const [ref, inView] = useInView();

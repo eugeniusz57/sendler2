@@ -6,7 +6,7 @@ interface ITitleProps {
 	children: ReactNode;
 };
 
-const Title: React.FC<ITitleProps> = ({ type, color, children }: ITitleProps) => {
+const Title: React.FC<ITitleProps> = ({ type, color, children }) => {
 	const typeAndColor = type + '-' + color;
 	switch (typeAndColor) {
 

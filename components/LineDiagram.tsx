@@ -8,7 +8,7 @@ let percentRejected: number;
 let percentFullfield: number;
 let percentPending: number;
 
-const LineDiagram: React.FC<Props> = ({ process }: Props) => {
+const LineDiagram: React.FC<Props> = ({ process }) => {
 	let { date, rejected, fullfield, pending } = process;
 	if (!fullfield) {
 		fullfield = 0;

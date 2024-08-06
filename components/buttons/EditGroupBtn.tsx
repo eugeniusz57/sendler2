@@ -5,9 +5,9 @@ import { useSession } from "next-auth/react";
 type Props = {
 	id: number;
 	children: React.ReactNode;
-}
+};
 
-export default function UpdateGroupBtn({ id, children }: Props) {
+const UpdateGroupBtn: React.FC<Props> = ({ id, children }) => {
 	const { data: session } = useSession();
 	const userId = session?.user.user_id;
 
@@ -15,5 +15,7 @@ export default function UpdateGroupBtn({ id, children }: Props) {
 		<Link href={`/user/${userId}/groups/${id}/edit`} className="row-table__btn">
 			{children}
 		</Link>
-	)
-}
+	);
+};
+
+export default UpdateGroupBtn;

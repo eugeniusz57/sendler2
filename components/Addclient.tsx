@@ -12,7 +12,7 @@ interface Props {
 	getUpdate: () => void;
 };
 
-const AddClient: React.FC<Props> = ({ groupId, updateClients, getUpdate }: Props) => {
+const AddClient: React.FC<Props> = ({ groupId, updateClients, getUpdate }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [isSelectOpen, setIsSelectOpen] = useState(false);

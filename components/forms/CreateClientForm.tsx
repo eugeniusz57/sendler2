@@ -31,7 +31,7 @@ const CreateClientForm: React.FC<Props> = ({
 	title,
 	groupName,
 	currentClient,
-	groupId }: Props) => {
+	groupId }) => {
 
 	const { data: session } = useSession();
 	const userId = session?.user.user_id;

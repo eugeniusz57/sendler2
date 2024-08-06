@@ -15,7 +15,7 @@ type Props = {
 
 const RecipientsForm: React.FC<Props> = ({
 	recipients,
-	getRecipients }: Props) => {
+	getRecipients }) => {
 
 	const [isSelected, setIsSelected] = useState(0);
 	const { register, handleSubmit, reset } = useForm();

@@ -1,15 +1,13 @@
 "use-client";
 
 import Link from "next/link";
-import { ReactElement } from "react";
 
-function HeroBtn({
-	children,
-	linkTo,
-}: {
+interface Props {
 	children: React.ReactNode;
 	linkTo: string;
-}) {
+};
+
+const HeroBtn: React.FC<Props> = ({ children, linkTo }) => {
 	return (
 		<Link
 			href={linkTo}

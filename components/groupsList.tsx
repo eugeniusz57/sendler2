@@ -13,9 +13,9 @@ type Props = {
 	getUpdate: () => void;
 	LIMIT: number;
 	isUpdated: boolean;
-}
+};
 
-const GroupsList: React.FC<Props> = ({ groups, getGroups, userId, isUpdated, LIMIT }: Props) => {
+const GroupsList: React.FC<Props> = ({ groups, getGroups, userId, isUpdated, LIMIT }) => {
 
 	return (
 		<>
@@ -55,7 +55,7 @@ const GroupsList: React.FC<Props> = ({ groups, getGroups, userId, isUpdated, LIM
 				</ul>
 			</div>
 		</>
-	)
+	);
 };
 
 export default GroupsList;

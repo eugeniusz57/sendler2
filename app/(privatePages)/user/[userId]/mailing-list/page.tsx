@@ -30,7 +30,11 @@ import SendSmsModal from '@/components/SendSmsModal';
 import SelectGroup from '@/components/SelectGroup';
 const LIMIT = 5;
 
-const MailingList = ({ params }: { params: { userId: string } }) => {
+interface Props {
+	params: { userId: string };
+};
+
+const MailingList: React.FC<Props> = ({ params }) => {
 	const userId = Number(params.userId);
 	const [charCount, setCharCount] = useState<number>(0);
 	const [smsCount, setSmsCount] = useState<number>(0);

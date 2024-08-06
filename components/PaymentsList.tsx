@@ -16,7 +16,7 @@ const PaymentsList: React.FC<Props> = ({
 	userId,
 	arrayUserPaymentHistory,
 	isUpdated,
-	LIMIT }: Props) => {
+	LIMIT }) => {
 
 	return (
 		<div className="mt-10 w-full">

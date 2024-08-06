@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 
 interface Props {
 	getFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
-const SearchUserForm: React.FC<Props> = ({ getFilter }: Props) => {
+const SearchUserForm: React.FC<Props> = ({ getFilter }) => {
 	const [isDisabled, setIsDisabled] = useState(true);
 	const { register, handleSubmit, reset } = useForm();
 

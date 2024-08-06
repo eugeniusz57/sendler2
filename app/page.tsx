@@ -10,14 +10,13 @@ import ServiceDescriptionList from "@/components/startPageComp/ServiceDescriptio
 import SliderAdvantages from "@/components/startPageComp/SliderAdvantages";
 import SliderSmsService from "@/components/startPageComp/SliderSmsService";
 
-export default function Home() {
+const Home: React.FC = () => {
 	const { data: session } = useSession();
 	const route = useRouter();
 
 	if (session) {
 		route.push(`/user/${session?.user?.user_id}/mailing-list`);
 	};
-
 
 	return (
 		<>
@@ -90,3 +89,5 @@ export default function Home() {
 		</>
 	);
 };
+
+export default Home;

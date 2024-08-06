@@ -13,7 +13,7 @@ interface Props {
 	userId: number | undefined
 };
 
-const UpdateUserForm: React.FC<Props> = ({ userId }: Props) => {
+const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [userState, setUserState] = useState({

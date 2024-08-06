@@ -5,7 +5,7 @@ import Title from "@/components/Title";
 import HistoryTable from "@/components/HistoryTable";
 import { ISession } from "@/globaltypes/types";
 
-export default async function SendingHistory() {
+const SendingHistory: React.FC = async () => {
 	const session: ISession | null = await getServerSession(options);
 	const userId = session?.user.user_id;
 
@@ -19,4 +19,6 @@ export default async function SendingHistory() {
 			</div>
 		</section>
 	);
-}
+};
+
+export default SendingHistory;

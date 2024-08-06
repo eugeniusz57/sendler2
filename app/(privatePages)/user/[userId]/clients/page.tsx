@@ -12,7 +12,14 @@ import EmailColorLinkBtn from "@/components/buttons/EmailColorLinkBtn";
 
 const LIMIT = 10;
 
-export default function AllContactsUserPage({ params }: { params: { id: string, userId: string } }) {
+interface Props {
+	params: {
+		id: string,
+		userId: string,
+	};
+};
+
+const AllContactsUserPage: React.FC<Props> = ({ params }) => {
 
 	const [filter, setFilter] = useState<string>('');
 	const [isUpdated, setIsUpdated] = useState<boolean>(false);
@@ -91,6 +98,8 @@ export default function AllContactsUserPage({ params }: { params: { id: string, 
 			</div>
 		</>
 	);
-}
+};
+
+export default AllContactsUserPage;
 
 

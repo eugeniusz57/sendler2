@@ -9,10 +9,9 @@ const LoadingSpinner: React.FC = () => {
 			</svg>
 			<span className="sr-only">Loading...</span>
 		</div>
+	);
+};
 
-	)
-}
-
-export default LoadingSpinner
+export default LoadingSpinner;
 
 

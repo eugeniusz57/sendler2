@@ -32,7 +32,7 @@ const ClientsList: React.FC<Props> = ({
 	updateClients,
 	clients,
 	isUpdated,
-	LIMIT }: Props) => {
+	LIMIT }) => {
 
 	const [isSelected, setIsSelected] = useState(0);
 	const { register, handleSubmit, reset } = useForm();

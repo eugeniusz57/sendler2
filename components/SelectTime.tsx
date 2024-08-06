@@ -17,7 +17,7 @@ const SelectTime: React.FC<Props> = ({ selectOptions,
 	openSelect,
 	widthValue,
 	startValue,
-	isModal }: Props) => {
+	isModal }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;

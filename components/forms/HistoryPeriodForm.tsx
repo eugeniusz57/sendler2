@@ -12,11 +12,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 export interface FormInputsPeriod {
 	startDate: Date;
 	endDate: Date;
-}
+};
 
 export interface IHistoryPeriodFormProps {
 	setHistoryPeriod: (startDate: Date, endDate: Date) => void;
-}
+};
 
 const HistoryPeriodForm: React.FC = () => {
 	const router = useRouter();

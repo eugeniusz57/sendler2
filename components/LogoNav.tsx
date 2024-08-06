@@ -5,9 +5,9 @@ import React from "react";
 
 interface LogoProps {
 	onClose?: () => void;
-}
+};
 
-const LogoNav: React.FC<LogoProps> = ({ onClose }: LogoProps) => {
+const LogoNav: React.FC<LogoProps> = ({ onClose }) => {
 	const { data: session, status } = useSession();
 	const isLogin = status === "authenticated";
 	return isLogin ? (

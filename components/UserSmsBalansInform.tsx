@@ -10,7 +10,7 @@ interface Props {
 	session: ISession | Session | null;
 };
 
-const UserSmsInform: React.FC<Props> = ({ session }: Props) => {
+const UserSmsInform: React.FC<Props> = ({ session }) => {
 
 	const userId = session?.user.user_id;
 	const [user, setUser] = useState<IUser>();

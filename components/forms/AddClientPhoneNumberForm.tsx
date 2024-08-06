@@ -14,7 +14,7 @@ type Props = {
 	handleClick: (tel: number) => void;
 };
 
-const AddClientPhoneNumberForm: React.FC<Props> = ({ handleClick }: Props) => {
+const AddClientPhoneNumberForm: React.FC<Props> = ({ handleClick }) => {
 	const [tel, setTel] = useState('');
 	const {
 		register,

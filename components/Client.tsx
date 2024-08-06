@@ -9,7 +9,7 @@ interface Props {
 	getUpdate: () => void;
 	register: UseFormRegister<FieldValues>
 	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
 const Client: React.FC<Props> = ({
 	convertClient,
@@ -17,7 +17,7 @@ const Client: React.FC<Props> = ({
 	updateClients,
 	getUpdate,
 	register,
-	onSelect }: Props) => {
+	onSelect }) => {
 	return (
 		<li className="block lg:flex w-full gap-x-6 px-[26px] items-center lg:h-[48px] text-base font-montserrat font-normal border-b border-rowUnderLine">
 			<div className='block md:flex mt-[14px] lg:mt-0'>
@@ -75,8 +75,8 @@ const Client: React.FC<Props> = ({
 				/>
 			</div>
 		</li>
-	)
-}
+	);
+};
 
 export default Client;
 

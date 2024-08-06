@@ -13,7 +13,7 @@ type Props = {
 	getGroups: () => void;
 };
 
-const CreateGroupForm = ({ id, getGroups }: Props) => {
+const CreateGroupForm: React.FC<Props> = ({ id, getGroups }) => {
 
 	const {
 		register,
