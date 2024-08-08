@@ -1,12 +1,8 @@
 import { useRef } from 'react';
 import Title from './Title';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { useReactToPrint } from 'react-to-print';
 
-type Props = {};
-
-const OfferContract = (props: Props) => {
+const OfferContract = () => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
@@ -266,7 +262,9 @@ const OfferContract = (props: Props) => {
             Виконавець перевіряє ім&apos;я, запрошуване Замовником і активує його у Оператора
             Зв&apos;язку.
           </span>
-          <span>3.1.6. Присвоювати всім відправленим SMS-повідомленнями ім&apos;я відправника. </span>
+          <span>
+            3.1.6. Присвоювати всім відправленим SMS-повідомленнями ім&apos;я відправника.{' '}
+          </span>
           <span>
             3.1.7. У разі, якщо Виконавець буде втягнутий в судовий процес в якості відповідача у
             зв&apos;язку з наданням Користувачу /-ам в SMS-повідомленнях недостовірної,
