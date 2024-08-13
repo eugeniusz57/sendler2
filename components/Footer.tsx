@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 					<li className="flex flex-col gap-[14px] justify-center mb-[50px] lg:mb-0">
 						<p className="lg:text-base text-sm  font-medium ">Юридична адреса</p>
 						<p className="lg:text-base text-sm">
-							01033, Україна, м. Київ, вул. Гайдара, 50
+							01033, Україна, м. Київ, вул. Сім'ї Прахових, 50
 						</p>
 						<p className="lg:text-base text-sm">
 							Мобільний маркетинг, Масові SMS розсилки

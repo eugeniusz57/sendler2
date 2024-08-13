@@ -95,12 +95,12 @@ export const AboutMarketing = [
 ];
 
 export const PricesArray = [
-  { id: 1, count: '1-999', price: 0.77, desc: '' },
-  { id: 2, count: '1000-4999', price: 0.74, desc: '(від 740 грн)' },
-  { id: 3, count: '5000-9999', price: 0.73, desc: '(від 3 650 грн)' },
-  { id: 4, count: '10000-49999', price: 0.72, desc: '(від 7 200 грн)' },
-  { id: 5, count: '50000-99999', price: 0.71, desc: '(від 35 500 грн)' },
-  { id: 6, count: '100000-499999', price: 0.7, desc: '(від 70 000 грн)' },
+  { id: 1, count: '1-999', price: 1.07, desc: '' },
+  { id: 2, count: '1000-4999', price: 1.04, desc: '(від 1040 грн)' },
+  { id: 3, count: '5000-9999', price: 1.03, desc: '(від 5 150 грн)' },
+  { id: 4, count: '10000-49999', price: 1.02, desc: '(від 10 200 грн)' },
+  { id: 5, count: '50000-99999', price: 1.01, desc: '(від 50 500 грн)' },
+  { id: 6, count: '100000-499999', price: 0.99, desc: '(від 99 000 грн)' },
   { id: 7, count: '500000 i бiльше', price: null, desc: 'договірна' },
 ];
 

@@ -31,18 +31,18 @@ export function defineSum(smsCount: number) {
 
 export function defineSmsCount(sum: number) {
   let price = 0;
-  if (sum < 740) {
-    price = 0.77;
-  } else if (sum < 3650) {
-    price = 0.74;
-  } else if (sum < 7200) {
-    price = 0.73;
-  } else if (sum < 35500) {
-    price = 0.72;
-  } else if (sum < 70000) {
-    price = 0.71;
+  if (sum < 1040) {
+    price = 1.07;
+  } else if (sum < 5150) {
+    price = 1.04;
+  } else if (sum < 10200) {
+    price = 1.03;
+  } else if (sum < 50500) {
+    price = 1.02;
+  } else if (sum < 99000) {
+    price = 1.01;
   } else {
-    price = 0.7;
+    price = 0.99;
   }
 
   if (price !== 0) {
