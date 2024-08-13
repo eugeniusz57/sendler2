@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { validationSchemaUpdateUser } from "@/models/forms";
-import { FormInputUpdateUser, IUser } from "@/globaltypes/types";
+import { FormInputUpdateUser } from "@/globaltypes/types";
 import GreenButton from "../buttons/GreenButton";
 import { getUser, updateUser } from '@/fetch-actions/usersFetchActions';
 
@@ -13,7 +13,7 @@ interface Props {
 	userId: number | undefined
 };
 
-const UpdateUserForm = ({ userId }: Props) => {
+const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [userState, setUserState] = useState({
@@ -86,6 +86,7 @@ const UpdateUserForm = ({ userId }: Props) => {
 		setIsOpen(false);
 		setIsDisabled(false);
 	};
+
 	return (
 		<form
 			autoComplete="off"

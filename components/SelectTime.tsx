@@ -11,13 +11,13 @@ type Props = {
 	isModal?: boolean;
 }
 
-const SelectTime = ({ selectOptions,
+const SelectTime: React.FC<Props> = ({ selectOptions,
 	selectedOption,
 	getSelect,
 	openSelect,
 	widthValue,
 	startValue,
-	isModal }: Props) => {
+	isModal }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;
@@ -42,7 +42,7 @@ const SelectTime = ({ selectOptions,
 		};
 
 		// close select if click outside of select
-		const handleClickCloseInput = (e: any) => {
+		const handleClickCloseInput = (e: MouseEvent) => {
 			if (selectBodyRef?.current && !selectBodyRef?.current?.contains(e.target as Node)) {
 				memoizedClose();
 				if (startValue === '00') {

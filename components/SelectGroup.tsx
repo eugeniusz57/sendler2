@@ -17,7 +17,7 @@ type Props = {
 	isUpdated: boolean;
 };
 
-const SelectGroup = ({
+const SelectGroup: React.FC<Props> = ({
 	selectOptions,
 	selectedOption,
 	getSelect,
@@ -28,7 +28,7 @@ const SelectGroup = ({
 	userId,
 	LIMIT,
 	isUpdated
-}: Props) => {
+}) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;
@@ -49,7 +49,7 @@ const SelectGroup = ({
 		};
 
 		// close select if click outside of select
-		const handleClickCloseInput = (e: any) => {
+		const handleClickCloseInput = (e: MouseEvent) => {
 			if (selectBodyRef?.current && !selectBodyRef?.current?.contains(e.target as Node)) {
 				memoizedClose();
 				if (startValue === '00') {

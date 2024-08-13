@@ -8,6 +8,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --displacement: 0;
 }
 
 * {
@@ -33,7 +34,7 @@ footer {
 
 @layer components {
   .container {
-    @apply py-0 px-[16px];
+    @apply py-0 px-[15px];
   }
 }
 
@@ -220,9 +221,7 @@ footer {
 }
 
 .smsServiseCard {
-  border-radius: 18px;
-  background-color: #cde8ea;
-  box-shadow: 0px 8px 8px 0px #a3d6d94d;
+  @apply rounded-[18px] bg-smsServiceCardBg shadow-smsServiceCardShadow shadow-3xl;
 }
 
 .caruselBg {
@@ -230,18 +229,15 @@ footer {
 }
 
 .swiperCardText {
-  font-size: 16px;
-  line-height: 24px;
-  font-family: 'Montserrat';
-  color: white;
+  @apply text-sm md:text-lg leading-[21px] md:leading-6 font-montserrat text-white;
 }
-
-/* .swiperOnMove {
-  transform: translateX(-655px);
-} */
 
 .swiperOnMove {
   @apply lg:translate-x-[-990px] xl:translate-x-[-655px];
+}
+
+.swiperOnMoveMobile {
+  @apply translate-x-[var(--displacement)] md:translate-x-[0px];
 }
 
 .swiperTransition {

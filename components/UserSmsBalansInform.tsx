@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
 import { getUser } from '@/fetch-actions/usersFetchActions';
 
+interface Props {
+	session: ISession | Session | null;
+};
 
-
-export default function UserSmsInform({ session }: { session: ISession | Session | null }) {
+const UserSmsInform: React.FC<Props> = ({ session }) => {
 
 	const userId = session?.user.user_id;
 	const [user, setUser] = useState<IUser>();
@@ -60,3 +62,5 @@ export default function UserSmsInform({ session }: { session: ISession | Session
 		</div>
 	);
 };
+
+export default UserSmsInform;

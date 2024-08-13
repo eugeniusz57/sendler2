@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect, FormEvent, ChangeEvent } from 'react';
+import { useState, useCallback, useEffect, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import * as XLSX from 'xlsx/xlsx.mjs';
 import Image from 'next/image';
@@ -11,7 +11,14 @@ import { getGroupClientsAndGroupName } from '@/fetch-actions/clientsFetchActions
 import updateGroup from '@/fetch-actions/updateGroup';
 import { IGroupId, IUserId } from '@/globaltypes/types';
 
-export default function UpdateGroupPage({ params }: { params: { id: IGroupId, userId: IUserId } }) {
+interface Props {
+	params: {
+		id: IGroupId,
+		userId: IUserId,
+	};
+};
+
+const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 	const userId = Number(params.userId);
 	const groupId = Number(params.id);
 	const router = useRouter();
@@ -106,4 +113,6 @@ export default function UpdateGroupPage({ params }: { params: { id: IGroupId, us
 			</div>
 		</>
 	);
-}
+};
+
+export default UpdateGroupPage;

@@ -11,13 +11,12 @@ type Props = {
 	LIMIT: number;
 };
 
-export default function LoadMorePaymentHistory({
+const LoadMorePaymentHistory: React.FC<Props> = ({
 	userId,
 	isUpdated,
-	LIMIT }: Props) {
+	LIMIT }) => {
 	const [payments, setPayments] = useState<IPaymentHistory[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
-
 	const [ref, inView] = useInView();
 
 	const loadMorePayments = async () => {
@@ -61,3 +60,5 @@ export default function LoadMorePaymentHistory({
 		</>
 	);
 };
+
+export default LoadMorePaymentHistory;

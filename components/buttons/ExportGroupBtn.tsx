@@ -8,9 +8,9 @@ type Props = {
 	id: number;
 	children: React.ReactNode;
 	group: IGroupDatabase
-}
+};
 
-export default function ExportGroupBtn({ id, group, children }: Props) {
+const ExportGroupBtn: React.FC<Props> = ({ id, group, children }) => {
 	const [isDisabled, setIsDisabled] = useState(false);
 
 	const handleClick = async () => {
@@ -84,4 +84,6 @@ export default function ExportGroupBtn({ id, group, children }: Props) {
 			{children}
 		</button>
 	);
-}
+};
+
+export default ExportGroupBtn;

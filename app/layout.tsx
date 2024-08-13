@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 	description: "BSender sms sending application",
 };
 
-export default function RootLayout({
-	children,
-}: {
+interface Props {
 	children: React.ReactNode;
-}) {
+};
+
+const RootLayout: React.FC<Props> = ({ children }) => {
 
 	return (
 		<html lang="en">
@@ -35,3 +35,5 @@ export default function RootLayout({
 		</html>
 	);
 };
+
+export default RootLayout;

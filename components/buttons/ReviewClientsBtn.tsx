@@ -4,9 +4,9 @@ import GreenButton from "./GreenButton";
 type Props = {
 	id: number | undefined;
 	children: React.ReactNode;
-}
+};
 
-export default function ReviewClientsBtn({ id, children }: Props) {
+const ReviewClientsBtn: React.FC<Props> = ({ id, children }) => {
 
 	return (
 		<GreenButton size="normal">
@@ -14,6 +14,7 @@ export default function ReviewClientsBtn({ id, children }: Props) {
 				{children}
 			</Link>
 		</GreenButton>
+	);
+};
 
-	)
-}
+export default ReviewClientsBtn;

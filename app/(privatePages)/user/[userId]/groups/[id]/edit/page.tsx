@@ -12,14 +12,19 @@ import EmailColorLinkBtn from "@/components/buttons/EmailColorLinkBtn";
 
 const LIMIT = 10;
 
-export default function EditGroupPage({ params }: { params: { id: IGroupId, userId: IUserId } }) {
+interface Props {
+	params: {
+		id: IGroupId,
+		userId: IUserId,
+	};
+};
 
+const EditGroupPage: React.FC<Props> = ({ params }) => {
 	const [groupName, setGroupName] = useState<string>('');
 	const [filter, setFilter] = useState<string>('');
 	const [isUpdated, setIsUpdated] = useState<boolean>(false);
 	const [clients, setClients] = useState<IClientDatabase[] | undefined>([]);
 	const router = useRouter();
-
 	const groupId = Number(params.id);
 	const userId = Number(params.userId);
 
@@ -38,7 +43,7 @@ export default function EditGroupPage({ params }: { params: { id: IGroupId, user
 	};
 
 	// update list of clients if filter is changed
-	const getFilter = (e: any) => {
+	const getFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFilter(e.target.value);
 	};
 
@@ -100,4 +105,6 @@ export default function EditGroupPage({ params }: { params: { id: IGroupId, user
 			</div>
 		</>
 	);
-}
+};
+
+export default EditGroupPage;

@@ -5,9 +5,9 @@ interface IButtonProps {
 	children: ReactNode;
 	isDisabled?: boolean;
 	type?: "submit" | "button";
-}
+};
 
-const EmailColorLinkBtn = ({ onClick, children, isDisabled, type = "submit" }: IButtonProps) => {
+const EmailColorLinkBtn: React.FC<IButtonProps> = ({ onClick, children, isDisabled, type = "submit" }) => {
 	return (
 		<button
 			type={type}

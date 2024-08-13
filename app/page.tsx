@@ -1,20 +1,22 @@
 "use client";
-import SmsServiceList from "@/components/startPageComp/SmsServicelist";
+
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+
 import Title from "@/components/Title";
 import HeroBtn from "@/components/buttons/HeroBtn";
 import Image from "next/image";
 import ServiceDescriptionList from "@/components/startPageComp/ServiceDescriptionList";
-import Swiper from "@/components/startPageComp/Swiper";
-import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import SliderAdvantages from "@/components/startPageComp/SliderAdvantages";
+import SliderSmsService from "@/components/startPageComp/SliderSmsService";
 
-export default function Home() {
+const Home: React.FC = () => {
 	const { data: session } = useSession();
 	const route = useRouter();
 
 	if (session) {
 		route.push(`/user/${session?.user?.user_id}/mailing-list`);
-	}
+	};
 
 	return (
 		<>
@@ -44,46 +46,48 @@ export default function Home() {
 				</div>
 			</div>
 
-			<main className="flex flex-col justify-center mt-[50px] md:mt-[80px] w-full bg-[#FEFEFE]">
-				<div className="container mx-auto">
-					<section className="flex flex-col items-center">
-						<div className="mb-[28px] md:mb-[50px] lg:mb-[60px]">
-							<Title type="h2" color="dark">
-								Як працює SMS сервіс
-							</Title>
-						</div>
-						<SmsServiceList />
-					</section>
-					<section className="mt-[50px] md:mt-[80px]">
-						<div className="mb-[28px] md:mb-[50px] lg:mb-[60px]">
-							<Title type="h2" color="dark">
-								Для чого використовується <br />
-								послуга &#34;Масові СМС-Розсилки&#34; :
-							</Title>
-						</div>
-						<div className="md:hidden">
-							<ServiceDescriptionList width={328} height={220} />
-						</div>
-						<div className="hidden md:block lg:hidden">
-							<ServiceDescriptionList width={504} height={337} />
-						</div>
-						<div className="hidden lg:block">
-							<ServiceDescriptionList width={526} height={350} />
-						</div>
-					</section>
-				</div>
+			<main className="flex flex-col justify-center w-full bg-[#FEFEFE]">
 
-				<section className="my-[50px] md:my-[80px] ">
+				<section className="my-[50px] md:my-[80px]">
+					<div className="container mx-auto mb-[28px] md:mb-[50px] lg:mb-[60px]">
+						<Title type="h2" color="dark">
+							Як працює SMS сервіс
+						</Title>
+					</div>
+					<SliderSmsService />
+
+				</section>
+				<section className=" container  mx-auto">
+					<div className="mb-[28px] md:mb-[50px] lg:mb-[60px]">
+						<Title type="h2" color="dark">
+							Для чого використовується <br />
+							послуга &#34;Масові СМС-Розсилки&#34; :
+						</Title>
+					</div>
+					<div className="md:hidden">
+						<ServiceDescriptionList width={328} height={220} />
+					</div>
+					<div className="hidden md:block lg:hidden">
+						<ServiceDescriptionList width={504} height={337} />
+					</div>
+					<div className="hidden lg:block">
+						<ServiceDescriptionList width={526} height={350} />
+					</div>
+				</section>
+
+				<section className="my-[50px] md:my-[80px]">
 					<div className="container mx-auto mb-[28px] md:mb-[50px] lg:mb-[60px]">
 						<Title type="h2" color="dark">
 							Чому клієнти обирають нас:
 						</Title>
 					</div>
-					<div className="py-[40px] md:py-[60px] lg:py-[100px] caruselBg ">
-						<Swiper />
+					<div className="py-[60px] md:py-[60px] lg:py-[100px] caruselBg ">
+						<SliderAdvantages />
 					</div>
 				</section>
 			</main>
 		</>
 	);
-}
+};
+
+export default Home;
