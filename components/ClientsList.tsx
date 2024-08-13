@@ -24,7 +24,7 @@ type Props = {
 	LIMIT: number;
 };
 
-export default function ClientsList({
+const ClientsList: React.FC<Props> = ({
 	groupId,
 	filter,
 	userId,
@@ -32,7 +32,7 @@ export default function ClientsList({
 	updateClients,
 	clients,
 	isUpdated,
-	LIMIT }: Props) {
+	LIMIT }) => {
 
 	const [isSelected, setIsSelected] = useState(0);
 	const { register, handleSubmit, reset } = useForm();
@@ -40,7 +40,7 @@ export default function ClientsList({
 	const convertClients = convertClientsBirthdayFormat(clients);
 
 	// variable for control of state of delete button
-	const onSelect = (e: any) => {
+	const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { checked } = e.target;
 		if (checked) {
 			setIsSelected(isSelected + 1);
@@ -50,7 +50,6 @@ export default function ClientsList({
 	};
 
 	const onSubmit = async (data: any) => {
-
 		setIsDisabled(true);
 		// create array of client_id that should be deleted
 		const deletedClientsId: number[] = [];
@@ -150,5 +149,7 @@ export default function ClientsList({
 		</div>
 	);
 };
+
+export default ClientsList;
 
 

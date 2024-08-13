@@ -7,7 +7,8 @@ interface Props {
 let percentRejected: number;
 let percentFullfield: number;
 let percentPending: number;
-export default function LineDiagram({ process }: Props) {
+
+const LineDiagram: React.FC<Props> = ({ process }) => {
 	let { date, rejected, fullfield, pending } = process;
 	if (!fullfield) {
 		fullfield = 0;
@@ -37,4 +38,4 @@ export default function LineDiagram({ process }: Props) {
 	);
 };
 
-
+export default LineDiagram;

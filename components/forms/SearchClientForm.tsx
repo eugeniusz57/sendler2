@@ -9,14 +9,14 @@ import { EnterOnlyFigures } from "@/helpers/EnterOnlyFigures";
 
 interface IFormInput {
 	tel: string;
-}
+};
 
 interface Props {
-	getFilter: (e: any) => void;
+	getFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	resetFilter: () => void;
-}
+};
 
-export default function SearchClientForm({ getFilter, resetFilter }: Props) {
+const SearchClientForm: React.FC<Props> = ({ getFilter, resetFilter }) => {
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [filter, setFilter] = useState('380');
 	const {
@@ -50,7 +50,7 @@ export default function SearchClientForm({ getFilter, resetFilter }: Props) {
 		},
 	});
 
-	const onChange = (e: any) => {
+	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		getFilter(e);
 		setFilter(e.target.value);
 		if (e.target.value) {
@@ -99,3 +99,4 @@ export default function SearchClientForm({ getFilter, resetFilter }: Props) {
 	);
 };
 
+export default SearchClientForm;

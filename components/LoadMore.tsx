@@ -14,13 +14,13 @@ type Props = {
 	filter: string;
 	userId: number;
 	register: UseFormRegister<FieldValues>
-	onSelect: (e: any) => void;
+	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	getUpdate: () => void;
 	isUpdated: boolean;
 	LIMIT: number;
 };
 
-export default function LoadMore({
+const LoadMore: React.FC<Props> = ({
 	userId,
 	filter,
 	groupId,
@@ -28,11 +28,10 @@ export default function LoadMore({
 	onSelect,
 	getUpdate,
 	isUpdated,
-	LIMIT }: Props) {
+	LIMIT }) => {
 	const [clients, setClients] = useState<IClientDatabase[]>([]);
 	const [visible, setVisible] = useState(LIMIT);
-	const convertClients = convertClientsBirthdayFormat(clients);
-
+	const convertClients: IClientDatabase[] | undefined = convertClientsBirthdayFormat(clients);
 	const [ref, inView] = useInView();
 
 	const loadMoreClients = async () => {
@@ -85,3 +84,5 @@ export default function LoadMore({
 		</>
 	);
 };
+
+export default LoadMore;

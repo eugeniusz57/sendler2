@@ -12,10 +12,13 @@ import { IGroupDatabase } from '@/globaltypes/types';
 
 const LIMIT = 10;
 
-export default function ContactManagmentPage({ params }: { params: { userId: string } }) {
+interface Props {
+	params: { userId: string };
+};
+
+const ContactManagmentPage: React.FC<Props> = ({ params }) => {
 	const [groups, setGroups] = useState<IGroupDatabase[] | undefined>([]);
 	const [isUpdated, setIsUpdated] = useState<boolean>(false);
-
 	const userId = Number(params.userId);
 
 	const getUpdate = () => {
@@ -64,5 +67,7 @@ export default function ContactManagmentPage({ params }: { params: { userId: str
 			</div>
 		</>
 	);
-}
+};
+
+export default ContactManagmentPage;
 

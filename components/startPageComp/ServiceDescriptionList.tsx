@@ -4,9 +4,9 @@ import React from "react";
 interface Props {
 	width: number;
 	height: number;
-}
+};
 
-function ServiceDescriptionList({ width, height }: Props) {
+const ServiceDescriptionList: React.FC<Props> = ({ width, height }) => {
 	return (
 		<ul className="flex flex-col gap-[50px] md:gap-[80px] text-[#1B1B30] text-sm md:text-base font-montserrat">
 			<li key="1" className="flex flex-col lg:flex-row gap-[28px] md:gap-[50px] lg:gap-[134px]">
@@ -54,6 +54,6 @@ function ServiceDescriptionList({ width, height }: Props) {
 			</li>
 		</ul>
 	);
-}
+};
 
 export default ServiceDescriptionList;

@@ -9,7 +9,7 @@ interface IButtonProps {
 	type?: "submit" | "button";
 }
 
-const GreenButton = ({ size, onClick, children, isDisabled, isActive, type = "submit" }: IButtonProps) => {
+const GreenButton: React.FC<IButtonProps> = ({ size, onClick, children, isDisabled, isActive, type = "submit" }) => {
 	return (
 		<button
 			type={type}

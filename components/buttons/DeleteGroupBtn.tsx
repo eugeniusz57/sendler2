@@ -4,9 +4,9 @@ type Props = {
 	id: number;
 	getGroups: () => void,
 	children: React.ReactNode;
-}
+};
 
-export default function DeleteGroupBtn({ id, getGroups, children }: Props) {
+const DeleteGroupBtn: React.FC<Props> = ({ id, getGroups, children }) => {
 
 	const handleClick = async () => {
 		await deleteGroup(id);
@@ -17,5 +17,7 @@ export default function DeleteGroupBtn({ id, getGroups, children }: Props) {
 		<button type="button" onClick={handleClick} className="row-table__btn">
 			{children}
 		</button>
-	)
-}
+	);
+};
+
+export default DeleteGroupBtn;
