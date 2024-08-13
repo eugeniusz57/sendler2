@@ -65,7 +65,6 @@ footer {
   color: black;
   border-radius: 8px;
   max-height: 90vh;
-  overflow-y: auto;
 }
 
 .modal-overlay {
@@ -80,6 +79,7 @@ footer {
   justify-content: center;
   overflow-y: auto;
 }
+
 
 .modal-burger {
   color: black;
