@@ -48,9 +48,9 @@ const Client: React.FC<Props> = ({
 					<div className='truncate lg:hidden'>{convertClient.middle_name}</div>
 				</div>
 			</div>
-			<div className='md:flex block w-full lg:w-[178px] mb-6 lg:mb-0'>
+			<div className='md:flex block w-full lg:w-[190px] mb-6 lg:mb-0'>
 				<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Дата народження</p>
-				<div className="w-full md:w-4/6 lg:w-[178px] text-left overflow-hidden">
+				<div className="w-full md:w-4/6 lg:w-[190px] text-left overflow-hidden">
 					{convertClient.ua_date_of_birth}
 				</div>
 			</div>

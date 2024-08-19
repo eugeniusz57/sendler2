@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 
 import { validationSchemaCreateClient } from "@/models/forms";
 import GreenButton from "../buttons/GreenButton";
+import Image from 'next/image';
 import SelectTime from "../SelectTime";
 import { createGroupClient, updateUserClient } from "@/fetch-actions/clientsFetchActions";
 import { getTimeOptionsValues } from '@/helpers/getTimeOptionsValues';
@@ -126,6 +127,12 @@ const CreateClientForm: React.FC<Props> = ({
 			className="w-[328px] md:w-[526px] mx-auto pb-[28px] pt-11 px-[10px] md:px-[26px] flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg"
 			ref={refForm}
 		>
+			<button
+				className=" absolute top-4 right-4 transform transition-transform hover:rotate-90 hover:scale-110"
+				onClick={onClose}
+			>
+				<Image src={'/svg/cross-circle.svg'} alt="close modal button" width={34} height={34} />
+			</button>
 			{title && !groupName && <p className="form-title mb-[22px] md:mb-8">{title}</p>}
 			{title && groupName && <p className="form-title mb-[22px] md:mb-8">{`${title} - ${groupName}`}</p>}
 			<div className="text-left w-full mb-[22px] mb-8">

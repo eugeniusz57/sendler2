@@ -116,6 +116,7 @@ export async function POST(request: Request): Promise<NextResponse<{
 			if (i <= 0) {
 				return 0;
 			};
+
 			let statuses: SmsStatusEnum[] = [];
 
 			setTimeout(async () => {
@@ -146,7 +147,8 @@ export async function POST(request: Request): Promise<NextResponse<{
 					};
 					groupIdArray.push(group_id);
 				};
-			}
+			};
+
 			if (typeof recipients[i] === "string") {
 				const res: QueryResult<IGroupId> = await fetchGroupIdByName(userId, String(recipients[i]));
 				const { group_id } = res.rows[0];
