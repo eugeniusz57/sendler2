@@ -79,10 +79,10 @@ const ClientsList: React.FC<Props> = ({
 	return (
 		<div>
 			<div className="hidden lg:flex gap-x-8 w-full pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
-				<p className="w-[158px] pl-[38px]">Номер</p>
-				<p className="w-[346px] lg:w-[190px] xl:w-[346px]">Ім&apos;я(П.І.Б.)</p>
-				<p className="w-[170px]">Дата народження</p>
-				<p className="w-[122px]">Параметр 1</p>
+				<p className="w-[185px] pl-[66px]">Номер</p>
+				<p className="lg:w-[190px] xl:w-[346px]">Ім&apos;я(П.І.Б.)</p>
+				<p className="lg:w-[180px] xl:w-[180px]">Дата народження</p>
+				<p className="w-[135px]">Параметр 1</p>
 				<p>Параметр 2</p>
 			</div>
 			<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Контакти</p>
