@@ -55,7 +55,7 @@ const UserAccountPage: React.FC = () => {
 			getData();
 			setSocketIo(socket);
 			socket.on("connect", () => {
-				console.log('Socket connected');
+				console.log('Socket Account is connected');
 			});
 			socket.on('message', user => {
 				if (user) {
@@ -69,7 +69,7 @@ const UserAccountPage: React.FC = () => {
 				}
 			});
 			socket.on("disconnect", () => {
-				console.log('Socket disconnected');
+				console.log('Socket Account is disconnected');
 			});
 		};
 	}, [userId, message, socketIo, roomName, NEXT_PUBLIC_SOCKET_URL]);

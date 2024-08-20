@@ -46,7 +46,7 @@ const UserSmsInform: React.FC<Props> = ({ session }) => {
 			setSocketIo(socket);
 			handleSendMessage();
 			socket.on("connect", () => {
-				console.log('Socket connected');
+				console.log('Socket User is connected');
 			});
 			socket.on("message", (user) => {
 				if (user) {
@@ -60,7 +60,7 @@ const UserSmsInform: React.FC<Props> = ({ session }) => {
 				}
 			});
 			socket.on("disconnect", () => {
-				console.log('Socket disconnected');
+				console.log('Socket User is disconnected');
 			});
 		};
 	}, [userId, message, roomName, socketIo, NEXT_PUBLIC_SOCKET_URL, user?.balance]);

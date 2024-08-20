@@ -477,15 +477,19 @@ const MailingList: React.FC<Props> = ({ params }) => {
 						<div className="mt-5 flex lg:flex-row flex-col lg:items-center items-start">
 							{' '}
 							<div className='md:mb-3 mb-2'>
-								<label htmlFor="calendar" className="text-xl text-mainTextColor flex cursor-pointer ">
-									Дата{' '}
-									<Image
-										src="/svg/calendar.svg"
-										width={24}
-										height={24}
-										alt="Check box"
-										className="ml-2 mr-4"
-									/>
+								<label htmlFor="calendar" className="flex items-center text-xl text-mainTextColor flex cursor-pointer ">
+									<div>
+										Дата
+									</div>
+									<div className='w-auto h-auto'>
+										<Image
+											src="/svg/calendar.svg"
+											width={24}
+											height={24}
+											alt="Check box"
+											className="ml-2 mr-4"
+										/>
+									</div>
 								</label>
 							</div>
 							<div>
