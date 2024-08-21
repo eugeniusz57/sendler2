@@ -76,7 +76,7 @@ export default function HistoryTable({ id }: Props) {
           <p className="hidden lg:block w-[150px]">Відправленно </p>
           <p className="hidden lg:block w-[150px]">Отримано</p>
         </div>
-        <HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} visible={offset <= userHistory.length + LIMIT}/>
+        <HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} visible={userHistory?.length && offset <= userHistory?.length + LIMIT ? true : false}/>
       </div>
     </>
   );

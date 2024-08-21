@@ -33,19 +33,11 @@ export default function HistoryList({ userHistory, loadMoreHistory, visible }: P
             <p className="block md:hidden w-[184px] text-[#2366E8] lg:block"></p>
             <p className="mr-3 md:mr-[18px] lg:hidden">Відправлено</p> 
             <p className="w-fit lg:w-[150px]">
-              {/* {sortHistory?.reduce((acc, item) => acc + item.recipient_status.length, 0)} */}
-              {userHistory[0]?.total_count}
+              {userHistory && userHistory[0]?.total_count}
             </p>
             <p className="mr-3 md:mr-[18px] ml-[70px] lg:hidden">Отримано</p>
             <p className="w-fit lg:w-[150px]">
-              {/* {sortHistory?.reduce(
-                (acc, item) =>
-                  acc +
-                  item.recipient_status.filter((item: SmsStatusEnum) => item === 'fullfield')
-                    .length,
-                0
-              )} */}
-              {userHistory[0]?.fullfield_count}
+              {userHistory && userHistory[0]?.fullfield_count}
             </p>
           </li>
       )}
