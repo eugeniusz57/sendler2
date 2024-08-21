@@ -14,6 +14,8 @@ export interface IHistoryResponce extends IGroupName {
   clients?: string[];
   history_id: number | number[];
   sending_permission?: boolean;
+	total_count?: string;
+	fullfield_count?: string
 }
 
 export interface ISendingHistoryResponce extends IHistoryId {

@@ -8,7 +8,7 @@ import HistoryList from './HistoryList';
 import HistoryPeriodForm from './forms/HistoryPeriodForm';
 import { IHistoryResponce, IHistoryPeriod } from '@/globaltypes/historyTypes';
 
-const LIMIT = 20;
+const LIMIT = 120;
 
 type Props = {
 	id: number | undefined;
@@ -65,21 +65,21 @@ const HistoryTable: React.FC<Props> = ({ id }) => {
 		setOffset(offset + LIMIT)
 	};
 
-	return (
-		<>
-			<div className="content-block">
-				<HistoryPeriodForm />
-				<div className="justify-center lg:justify-start flex items-center gap-[100px] h-[40px] md:h-[58px] px-[26px] font-roboto text-base md:text-xl text-white bg-[#417D8A]">
-					<p className="lg:hidden">Розсилки</p>
-					<p className="hidden lg:block w-[194px]">Шлях відправлення</p>
-					<p className="hidden lg:block w-[184px]">Дата</p>
-					<p className="hidden lg:block w-[150px]">Відправленно </p>
-					<p className="hidden lg:block w-[150px]">Отримано</p>
-				</div>
-				<HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} />
-			</div>
-		</>
-	);
-};
+  return (
+    <>
+      <div className="content-block">
+        <HistoryPeriodForm />
+        <div className="justify-center lg:justify-start flex items-center gap-[100px] h-[40px] md:h-[58px] px-[26px] font-roboto text-base md:text-xl text-white bg-[#417D8A]">
+          <p className="lg:hidden">Розсилки</p>
+          <p className="hidden lg:block w-[194px]">Шлях відправлення</p>
+          <p className="hidden lg:block w-[184px]">Дата</p>
+          <p className="hidden lg:block w-[150px]">Відправленно </p>
+          <p className="hidden lg:block w-[150px]">Отримано</p>
+        </div>
+        <HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} visible={userHistory?.length && offset <= userHistory?.length + LIMIT ? true : false}/>
+      </div>
+    </>
+  );
+}
 
 export default HistoryTable;
