@@ -14,6 +14,7 @@ export default async function fetchUserHistory(
   limit: number | null, visible: number | null
 ): Promise<QueryResult<IHistoryResponce>> {
   const query = `
+WITH filtered_data AS (
 SELECT
     sh.history_id,
     sh.alfa_name,
@@ -52,7 +53,40 @@ GROUP BY
     sh.text_sms, 
     sh.sending_group_date, 
     u.user_name
-ORDER BY sh.sending_group_date DESC
+),
+fullfield_status_count AS (
+    SELECT
+        COUNT(*) AS fullfield_count
+    FROM (
+        SELECT unnest(fd.recipient_status) AS status
+        FROM filtered_data fd
+    ) AS unnested
+    WHERE status = 'fullfield'
+),
+total_status_count AS (
+    SELECT
+        COUNT(*) AS total_count
+    FROM (
+        SELECT
+            CASE 
+                WHEN status IS NULL THEN 'rejected'
+                ELSE status
+            END AS status
+        FROM (
+            SELECT unnest(fd.recipient_status) AS status
+            FROM filtered_data fd
+        ) AS unnested
+    ) AS processed
+)
+SELECT 
+    fd.*,
+    fsc.fullfield_count,
+    tsc.total_count
+FROM 
+    filtered_data fd,
+    fullfield_status_count fsc,
+    total_status_count tsc
+ORDER BY fd.sending_group_date DESC
 LIMIT $5
 OFFSET $6;
         `;

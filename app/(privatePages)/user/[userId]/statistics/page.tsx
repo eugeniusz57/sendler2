@@ -10,13 +10,13 @@ export default async function SendingHistory() {
   const userId = session?.user.user_id;
 
   return (
-    <section className="container mx-auto">
+    <>
       <Title type="h1" color="dark">
         Статистика
       </Title>
       <div className="mt-[60px]">
         <HistoryTable id={userId} />
       </div>
-    </section>
+    </>
   );
 }

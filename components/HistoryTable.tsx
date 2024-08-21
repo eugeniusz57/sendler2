@@ -8,7 +8,7 @@ import HistoryList from './HistoryList';
 import HistoryPeriodForm from './forms/HistoryPeriodForm';
 import { IHistoryResponce, IHistoryPeriod } from '@/globaltypes/historyTypes';
 
-const LIMIT = 20;
+const LIMIT = 120;
 
 type Props = {
   id: number | undefined;
@@ -76,7 +76,7 @@ export default function HistoryTable({ id }: Props) {
           <p className="hidden lg:block w-[150px]">Відправленно </p>
           <p className="hidden lg:block w-[150px]">Отримано</p>
         </div>
-        <HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory}/>
+        <HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} visible={offset <= userHistory.length + LIMIT}/>
       </div>
     </>
   );
