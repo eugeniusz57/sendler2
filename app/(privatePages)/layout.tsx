@@ -11,11 +11,13 @@ export const metadata: Metadata = {
 	description: "BSender sms sending application",
 };
 
-export default async function RootLayout({
-	children,
-}: {
+interface Props {
 	children: React.ReactNode;
-}) {
+};
+
+const RootLayout: React.FC<Props> = async ({
+	children,
+}) => {
 	const session: ISession | null = await getServerSession(options);
 	return (
 		<main className="w-full pt-6 md:pt-[50px] md:pb-20 pb-[50px] flex flex-col items-center bg-white">
@@ -26,3 +28,5 @@ export default async function RootLayout({
 		</main>
 	);
 };
+
+export default RootLayout;

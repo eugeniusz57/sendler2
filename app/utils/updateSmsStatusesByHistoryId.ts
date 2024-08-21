@@ -60,8 +60,8 @@ const smsStatusUpdateQueryCreator = (clientsSmsStatuses: IClientSmsStat[]) => {
 
 const updateResipientsStatusDb = (query: string, history_id: number): Promise<QueryResult<IRecipientStatusDatabase>> => {
 	return db.query(
-		`UPDATE recipients_status SET
-        recipient_status =
+		`UPDATE recipients_status
+		 SET recipient_status =
         case client_id
           ${query}
           else recipient_status

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import RSC from "react-scrollbars-custom";
 
@@ -18,11 +18,11 @@ export default function HistoryList({ userHistory, loadMoreHistory, visible }: P
   const sortHistory = userHistory ? summarizeHistoryByDate(userHistory) : undefined;
   const { ref, inView } = useInView({})
 
-  useEffect(() => {
-    if (inView) {
-      loadMoreHistory()
-    }
-  }, [inView])
+	useEffect(() => {
+		if (inView) {
+			loadMoreHistory()
+		}
+	}, [inView])
 
   return (
     <ul className="flex flex-col h-[740px] md:h-[800px] lg:h-[400px]">
@@ -105,3 +105,4 @@ export default function HistoryList({ userHistory, loadMoreHistory, visible }: P
     </ul>
   );
 }
+

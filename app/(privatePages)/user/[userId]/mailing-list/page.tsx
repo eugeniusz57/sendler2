@@ -30,7 +30,11 @@ import SendSmsModal from '@/components/SendSmsModal';
 import SelectGroup from '@/components/SelectGroup';
 const LIMIT = 5;
 
-const MailingList = ({ params }: { params: { userId: string } }) => {
+interface Props {
+	params: { userId: string };
+};
+
+const MailingList: React.FC<Props> = ({ params }) => {
 	const userId = Number(params.userId);
 	const [charCount, setCharCount] = useState<number>(0);
 	const [smsCount, setSmsCount] = useState<number>(0);
@@ -124,7 +128,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 		setIsOpened(!isOpened);
 	};
 
-	const handleChangeTextSms = (e: any) => {
+	const handleChangeTextSms = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setContentSMS(e.target.value);
 	};
 
@@ -473,15 +477,19 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 						<div className="mt-5 flex lg:flex-row flex-col lg:items-center items-start">
 							{' '}
 							<div className='md:mb-3 mb-2'>
-								<label htmlFor="calendar" className="text-xl text-mainTextColor flex cursor-pointer ">
-									Дата{' '}
-									<Image
-										src="/svg/calendar.svg"
-										width={24}
-										height={24}
-										alt="Check box"
-										className="ml-2 mr-4"
-									/>
+								<label htmlFor="calendar" className="flex items-center text-xl text-mainTextColor flex cursor-pointer ">
+									<div>
+										Дата
+									</div>
+									<div className='w-auto h-auto'>
+										<Image
+											src="/svg/calendar.svg"
+											width={24}
+											height={24}
+											alt="Check box"
+											className="ml-2 mr-4"
+										/>
+									</div>
 								</label>
 							</div>
 							<div>
@@ -553,7 +561,7 @@ const MailingList = ({ params }: { params: { userId: string } }) => {
 					<div className='md:text-base text-sm md:leading-6 leading-[21px]'>
 						Натискаючи кнопку Надіслати ви підтверджуєте відправлення форми, та що всі данні введенні
 						правильно, а також підверджуєте ознайомлення з
-						<span onClick={openModal} className={`text-emailColorLink  md:text-base text-sm md:leading-6 leading-[21px] ml-1`}>
+						<span onClick={openModal} className={`text-emailColorLink  md:text-base text-sm md:leading-6 leading-[21px] ml-1 cursor-pointer`}>
 							договором оферти.
 						</span>
 					</div>

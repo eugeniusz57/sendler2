@@ -15,7 +15,12 @@ interface Props {
 	balance: number | undefined;
 };
 
-const SendSmsModal = ({ handleClickSubmit, setDisabledSendBtn, isDisabled, recipients, balance }: Props) => {
+const SendSmsModal: React.FC<Props> = ({
+	handleClickSubmit,
+	setDisabledSendBtn,
+	isDisabled,
+	recipients,
+	balance }) => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 	const [clientsQuantity, setClientsQuantity] = useState<number>();
 

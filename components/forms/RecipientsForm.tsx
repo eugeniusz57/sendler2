@@ -13,16 +13,15 @@ type Props = {
 	getRecipients: (recipientsArray: (string | number)[]) => void;
 };
 
-export default function RecipientsForm({
+const RecipientsForm: React.FC<Props> = ({
 	recipients,
-	getRecipients
+	getRecipients }) => {
 
-}: Props) {
 	const [isSelected, setIsSelected] = useState(0);
 	const { register, handleSubmit, reset } = useForm();
 
 	// variable for control of state of delete button
-	const onSelect = (e: any) => {
+	const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { checked } = e.target;
 		if (checked) {
 			setIsSelected(isSelected + 1);
@@ -80,4 +79,4 @@ export default function RecipientsForm({
 	);
 };
 
-
+export default RecipientsForm;

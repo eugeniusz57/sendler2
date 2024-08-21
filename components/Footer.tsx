@@ -4,7 +4,7 @@ import React from "react";
 import Feedback from "./Feedback";
 import LogoFooter from "./LogoFooter";
 
-const Footer = () => {
+const Footer: React.FC = () => {
 	return (
 		<footer
 			id="footer"

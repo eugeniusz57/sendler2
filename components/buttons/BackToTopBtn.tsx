@@ -1,35 +1,33 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const BackToTopBtn = () => {
-  const [isVisible, setIsVisible] = useState(false);
+const BackToTopBtn: React.FC = () => {
+	const [isVisible, setIsVisible] = useState(false);
 
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    if (scrollY > 100) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+	const handleScroll = () => {
+		const scrollY = window.scrollY;
+		if (scrollY > 100) {
+			setIsVisible(true);
+		} else {
+			setIsVisible(false);
+		}
+	};
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
   return (
     <button
@@ -42,5 +40,5 @@ const BackToTopBtn = () => {
   </button>
   );
 };
- 
+
 export default BackToTopBtn;

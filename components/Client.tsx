@@ -8,16 +8,16 @@ interface Props {
 	updateClients: () => void;
 	getUpdate: () => void;
 	register: UseFormRegister<FieldValues>
-	onSelect: (e: any) => void;
-}
+	onSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-const Client = ({
+const Client: React.FC<Props> = ({
 	convertClient,
 	groupId,
 	updateClients,
 	getUpdate,
 	register,
-	onSelect }: Props) => {
+	onSelect }) => {
 	return (
 		<li className="block lg:flex w-full gap-x-6 px-[26px] items-center lg:h-[48px] text-base font-montserrat font-normal border-b border-rowUnderLine">
 			<div className='block md:flex mt-[14px] lg:mt-0'>
@@ -48,9 +48,9 @@ const Client = ({
 					<div className='truncate lg:hidden'>{convertClient.middle_name}</div>
 				</div>
 			</div>
-			<div className='md:flex block w-full lg:w-[178px] mb-6 lg:mb-0'>
+			<div className='md:flex block w-full lg:w-[190px] mb-6 lg:mb-0'>
 				<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>Дата народження</p>
-				<div className="w-full md:w-4/6 lg:w-[178px] text-left overflow-hidden">
+				<div className="w-full md:w-4/6 lg:w-[190px] text-left overflow-hidden">
 					{convertClient.ua_date_of_birth}
 				</div>
 			</div>
@@ -75,8 +75,8 @@ const Client = ({
 				/>
 			</div>
 		</li>
-	)
-}
+	);
+};
 
 export default Client;
 

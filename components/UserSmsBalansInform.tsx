@@ -6,13 +6,15 @@ import { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
 import { getUser } from '@/fetch-actions/usersFetchActions';
 
+interface Props {
+	session: ISession | Session | null;
+};
 
-
-export default function UserSmsInform({ session }: { session: ISession | Session | null }) {
+const UserSmsInform: React.FC<Props> = ({ session }) => {
 
 	const userId = session?.user.user_id;
 	const [user, setUser] = useState<IUser>();
-	const [socket, setSocket] = useState<any>(undefined);
+	const [socketIo, setSocketIo] = useState<any>(undefined);
 	const message = userId;
 	const roomName = userId;
 	let NEXT_PUBLIC_SOCKET_URL: string;
@@ -24,30 +26,44 @@ export default function UserSmsInform({ session }: { session: ISession | Session
 	};
 
 	useEffect(() => {
-
-		const getData = async () => {
-			if (userId) {
-				const res = await getUser(userId);
-				if (res) {
-					setUser(res.data.user);
+		if (!socketIo) {
+			const getData = async () => {
+				if (userId) {
+					const res = await getUser(userId);
+					if (res) {
+						setUser(res.data.user);
+					};
 				};
 			};
-		};
 
-		const handleSendMessage = () => {
-			socket.emit("message", message, roomName);
-		};
-		const socket = io(NEXT_PUBLIC_SOCKET_URL);
-
-		getData();
-		setSocket(socket);
-		handleSendMessage();
-		socket.on("message", (user) => {
-			if (user) {
-				setUser(user);
+			const handleSendMessage = () => {
+				socket.emit("message", message, roomName);
 			};
-		});
-	}, [userId, message, roomName, NEXT_PUBLIC_SOCKET_URL, user?.balance]);
+
+			const socket = io(NEXT_PUBLIC_SOCKET_URL);
+
+			getData();
+			setSocketIo(socket);
+			handleSendMessage();
+			socket.on("connect", () => {
+				console.log('Socket User is connected');
+			});
+			socket.on("message", (user) => {
+				if (user) {
+					setUser(user);
+				};
+			});
+			socket.on("connect_error", (error) => {
+				if (socket.active) {
+				} else {
+					console.log(error.message);
+				}
+			});
+			socket.on("disconnect", () => {
+				console.log('Socket User is disconnected');
+			});
+		};
+	}, [userId, message, roomName, socketIo, NEXT_PUBLIC_SOCKET_URL, user?.balance]);
 
 	return (
 		<div className="flex justify-end lg:mb-[50px] md:mb-[80px] mb-[50px]">
@@ -60,3 +76,5 @@ export default function UserSmsInform({ session }: { session: ISession | Session
 		</div>
 	);
 };
+
+export default UserSmsInform;

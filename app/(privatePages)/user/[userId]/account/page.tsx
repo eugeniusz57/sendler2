@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import { useSession } from 'next-auth/react';
 
@@ -21,13 +21,12 @@ import Image from 'next/image';
 
 const LIMIT = 5;
 
-export default function UserAccountPage() {
+const UserAccountPage: React.FC = () => {
 	const { data: session } = useSession();
-
 	const userId = session?.user.user_id;
 	const [user, setUser] = useState<IUser>();
 	const [payments, setPayments] = useState<IPaymentHistory[] | undefined>([]);
-	const [socket, setSocket] = useState<any>(undefined);
+	const [socketIo, setSocketIo] = useState<any>(undefined);
 	const [isUpdated, setIsUpdated] = useState<boolean>(false);
 	const message = userId;
 	const roomName = userId;
@@ -40,26 +39,40 @@ export default function UserAccountPage() {
 	}
 
 	useEffect(() => {
-		const getData = async () => {
-			if (userId) {
-				const res = await getUser(userId);
-				const paymentRes = await getUserPaymentHistory(userId, LIMIT, 0);
-				if (res) {
-					setUser(res.data.user);
-					setPayments(paymentRes?.data.payments)
+		if (!socketIo) {
+			const getData = async () => {
+				if (userId) {
+					const res = await getUser(userId);
+					const paymentRes = await getUserPaymentHistory(userId, LIMIT, 0);
+					if (res) {
+						setUser(res.data.user);
+						setPayments(paymentRes?.data.payments)
+					};
 				};
 			};
-		};
-		const socket = io(NEXT_PUBLIC_SOCKET_URL);
+			const socket = io(NEXT_PUBLIC_SOCKET_URL);
 
-		getData();
-		setSocket(socket);
-		socket.on('message', user => {
-			if (user) {
-				setUser(user);
-			};
-		});
-	}, [userId, message, roomName, NEXT_PUBLIC_SOCKET_URL]);
+			getData();
+			setSocketIo(socket);
+			socket.on("connect", () => {
+				console.log('Socket Account is connected');
+			});
+			socket.on('message', user => {
+				if (user) {
+					setUser(user);
+				};
+			});
+			socket.on("connect_error", (error) => {
+				if (socket.active) {
+				} else {
+					console.log(error.message);
+				}
+			});
+			socket.on("disconnect", () => {
+				console.log('Socket Account is disconnected');
+			});
+		};
+	}, [userId, message, socketIo, roomName, NEXT_PUBLIC_SOCKET_URL]);
 
 
 	const data = [
@@ -209,4 +222,6 @@ export default function UserAccountPage() {
 			</div>
 		</>
 	);
-}
+};
+
+export default UserAccountPage;

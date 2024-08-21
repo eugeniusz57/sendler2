@@ -6,7 +6,7 @@ import Modal from "./Modal/Modal";
 import GreenButton from "./buttons/GreenButton";
 import { FormFeedback } from "./forms/FormFeedback";
 
-const Feedback = () => {
+const Feedback: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const openModal = () => {
@@ -23,7 +23,7 @@ const Feedback = () => {
 			<p className=" text-base font-medium">Зворотній зв’язок</p>
 			<GreenButton size="normal" onClick={openModal} >Зв’язатись</GreenButton>
 			<Modal isOpen={isModalOpen} onClose={closeModal}>
-				<FormFeedback onClose={closeModal} title='Зворотній зв’язок' cross={true}/>
+				<FormFeedback onClose={closeModal} title='Зворотній зв’язок' cross={true} />
 			</Modal>
 		</>
 	);

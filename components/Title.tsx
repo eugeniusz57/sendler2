@@ -4,9 +4,9 @@ interface ITitleProps {
 	type: "hero" | "h1" | "h2" | "title_block" | "accent-main_text";
 	color: "light" | "dark";
 	children: ReactNode;
-}
+};
 
-export default function Title({ type, color, children }: ITitleProps) {
+const Title: React.FC<ITitleProps> = ({ type, color, children }) => {
 	const typeAndColor = type + '-' + color;
 	switch (typeAndColor) {
 
@@ -43,7 +43,9 @@ export default function Title({ type, color, children }: ITitleProps) {
 		default:
 			return <p className="accent-main_text text-mainTextColor">{children}</p>;
 
-	}
+	};
 };
+
+export default Title;
 
 

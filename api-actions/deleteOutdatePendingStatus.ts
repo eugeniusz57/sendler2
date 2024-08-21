@@ -3,7 +3,8 @@ import db from "@/db";
 export default async function deleteOutdatePendingStatus(id: number): Promise<void> {
 
 	await db.query(
-		`DELETE FROM recipients_status
+		`UPDATE recipients_status
+		SET recipient_status = 'rejected'
 		WHERE recipient_id IN (
 		SELECT rs.recipient_id
 		FROM recipients_status rs
@@ -12,3 +13,4 @@ export default async function deleteOutdatePendingStatus(id: number): Promise<vo
 		AND EXTRACT(EPOCH FROM now())-EXTRACT(EPOCH FROM status_changing_date) > 172800;	
 		`);
 };
+

@@ -11,59 +11,59 @@ import { IHistoryResponce, IHistoryPeriod } from '@/globaltypes/historyTypes';
 const LIMIT = 120;
 
 type Props = {
-  id: number | undefined;
+	id: number | undefined;
 };
 
-export default function HistoryTable({ id }: Props) {
-  const searchParams = useSearchParams();
-  const startDate = searchParams.get('startDate');
-  const endDate = searchParams.get('endDate');
+const HistoryTable: React.FC<Props> = ({ id }) => {
+	const searchParams = useSearchParams();
+	const startDate = searchParams.get('startDate');
+	const endDate = searchParams.get('endDate');
 
-  const [userHistory, setUserHistory] = useState<IHistoryResponce[] | undefined>([]);
-  const [historyPeriod, setHistoryPeriod] = useState<IHistoryPeriod | undefined>(undefined);
-  const [offset, setOffset] = useState(LIMIT);
-  const { ref, inView } = useInView()
+	const [userHistory, setUserHistory] = useState<IHistoryResponce[] | undefined>([]);
+	const [historyPeriod, setHistoryPeriod] = useState<IHistoryPeriod | undefined>(undefined);
+	const [offset, setOffset] = useState(LIMIT);
+	const { ref, inView } = useInView()
 
-  useEffect(() => {
-    if (startDate && endDate) {
-      setHistoryPeriod({
-        startDate: new Date(startDate),
-        endDate: new Date(endDate),
-      });
-    } else {
-      setHistoryPeriod(undefined);
-    }
-  }, [startDate, endDate]);
+	useEffect(() => {
+		if (startDate && endDate) {
+			setHistoryPeriod({
+				startDate: new Date(startDate),
+				endDate: new Date(endDate),
+			});
+		} else {
+			setHistoryPeriod(undefined);
+		}
+	}, [startDate, endDate]);
 
-  useEffect(() => {
-    async function fetchAPI() {
-      try {
-        const userHistory: IHistoryResponce[] | undefined = await getUserHistory({
-          id,
-          historyPeriod,
-          limit: LIMIT,
-          visible: null
-        });
+	useEffect(() => {
+		async function fetchAPI() {
+			try {
+				const userHistory: IHistoryResponce[] | undefined = await getUserHistory({
+					id,
+					historyPeriod,
+					limit: LIMIT,
+					visible: null
+				});
 
-        setUserHistory(userHistory);
-      } catch (error: any) {
-        console.log(error.message + ' | ' + error.response.data.error);
-        setUserHistory([]);
-      }
-    }
-    fetchAPI();
-  }, [historyPeriod, id]);
+				setUserHistory(userHistory);
+			} catch (error: any) {
+				console.log(error.message + ' | ' + error.response.data.error);
+				setUserHistory([]);
+			}
+		}
+		fetchAPI();
+	}, [historyPeriod, id]);
 
-  const loadMoreHistory = async () => {
-    const apiUserHistory: IHistoryResponce[] | undefined = await getUserHistory({
-      id,
-      historyPeriod,
-      limit: LIMIT,
-      visible: offset
-    });
-    setUserHistory([...(userHistory ?? []), ...(apiUserHistory ?? [])])
-    setOffset(offset + LIMIT)
-  };
+	const loadMoreHistory = async () => {
+		const apiUserHistory: IHistoryResponce[] | undefined = await getUserHistory({
+			id,
+			historyPeriod,
+			limit: LIMIT,
+			visible: offset
+		});
+		setUserHistory([...(userHistory ?? []), ...(apiUserHistory ?? [])])
+		setOffset(offset + LIMIT)
+	};
 
   return (
     <>
@@ -81,3 +81,5 @@ export default function HistoryTable({ id }: Props) {
     </>
   );
 }
+
+export default HistoryTable;
