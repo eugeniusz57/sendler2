@@ -74,7 +74,7 @@ export default function HistoryList({ userHistory, loadMoreHistory, visible }: P
                   </Link>
                 </p>
                 <p className="font-medium mt-4 md:hidden">Відправленно</p>
-                <p className="w-[150px] montserrat text-[14px] md:text-[18px]">{item.recipient_status.length }</p>
+                <p className="w-[150px] montserrat text-[14px] md:text-[18px]">{item.recipient_status.filter(status => status !== null).length}</p>
                 <p className="font-medium mt-4 md:hidden">Отримано</p>
                 <p className="w-[150px] montserrat text-[14px] md:text-[18px]">
                   {item.recipient_status.filter((item: SmsStatusEnum) => item === 'fullfield').length}
