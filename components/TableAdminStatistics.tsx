@@ -31,7 +31,9 @@ const TableAdminStatistics: React.FC<Props> = ({ userHistory }) => {
 					<td className="hidden md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 					</td>
 					<td data-title="Кіл-ть відправленних СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
-						{userHistory?.reduce((acc, item) => acc + item.recipient_status.length, 0)}
+						{userHistory?.reduce((acc, item) => {
+								return acc + item.recipient_status?.filter(status => status !== null).length || 0;
+						}, 0)}
 					</td>
 					<td data-title="Кіл-ть доставленних СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 						{userHistory?.reduce(
@@ -59,21 +61,23 @@ const TableAdminStatistics: React.FC<Props> = ({ userHistory }) => {
 							{Array.from(new Set(elem.clients)).length}
 						</td>
 						<td data-title="Кіл-ть відправленних СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
-							{elem.recipient_status.length}
+							{elem.recipient_status.filter(status => status !== null).length}
 						</td>
 						<td data-title="Кіл-ть доставленних СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 							{elem.recipient_status.filter((item: SmsStatusEnum) => item === 'fullfield').length}
 						</td>
 					</tr>
 				))}
-				<tr key={"total"} className="hidden md:table-row border">
+				<tr key={"total_md"} className="hidden md:table-row border">
 					<td className="block md:table-cell text-left md:text-center py-4 px-3 border font-montserrat text-base md:text-xl font-bold md:font-normal before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 						Всього
 					</td>
 					<td className="hidden md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 					</td>
 					<td data-title="Кіл-ть відправленних СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
-						{userHistory?.reduce((acc, item) => acc + item.recipient_status.length, 0)}
+						{userHistory?.reduce((acc, item) => {
+									return acc + item.recipient_status?.filter(status => status !== null).length || 0;
+							}, 0)}
 					</td>
 					<td data-title="Кіл-ть доставленних СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-base md:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 						{userHistory?.reduce(

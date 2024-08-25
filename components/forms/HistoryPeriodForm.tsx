@@ -67,11 +67,11 @@ const HistoryPeriodForm: React.FC = () => {
 	};
 
 	const handleChangeStartDate = (date: Date | null) => {
-		setStartDate(date ? date.toISOString() : null);
+		setStartDate(date ? date.toString() : null);
 	};
 
 	const handleChangeEndDate = (date: Date | null) => {
-		setEndDate(date ? date.toISOString() : null);
+		setEndDate(date ? date.toString() : null);
 	};
 
 	return (
