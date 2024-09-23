@@ -10,7 +10,7 @@ import { getUserClients } from '@/fetch-actions/clientsFetchActions';
 import { IClientDatabase } from '@/globaltypes/types';
 import EmailColorLinkBtn from "@/components/buttons/EmailColorLinkBtn";
 
-const LIMIT = 10;
+const LIMIT = 5;
 
 interface Props {
 	params: {

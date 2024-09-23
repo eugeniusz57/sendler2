@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import RSC from 'react-scrollbars-custom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useTranslations } from 'next-intl';
 
 import Title from '@/components/Title';
 import GreenButton from '@/components/buttons/GreenButton';
@@ -54,6 +55,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 	const [isOfferContractChecked, setIsOfferContractChecked] = useState(false);
 	const [isDisabled, setIsDisabled] = useState<boolean>(false);
 	const [user, setUser] = useState<IUser>();
+	const t = useTranslations('MailList');
 
 	// update page after update database
 	const getUpdate = () => {
@@ -319,7 +321,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 	return (
 		<>
 			<Title type="h1" color="dark">
-				Розсилка SMS
+				{t('title')}
 			</Title>
 			<div className="flex flex-col md:gap-[80px] gap-[50px] md:mt-[60px] mt-[28px]">
 				<div className="sms-page-box">

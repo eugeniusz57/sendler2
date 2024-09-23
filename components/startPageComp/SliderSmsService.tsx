@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 
 let count = 0;
@@ -10,6 +11,7 @@ const SliderSmsService: React.FC = () => {
 	const [extra, setExtra] = useState<string>("");
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);
+	const t = useTranslations('SmsServiseCard');
 
 	const hanleClickLeft = (): void => {
 		if (count > 0) {
@@ -135,32 +137,32 @@ const SliderSmsService: React.FC = () => {
 			<div className="container lg:w-[1130px] xl:w-full overflow-hidden mx-auto  ">
 				<ul onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} id='sliderServices' className={`flex md:flex-wrap gap-6 ${extra} swiperTransition`}>
 					<SmsServiseCard
-						title="Створення та керування СМС-розсилкою"
-						descr="Ви задаєте текст повідомлення, вибираєте групи абонентів, які отримають повідомлення, і вказуєте час, коли повідомлення будуть відправленні отримувачам."
+						title={t('title_1')}
+						descr={t('description_1')}
 					></SmsServiseCard>
 					<SmsServiseCard
-						linkText="Інструкція"
+						linkText={t('linkText_1')}
 						linkTo="/"
-						title="Альфа ім'я відправника SMS-повідомлення"
-						descr="Ви самі вибираєте підпис (ім'я відправника), який відображатиметься замість номера відправника SMS-повідомлення. "
+						title={t('title_2')}
+						descr={t('description_2')}
 					></SmsServiseCard>
 					<SmsServiseCard
-						title="Звіти про доставку ваших повідомлень"
-						descr="Звіт з кожної СМС-Розсилки Ви зможете переглянути on-line на сайті або завантажити у зручному форматі (Excel)."
+						title={t('title_3')}
+						descr={t('description_3')}
 					></SmsServiseCard>
 					<SmsServiseCard
-						title="Створення та редагування груп абонентів"
-						descr="Ви задаєте текст повідомлення, вибираєте групи абонентів, які отримають повідомлення, і вказуєте час, коли повідомлення будуть відправленні отримувачам."
+						title={t('title_4')}
+						descr={t('description_4')}
 					></SmsServiseCard>
 					<SmsServiseCard
-						title="Покриття  мобільних операторів зв’язку"
-						descr="Ви маєте можливість надсилати повідомлення абонентам усіх українських мобільних операторів. На запит доступні інші країни."
+						title={t('title_5')}
+						descr={t('description_5')}
 					></SmsServiseCard>
 					<SmsServiseCard
-						linkText="Реєстрація"
+						linkText={t('linkText_2')}
 						linkTo="/"
-						title="Послуга не потребує встановлення"
-						descr="Ви зможете надсилати SMS-повідомлення з будь-якого комп'ютера, підключеного до Інтернету, використовуючи наш сайт."
+						title={t('title_6')}
+						descr={t('description_6')}
 					></SmsServiseCard>
 				</ul>
 			</div>

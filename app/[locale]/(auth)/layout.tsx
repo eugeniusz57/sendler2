@@ -1,6 +1,6 @@
 'use client';
 import TitleAuthForm from '@/components/TitleAuthForm';
-import useWindowWidth from '../../helpers/windowsSize';
+import useWindowWidth from '../../../helpers/windowsSize';
 
 interface Props {
 	children: React.ReactNode;

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useLocale, useTranslations } from 'next-intl';
 
 import Title from "@/components/Title";
 import HeroBtn from "@/components/buttons/HeroBtn";
@@ -13,9 +14,11 @@ import SliderSmsService from "@/components/startPageComp/SliderSmsService";
 const Home: React.FC = () => {
 	const { data: session } = useSession();
 	const route = useRouter();
+	const locale = useLocale();
+	const t = useTranslations('HomePage');
 
 	if (session) {
-		route.push(`/user/${session?.user?.user_id}/mailing-list`);
+		route.push(`/${locale}/user/${session?.user?.user_id}/mailing-list`);
 	};
 
 	return (
@@ -27,12 +30,12 @@ const Home: React.FC = () => {
 					</h1>
 					<h2 className="mb-11 lg:mb-12 text-sm md:text-base lg:text-lg font-normal text-white">
 						{
-							"Потужна масова SMS розсилка для ефективного зв'язку з вашою аудиторією"
+							t('heroText')
 						}
 					</h2>
 					<div className=" flex gap-[16px] md:gap-[14px]">
-						<HeroBtn linkTo="/login">
-							Увійти{" "}
+						<HeroBtn linkTo={"/login"}>
+							{t('enterButtonText')}{" "}
 							<Image
 								className="ml-1 text-white"
 								src="/svg/login.svg"
@@ -41,7 +44,7 @@ const Home: React.FC = () => {
 								height={24}
 							/>
 						</HeroBtn>
-						<HeroBtn linkTo="/signup">Реєстрація</HeroBtn>
+						<HeroBtn linkTo={"/signup"}>{t('registrationButtonText')}</HeroBtn>
 					</div>
 				</div>
 			</div>
@@ -51,7 +54,7 @@ const Home: React.FC = () => {
 				<section className="my-[50px] md:my-[80px]">
 					<div className="container mx-auto mb-[28px] md:mb-[50px] lg:mb-[60px]">
 						<Title type="h2" color="dark">
-							Як працює SMS сервіс
+							{t('title_1')}
 						</Title>
 					</div>
 					<SliderSmsService />
@@ -60,8 +63,8 @@ const Home: React.FC = () => {
 				<section className=" container  mx-auto">
 					<div className="mb-[28px] md:mb-[50px] lg:mb-[60px]">
 						<Title type="h2" color="dark">
-							Для чого використовується <br />
-							послуга &#34;Масові СМС-Розсилки&#34; :
+							{t('title_2_part_1')} <br />
+							&#34;{t('title_2_part_2')}&#34;{t('title_3_part_3')}
 						</Title>
 					</div>
 					<div className="md:hidden">
@@ -78,7 +81,7 @@ const Home: React.FC = () => {
 				<section className="my-[50px] md:my-[80px]">
 					<div className="container mx-auto mb-[28px] md:mb-[50px] lg:mb-[60px]">
 						<Title type="h2" color="dark">
-							Чому клієнти обирають нас:
+							{t('title_3')}
 						</Title>
 					</div>
 					<div className="py-[60px] md:py-[60px] lg:py-[100px] caruselBg ">
