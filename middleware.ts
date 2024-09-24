@@ -28,7 +28,6 @@ const authMiddleware = withAuth(
 		) {
 			return NextResponse.rewrite(new URL('/private-route', req.url));
 		}
-		console.log('PATH IN', req.nextUrl.pathname)
 		return intlMiddleware(req);
 	},
 	{
@@ -49,12 +48,8 @@ export default function middleware(req: NextRequest) {
 	console.log('isPublicPage', isPublicPage)
 
 	if (isPublicPage) {
-		console.log('PUBLIC');
-		console.log('PATH OUT', req.nextUrl.pathname)
 		return intlMiddleware(req);
 	} else {
-		console.log('NOT PUBLIC');
-		console.log('PATH OUT', req.nextUrl.pathname)
 		return (authMiddleware as any)(req);
 	}
 }

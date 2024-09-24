@@ -14,8 +14,7 @@ export async function POST(req: Request) {
 		const body = await req.json();
 		const { login } = body;
 		//select user_id by name_login
-
-		const userData = await db.query('SELECT user_id, user_role FROM users WHERE user_login = $1', [
+		const userData = await db.query(`SELECT user_id, user_role FROM users WHERE user_login = $1`, [
 			login,
 		]);
 
@@ -24,7 +23,7 @@ export async function POST(req: Request) {
 		if (userIdAndRole) {
 			return NextResponse.json({ userIdAndRole, message: 'User id' }, { status: 200 });
 		}
-	} catch (error) {
+	} catch (error: any) {
 		return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 });
 	}
 }
@@ -69,32 +68,32 @@ export async function PATCH(
 export async function GET() {
 	const session = await getServerSession(options);
 
- 
+
 
 	try {
 		if (session) {
-			console.log("session=",session);
-		
+			console.log("session=", session);
+
 			const getAllUsers = await db.query(
 				'SELECT user_id, user_name, tel, user_login, balance  FROM users'
 			);
-	
+
 			const AllUsers = getAllUsers.rows;
-	
+
 			if (AllUsers) {
 				return NextResponse.json({ AllUsers, message: 'All users' }, { status: 200 });
 			}
-	
+
 		} else {
 			// Not Signed in
-	
-			console.log("notsession===",session);
+
+			console.log("notsession===", session);
 			return NextResponse.json(
 				{ message: `Session is  not has ` },
 				{ status: 401 }
 			);
 		}
-		
+
 	} catch (error) {
 		return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 });
 	}
