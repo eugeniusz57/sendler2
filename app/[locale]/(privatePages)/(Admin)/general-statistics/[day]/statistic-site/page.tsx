@@ -75,7 +75,7 @@ const SiteHistoryDetails: React.FC = () => {
 						return (
 							<li
 								key={index}
-								className="flex flex-col  md:py-3 md:px-[10px] text-sm bg-[#fefefe] md:bg-inherit md:text-base md:gap-y-8 md:flex-row md:items-center md:gap-2 lg:gap-[100px] lg:px-[26px] font-roboto lg:text-lg text-black border border-zinc-800 md:border-transparent md:border-x-0 md:border-t-0 md:border-[#B5C9BE]"
+								className="flex flex-col  md:py-3 md:px-[10px] text-sm bg-[#fefefe] md:bg-inherit md:text-base md:gap-y-8 md:flex-row md:items-center md:gap-2 lg:gap-[100px] lg:px-[26px] font-roboto lg:text-lg text-black border border-zinc-800  md:border-x-0 md:border-t-0 md:border-[#B5C9BE]"
 							>
 								<p data-title="Номер телефону :" className="md:w-40 px-[10px] py-3 md:p-0 text-right md:text-left border-b-2 border-[#B5C9BE] md:border-none before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{item.tel}</p>
 								<p data-title="Дати відправки :" className="md:w-48 px-[10px] py-3 md:p-0 text-right md:text-left border-b-2 border-[#B5C9BE] md:border-none before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{item.sending_group_date.toLocaleString()}</p>

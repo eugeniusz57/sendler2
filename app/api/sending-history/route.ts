@@ -43,7 +43,8 @@ export async function GET(
 				...history,
 				recipient_status: history.recipient_status ? `${history.recipient_status as unknown as string}`
 					?.replace(/{|}/g, '')
-					.split(',') as SmsStatusEnum[] : new Array(charAndSmsCount(history.text_sms).smsQuantity * Array.from(new Set(history.clients)).length).fill('pending'),
+					.split(',') as SmsStatusEnum[] : new Array(charAndSmsCount(history.text_sms).smsQuantity * Array.from(new Set(history.clients)).length).fill(null),
+				// .split(',') as SmsStatusEnum[] : (history.sending_permission && history.sending_group_date > new Date()) ? new Array(charAndSmsCount(history.text_sms).smsQuantity * Array.from(new Set(history.clients)).length).fill('pending') : new Array(charAndSmsCount(history.text_sms).smsQuantity * Array.from(new Set(history.clients)).length).fill(null),
 			};
 		});
 
