@@ -20,14 +20,14 @@ const intlMiddleware = createMiddleware({
 
 const authMiddleware = withAuth(
 	(req) => {
-		console.log('PatchName', req.nextUrl.pathname);
-		console.log('Midlsession', req.nextauth.token?.user_role);
-		if (
-			req.nextUrl.pathname.startsWith('/dashboard') &&
-			req.nextauth.token?.user_role !== 'admin'
-		) {
-			return NextResponse.rewrite(new URL('/private-route', req.url));
-		}
+		// console.log('PatchName', req.nextUrl.pathname);
+		// console.log('Midlsession', req.nextauth.token?.user_role);
+		// if (
+		// 	req.nextUrl.pathname.startsWith('/dashboard') &&
+		// 	req.nextauth.token?.user_role !== 'admin'
+		// ) {
+		// 	return NextResponse.rewrite(new URL('/private-route', req.url));
+		// }
 		return intlMiddleware(req);
 	},
 	{

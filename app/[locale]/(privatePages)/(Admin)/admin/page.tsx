@@ -3,7 +3,7 @@ import DetailBtn from '@/components/buttons/Details';
 import ManageContactBtn from '@/components/buttons/ManageContactBtn';
 import SearchUserForm from '@/components/forms/SearchUserForm';
 import { combinedAlfaNameAndUser } from '@/globaltypes/types';
-import { CombinedAlfaNamesAndUser } from '@/helpers/AlfaName';
+import { CombinedAlfaNamesAndUser } from '@/fetch-actions/AlfaName';
 import { useEffect, useState } from 'react';
 
 const Admin: React.FC = () => {
