@@ -1,0 +1,77 @@
+{
+	"Nav": {
+		"logoText": "Mass SMS mailings"
+	},
+	"PublicNavigation": {
+		"title_1": "Home",
+		"title_2": "About",
+		"title_3": "Prices",
+		"title_4": "Questions",
+		"title_5": "Services",
+		"title_6": "Contacts"
+	},
+	"HomePage": {
+		"heroText": "Powerful mass SMS mailing for effective communication with your audience",
+		"enterButtonText": "Enter",
+		"registrationButtonText": "Registration",
+		"title_1": "How the SMS service works",
+		"title_2_part_1": "What is the",
+		"title_2_part_2": "Mass SMS Mailings",
+		"title_3_part_3": " service used for :",
+		"title_3": "Why clients choose us:"
+	},
+	"SmsServiseCard": {
+		"title_1": "Creation and management of SMS mailing",
+		"title_2": "Alpha name of the sender of the SMS message",
+		"title_3": "Reports on the delivery of your messages",
+		"title_4": "Creation and editing of subscriber groups",
+		"title_5": "Coverage of mobile operators",
+		"title_6": "The service does not require installation",
+		"description_1": "You specify the text of the message, select the groups of subscribers who will receive the message, and specify the time when the messages will be sent to the recipients.",
+		"description_2": "You yourself choose a signature (sender's name), which will be displayed instead of the SMS sender's number.",
+		"description_3": "You can view the report of each SMS-Mailings online on the website or download it in a convenient format (Excel).",
+		"description_4": "You specify the text of the message, select the groups of subscribers who will receive the message, and specify the time when the messages will be sent to the recipients.",
+		"description_5": "You can send messages to subscribers of all Ukrainian mobile operators. Other countries are available upon request.",
+		"description_6": "You will be able to send SMS messages from any computer connected to the Internet using our site.",
+		"linkText_1": "Instruction",
+		"linkText_2": "Registration"
+	},
+	"ServiceDescriptionList": {
+		"description_1": "This method has a personal character, because with the help of messages you deliver information directly to the client.",
+		"description_2": "Today, marketing is expanding its boundaries. If previously television and outdoor advertising were mainly used to advertise products and brands, now entrepreneurs have much more opportunities to make their products recognizable. A simple and affordable way to communicate with potential customers is SMS.",
+		"description_3": "SMS advertising will help make your brand recognizable. Of course, not all customers will respond to the first message, but most likely they will be interested in subsequent ones.",
+		"description_4": "SMS will help you find new customers and not lose old ones by notifying them about promotions, discounts and new offers. Buyers will be interested and want to learn more about your products and what you can offer them."
+	},
+	"SliderAdvantages": {
+		"textCard_1": "Convenient and easy-to-use service management interface",
+		"textCard_2": "You only pay for delivered messages, subject to contract signing!",
+		"textCard_3": "A high opening rate of SMS messages is the most effective advertising tool.",
+		"textCard_4": "SMS mailings are the future of your business, its success and development.",
+		"textCard_5_part_1": "BSender - ",
+		"textCard_5_part_2": "Fast, simple and reliable SMS service",
+		"textCard_6": "Happy birthday sms for regular customers"
+	},
+	"LoginButton": {
+		"text": "Enter"
+	},
+	"LogOutButton": {
+		"text": "Exit"
+	},
+	"MailList": {
+		"title": "SMS mailing"
+	},
+	"Footer": {
+		"logoText": "Mass SMS mailings",
+		"company_part_1": "Company ",
+		"company_part_2": "Innovative media solutions,",
+		"company_part_3": " LTD",
+		"e-mail": "E-mail",
+		"phone": "Phone",
+		"address": "01033, Ukraine, Kyiv, вул. Сім'ї Прахових, 50",
+		"advertisingText": "Mobile marketing, Mass SMS mailings",
+		"feedback": "Feedback",
+		"feedbackButtonText": "Get in touch",
+		"legalAddress": "Legal Address",
+		"allRights": "All rights reserved"
+	}
+}

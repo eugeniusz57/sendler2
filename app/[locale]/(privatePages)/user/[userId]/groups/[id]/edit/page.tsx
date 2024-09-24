@@ -10,7 +10,7 @@ import { getGroupClientsAndGroupName } from "@/fetch-actions/clientsFetchActions
 import { IGroupId, IUserId, IClientDatabase } from "@/globaltypes/types";
 import EmailColorLinkBtn from "@/components/buttons/EmailColorLinkBtn";
 
-const LIMIT = 10;
+const LIMIT = 5;
 
 interface Props {
 	params: {
@@ -66,7 +66,7 @@ const EditGroupPage: React.FC<Props> = ({ params }) => {
 
 	useEffect(() => {
 		memoizedupdateData();
-	}, [memoizedupdateData, isUpdated])
+	}, [memoizedupdateData, isUpdated]);
 
 	return (
 		<>

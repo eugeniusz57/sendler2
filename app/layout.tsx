@@ -1,39 +1,11 @@
-import "./globals.css";
-import type { Metadata } from "next";
+import { ReactNode } from 'react';
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Providers from "@/components/providers/Providers";
-import ToastProvider from "@/components/providers/TostifyProvider";
-import BackToTopBtn from "@/components/buttons/BackToTopBtn";
-import { Toaster } from "react-hot-toast";
-
-export const metadata: Metadata = {
-	title: "BSender",
-	description: "BSender sms sending application",
+type Props = {
+	children: ReactNode;
 };
 
-interface Props {
-	children: React.ReactNode;
-};
-
-const RootLayout: React.FC<Props> = ({ children }) => {
-
-	return (
-		<html lang="en">
-			<body className="flex flex-col items-center min-h-screen">
-				<Providers>
-					<Toaster />
-					<ToastProvider>
-						<Header />
-						{children}
-						<Footer />
-						<BackToTopBtn />
-					</ToastProvider>
-				</Providers>
-			</body>
-		</html>
-	);
-};
-
-export default RootLayout;
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({ children }: Props) {
+	return children;
+}

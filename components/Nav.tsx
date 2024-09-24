@@ -1,8 +1,13 @@
 'use client';
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import LogOutButton from './buttons/LogOutButton';
-import { privateNavigation, privateNavigationAdmin, publicNavigation } from '@/data/data';
+import {
+	privateNavigation,
+	privateNavigationAdmin,
+	// publicNavigation
+} from '@/data/data';
 import LoginButton from './buttons/LoginButon';
 import LogoNav from './LogoNav';
 import { useState } from 'react';
@@ -15,8 +20,18 @@ const Nav: React.FC = () => {
 	const pathName = usePathname();
 	const userId = session?.user.user_id;
 	const [isModalOpen, setIsModalOpen] = useState(false);
-
 	const admin = status === 'authenticated' && session.user.user_role === 'admin';
+
+	const t = useTranslations('PublicNavigation');
+
+	const publicNavigation = [
+		{ id: 1, title: t('title_1'), path: '/' },
+		{ id: 2, title: t('title_2'), path: '/about' },
+		{ id: 3, title: t('title_3'), path: '/prices' },
+		{ id: 4, title: t('title_4'), path: '/questions' },
+		{ id: 5, title: t('title_5'), path: '/services' },
+		{ id: 6, title: t('title_6'), path: '#footer' },
+	];
 
 	const toggleModal = () => {
 		if (isModalOpen) {

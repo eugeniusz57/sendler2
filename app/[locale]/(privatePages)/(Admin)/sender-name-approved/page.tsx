@@ -3,7 +3,7 @@
 import BackBtn from '@/components/buttons/BackBtn';
 import { combinedAlfaNameAndUser } from '@/globaltypes/types';
 
-import { ActiveAlfaName, CombinedAlfaNamesAndUser, DeleteAlfaName } from '@/helpers/AlfaName';
+import { ActiveAlfaName, CombinedAlfaNamesAndUser, DeleteAlfaName } from '@/fetch-actions/AlfaName';
 import { useEffect, useState } from 'react';
 
 const SenderNameApproved: React.FC = () => {

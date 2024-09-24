@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import React, { ReactNode, useState, useEffect } from "react";
+import React, { ReactNode, useState } from "react";
+import { useTranslations } from "next-intl";
 import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
 
 let count = 0;
@@ -10,6 +11,7 @@ const SliderAdvantages: React.FC = () => {
 	const [isActive, setIsActive] = useState(false);
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);
+	const t = useTranslations('SliderAdvantages');
 
 	let xStart: number | null = null;
 	let yStart: number | null = null;
@@ -180,7 +182,7 @@ const SliderAdvantages: React.FC = () => {
 							alt="Circle-check icon"
 						/>
 						<p className="swiperCardText">
-							Зручний та простий у використанні інтерфейс керування послугою
+							{t('textCard_1')}
 						</p>
 					</SwiperCard>
 
@@ -192,8 +194,7 @@ const SliderAdvantages: React.FC = () => {
 							alt="Circle-check icon"
 						/>
 						<p className="swiperCardText">
-							Ви сплачуєте лише за доставлені повідомлення за умови підписання
-							договору!
+							{t('textCard_2')}
 						</p>
 					</SwiperCard>
 
@@ -205,8 +206,7 @@ const SliderAdvantages: React.FC = () => {
 							alt="Circle-check icon"
 						/>
 						<p className="swiperCardText">
-							Високий рівень відкриття SMS-повідомлень - найефективніший
-							інструмент реклами.
+							{t('textCard_3')}
 						</p>
 					</SwiperCard>
 
@@ -218,7 +218,7 @@ const SliderAdvantages: React.FC = () => {
 							alt="Circle-check icon"
 						/>
 						<p className="swiperCardText">
-							SMS-розсилки – майбутнє вашого бізнесу, його успіх та розвиток.
+							{t('textCard_4')}
 						</p>
 					</SwiperCard>
 
@@ -230,7 +230,7 @@ const SliderAdvantages: React.FC = () => {
 							alt="Circle-check icon"
 						/>
 						<p className="swiperCardText">
-							BSender - &#34;Швидкий, простий та надійний SMS сервіс&#34;
+							{t('textCard_5_part_1')}&#34;{t('textCard_5_part_2')}&#34;
 						</p>
 					</SwiperCard>
 
@@ -242,8 +242,7 @@ const SliderAdvantages: React.FC = () => {
 							alt="Circle-check icon"
 						/>
 						<p className="swiperCardText">
-							Sms привітання з днем ​​народження для постійних клієнтів
-						</p>
+							{t('textCard_6')}						</p>
 					</SwiperCard>
 				</ul>
 			</div>

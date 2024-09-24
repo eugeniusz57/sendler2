@@ -4,7 +4,7 @@ import { ISession } from "@/globaltypes/types";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import UserSmsBalansInform from "@/components/UserSmsBalansInform";
-import { options } from "../api/auth/[...nextauth]/options";
+import { options } from "../../api/auth/[...nextauth]/options";
 
 export const metadata: Metadata = {
 	title: "BSender",

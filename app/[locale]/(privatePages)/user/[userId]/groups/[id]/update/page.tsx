@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import * as XLSX from 'xlsx/xlsx.mjs';
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 
 import Title from '@/components/Title';
 import GreenButton from '@/components/buttons/GreenButton';
@@ -25,6 +26,7 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 	const [file, setFile] = useState<File>();
 	const [groupName, setGroupName] = useState('');
 	const [numberClients, setNumberClients] = useState(0);
+	const locale = useLocale();
 
 	const getData = async () => {
 		if (groupId) {
@@ -67,11 +69,11 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 			clients.shift();
 
 			await updateGroup(clients, groupId);
-			router.push(`/user/${userId}/groups`);
+			router.push(`/${locale}/user/${userId}/groups`);
 		} else {
 			console.log('Please, select a file!');
 		}
-	}, [file, groupId, router, userId]);
+	}, [file, groupId, router, userId, locale]);
 
 	return (
 		<>

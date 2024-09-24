@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useLocale, useTranslations } from 'next-intl';
+
 import { FormInputsLogin } from '@/globaltypes/types';
 import { schemaLogin } from '@/models/forms';
 import GreenButton from '../buttons/GreenButton';
@@ -16,6 +18,7 @@ const LoginForm: React.FC = () => {
 	const router = useRouter();
 	const [show, setShow] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(false);
+	const locale = useLocale();
 
 	const {
 		register,
@@ -66,7 +69,7 @@ const LoginForm: React.FC = () => {
 
 			if (res && !res.error) {
 				if (userRole === 'user') {
-					return router.push(`/user/${userId}/mailing-list`);
+					return router.push(`/${locale}/user/${userId}/mailing-list`);
 				}
 				router.push(`/admin`);
 

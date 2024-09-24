@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { useLocale } from 'next-intl';
 
 import GroupsList from "@/components/groupsList";
 import CreateGroupForm from "@/components/forms/CreateGroupForm";
@@ -10,7 +11,7 @@ import Title from "@/components/Title";
 import { getUserGroups } from '@/fetch-actions/groupsFetchActions';
 import { IGroupDatabase } from '@/globaltypes/types';
 
-const LIMIT = 10;
+const LIMIT = 5;
 
 interface Props {
 	params: { userId: string };
@@ -20,6 +21,8 @@ const ContactManagmentPage: React.FC<Props> = ({ params }) => {
 	const [groups, setGroups] = useState<IGroupDatabase[] | undefined>([]);
 	const [isUpdated, setIsUpdated] = useState<boolean>(false);
 	const userId = Number(params.userId);
+	const locale = useLocale();
+
 
 	const getUpdate = () => {
 		setIsUpdated(!isUpdated);
@@ -58,7 +61,7 @@ const ContactManagmentPage: React.FC<Props> = ({ params }) => {
 					<div className="flex md:flex-row flex-col items-center">
 						<p className="lg:mr-8 md:mr-[22px] md:mb-0 mb-6">За бажанням ви можете переглянути всі свої контакти</p>
 						<GreenButton size="normal">
-							<Link href={`/user/${userId}/clients`}>
+							<Link href={`/${locale}/user/${userId}/clients`}>
 								Переглянути
 							</Link>
 						</GreenButton>
