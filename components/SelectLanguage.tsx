@@ -72,37 +72,30 @@ const SelectLanguage: React.FC<Props> = ({
 	return (
 		<div
 			onClick={onClose}
-			className='w-full pt-[5px] lg:pt-[3px] h-8 text-sm lg:text-lg relative'
+			className='w-full pt-[5px] lg:pt-[3px] text-lg relative'
 		>
 			<div className='flex items-start'>
 				{!isOpen && !selectedOption && <div>{defaultValue.toUpperCase()}</div>}
 				{isOpen && !selectedOption ? <div>{defaultValue.toUpperCase()}</div> : <div>{selectedOption.toUpperCase()}</div>}
-				{isOpen ? (
-					<Image
-						src="/svg/arrowPath-down.svg"
-						alt="Arrov up icon"
-						width={18}
-						height={18}
-						className="absolute top-1/2 -translate-y-1/2 right-0 ml-auto cursor-pointer origin-center rotate-180"
-					/>
-				) : (
+				{!isOpen &&
 					<Image
 						src="/svg/arrowPath-down.svg"
 						alt="Arrov down icon"
 						width={18}
 						height={18}
-						className="absolute top-1/2 -translate-y-1/2 right-0 ml-auto cursor-pointer"
+						className="absolute top-1/2 -translate-y-1/2 right-4 ml-auto cursor-pointer"
 					/>
-				)}
+					// )
+				}
 			</div>
 			{isOpen && (
 				<div
-					className={`w-full overflow-auto h-32 lg:-mt-2`}
+					className={`absolute px-1 top-1/2 -translate-y-1/2 right-0 overflow-auto border-[1px] border-[#E6E6E6]  rounded-[4px]`}
 					ref={selectBodyRef}
 				>
 
 					{selectOptions?.map(selectOption => (
-						<div key={key++} className='text-right leading-4 hover:opacity-70'>
+						<div key={key++} className='text-right leading-6 hover:opacity-70'>
 							<Link href={deleteLocaleFromPathName(pathName)} locale={selectOption}>
 								{selectOption.toUpperCase()}
 							</Link>

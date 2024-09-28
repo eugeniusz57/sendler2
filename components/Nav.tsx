@@ -64,8 +64,8 @@ const Nav: React.FC = () => {
 					</div>
 				)}
 				{isOpen && (
-					<div className='flex items-center gap-6 md:gap-8'>
-						<div className='lg:hidden lg:block w-[48px]'>
+					<div className='flex items-center gap-2'>
+						<div className='lg:hidden lg:block w-[68px]'>
 							<SelectLanguage
 								openSelect={(a: boolean) => a}
 								selectOptions={locales}
@@ -138,7 +138,7 @@ const Nav: React.FC = () => {
 						)}
 						{status === 'authenticated' ? <LogOutButton /> : <LoginButton />}
 					</ul>
-					<div className='hidden lg:block w-[52px]'>
+					<div className='hidden lg:block w-[70px] h-full'>
 						<SelectLanguage
 							openSelect={(a: boolean) => a}
 							selectOptions={locales}
