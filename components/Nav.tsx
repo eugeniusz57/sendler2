@@ -64,26 +64,37 @@ const Nav: React.FC = () => {
 					</div>
 				)}
 				{isOpen && (
-					<button onClick={toggleModal} className="burger-menu z-20">
-						<svg
-							width="46"
-							height="44"
-							viewBox="0 0 46 44"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M37.8548 21.9997C37.8548 21.635 37.7034 21.2853 37.4338 21.0274C37.1642 20.7695 36.7986 20.6247 36.4173 20.6247H9.58398C9.20274 20.6247 8.8371 20.7695 8.56752 21.0274C8.29793 21.2853 8.14648 21.635 8.14648 21.9997C8.14648 22.3643 8.29793 22.7141 8.56752 22.9719C8.8371 23.2298 9.20274 23.3747 9.58398 23.3747H36.4173C36.7986 23.3747 37.1642 23.2298 37.4338 22.9719C37.7034 22.7141 37.8548 22.3643 37.8548 21.9997ZM37.8548 12.833C37.8548 12.4683 37.7034 12.1186 37.4338 11.8607C37.1642 11.6029 36.7986 11.458 36.4173 11.458H9.58398C9.20274 11.458 8.8371 11.6029 8.56752 11.8607C8.29793 12.1186 8.14648 12.4683 8.14648 12.833C8.14648 13.1977 8.29793 13.5474 8.56752 13.8053C8.8371 14.0631 9.20274 14.208 9.58398 14.208H36.4173C36.7986 14.208 37.1642 14.0631 37.4338 13.8053C37.7034 13.5474 37.8548 13.1977 37.8548 12.833ZM37.8548 31.1663C37.8548 30.8017 37.7034 30.4519 37.4338 30.1941C37.1642 29.9362 36.7986 29.7913 36.4173 29.7913H9.58398C9.20274 29.7913 8.8371 29.9362 8.56752 30.1941C8.29793 30.4519 8.14648 30.8017 8.14648 31.1663C8.14648 31.531 8.29793 31.8808 8.56752 32.1386C8.8371 32.3965 9.20274 32.5413 9.58398 32.5413H36.4173C36.7986 32.5413 37.1642 32.3965 37.4338 32.1386C37.7034 31.8808 37.8548 31.531 37.8548 31.1663Z"
-								fill="white"
+					<div className='flex items-center gap-6 md:gap-8'>
+						<div className='lg:hidden lg:block w-[48px]'>
+							<SelectLanguage
+								openSelect={(a: boolean) => a}
+								selectOptions={locales}
+								selectedOption={locale}
+								startValue={locale}
+								defaultValue={locale}
 							/>
-						</svg>
-					</button>
+						</div>
+						<button onClick={toggleModal} className="burger-menu z-20">
+							<svg
+								width="46"
+								height="44"
+								viewBox="0 0 46 44"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									fillRule="evenodd"
+									clipRule="evenodd"
+									d="M37.8548 21.9997C37.8548 21.635 37.7034 21.2853 37.4338 21.0274C37.1642 20.7695 36.7986 20.6247 36.4173 20.6247H9.58398C9.20274 20.6247 8.8371 20.7695 8.56752 21.0274C8.29793 21.2853 8.14648 21.635 8.14648 21.9997C8.14648 22.3643 8.29793 22.7141 8.56752 22.9719C8.8371 23.2298 9.20274 23.3747 9.58398 23.3747H36.4173C36.7986 23.3747 37.1642 23.2298 37.4338 22.9719C37.7034 22.7141 37.8548 22.3643 37.8548 21.9997ZM37.8548 12.833C37.8548 12.4683 37.7034 12.1186 37.4338 11.8607C37.1642 11.6029 36.7986 11.458 36.4173 11.458H9.58398C9.20274 11.458 8.8371 11.6029 8.56752 11.8607C8.29793 12.1186 8.14648 12.4683 8.14648 12.833C8.14648 13.1977 8.29793 13.5474 8.56752 13.8053C8.8371 14.0631 9.20274 14.208 9.58398 14.208H36.4173C36.7986 14.208 37.1642 14.0631 37.4338 13.8053C37.7034 13.5474 37.8548 13.1977 37.8548 12.833ZM37.8548 31.1663C37.8548 30.8017 37.7034 30.4519 37.4338 30.1941C37.1642 29.9362 36.7986 29.7913 36.4173 29.7913H9.58398C9.20274 29.7913 8.8371 29.9362 8.56752 30.1941C8.29793 30.4519 8.14648 30.8017 8.14648 31.1663C8.14648 31.531 8.29793 31.8808 8.56752 32.1386C8.8371 32.3965 9.20274 32.5413 9.58398 32.5413H36.4173C36.7986 32.5413 37.1642 32.3965 37.4338 32.1386C37.7034 31.8808 37.8548 31.531 37.8548 31.1663Z"
+									fill="white"
+								/>
+							</svg>
+						</button>
+					</div>
 				)}
-				<div className='flex items-center'>
+				<div className='hidden lg:flex items-center'>
 					<ul
-						className={`hidden mr-8 lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
+						className={`mr-8 lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
 					>
 						{status === 'authenticated' && (
 							<>
@@ -127,7 +138,7 @@ const Nav: React.FC = () => {
 						)}
 						{status === 'authenticated' ? <LogOutButton /> : <LoginButton />}
 					</ul>
-					<div className='w-[52px]'>
+					<div className='hidden lg:block w-[52px]'>
 						<SelectLanguage
 							openSelect={(a: boolean) => a}
 							selectOptions={locales}

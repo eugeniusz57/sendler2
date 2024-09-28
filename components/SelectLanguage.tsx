@@ -67,14 +67,16 @@ const SelectLanguage: React.FC<Props> = ({
 		};
 	}, [memoizedClose, startValue]);
 
+	console.log('isOpen', isOpen)
+
 	return (
 		<div
 			onClick={onClose}
-			className='w-full py-[3px] h-8 text-lg relative'
+			className='w-full pt-[5px] lg:pt-[3px] h-8 text-sm lg:text-lg relative'
 		>
-			<div>
+			<div className='flex items-start'>
 				{!isOpen && !selectedOption && <div>{defaultValue.toUpperCase()}</div>}
-				{isOpen && !selectedOption ? defaultValue.toUpperCase() : selectedOption.toUpperCase()}
+				{isOpen && !selectedOption ? <div>{defaultValue.toUpperCase()}</div> : <div>{selectedOption.toUpperCase()}</div>}
 				{isOpen ? (
 					<Image
 						src="/svg/arrowPath-down.svg"
@@ -95,12 +97,12 @@ const SelectLanguage: React.FC<Props> = ({
 			</div>
 			{isOpen && (
 				<div
-					className={`w-full overflow-auto h-32 -mt-2`}
+					className={`w-full overflow-auto h-32 lg:-mt-2`}
 					ref={selectBodyRef}
 				>
 
 					{selectOptions?.map(selectOption => (
-						<div key={key++} className='text-right leading-6 hover:opacity-70'>
+						<div key={key++} className='text-right leading-4 hover:opacity-70'>
 							<Link href={deleteLocaleFromPathName(pathName)} locale={selectOption}>
 								{selectOption.toUpperCase()}
 							</Link>
