@@ -17,6 +17,7 @@ const config: Config = {
 			fontFamily: {
 				roboto: ['Roboto', 'sans-serif'],
 				montserrat: ['Montserrat', 'sans-serif'],
+				manrope: ['Manrope', 'sana-serif'],
 			},
 			colors: {
 				mainTextColor: '#1B1B30',

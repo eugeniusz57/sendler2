@@ -1,7 +1,7 @@
 'use client';
 import { useSession } from 'next-auth/react';
 import { Link } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import LogOutButton from './buttons/LogOutButton';
 import {
 	privateNavigation,
@@ -13,6 +13,8 @@ import LogoNav from './LogoNav';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import ModalBurgerMenu from './Modal/ModalBurgerMenu';
+import SelectLanguage from './SelectLanguage';
+import { routing } from '@/i18n/routing';
 
 const Nav: React.FC = () => {
 	const { data: session, status } = useSession();
@@ -21,6 +23,8 @@ const Nav: React.FC = () => {
 	const userId = session?.user.user_id;
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const admin = status === 'authenticated' && session.user.user_role === 'admin';
+	const locales = routing.locales;
+	const locale: string = useLocale();
 
 	const t = useTranslations('PublicNavigation');
 
@@ -77,51 +81,62 @@ const Nav: React.FC = () => {
 						</svg>
 					</button>
 				)}
-				<ul
-					className={` hidden lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
-				>
-					{status === 'authenticated' && (
-						<>
-							{admin
-								? privateNavigationAdmin.map(({ id, title, path }) => (
-									<li key={id} className=" mb-7 md:mb-10  lg:mb-0">
+				<div className='flex items-center'>
+					<ul
+						className={`hidden mr-8 lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
+					>
+						{status === 'authenticated' && (
+							<>
+								{admin
+									? privateNavigationAdmin.map(({ id, title, path }) => (
+										<li key={id} className=" mb-7 md:mb-10  lg:mb-0">
+											<Link
+												href={`${path}`}
+												className="hover:underline hover:underline-offset-4 py-4 transition-all"
+											>
+												{title}
+											</Link>
+										</li>
+									))
+									: privateNavigation.map(({ id, title, path }) => (
+										<li key={id} className=" mb-7 md:mb-10  lg:mb-0">
+											<Link
+												href={`/user/${userId}/${path}`}
+												className="hover:underline hover:underline-offset-4 py-4 transition-all"
+											>
+												{title}
+											</Link>
+										</li>
+									))}
+							</>
+						)}
+						{status !== 'authenticated' && (
+							<>
+								{publicNavigation.map(({ id, title, path }) => (
+									<li className=" mb-7 md:mb-10  lg:mb-0" key={id}>
 										<Link
-											href={`${path}`}
-											className="hover:underline hover:underline-offset-4 py-4 transition-all"
-										>
-											{title}
-										</Link>
-									</li>
-								))
-								: privateNavigation.map(({ id, title, path }) => (
-									<li key={id} className=" mb-7 md:mb-10  lg:mb-0">
-										<Link
-											href={`/user/${userId}/${path}`}
-											className="hover:underline hover:underline-offset-4 py-4 transition-all"
+											href={path}
+											className={`hover:underline hover:underline-offset-4 py-4 transition-all ${pathName === path ? 'underline underline-offset-4' : 'no-underline'
+												}`}
 										>
 											{title}
 										</Link>
 									</li>
 								))}
-						</>
-					)}
-					{status !== 'authenticated' && (
-						<>
-							{publicNavigation.map(({ id, title, path }) => (
-								<li className=" mb-7 md:mb-10  lg:mb-0" key={id}>
-									<Link
-										href={path}
-										className={`hover:underline hover:underline-offset-4 py-4 transition-all ${pathName === path ? 'underline underline-offset-4' : 'no-underline'
-											}`}
-									>
-										{title}
-									</Link>
-								</li>
-							))}
-						</>
-					)}
-					{status === 'authenticated' ? <LogOutButton /> : <LoginButton />}
-				</ul>
+							</>
+						)}
+						{status === 'authenticated' ? <LogOutButton /> : <LoginButton />}
+					</ul>
+					<div className='w-[52px]'>
+						<SelectLanguage
+							openSelect={(a: boolean) => a}
+							selectOptions={locales}
+							selectedOption={locale}
+							startValue={locale}
+							defaultValue={locale}
+						/>
+					</div>
+				</div>
 			</nav>
 
 			<ModalBurgerMenu isOpen={isModalOpen} onClose={closeModal}>

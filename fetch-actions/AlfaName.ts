@@ -13,14 +13,14 @@ export const CombinedAlfaNamesAndUser = async () => {
 	try {
 		const response = await api.put('api/alfa-name');
 		return response.data;
-	} catch (error: any) { }
-}
+	} catch (error: any) { };
+};
 
 export const DeleteAlfaName = async (id: number) => {
 	try {
 		const response = await api.delete('api/alfa-name', { data: { alfa_name_id: id } });
 		return response.data;
-	} catch (error) { }
+	} catch (error) { };
 };
 
 // import axios from 'axios';
