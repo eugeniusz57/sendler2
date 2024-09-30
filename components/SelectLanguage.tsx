@@ -67,33 +67,36 @@ const SelectLanguage: React.FC<Props> = ({
 		};
 	}, [memoizedClose, startValue]);
 
-	console.log('isOpen', isOpen)
-
 	return (
 		<div
 			onClick={onClose}
 			className='w-full pt-[5px] lg:pt-[3px] text-lg relative'
 		>
-			<div className='flex items-start'>
+			<div className='absolute w-full top-1/2 -translate-y-1/2 flex items-start'>
 				{!isOpen && !selectedOption && <div>{defaultValue.toUpperCase()}</div>}
 				{isOpen && !selectedOption ? <div>{defaultValue.toUpperCase()}</div> : <div>{selectedOption.toUpperCase()}</div>}
-				{!isOpen &&
+				{!isOpen ?
 					<Image
 						src="/svg/arrowPath-down.svg"
 						alt="Arrov down icon"
 						width={18}
 						height={18}
 						className="absolute top-1/2 -translate-y-1/2 right-4 ml-auto cursor-pointer"
+					/> :
+					<Image
+						src="/svg/arrowPath-down.svg"
+						alt="Arrov down icon"
+						width={18}
+						height={18}
+						className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-4 ml-auto cursor-pointer origin-center rotate-180"
 					/>
-					// )
 				}
 			</div>
 			{isOpen && (
 				<div
-					className={`absolute px-1 top-1/2 -translate-y-1/2 right-0 overflow-auto border-[1px] border-[#E6E6E6]  rounded-[4px]`}
+					className={`absolute top-1/2 lg:top-2 -translate-y-1/2 lg:translate-y-0 right-0 lg:right-4 lg:h-18 px-1 lg:px-0 overflow-auto border-[1px] border-[#E6E6E6]  rounded-[4px] lg:border-none`}
 					ref={selectBodyRef}
 				>
-
 					{selectOptions?.map(selectOption => (
 						<div key={key++} className='text-right leading-6 hover:opacity-70'>
 							<Link href={deleteLocaleFromPathName(pathName)} locale={selectOption}>

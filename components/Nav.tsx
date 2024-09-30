@@ -4,7 +4,7 @@ import { Link } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import LogOutButton from './buttons/LogOutButton';
 import {
-	privateNavigation,
+	// privateNavigation,
 	privateNavigationAdmin,
 	// publicNavigation
 } from '@/data/data';
@@ -27,6 +27,9 @@ const Nav: React.FC = () => {
 	const locale: string = useLocale();
 
 	const t = useTranslations('PublicNavigation');
+	const t1 = useTranslations('privateNavigation');
+	const t2 = useTranslations('privateNavigationAdmin');
+
 
 	const publicNavigation = [
 		{ id: 1, title: t('title_1'), path: '/' },
@@ -35,6 +38,20 @@ const Nav: React.FC = () => {
 		{ id: 4, title: t('title_4'), path: '/questions' },
 		{ id: 5, title: t('title_5'), path: '/services' },
 		{ id: 6, title: t('title_6'), path: '#footer' },
+	];
+
+	const privateNavigation = [
+		{ id: 1, title: t1('title_1'), path: '/mailing-list' },
+		{ id: 2, title: t1('title_2'), path: '/groups' },
+		{ id: 3, title: t1('title_3'), path: '/statistics' },
+		{ id: 4, title: t1('title_4'), path: '/account' },
+	];
+
+	const privateNavigationAdmin = [
+		{ id: 1, title: t2('title_1'), path: '/admin' },
+		{ id: 2, title: t2('title_2'), path: '/sender-name-approved' },
+		{ id: 3, title: t2('title_3'), path: '/general-statistics' },
+		{ id: 4, title: t2('title_4'), path: '/debts' },
 	];
 
 	const toggleModal = () => {
@@ -57,7 +74,7 @@ const Nav: React.FC = () => {
 
 	return (
 		<>
-			<nav className={`flex  justify-between lg:items-center container mx-auto relative z-10`}>
+			<nav className={`flex justify-between lg:items-center container mx-auto relative z-10`}>
 				{isOpen && (
 					<div className="z-20 w-[157px] h-[49px] lg:h-[51px]">
 						<LogoNav />
@@ -94,7 +111,7 @@ const Nav: React.FC = () => {
 				)}
 				<div className='hidden lg:flex items-center'>
 					<ul
-						className={`mr-8 lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
+						className={`mr-4 xl:mr-8lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
 					>
 						{status === 'authenticated' && (
 							<>

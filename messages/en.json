@@ -10,6 +10,18 @@
 		"title_5": "Services",
 		"title_6": "Contacts"
 	},
+	"privateNavigation": {
+		"title_1": "Sending",
+		"title_2": "Contact management",
+		"title_3": "Statistic",
+		"title_4": "Account"
+	},
+	"privateNavigationAdmin": {
+		"title_1": "Admin Home Page",
+		"title_2": "Sender Name Approved",
+		"title_3": "General Statistics",
+		"title_4": "Debts"
+	},
 	"HomePage": {
 		"heroText": "Powerful mass SMS mailing for effective communication with your audience",
 		"enterButtonText": "Enter",
