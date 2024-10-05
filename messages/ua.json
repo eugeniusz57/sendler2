@@ -120,6 +120,17 @@
 		"textExplanation": "За бажанням ви можете переглянути всі свої контакти",
 		"textButtonForTransition": "Переглянути"
 	},
+	"StatisticsPage": {
+		"pageTitle": "Статистика",
+		"titleHistoryPeriodForm": "Пeріод відправки SMS",
+		"textButtonHistoryPeriodForm": "Дивитись",
+		"nameMobileHistoryTable": "Розсилки",
+		"nameCol_1HistoryTable": "Шлях відправлення",
+		"nameCol_2HistoryTable": "Дата",
+		"nameCol_3HistoryTable": "Відправленно",
+		"nameCol_4HistoryTable": "Отримано",
+		"total": "Всього"
+	},
 	"Footer": {
 		"logoText": "Масові смс розсилки",
 		"company_part_1": "Компанія ТОВ ",

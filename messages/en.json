@@ -120,6 +120,17 @@
 		"textExplanation": "If you wish, you can view all your contacts",
 		"textButtonForTransition": "Review"
 	},
+	"StatisticsPage": {
+		"pageTitle": "Statistics",
+		"titleHistoryPeriodForm": "SMS sending period",
+		"textButtonHistoryPeriodForm": "View",
+		"nameMobileHistoryTable": "Mailings",
+		"nameCol_1HistoryTable": "Mailings method",
+		"nameCol_2HistoryTable": "Date",
+		"nameCol_3HistoryTable": "Sent",
+		"nameCol_4HistoryTable": "Received",
+		"total": "Total"
+	},
 	"Footer": {
 		"logoText": "Mass SMS mailings",
 		"company_part_1": "Company ",

@@ -8,6 +8,7 @@ import { IHistoryPeriod } from '@/globaltypes/historyTypes';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useTranslations } from 'next-intl';
 
 export interface FormInputsPeriod {
 	startDate: Date;
@@ -24,6 +25,7 @@ const HistoryPeriodForm: React.FC = () => {
 	const searchParams = useSearchParams();
 	const selectedStartDate = searchParams.get('startDate');
 	const selectedEndDate = searchParams.get('endDate');
+	const t = useTranslations('StatisticsPage');
 
 	const [startDate, setStartDate] = useState<string | null>(selectedStartDate);
 	const [endDate, setEndDate] = useState<string | null>(selectedEndDate);
@@ -76,7 +78,7 @@ const HistoryPeriodForm: React.FC = () => {
 
 	return (
 		<div className="px-[10px] md:px-[20px] lg:px-[26px]">
-			<p className="mb-10 text-base md:text-xl font-roboto text-[#1B1B30]">Пeріод відправки SMS</p>
+			<p className="mb-10 text-base md:text-xl font-roboto text-[#1B1B30]">{t('titleHistoryPeriodForm')}</p>
 			<form onSubmit={handleSubmit(onSubmit)} className="flex md:justify-end flex-wrap lg:justify-start lg:items-center lg:flex-nowrap gap-x-1 gap-y-6 md:gap-8 w-full mb-10">
 				<label htmlFor="startDate" className="text-xl text-mainTextColor flex cursor-pointer">
 					<DatePicker
@@ -113,7 +115,7 @@ const HistoryPeriodForm: React.FC = () => {
 				</label>
 				<br />
 				<button className="grow md:grow-0 flex items-center justify-center py-2.5 px-9 h-[50px] font-roboto bg-[#32BB79] text-white rounded-[14px] text-base">
-					Дивитись
+					{t('textButtonHistoryPeriodForm')}
 				</button>
 			</form>
 		</div>
