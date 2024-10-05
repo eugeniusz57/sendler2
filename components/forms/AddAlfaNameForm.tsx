@@ -9,6 +9,7 @@ import GreenButton from "@/components/buttons/GreenButton";
 import { EnterOnlyLetters } from "@/helpers/EnterOnlyLetters";
 
 import { IUserAlfaName } from "@/globaltypes/types";
+import { useTranslations } from "next-intl";
 
 type Props = {
 	userId: number;
@@ -20,6 +21,7 @@ const AddAlfaNameForm: React.FC<Props> = ({ userId, getUserNamesArray, getIsOpen
 
 	const [isDisabled, setIsDisabled] = useState<boolean>(true);
 	const [name, setName] = useState<string>('');
+	const t = useTranslations('MailList');
 
 	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setName(e.target.value);
@@ -77,10 +79,10 @@ const AddAlfaNameForm: React.FC<Props> = ({ userId, getUserNamesArray, getIsOpen
 			onSubmit={handleSubmit(onSubmit)}
 			className='mt-8'>
 			<p className="hidden md:block mb-[22px] text-mainTextColor text-base font-montserrat">
-				Ім&apos;я відправника має бути не більше ніж 11 латинських символів
+				{t('textAddAlfaNameFormBox')}
 			</p>
 			<label htmlFor='alfa_name' className='block mb-3.5 label'>
-				Нове ім&apos;я
+				{t('titleInputAddAlfaNameForm')}
 			</label>
 			<div className="flex md:flex-row flex-col md:gap-[22px] gap-6 items-center md:mt-3 mt-2">
 				<div className="md:w-[474px] w-[308px]">
@@ -97,7 +99,7 @@ const AddAlfaNameForm: React.FC<Props> = ({ userId, getUserNamesArray, getIsOpen
 						<span className="text-red-500 ">{errors.alfa_name.message}</span>
 					)}
 				</div>
-				<GreenButton isDisabled={isDisabled} type="submit" size="normal">Додати</GreenButton>
+				<GreenButton isDisabled={isDisabled} type="submit" size="normal">{t('textButtonAddAlfaNameForm')}</GreenButton>
 			</div>
 		</form>
 	);

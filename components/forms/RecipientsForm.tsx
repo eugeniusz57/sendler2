@@ -3,6 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import RSC from "react-scrollbars-custom";
+import { useTranslations } from 'next-intl';
 
 import Recipient from '../Recipient';
 import EmailColorLinkBtn from "../buttons/EmailColorLinkBtn";
@@ -19,6 +20,7 @@ const RecipientsForm: React.FC<Props> = ({
 
 	const [isSelected, setIsSelected] = useState(0);
 	const { register, handleSubmit, reset } = useForm();
+	const t = useTranslations('MailList');
 
 	// variable for control of state of delete button
 	const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,9 +73,9 @@ const RecipientsForm: React.FC<Props> = ({
 			</ul>
 			<div className='flex'>
 				<div className='mr-5'>
-					<EmailColorLinkBtn isDisabled={isSelected ? false : true} type='submit'>Видалити обране</EmailColorLinkBtn>
+					<EmailColorLinkBtn isDisabled={isSelected ? false : true} type='submit'>{t('textButtonDeleteRecipientsForm')}</EmailColorLinkBtn>
 				</div>
-				<EmailColorLinkBtn isDisabled={recipients.length > 0 ? false : true} type='button' onClick={handleClick}>Очистити</EmailColorLinkBtn>
+				<EmailColorLinkBtn isDisabled={recipients.length > 0 ? false : true} type='button' onClick={handleClick}>{t('textButtonCleanUpRecipientsForm')}</EmailColorLinkBtn>
 			</div>
 		</form>
 	);

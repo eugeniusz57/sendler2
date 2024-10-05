@@ -321,45 +321,61 @@ const MailingList: React.FC<Props> = ({ params }) => {
 	return (
 		<>
 			<Title type="h1" color="dark">
-				{t('title')}
+				{t('pageTitle')}
 			</Title>
 			<div className="flex flex-col md:gap-[80px] gap-[50px] md:mt-[60px] mt-[28px]">
 				<div className="sms-page-box">
-					<p className="lg:w-[724px] md:w-[640px] w-[308px] text-mainTextColor md:text-base text-sm md:leading-6 leading-[21px] font-montserrat">
-						Виберіть підпис (Ім&#39;я відправника), який буде відображатися замість номера
-						відправника SMS-повідомлення
-					</p>
-					<p className=" text-mainTextColor font-normal lg:text-xl  md:text-lg sm:text-base md:mt-[50px] mt-[40px] label">
-						Ім’я відправника
-					</p>
-					<div className="flex md:flex-row flex-col gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2">
-						<div className="md:w-[474px] w-[308px]">
-							<Select
-								openSelect={(a: boolean) => a}
-								selectOptions={user?.alfa_names_active}
-								getSelect={getUserName}
-								selectedOption={userName}
-								startValue="Обрати"
-								defaultValue="Outlet"
-							/>
+					<div className='flex gap-8'>
+						<div>
+							<p className="lg:w-[724px] md:w-[640px] w-[308px] text-mainTextColor md:text-base text-sm md:leading-6 leading-[21px] font-montserrat">
+								{t('textUserNameBox')}
+							</p>
+							<p className=" text-mainTextColor font-normal lg:text-xl  md:text-lg sm:text-base md:mt-[50px] mt-[40px] label">
+								{t('titleUserNameInput')}
+							</p>
+							<div className="flex flex-col md:flex-row gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2">
+								<div className="md:w-[474px] w-[308px]">
+									<Select
+										openSelect={(a: boolean) => a}
+										selectOptions={user?.alfa_names_active}
+										getSelect={getUserName}
+										selectedOption={userName}
+										startValue="Обрати"
+										defaultValue="Outlet"
+									/>
+								</div>
+								<GreenButton size="normal" onClick={getIsOpened}>
+									{t('textUserNameInputButton')}
+								</GreenButton>
+							</div>
+							{isOpened && (
+								<AddAlfaNameForm
+									userId={userId}
+									getUserNamesArray={getUserNamesArray}
+									getIsOpened={getIsOpened}
+								/>
+							)}
+							{!(
+								user?.alfa_names_disable?.length === undefined || user?.alfa_names_disable?.length === 0
+							) && (
+									<div className="lg:hidden text-mainTextColor text-base font-montserrat">
+										<p className="mb-2 mt-4 xl:mt-0 font-normal">{t('titleNotAgreementUserNames')}</p>
+										<ul className={`w-64 h-[80px] flex flex-wrap gap-2 overflow-auto`}>
+											<RSC>
+												{user?.alfa_names_disable.map((item, index) => (
+													<li key={index} className="text-disableAlfaName">
+														{item}
+													</li>
+												))}
+											</RSC>
+										</ul>
+									</div>
+								)}
 						</div>
-						<GreenButton size="normal" onClick={getIsOpened}>
-							Додати ім’я
-						</GreenButton>
-					</div>
-					{isOpened && (
-						<AddAlfaNameForm
-							userId={userId}
-							getUserNamesArray={getUserNamesArray}
-							getIsOpened={getIsOpened}
-						/>
-					)}
-					{!(
-						user?.alfa_names_disable?.length === undefined || user?.alfa_names_disable?.length === 0
-					) && (
-							<div className="text-mainTextColor text-base font-montserrat">
-								<p className="mb-2 font-normal">Імена що знаходяться на узгодженні</p>
-								<ul className="w-64 h-32 flex flex-wrap gap-2  overflow-auto">
+						{user?.alfa_names_disable?.length ?
+							<div className="hidden lg:block text-mainTextColor text-base font-montserrat">
+								<p className="mb-2 font-normal">{t('titleNotAgreementUserNames')}</p>
+								<ul className={`w-64 h-32 flex flex-wrap gap-2 overflow-auto`}>
 									<RSC>
 										{user?.alfa_names_disable.map((item, index) => (
 											<li key={index} className="text-disableAlfaName">
@@ -368,21 +384,20 @@ const MailingList: React.FC<Props> = ({ params }) => {
 										))}
 									</RSC>
 								</ul>
-							</div>
-						)}
+							</div> : null}
+					</div>
 				</div>
 
 				<div className="sms-page-box">
 					<p className="lg:w-[724px] md:w-[640px] w-[308px] text-mainTextColor md:text-base text-sm md:leading-6 leading-[21px] font-montserrat">
-						Введіть SMS-повідомлення. Слідкуйте за розміром повідомлення. Пам&#39;ятайте: для
-						кирилиці в одній SMS може поміститися 70 знаків, для латиниці - 160 символів.
+						{t('textSmsSendBox')}
 					</p>
-					<p className=" text-mainTextColor font-normal md:text-xl text-base md:mt-[50px] mt-[28px] lg:mb-[3px] md:mb-8 mb-[20px]">Текст повідомлення</p>
+					<p className=" text-mainTextColor font-normal md:text-xl text-base md:mt-[50px] mt-[28px] lg:mb-[3px] md:mb-8 mb-[20px]">{t('titleInputSmsSendBox')}</p>
 					<div className="flex lg:flex-row flex-col-reverse md:gap-8 gap-[20px]">
 						<div className=" inline-block  lg:w-[636px] md:w-[596px] w-[308px] mt-1">
 							<div className="flex justify-end gap-5 font-roboto md:text-sm text-[12px] text-mainTextColor">
 								{' '}
-								<span>Символів: {charCount}</span>
+								<span>{t('charCount')} {charCount}</span>
 								<span>SMS: {smsCount}</span>
 							</div>
 							<textarea
@@ -393,28 +408,28 @@ const MailingList: React.FC<Props> = ({ params }) => {
 							></textarea>
 						</div>
 						<div className="md:flex lg:flex-col md:flex-row gap-[18px] lg:justify-center md:justify-start">
-							<div className="text-base md:mb-0 mb-4 text-mainTextColor leading-6">Додати шаблон</div>
+							<div className="text-base md:mb-0 mb-4 text-mainTextColor leading-6">{t('tileOperations')}</div>
 							<div className='flex lg:flex-col md:flex-row gap-[18px] lg:justify-center md:justify-start'>
 								<button
 									type="button"
 									onClick={handleClickAddClientName}
 									className="text-base text-emailColorLink cursor-pointer leading-6"
 								>
-									Ім&#39;я клієнта
+									{t('operation_1')}
 								</button>
 								<button
 									type="button"
 									onClick={handleClickAddParam1}
 									className="text-base text-emailColorLink cursor-pointer leading-6"
 								>
-									Параметр 1
+									{t('operation_2')}
 								</button>
 								<button
 									type="button"
 									onClick={handleClickAddParam2}
 									className="text-base text-emailColorLink cursor-pointer leading-6"
 								>
-									Параметр 2
+									{t('operation_3')}
 								</button>
 							</div>
 						</div>
@@ -422,11 +437,10 @@ const MailingList: React.FC<Props> = ({ params }) => {
 				</div>
 				<div className="sms-page-box">
 					<p className="lg:w-[724px] md:w-[640px] text-mainTextColor md:text-base text-sm md:leading-6 leading-[21px] font-montserrat">
-						Виберіть групу контактів, якій Ви бажаєте надіслати SMS-повідомлення. У Вас є можливість
-						ввести новий номер або вибрати один із контактів.
+						{t('textRecipientsFormBox')}
 					</p>
 					<p className=" text-mainTextColor font-normal lg:text-xl md:text-lg text-base leading-6 md:mt-[50px] mt-[28px]">
-						Групи та номери телефонів, яким буде надіслано SMS- повідомлення
+						{t('titleRecipientsForm')}
 					</p>
 					<div className="flex lg:flex-row flex-col-reverse md:gap-8 gap-[20px] md:mt-8 mt-[28px] mb-8">
 						<RecipientsForm recipients={recipients} getRecipients={getRecipients} />
@@ -449,7 +463,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 										isDisabled={groupName ? false : true}
 										type="button"
 									>
-										Додати групу до списку
+										{t('textButtonInputRecipientsGroup')}
 									</EmailColorLinkBtn>
 								</div>
 							</div>
@@ -473,7 +487,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 								onClick={handleClickChecked}
 							/>
 						)}
-						Запланувати розсилання
+						{t('titleScheduleMailingBox')}
 					</span>
 					{isChecked && (
 						<div className="mt-5 flex lg:flex-row flex-col lg:items-center items-start">
@@ -481,7 +495,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 							<div className='md:mb-3 mb-2'>
 								<label htmlFor="calendar" className="flex items-center text-xl text-mainTextColor flex cursor-pointer ">
 									<div>
-										Дата
+										{t('titleInputDate')}
 									</div>
 									<div className='w-auto h-auto'>
 										<Image
@@ -499,10 +513,10 @@ const MailingList: React.FC<Props> = ({ params }) => {
 									id="calendar"
 									selected={date ? new Date(date) : null}
 									onChange={handleChangeDate}
-									className="xl:w-[474px] lg:w-[250px] md:w-[160px] w-[306px] h-12 lg:mb-0 md:mb-[50px] mb-[28px] rounded-[18px] border border-inputBorder outline-none text-xl text-center text-mainTextColor cursor-pointer"
+									className="xl:w-[454px] lg:w-[250px] md:w-[160px] w-[306px] h-12 lg:mb-0 md:mb-[50px] mb-[28px] rounded-[18px] border border-inputBorder outline-none text-xl text-center text-mainTextColor cursor-pointer"
 								/>
 							</div>
-							<p className=" text-xl text-mainTextColor  md:ml-5 md:mr-2 md:mb-3 mb-2">Час</p>
+							<p className=" text-xl text-mainTextColor  md:ml-5 md:mr-2 md:mb-3 mb-2">{t('titleInputTimeBox')}</p>
 							<div className="flex gap-3 items-center">
 								<div className='md:w-[160px] w-[93px]'>
 									<SelectTime
@@ -513,7 +527,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 										startValue=""
 									/>
 								</div>
-								<p className='md:block hidden'>год</p>
+								<p className='md:block hidden'>{t('titleInputHours')}</p>
 								<div className='md:w-[160px] w-[93px]'>
 									<SelectTime
 										openSelect={(a: boolean) => a}
@@ -523,7 +537,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 										startValue=""
 									/>
 								</div>
-								<p className='md:block hidden'>хв</p>
+								<p className='md:block hidden'>{t('titleInputMinutes')}</p>
 								<div className='md:w-[160px] w-[93px]'>
 									<SelectTime
 										openSelect={(a: boolean) => a}
@@ -533,7 +547,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 										startValue=""
 									/>
 								</div>
-								<p className='md:block hidden'>сек</p>
+								<p className='md:block hidden'>{t('titleInputSeconds')}</p>
 							</div>
 						</div>
 					)}
@@ -561,10 +575,9 @@ const MailingList: React.FC<Props> = ({ params }) => {
 					)}
 					<div className=" text-redStar"> * </div>
 					<div className='md:text-base text-sm md:leading-6 leading-[21px]'>
-						Натискаючи кнопку Надіслати ви підтверджуєте відправлення форми, та що всі данні введенні
-						правильно, а також підверджуєте ознайомлення з
+						{t('footnoteForOfferContract')}
 						<span onClick={openModal} className={`text-emailColorLink  md:text-base text-sm md:leading-6 leading-[21px] ml-1 cursor-pointer`}>
-							договором оферти.
+							{t('textButtonForOfferContract')}
 						</span>
 					</div>
 					<Modal isOpen={isModalOpen} onClose={closeModal}>

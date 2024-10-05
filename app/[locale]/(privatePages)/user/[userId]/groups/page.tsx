@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import GroupsList from "@/components/groupsList";
 import CreateGroupForm from "@/components/forms/CreateGroupForm";
@@ -22,6 +22,7 @@ const ContactManagmentPage: React.FC<Props> = ({ params }) => {
 	const [isUpdated, setIsUpdated] = useState<boolean>(false);
 	const userId = Number(params.userId);
 	const locale = useLocale();
+	const t = useTranslations('GroupsPage');
 
 
 	const getUpdate = () => {
@@ -43,10 +44,10 @@ const ContactManagmentPage: React.FC<Props> = ({ params }) => {
 	return (
 		<>
 			<Title type="h1" color="dark">
-				Управління контактами
+				{t('pageTitle')}
 			</Title>
 			<div className="content-block md:mt-[60px] mt-[28px]">
-				<p className='lg:w-[776px] md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px] leading-6'>Для початку роботи Вам потрібно створити нову Групу контактів та додати до неї номери. Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.</p>
+				<p className='lg:w-[776px] md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px] leading-6'>{t('textPageBox')}</p>
 				<CreateGroupForm id={userId} getGroups={getData} />
 				<GroupsList
 					userId={userId}
@@ -57,12 +58,12 @@ const ContactManagmentPage: React.FC<Props> = ({ params }) => {
 					LIMIT={LIMIT}
 				/>
 				<div className=" lg:px-[26px] md:px-[20px] px-[10px]">
-					<p className="accent-main_text mb-3 mt-[28px] md:mt-[50px] lg:mt-[80px]">Всі контакти</p>
+					<p className="accent-main_text mb-3 mt-[28px] md:mt-[50px] lg:mt-[80px]">{t('nameTransitionPage')}</p>
 					<div className="flex md:flex-row flex-col items-center">
-						<p className="lg:mr-8 md:mr-[22px] md:mb-0 mb-6">За бажанням ви можете переглянути всі свої контакти</p>
+						<p className="lg:mr-8 md:mr-[22px] md:mb-0 mb-6">{t('textExplanation')}</p>
 						<GreenButton size="normal">
 							<Link href={`/${locale}/user/${userId}/clients`}>
-								Переглянути
+								{t('textButtonForTransition')}
 							</Link>
 						</GreenButton>
 					</div>

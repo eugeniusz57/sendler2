@@ -3,11 +3,6 @@ import { useSession } from 'next-auth/react';
 import { Link } from '@/i18n/routing';
 import { useLocale, useTranslations } from 'next-intl';
 import LogOutButton from './buttons/LogOutButton';
-import {
-	// privateNavigation,
-	privateNavigationAdmin,
-	// publicNavigation
-} from '@/data/data';
 import LoginButton from './buttons/LoginButon';
 import LogoNav from './LogoNav';
 import { useState } from 'react';

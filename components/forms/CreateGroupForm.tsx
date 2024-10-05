@@ -1,6 +1,7 @@
 'use client';
 
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useTranslations } from "next-intl";
 
 import { schemaReqCreateGroup } from "@/models/sending-groups";
 import { createGroup } from "@/fetch-actions/groupsFetchActions";
@@ -14,7 +15,7 @@ type Props = {
 };
 
 const CreateGroupForm: React.FC<Props> = ({ id, getGroups }) => {
-
+	const t = useTranslations('GroupsPage');
 	const {
 		register,
 		handleSubmit,
@@ -57,7 +58,7 @@ const CreateGroupForm: React.FC<Props> = ({ id, getGroups }) => {
 			onSubmit={handleSubmit(onSubmit)}
 			className='md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]'>
 			<label htmlFor='group_name' className='block mb-3.5 label lg:text-xl md:text-lg sm:text-base text-base'>
-				Назва групи
+				{t('titleCreateGroupForm')}
 			</label>
 			<div className='flex md:flex-row flex-col lg:gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2'>
 				<div className="md:w-[474px] w-full">
@@ -71,7 +72,7 @@ const CreateGroupForm: React.FC<Props> = ({ id, getGroups }) => {
 						<span className="text-red-500">{errors.group_name.message}</span>
 					)}
 				</div>
-				<GreenButton size="normal">Створити</GreenButton>
+				<GreenButton size="normal">{t('textButtonCreateGroupForm')}</GreenButton>
 			</div>
 		</form>
 	);

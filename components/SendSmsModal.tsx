@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 
 import Modal from "./Modal/Modal";
 import GreenButton from "./buttons/GreenButton";
@@ -23,6 +24,8 @@ const SendSmsModal: React.FC<Props> = ({
 	balance }) => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 	const [clientsQuantity, setClientsQuantity] = useState<number>();
+	const t = useTranslations('MailList');
+
 
 	const openModal = () => {
 		setIsModalOpen(true);
@@ -52,7 +55,7 @@ const SendSmsModal: React.FC<Props> = ({
 				onClick={handleClick}
 				isDisabled={setDisabledSendBtn() || isDisabled}
 			>
-				Надіслати
+				{t('textSendButton')}
 			</GreenButton>
 			<Modal isOpen={isModalOpen} onClose={closeModal}>
 				<SelectSendSmsForm

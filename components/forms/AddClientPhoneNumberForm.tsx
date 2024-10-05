@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useTranslations } from "next-intl";
 
 import { schemaAddClientNumber } from "@/models/users";
 import { EnterOnlyFigures } from "@/helpers/EnterOnlyFigures";
@@ -16,6 +17,8 @@ type Props = {
 
 const AddClientPhoneNumberForm: React.FC<Props> = ({ handleClick }) => {
 	const [tel, setTel] = useState('');
+	const t = useTranslations('MailList');
+
 	const {
 		register,
 		handleSubmit,
@@ -78,7 +81,9 @@ const AddClientPhoneNumberForm: React.FC<Props> = ({ handleClick }) => {
 				{errors.tel && (
 					<span className="text-red-500 ">{errors.tel.message}</span>
 				)}
-				<EmailColorLinkBtn isDisabled={tel.length < 9 ? true : false} type='submit'>Додати телефон до списку</EmailColorLinkBtn>
+				<div>
+					<EmailColorLinkBtn isDisabled={tel.length < 9 ? true : false} type='submit'>{t('textButtonInputRecipientPhone')}</EmailColorLinkBtn>
+				</div>
 			</div>
 		</form>
 	);
