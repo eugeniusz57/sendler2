@@ -255,7 +255,7 @@ function SwiperCard({ children, idx }: { children: ReactNode; idx: string }) {
 	return (
 		<li
 			key={idx}
-			className="min-w-[328px] md:w-[328px] lg:min-w-[306px] h-[240px] md:h-[275px] rounded-[18px] border-[#E2E2E2] border bg-[#d8d8d819] px-[30px] py-[26px] flex flex-col gap-[22px] items-center"
+			className="min-w-[328px] md:w-[328px] lg:min-w-[306px] h-[240px] md:h-[275px] rounded-[18px] dark:border-none border-[#E2E2E2] border bg-[#d8d8d819] px-[30px] py-[26px] flex flex-col gap-[22px] items-center dark:backdrop-blur-20  dark:shadow-custom-inset-dark"
 		>
 			{children}
 		</li>

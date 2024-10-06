@@ -8,6 +8,8 @@ import LogoNav from './LogoNav';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import ModalBurgerMenu from './Modal/ModalBurgerMenu';
+import SwitchTheme from './buttons/SwitchTheme';
+import useWindowWidth from '@/helpers/windowsSize';
 
 const Nav: React.FC = () => {
 	const { data: session, status } = useSession();
@@ -17,6 +19,7 @@ const Nav: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const admin = status === 'authenticated' && session.user.user_role === 'admin';
+	const withWindow = useWindowWidth();
 
 	const toggleModal = () => {
 		if (isModalOpen) {
@@ -107,14 +110,17 @@ const Nav: React.FC = () => {
 					)}
 					{status === 'authenticated' ? <LogOutButton /> : <LoginButton />}
 				</ul>
+				{withWindow !== undefined && withWindow > 1160 && <SwitchTheme/>}
 			</nav>
 
 			<ModalBurgerMenu isOpen={isModalOpen} onClose={closeModal}>
+				
 				<ul
 					className={`absolute top-0 left-0 z-10 py-5 pl-[84px] min-h-screen block w-[436px] bg-bgFooter  text-lg md:text-[22px] lg:text-2xl text-white burger-menu-overlay duration-500 transition-all `}
 				>
 					<div className=" mb-[120px] h-[49px]  ml-[-64px]">
 						<LogoNav onClose={closeModal} />
+						<SwitchTheme/>
 					</div>
 					{status === 'authenticated' ? (
 						<>

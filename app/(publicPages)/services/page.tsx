@@ -34,66 +34,71 @@ const Services: React.FC = () => {
 						</li>
 					</ul>
 					<ul className="flex flex-col ml-auto lg:ml-0 mt-[50px] lg:mt-0 gap-[22px] font-montserrat">
-						<li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
+						<li className="flex items-center  bg-formBg dark:bg-darkItems py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
 							<span>
 								<Image
+								className="dark:invert"
 									src="/svg/services/1.svg"
 									width={16}
 									height={54}
 									alt="number"
-								></Image>
+								/>
 							</span>
 							<p className=" ml-7 md:ml-10 text-sm md:text-lg  lg:text-xl">
 								Витрати абонента на місяць
 							</p>
 						</li>
-						<li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
+						<li className="flex items-center  bg-formBg dark:bg-darkItems py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
 							<span>
 								<Image
+								className="dark:invert"
 									src="/svg/services/2.svg"
 									width={32}
 									height={54}
 									alt="number"
-								></Image>
+								/>
 							</span>
 							<p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
 								Місце розташування абонента
 							</p>
 						</li>
-						<li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
+						<li className="flex items-center  bg-formBg dark:bg-darkItems py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
 							<span>
 								<Image
+								className="dark:invert"
 									src="/svg/services/3.svg"
 									width={32}
 									height={54}
 									alt="number"
-								></Image>
+								/>
 							</span>
 							<p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
 								Знаходження абонента у роумінгу
 							</p>
 						</li>
-						<li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
+						<li className="flex items-center  bg-formBg dark:bg-darkItems py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
 							<span>
 								<Image
+								className="dark:invert"
 									src="/svg/services/4.svg"
 									width={34}
 									height={54}
 									alt="number"
-								></Image>
+								/>
 							</span>
 							<p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
 								Тип абонента (контракт, pre-paid)
 							</p>
 						</li>
-						<li className="flex items-center  bg-formBg py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
+						<li className="flex items-center  bg-formBg dark:bg-darkItems py-[10px] px-3 md:px-[14px] rounded-[18px] md:w-[486px]">
 							<span>
 								<Image
+								className="dark:invert"
 									src="/svg/services/5.svg"
 									width={32}
 									height={54}
 									alt="number"
-								></Image>
+								/>
 							</span>
 							<p className="ml-3 md:ml-6 text-sm md:text-lg  lg:text-xl">
 								Використання додаткових послуг

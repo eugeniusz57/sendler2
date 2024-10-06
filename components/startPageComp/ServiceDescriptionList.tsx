@@ -8,7 +8,7 @@ interface Props {
 
 const ServiceDescriptionList: React.FC<Props> = ({ width, height }) => {
 	return (
-		<ul className="flex flex-col gap-[50px] md:gap-[80px] text-[#1B1B30] text-sm md:text-base font-montserrat">
+		<ul className="flex flex-col gap-[50px] md:gap-[80px] dark:text-textColorDarkTheme text-[#1B1B30] text-sm md:text-base font-montserrat">
 			<li key="1" className="flex flex-col lg:flex-row gap-[28px] md:gap-[50px] lg:gap-[134px]">
 				<div className="flex flex-col order-last lg:order-first justify-center items-center gap-6 md:gap-8 lg:gap-[41px] lg:pl-[110px]">
 					<p>

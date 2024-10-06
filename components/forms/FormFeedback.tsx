@@ -60,7 +60,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className=" relative md:w-[526px] w-full mx-auto pb-7 md:pb-11 pt-[29px]  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg px-[10px] md:px-[26px]"
+			className=" relative md:w-[526px] w-full mx-auto pb-7 md:pb-11 pt-[29px]  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg dark:bg-darkItems px-[10px] md:px-[26px]"
 		>
 			{cross && (
 				<button

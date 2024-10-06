@@ -3,8 +3,7 @@ import { NextResponse } from 'next/server';
 
 export default withAuth(
   function middleware(req) {
-    console.log('PatchName', req.nextUrl.pathname);
-    console.log('Midlsession', req.nextauth.token?.user_role);
+
     if (
       req.nextUrl.pathname.startsWith('/dashboard') &&
       req.nextauth.token?.user_role !== 'admin'
