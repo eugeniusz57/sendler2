@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import Nav from "./Nav";
 
+
 const Header: React.FC = () => {
 	const pathname = usePathname();
 	const isHomePage = pathname === '/';
