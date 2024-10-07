@@ -4,6 +4,7 @@ import { ISession, IUser } from '@/globaltypes/types';
 import { Session } from 'next-auth';
 import { useEffect, useState } from 'react';
 import { io } from "socket.io-client";
+import { useTranslations } from 'use-intl';
 import { getUser } from '@/fetch-actions/usersFetchActions';
 
 interface Props {
@@ -17,6 +18,7 @@ const UserSmsInform: React.FC<Props> = ({ session }) => {
 	const [socketIo, setSocketIo] = useState<any>(undefined);
 	const message = userId;
 	const roomName = userId;
+	const t = useTranslations('UserSmsInform');
 	let NEXT_PUBLIC_SOCKET_URL: string;
 
 	if (process.env.NEXT_PUBLIC_SOCKET_URL) {
@@ -71,7 +73,7 @@ const UserSmsInform: React.FC<Props> = ({ session }) => {
 				<div className='max-w-[235px] truncate'>{user?.user_login}</div>
 				<div className='mr-[14px]'>:</div>
 				<div className='mr-2'>{user?.balance}</div>
-				<div>SMS</div>
+				<div>{t('text')}</div>
 			</div>
 		</div>
 	);

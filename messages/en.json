@@ -22,6 +22,9 @@
 		"title_3": "General Statistics",
 		"title_4": "Debts"
 	},
+	"UserSmsInform": {
+		"text": "SMS"
+	},
 	"HomePage": {
 		"heroText": "Powerful mass SMS mailing for effective communication with your audience",
 		"enterButtonText": "Enter",
@@ -144,7 +147,24 @@
 		"textAddClientButton": "Add contact",
 		"textDeleteClientButton": "Delete",
 		"textEditClientButton": "Edit",
-		"nameMobileClientsTable": "Contacts"
+		"nameMobileClientsTable": "Contacts",
+		"titleEditClientForm": "Editting contact",
+		"titleAddClientForm": "Add contact",
+		"phoneNumber": "Phone number",
+		"lastName": "Last name",
+		"firstName": "First name",
+		"middleName": "Middle name",
+		"birthday": "Date of birth",
+		"parameter_1": "Parameter 1",
+		"parameter_2": "Parameter 2",
+		"textButtonSubmit": "Save"
+	},
+	"UpdateGroupPage": {
+		"pageTitle": "Contact management",
+		"titlePageBox": "Edit group:",
+		"textPageBox": "You can add contact phone numbers from an Excel or text file. Select the file that contains your contacts:",
+		"tilteFileInput": "Add a contact from a file",
+		"textFileInputButton": "Add"
 	},
 	"StatisticsPage": {
 		"pageTitle": "Statistics",
@@ -156,6 +176,32 @@
 		"nameCol_3HistoryTable": "Sent",
 		"nameCol_4HistoryTable": "Received",
 		"total": "Total"
+	},
+	"DayHistory": {
+		"pageTitle": "Statistics by date",
+		"titlePageBox": "Mailings for",
+		"textTurnBackButton": "Return to general statistics for the period",
+		"nameMobileDayHistoryTable": "Mailings",
+		"nameCol_1DayHistoryTable": "Text sms",
+		"nameCol_2DayHistoryTable": "Sender",
+		"nameCol_3DayHistoryTable": "Status",
+		"nameCol_4DayHistoryTable": "SMS delivered",
+		"nameCol_5DayHistoryTable": "Delivered numbers",
+		"nameCol_6DayHistoryTable": "Actions"
+	},
+	"HistoryDetails": {
+		"pageTitle": "Detailed statistics",
+		"titlePageBox": "Mailings for",
+		"textTurnBackButton": "Return to general statistics for the day",
+		"sender": "Sender",
+		"malingStatus": "Mailing status",
+		"groupName": "Group name",
+		"messageText": "Message text",
+		"nameMobileHistoryDetailsTable": "Messages",
+		"nameCol_1HistoryDetailsTable": "Phone number",
+		"nameCol_2HistoryDetailsTable": "Sending date",
+		"nameCol_3HistoryDetailsTable": "SMS quantity",
+		"nameCol_4HistoryDetailsTable": "Status"
 	},
 	"UserAccountPage": {
 		"pageTitle": "Account",

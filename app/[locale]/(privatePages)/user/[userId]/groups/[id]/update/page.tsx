@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import * as XLSX from 'xlsx/xlsx.mjs';
 import Image from 'next/image';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import Title from '@/components/Title';
 import GreenButton from '@/components/buttons/GreenButton';
@@ -27,6 +27,7 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 	const [groupName, setGroupName] = useState('');
 	const [numberClients, setNumberClients] = useState(0);
 	const locale = useLocale();
+	const t = useTranslations('UpdateGroupPage');
 
 	const getData = async () => {
 		if (groupId) {
@@ -78,20 +79,19 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 	return (
 		<>
 			<Title type="h1" color="dark">
-				Управління контактами
+				{t('pageTitle')}
 			</Title>
 			<div className="content-block md:mt-[60px] mt-[28px] lg:px-[26px] md:px-[20px] px-[10px]">
 				<div className='md:mb-[50px] mb-[28px]'>
 					<Title type="title_block" color="dark">
-						Редагування групи:
+						{t('titlePageBox')}
 						<span className="ml-4 text-headerTable">{`${groupName} (${numberClients})`}</span>
 					</Title>
 				</div>
 				<p className="lg:w-[724px] md:mb-[50px] mb-[40px] leading-6">
-					Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.
-					Виберіть файл, який містить Ваші контакти:
+					{t('textPageBox')}
 				</p>
-				<p className="block mb-2 md:mb-3 label"> Додати контакт з файлу</p>
+				<p className="block mb-2 md:mb-3 label">{t('tilteFileInput')}</p>
 				<div className="relative flex flex-col md:flex-row gap-6 md:gap-0 text-base flex items-center justify-start">
 					<label
 						htmlFor="file"
@@ -109,7 +109,7 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 						className="absolute input_file h-[48px]bg-slate-300"
 					/>
 					<GreenButton size="normal" onClick={xport}>
-						Додати
+						{t('textFileInputButton')}
 					</GreenButton>
 				</div>
 			</div>

@@ -12,6 +12,7 @@ import { createGroupClient, updateUserClient } from "@/fetch-actions/clientsFetc
 import { getTimeOptionsValues } from '@/helpers/getTimeOptionsValues';
 
 import { FormInputCreateClient, IClientDatabase } from "@/globaltypes/types";
+import { useTranslations } from "next-intl";
 
 interface Props {
 	onClose: (() => void) | undefined;
@@ -41,6 +42,7 @@ const CreateClientForm: React.FC<Props> = ({
 	const [month, setMonth] = useState<string | undefined>(currentClient?.date_of_birth?.split('.')[1]);
 	const [year, setYear] = useState<string | undefined>(currentClient?.date_of_birth?.split('.')[2]);
 	const refForm = useRef<HTMLFormElement | null>(null);
+	const t = useTranslations('ClientsList');
 
 	const getDay = (item: string | undefined) => {
 		setDay(item);
@@ -140,7 +142,7 @@ const CreateClientForm: React.FC<Props> = ({
 					htmlFor="phone"
 					className="font-roboto text-xs md:text-sm font-medium mb-2 block"
 				>
-					Номер телефону
+					{t('phoneNumber')}
 					<span className="ml-1 text-red-700">*</span>
 				</label>
 				<div className="flex relative">
@@ -165,7 +167,7 @@ const CreateClientForm: React.FC<Props> = ({
 					htmlFor="lastName"
 					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
-					Прізвище
+					{t('lastName')}
 				</label>
 				<div className="flex relative">
 					<input
@@ -185,7 +187,7 @@ const CreateClientForm: React.FC<Props> = ({
 					htmlFor="firstName"
 					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
-					Ім&apos;я
+					{t('firstName')}
 				</label>
 				<div className="flex relative">
 					<input
@@ -205,7 +207,7 @@ const CreateClientForm: React.FC<Props> = ({
 					htmlFor="midleName"
 					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
-					По-батькові
+					{t('middleName')}
 				</label>
 				<div className="flex relative">
 					<input
@@ -225,7 +227,7 @@ const CreateClientForm: React.FC<Props> = ({
 					htmlFor="day"
 					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
-					Дата народження
+					{t('birthday')}
 				</label>
 				<div className="flex gap-x-2 md:gap-x-3 justify-center">
 					<div className="w-[80px] md:w-[118px]">
@@ -243,7 +245,7 @@ const CreateClientForm: React.FC<Props> = ({
 					htmlFor="parameter1"
 					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
-					Параметр 1
+					{t('parameter_1')}
 				</label>
 				<div className="flex">
 					<input
@@ -262,7 +264,7 @@ const CreateClientForm: React.FC<Props> = ({
 					htmlFor="parameter2"
 					className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block"
 				>
-					Параметр 2
+					{t('parameter_2')}
 				</label>
 				<div className="flex">
 					<input
@@ -277,7 +279,7 @@ const CreateClientForm: React.FC<Props> = ({
 					)}
 				</div>
 			</div>
-			<GreenButton size="big" isDisabled={isDisabled}>Зберегти</GreenButton>
+			<GreenButton size="big" isDisabled={isDisabled}>{t('textButtonSubmit')}</GreenButton>
 		</form>
 	);
 };

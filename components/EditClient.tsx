@@ -49,7 +49,7 @@ const EditClient: React.FC<Props> = ({ groupId,
 						currentClient={client}
 						updateClients={updateClients}
 						getUpdate={getUpdate}
-						title='Редагування контакту'
+						title={t('titleEditClientForm')}
 					/> :
 					<CreateClientForm
 						onClose={closeModal}
@@ -57,7 +57,7 @@ const EditClient: React.FC<Props> = ({ groupId,
 						updateClients={updateClients}
 						currentClient={client}
 						getUpdate={getUpdate}
-						title='Редагування контакту' />}
+						title={t('titleEditClientForm')} />}
 			</Modal>
 		</>
 	);

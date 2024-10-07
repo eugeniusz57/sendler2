@@ -52,7 +52,7 @@ const AddClient: React.FC<Props> = ({ groupId, updateClients, getUpdate }) => {
 					openSelect={openSelect}
 					updateClients={updateClients}
 					groupId={groupId}
-					getUpdate={getUpdate} title='Додати контакт' />
+					getUpdate={getUpdate} title={t('titleAddClientForm')} />
 			</Modal>
 		</>
 	);

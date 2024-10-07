@@ -28,6 +28,9 @@
 	"LogOutButton": {
 		"text": "Вихід"
 	},
+	"UserSmsInform": {
+		"text": "СМС"
+	},
 	"HomePage": {
 		"heroText": "Потужна масова SMS розсилка для ефективного зв'язку з вашою аудиторією",
 		"enterButtonText": "Увіти",
@@ -142,7 +145,26 @@
 		"nameCol_4ClientsTable": "Параметр 1",
 		"nameCol_5ClientsTable": "Параметр 2",
 		"textAddClientButton": "Додати контакт",
-		"textDeleteClientButton": "Видалити"
+		"textDeleteClientButton": "Видалити",
+		"textEditClientButton": "Редагувати",
+		"nameMobileClientsTable": "Контакти",
+		"titleEditClientForm": "Редагування контакту",
+		"titleAddClientForm": "Add contact",
+		"phoneNumber": "Номер телефону",
+		"lastName": "Прізвище",
+		"firstName": "Ім'я",
+		"middleName": "По-батькові",
+		"birthday": "Дата народженн",
+		"parameter_1": "Параметр 1",
+		"parameter_2": "Параметр 2",
+		"textButtonSubmit": "Зберегти"
+	},
+	"UpdateGroupPage": {
+		"pageTitle": "Управління контактами",
+		"titlePageBox": "Редагування групи:",
+		"textPageBox": "Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу. Виберіть файл, який містить Ваші контакти:",
+		"tilteFileInput": "Додати контакт з файлу",
+		"textFileInputButton": "Додати"
 	},
 	"StatisticsPage": {
 		"pageTitle": "Статистика",
@@ -154,6 +176,32 @@
 		"nameCol_3HistoryTable": "Відправленно",
 		"nameCol_4HistoryTable": "Отримано",
 		"total": "Всього"
+	},
+	"DayHistory": {
+		"pageTitle": "Статистика за датою",
+		"titlePageBox": "Розсилки за",
+		"textTurnBackButton": "Повернутись до загальної статистики за період",
+		"nameMobileDayHistoryTable": "Розсилки",
+		"nameCol_1DayHistoryTable": "Текст смс",
+		"nameCol_2DayHistoryTable": "Відправник",
+		"nameCol_3DayHistoryTable": "Статус",
+		"nameCol_4DayHistoryTable": "Доставлено смс",
+		"nameCol_5DayHistoryTable": "Доставлено номерів",
+		"nameCol_6DayHistoryTable": "Дії"
+	},
+	"HistoryDetails": {
+		"pageTitle": "Детальна статистика",
+		"titlePageBox": "Розсилки за",
+		"textTurnBackButton": "Повернутись до загальної статистики за деньд",
+		"sender": "Відправник",
+		"malingStatus": "Статус розсилки",
+		"groupName": "Назва групи",
+		"messageText": "Текст повідомлення",
+		"nameMobileHistoryDetailsTable": "Повідомлення",
+		"nameCol_1HistoryDetailsTable": "Номер телефону",
+		"nameCol_2HistoryDetailsTable": "Дати відправки",
+		"nameCol_3HistoryDetailsTable": "Кількість смс",
+		"nameCol_4HistoryDetailsTable": "Статус"
 	},
 	"UserAccountPage": {
 		"pageTitle": "Особистий кабінет",
