@@ -120,6 +120,32 @@
 		"textExplanation": "If you wish, you can view all your contacts",
 		"textButtonForTransition": "Review"
 	},
+	"ClientsPage": {
+		"pageTitle": "Contact management",
+		"titlePageBox": "All contacts",
+		"textTurnBackButton": "Return to the list of groups",
+		"textPageBox": "This table shows all your contacts. You can view detailed information and edit the contact."
+	},
+	"EditPage": {
+		"pageTitle": "Contact management",
+		"titlePageBox": "Edit group:",
+		"textTurnBackButton": "Return to the list of groups"
+	},
+	"InputSearchClientForm": {
+		"titleInputSearchClintForm": "Search by phone number",
+		"textInputSearchClientFormButton": "Reset"
+	},
+	"ClientsList": {
+		"nameCol_1ClientsTable": "Number",
+		"nameCol_2ClientsTable": "Name (P.I.B.))",
+		"nameCol_3ClientsTable": "Date of birth",
+		"nameCol_4ClientsTable": "Parameter 1",
+		"nameCol_5ClientsTable": "Parameter 2",
+		"textAddClientButton": "Add contact",
+		"textDeleteClientButton": "Delete",
+		"textEditClientButton": "Edit",
+		"nameMobileClientsTable": "Contacts"
+	},
 	"StatisticsPage": {
 		"pageTitle": "Statistics",
 		"titleHistoryPeriodForm": "SMS sending period",

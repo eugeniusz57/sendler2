@@ -9,6 +9,7 @@ import SearchClientForm from "@/components/forms/SearchClientForm";
 import { getGroupClientsAndGroupName } from "@/fetch-actions/clientsFetchActions";
 import { IGroupId, IUserId, IClientDatabase } from "@/globaltypes/types";
 import EmailColorLinkBtn from "@/components/buttons/EmailColorLinkBtn";
+import { useTranslations } from "next-intl";
 
 const LIMIT = 5;
 
@@ -27,6 +28,7 @@ const EditGroupPage: React.FC<Props> = ({ params }) => {
 	const router = useRouter();
 	const groupId = Number(params.id);
 	const userId = Number(params.userId);
+	const t = useTranslations('EditPage');
 
 	const handleClick = async () => {
 		try {
@@ -71,7 +73,7 @@ const EditGroupPage: React.FC<Props> = ({ params }) => {
 	return (
 		<>
 			<Title type="h1" color="dark">
-				Управління контактами
+				{t('pageTitle')}
 			</Title>
 			<div className="content-block md:mt-[60px] mt-[28px]">
 				<div className='md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]'>
@@ -80,13 +82,13 @@ const EditGroupPage: React.FC<Props> = ({ params }) => {
 							<Title
 								type="title_block"
 								color="dark">
-								Редагування групи:
+								{t('titlePageBox')}
 							</Title>
 							<span className="text-headerTable title_block overflow-hidden truncate">
 								{groupName}
 							</span>
 						</div>
-						<EmailColorLinkBtn isDisabled={false} onClick={handleClick}>Повернутись до списку груп</EmailColorLinkBtn>
+						<EmailColorLinkBtn isDisabled={false} onClick={handleClick}>{t('textTurnBackButton')}</EmailColorLinkBtn>
 					</div>
 					<SearchClientForm getFilter={getFilter} resetFilter={resetFilter} />
 				</div>

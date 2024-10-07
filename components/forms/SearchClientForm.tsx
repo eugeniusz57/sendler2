@@ -6,6 +6,7 @@ import { schemaSearchClient } from "@/models/clients";
 import { useState } from "react";
 import GreenButton from "../buttons/GreenButton";
 import { EnterOnlyFigures } from "@/helpers/EnterOnlyFigures";
+import { useTranslations } from "next-intl";
 
 interface IFormInput {
 	tel: string;
@@ -19,6 +20,7 @@ interface Props {
 const SearchClientForm: React.FC<Props> = ({ getFilter, resetFilter }) => {
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [filter, setFilter] = useState('380');
+	const t = useTranslations('InputSearchClientForm');
 	const {
 		register,
 		handleSubmit,
@@ -76,7 +78,7 @@ const SearchClientForm: React.FC<Props> = ({ getFilter, resetFilter }) => {
 			className=" lg:px-[26px] md:px-[20px] px-[10px]"
 		>
 			<label htmlFor='tel' className='block mb-3.5 label lg:text-xl md:text-lg sm:text-base text-base'>
-				Пошук за номером телефону
+				{t('titleInputSearchClintForm')}
 			</label>
 			<div className="flex md:flex-row flex-col lg:gap-8 md:gap-[22px] gap-6 items-center md:mt-3 mt-2">
 				<div className="md:w-[474px] w-full">
@@ -93,7 +95,7 @@ const SearchClientForm: React.FC<Props> = ({ getFilter, resetFilter }) => {
 						<span className="form-errors">{errors.tel.message}</span>
 					)}
 				</div>
-				<GreenButton size="normal" isDisabled={isDisabled}>Скинути</GreenButton>
+				<GreenButton size="normal" isDisabled={isDisabled}>{t('textInputSearchClientFormButton')}и</GreenButton>
 			</div>
 		</form>
 	);

@@ -120,6 +120,30 @@
 		"textExplanation": "За бажанням ви можете переглянути всі свої контакти",
 		"textButtonForTransition": "Переглянути"
 	},
+	"ClientsPage": {
+		"pageTitle": "Управління контактами",
+		"titlePageBox": "Всі контакти",
+		"textTurnBackButton": "Повернутись до списку груп",
+		"textPageBox": "У данній таблиці представленні всі ваші контакти. Ви можете переглянути детальну інформацію, а також редагувати контакт."
+	},
+	"EditPage": {
+		"pageTitle": "Управління контактами",
+		"titlePageBox": "Редагування групи:",
+		"textTurnBackButton": "Повернутись до списку груп"
+	},
+	"InputSearchClientForm": {
+		"titleInputSearchClintForm": "Пошук за номером телефону",
+		"textInputSearchClientFormButton": "Скинути"
+	},
+	"ClientsList": {
+		"nameCol_1ClientsTable": "Номер",
+		"nameCol_2ClientsTable": "Ім'я(П.І.Б.)",
+		"nameCol_3ClientsTable": "Дата народження",
+		"nameCol_4ClientsTable": "Параметр 1",
+		"nameCol_5ClientsTable": "Параметр 2",
+		"textAddClientButton": "Додати контакт",
+		"textDeleteClientButton": "Видалити"
+	},
 	"StatisticsPage": {
 		"pageTitle": "Статистика",
 		"titleHistoryPeriodForm": "Пeріод відправки SMS",
