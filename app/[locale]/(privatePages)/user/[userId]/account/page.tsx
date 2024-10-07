@@ -106,41 +106,41 @@ const UserAccountPage: React.FC = () => {
 							<div className="flex flex-col lg:flex-row gap-16">
 								<div className="flex flex-col gap-8">
 									<div className="flex">
-										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">{t('info_1')}</div>
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">{t('info_1')}</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.paid_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 									</div>
 									<div className="flex">
-										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">{t('info_2')}</div>
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">{t('info_2')}</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.adjusment_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 									</div>
 									<div className="flex">
-										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">{t('info_3')}</div>
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">{t('info_3')}</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.balance}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 									</div>
 								</div>
 								<div className="flex flex-col gap-8">
 									<div className="flex">
-										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">{t('info_4')}</div>
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">{t('info_4')}</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.sent_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 									</div>
 									<div className="flex relative">
-										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">{t('info_5')}</div>
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">{t('info_5')}</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.delivered_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 										<div className="h-5 w-5 rounded-full bg-[#FFBB28]  absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
 									</div>
 									<div className="flex relative">
-										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">{t('info_6')}</div>
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">{t('info_6')}</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.pending_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 										<div className="h-5 w-5 rounded-full bg-[#00C49F] absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
 									</div>
 									<div className="flex relative">
-										<div className="w-40 md:w-44 mr-2 text-sm md:text-base">{t('info_7')}</div>
+										<div className="w-40 md:w-52 mr-2 text-sm md:text-base">{t('info_7')}</div>
 										<div className="min-w-[40px] md:min-w-[80px] text-end text-base md:text-lg font-montserrat font-normal mr-2">{user?.rejected_sms}</div>
 										<div className="text-base md:text-lg font-montserrat font-normal">SMS</div>
 										<div className="h-5 w-5 rounded-full  bg-[#0088FE] absolute right-0 md:right-[-30px] top-1/2 transform -translate-y-1/2"></div>
