@@ -4,9 +4,11 @@ import { EnterOnlyFigures } from '@/helpers/EnterOnlyFigures';
 import { useState } from 'react';
 import Modal from './Modal/Modal';
 import AccountInPdf from './AccountInPdf';
+import { useTranslations } from 'next-intl';
 
 const CreateAccount: React.FC = () => {
 	const [inputValue, setInputValue] = useState<string>('');
+	const t = useTranslations('UserAccountPage');
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
@@ -35,20 +37,20 @@ const CreateAccount: React.FC = () => {
 						maxLength={12}
 					/>
 					<p className="absolute -bottom-6 left-0 text-xs font-montserrat font-normal mr-56">
-						Кількість
+						{t('footnoteInputAccountTopUp')}
 					</p>
 				</div>
 				<div className="relative">
-					<p className="text-lg font-montserrat font-normal">Сума: {summ} грн</p>
+					<p className="text-lg font-montserrat font-normal">{t('sum')} {summ} {t('currency')}</p>
 				</div>
 			</div>
 			<button
 				onClick={openModal}
 				disabled={!inputValue}
-				className={`block md:mt-2 text-emailColorLink  ${inputValue ? 'opacity-100 cursor-pointer hover:opacity-80 focus:opacity-80' : 'opacity-50'
+				className={`block md:mt-2 lg:mt-0 text-emailColorLink  ${inputValue ? 'opacity-100 cursor-pointer hover:opacity-80 focus:opacity-80' : 'opacity-50'
 					}  `}
 			>
-				Сформувати рахунок
+				{t('textCreateAccountButton')}
 			</button>
 			<Modal isOpen={isModalOpen} onClose={closeModal}>
 				<AccountInPdf summ={summ} />
