@@ -1,10 +1,12 @@
 "use client";
 import { useSession } from "next-auth/react";
+import { useTranslations } from 'next-intl';
 import Link from "next/link";
 import React from "react";
 
 const LogoFooter: React.FC = () => {
 	const { data: session, status } = useSession();
+	const t = useTranslations('Footer');
 	const isLogin = status === "authenticated";
 	return isLogin ? (
 		<div className="inline-flex flex-col items-center gap-1">
@@ -12,7 +14,7 @@ const LogoFooter: React.FC = () => {
 				BSender
 			</span>
 			<span className=" text-sm text-white font-montserrat">
-				Масові смс розсилки
+				{t('logoText')}
 			</span>
 		</div>
 	) : (
@@ -21,7 +23,7 @@ const LogoFooter: React.FC = () => {
 				BSender
 			</span>
 			<span className=" text-sm text-white font-montserrat">
-				Масові смс розсилки
+				{t('logoText')}
 			</span>
 		</Link>
 	);

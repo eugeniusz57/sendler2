@@ -8,6 +8,7 @@ import { validationSchemaUpdateUser } from "@/models/forms";
 import { FormInputUpdateUser } from "@/globaltypes/types";
 import GreenButton from "../buttons/GreenButton";
 import { getUser, updateUser } from '@/fetch-actions/usersFetchActions';
+import { useTranslations } from "next-intl";
 
 interface Props {
 	userId: number | undefined
@@ -22,6 +23,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 		tel: '',
 		user_name: ''
 	});
+	const t = useTranslations('UpdateUserForm');
 
 	const { user_login, tel, email, user_name } = userState;
 
@@ -94,7 +96,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 			className={`w-[328px] md:w-[526px] mx-auto p-[26px] ${isOpen ? "form-visible" : "form-hidden"} justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg overflow-hidden`}
 		>
 			<div className="relative w-full text-center mb-8">
-				<p color="dark" className="form-title">Анкета користувача</p>
+				<p color="dark" className="form-title">{t('title')}</p>
 				<button type="button" onClick={onClick} className="absolute top-1/2 right-0 translate-y-[-50%]">
 					{isOpen ? <Image
 						src="/svg/arrow-up.svg"
@@ -116,7 +118,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						htmlFor="login"
 						className="font-roboto text-sm font-medium mb-2 block"
 					>
-						Логін
+						{t('login')}
 						<span className="ml-1 text-red-700">*</span>
 					</label>
 					<div className="flex relative">
@@ -139,7 +141,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						htmlFor="password"
 						className="font-roboto text-sm font-medium mb-2 mt-8 block"
 					>
-						Пароль
+						{t('password')}
 						<span className="ml-1 text-red-700">*</span>
 					</label>
 					<div className="flex relative">
@@ -159,7 +161,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						htmlFor="newPassword"
 						className="font-roboto text-sm font-medium mb-2  mt-8 block"
 					>
-						Новий пароль
+						{t('newPassword')}
 						<span className="ml-1 text-red-700">*</span>
 					</label>
 					<div className="flex relative">
@@ -179,7 +181,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						htmlFor="userName"
 						className="font-roboto text-sm font-medium mb-2  mt-8 block"
 					>
-						Контактна особа
+						{t('contactPerson')}
 						<span className="ml-1 text-red-700">*</span>
 					</label>
 					<div className="flex relative">
@@ -202,7 +204,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						htmlFor="phone"
 						className="font-roboto text-sm font-medium mb-2  mt-8 block"
 					>
-						Телефон для зв&apos;зку
+						{t('phoneNumber')}
 						<span className="ml-1 text-red-700">*</span>
 					</label>
 					<div className="flex relative">
@@ -226,7 +228,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						htmlFor="email"
 						className="font-roboto text-sm font-medium mb-2  mt-8 block"
 					>
-						Електронна пошта
+						{t('email')}
 						<span className="ml-1 text-red-700">*</span>
 					</label>
 					<div className="flex relative">
@@ -244,7 +246,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						)}
 					</div>
 				</div>
-				<GreenButton size="big" isDisabled={isDisabled}>Зберегти</GreenButton>
+				<GreenButton size="big" isDisabled={isDisabled}>{t('textButtonSubmit')}</GreenButton>
 			</div>
 		</form>
 	);

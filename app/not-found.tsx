@@ -1,13 +1,15 @@
-import Link from "next/link"
+'use client';
 
-const NotFound = () => {
-  return (
-    <main className="text-center">
-<h2 className=" text-3xl">There was a problem</h2>
-<p>We could not find the page you were looking for.</p>
-<p>Go back to the <Link href='/'>Home</Link></p>
-    </main>
-  )
-}
+// Render the default Next.js 404 page when a route
+// is requested that doesn't match the middleware and
+// therefore doesn't have a locale associated with it.
 
-export default NotFound
+export default function NotFound() {
+	return (
+		<html lang="en">
+			<body className='text-center'>
+				<h1 className='mt-10 font-semibold'>Somthing went wrong!</h1>
+			</body>
+		</html>
+	);
+};

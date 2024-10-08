@@ -1,0 +1,260 @@
+{
+	"Nav": {
+		"logoText": "Масові смс розсилки"
+	},
+	"PublicNavigation": {
+		"title_1": "Головна",
+		"title_2": "Про нас",
+		"title_3": "Ціни",
+		"title_4": "Питання",
+		"title_5": "Послуги",
+		"title_6": "Контакти"
+	},
+	"privateNavigation": {
+		"title_1": "Розсилка",
+		"title_2": "Управління контактами",
+		"title_3": "Статистика",
+		"title_4": "Особистий кабінет"
+	},
+	"privateNavigationAdmin": {
+		"title_1": "Домашня сторінка адміна",
+		"title_2": "Ім’я відправника схвалено",
+		"title_3": "Основна статистика",
+		"title_4": "Борги"
+	},
+	"LoginButton": {
+		"text": "Увійти"
+	},
+	"LogOutButton": {
+		"text": "Вихід"
+	},
+	"UserSmsInform": {
+		"text": "СМС"
+	},
+	"HomePage": {
+		"heroText": "Потужна масова SMS розсилка для ефективного зв'язку з вашою аудиторією",
+		"enterButtonText": "Увіти",
+		"registrationButtonText": "Регістрація",
+		"title_1": "Як працює SMS сервіс",
+		"title_2_part_1": "Для чого використовується послуга",
+		"title_2_part_2": "Масові СМС-Розсилки :",
+		"title_3_part_3": "",
+		"title_3": "Чому клієнти обирають нас:"
+	},
+	"SmsServiseCard": {
+		"title_1": "Створення та керування СМС-розсилкою",
+		"title_2": "Альфа ім'я відправника SMS-повідомлення",
+		"title_3": "Звіти про доставку ваших повідомлень",
+		"title_4": "Створення та редагування груп абонентів",
+		"title_5": "Покриття  мобільних операторів зв’язку",
+		"title_6": "Послуга не потребує встановлення",
+		"description_1": "Ви задаєте текст повідомлення, вибираєте групи абонентів, які отримають повідомлення, і вказуєте час, коли повідомлення будуть відправленні отримувачам.",
+		"description_2": "Ви самі вибираєте підпис (ім'я відправника), який відображатиметься замість номера відправника SMS-повідомлення. ",
+		"description_3": "Звіт з кожної СМС-Розсилки Ви зможете переглянути on-line на сайті або завантажити у зручному форматі (Excel).",
+		"description_4": "Ви задаєте текст повідомлення, вибираєте групи абонентів, які отримають повідомлення, і вказуєте час, коли повідомлення будуть відправленні отримувачам.",
+		"description_5": "Ви маєте можливість надсилати повідомлення абонентам усіх українських мобільних операторів. На запит доступні інші країни.",
+		"description_6": "Ви зможете надсилати SMS-повідомлення з будь-якого комп'ютера, підключеного до Інтернету, використовуючи наш сайт.",
+		"linkText_1": "Інструкція",
+		"linkText_2": "Реєстрація"
+	},
+	"ServiceDescriptionList": {
+		"description_1": "Цей метод має особистісний характер, адже за допомогою повідомлень ви доставляєте інформацію безпосередньо клієнту.",
+		"description_2": "Нині маркетинг розширює свої межі. Якщо раніше для реклами товарів та брендів використовувалися в основному телебачення та зовнішня реклама, то тепер у підприємців набагато більше можливостей зробити свій товар впізнаваним. Простий та доступний спосіб комунікації з потенційними клієнтами – SMS-розсилка.",
+		"description_3": "SMS-реклама допоможе зробити ваш бренд упізнаваним. Звичайно, не всі клієнти відреагують на перше повідомлення, але швидше за все їх зацікавлять наступні.",
+		"description_4": "SMS-розсилка допоможе знайти нових клієнтів, і не втратити старих, сповіщаючи їх про акції, знижки та нові пропозиції. Покупці будуть зацікавлені, і захочуть дізнатися більше інформації про ваші продукти, і про те, що ви можете їм запропонувати."
+	},
+	"SliderAdvantages": {
+		"textCard_1": "Зручний та простий у використанні інтерфейс керування послугою",
+		"textCard_2": "Ви сплачуєте лише за доставлені повідомлення за умови підписання договору!",
+		"textCard_3": "Високий рівень відкриття SMS-повідомлень - найефективніший інструмент реклами.",
+		"textCard_4": "SMS-розсилки – майбутнє вашого бізнесу, його успіх та розвиток.",
+		"textCard_5_part_1": "BSender - ",
+		"textCard_5_part_2": "Швидкий, простий та надійний SMS сервіс",
+		"textCard_6": "Sms привітання з днем ​​народження для постійних клієнтів"
+	},
+	"MailList": {
+		"pageTitle": "Розсилка SMS",
+		"textUserNameBox": "Виберіть підпис (Ім'я відправника), який буде відображатися замість номера відправника SMS-повідомлення",
+		"titleUserNameInput": "Ім’я відправника",
+		"textUserNameInputButton": "Додати ім’я",
+		"titleNotAgreementUserNames": "Імена що знаходяться на узгодженні",
+		"textAddAlfaNameFormBox": "Ім'я відправника має бути не більше ніж 11 латинських символів",
+		"titleInputAddAlfaNameForm": "Нове ім'я",
+		"textButtonAddAlfaNameForm": "Додати",
+		"textSmsSendBox": "Введіть SMS-повідомлення. Слідкуйте за розміром повідомлення. Пам'ятайте: для кирилиці в одній SMS може поміститися 70 знаків, для латиниці - 160 символів.",
+		"titleInputSmsSendBox": "Текст повідомлення",
+		"charCount": "Символів:",
+		"tileOperations": "Додати шаблон",
+		"operation_1": "Ім'я клієнта",
+		"operation_2": "Параметр 1",
+		"operation_3": "Параметр 1",
+		"textRecipientsFormBox": "Виберіть групу контактів, якій Ви бажаєте надіслати SMS-повідомлення. У Вас є можливість ввести новий номер або вибрати один із контактів.",
+		"titleRecipientsForm": "Групи та номери телефонів, яким буде надіслано SMS- повідомлення",
+		"textButtonInputRecipientPhone": "Додати телефон до списку",
+		"textButtonInputRecipientsGroup": "Додати групу до списку",
+		"textButtonDeleteRecipientsForm": "Видалити обране",
+		"textButtonCleanUpRecipientsForm": "Очистити",
+		"titleScheduleMailingBox": "Запланувати розсилання",
+		"titleInputDate": "Дата",
+		"titleInputTimeBox": "Час",
+		"titleInputHours": "год",
+		"titleInputMinutes": "хв",
+		"titleInputSeconds": "сек",
+		"footnoteForOfferContract": "Натискаючи кнопку Надіслати ви підтверджуєте відправлення форми, та що всі данні введенні правильно, а також підверджуєте ознайомлення з",
+		"textButtonForOfferContract": "договором оферти.",
+		"textSendButton": "Надіслати"
+	},
+	"OfferContract": {
+		"title": "Договір оферти (надання послуг)"
+	},
+	"GroupsPage": {
+		"pageTitle": "Управління контактами",
+		"textPageBox": "Для початку роботи Вам потрібно створити нову Групу контактів та додати до неї номери. Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу.",
+		"titleCreateGroupForm": "Назва групи",
+		"textButtonCreateGroupForm": "Створити",
+		"nameCol_1GroupsList": "Група",
+		"nameCol_2GroupsList": "Оновлення",
+		"nameCol_3GroupsList": "Кількість",
+		"nameActionButton-1": "Редагувати",
+		"nameActionButton-2": "Видалити",
+		"nameActionButton-3": "Імпорт",
+		"nameActionButton-4": "Експорт",
+		"nameTransitionPage": "Всі контакти",
+		"textExplanation": "За бажанням ви можете переглянути всі свої контакти",
+		"textButtonForTransition": "Переглянути"
+	},
+	"ClientsPage": {
+		"pageTitle": "Управління контактами",
+		"titlePageBox": "Всі контакти",
+		"textTurnBackButton": "Повернутись до списку груп",
+		"textPageBox": "У данній таблиці представленні всі ваші контакти. Ви можете переглянути детальну інформацію, а також редагувати контакт."
+	},
+	"EditPage": {
+		"pageTitle": "Управління контактами",
+		"titlePageBox": "Редагування групи:",
+		"textTurnBackButton": "Повернутись до списку груп"
+	},
+	"InputSearchClientForm": {
+		"titleInputSearchClintForm": "Пошук за номером телефону",
+		"textInputSearchClientFormButton": "Скинути"
+	},
+	"ClientsList": {
+		"nameCol_1ClientsTable": "Номер",
+		"nameCol_2ClientsTable": "Ім'я(П.І.Б.)",
+		"nameCol_3ClientsTable": "Дата народження",
+		"nameCol_4ClientsTable": "Параметр 1",
+		"nameCol_5ClientsTable": "Параметр 2",
+		"textAddClientButton": "Додати контакт",
+		"textDeleteClientButton": "Видалити",
+		"textEditClientButton": "Редагувати",
+		"nameMobileClientsTable": "Контакти",
+		"titleEditClientForm": "Редагування контакту",
+		"titleAddClientForm": "Add contact",
+		"phoneNumber": "Номер телефону",
+		"lastName": "Прізвище",
+		"firstName": "Ім'я",
+		"middleName": "По-батькові",
+		"birthday": "Дата народженн",
+		"parameter_1": "Параметр 1",
+		"parameter_2": "Параметр 2",
+		"textButtonSubmit": "Зберегти"
+	},
+	"UpdateGroupPage": {
+		"pageTitle": "Управління контактами",
+		"titlePageBox": "Редагування групи:",
+		"textPageBox": "Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу. Виберіть файл, який містить Ваші контакти:",
+		"tilteFileInput": "Додати контакт з файлу",
+		"textFileInputButton": "Додати"
+	},
+	"StatisticsPage": {
+		"pageTitle": "Статистика",
+		"titleHistoryPeriodForm": "Пeріод відправки SMS",
+		"textButtonHistoryPeriodForm": "Дивитись",
+		"nameMobileHistoryTable": "Розсилки",
+		"nameCol_1HistoryTable": "Шлях відправлення",
+		"nameCol_2HistoryTable": "Дата",
+		"nameCol_3HistoryTable": "Відправленно",
+		"nameCol_4HistoryTable": "Отримано",
+		"total": "Всього"
+	},
+	"DayHistory": {
+		"pageTitle": "Статистика за датою",
+		"titlePageBox": "Розсилки за",
+		"textTurnBackButton": "Повернутись до загальної статистики за період",
+		"nameMobileDayHistoryTable": "Розсилки",
+		"nameCol_1DayHistoryTable": "Текст смс",
+		"nameCol_2DayHistoryTable": "Відправник",
+		"nameCol_3DayHistoryTable": "Статус",
+		"nameCol_4DayHistoryTable": "Доставлено смс",
+		"nameCol_5DayHistoryTable": "Доставлено номерів",
+		"nameCol_6DayHistoryTable": "Дії"
+	},
+	"HistoryDetails": {
+		"pageTitle": "Детальна статистика",
+		"titlePageBox": "Розсилки за",
+		"textTurnBackButton": "Повернутись до загальної статистики за деньд",
+		"sender": "Відправник",
+		"malingStatus": "Статус розсилки",
+		"groupName": "Назва групи",
+		"messageText": "Текст повідомлення",
+		"nameMobileHistoryDetailsTable": "Повідомлення",
+		"nameCol_1HistoryDetailsTable": "Номер телефону",
+		"nameCol_2HistoryDetailsTable": "Дати відправки",
+		"nameCol_3HistoryDetailsTable": "Кількість смс",
+		"nameCol_4HistoryDetailsTable": "Статус"
+	},
+	"UserAccountPage": {
+		"pageTitle": "Особистий кабінет",
+		"titleAccountInfoBox": "Кількість СМС",
+		"info_1": "Проплачено",
+		"info_2": "Скореговано",
+		"info_3": "Баланс на рахунку",
+		"info_4": "Усього відправлено",
+		"info_5": "Усього доставлено",
+		"info_6": "В процесі відправки",
+		"info_7": "Відхилені",
+		"titleLiveInform": "Стан відправки СМС в реальному часі:",
+		"titlePaymentHistoryBox": "Історія платежів",
+		"nameCol_1HistoryPaymentTable": "Дата поповнення",
+		"nameCol_2HistoryPaymentTable": "Сума, грн",
+		"nameCol_3HistoryPaymentTable": "Кількість, СМС",
+		"titleAccountTopUpBox": "Поповнити рахунок",
+		"titleInputAccountTopUp": "Введіть потрібну кількість СМС",
+		"footnoteInputAccountTopUp": "Кількість",
+		"sum": "Сума:",
+		"currency": "грн",
+		"textCreateAccountButton": "Сформувати рахунок",
+		"titleSmsPriceList": "Переглянути ціну за СМС",
+		"textExplaint": "Якщо Ви працюєте з ТОВ \"Інноваційні медіа рішення\" за договором як Юридична особа, то для виставлення рахунку Вам потрібно зв'язатися з нами або зателефонувати нам за номером (097) 678-12-59.",
+		"nameCol_1PriceSmsTable": "СМС",
+		"nameCol_2PriceSmsTable": "Ціна одного SMS, грн.",
+		"textRowPriceSmsTable": "Від",
+		"textLastRowPriceSmsTable": "i бiльше",
+		"textInBrackets": "від",
+		"kindPrice": "договірна"
+	},
+	"UpdateUserForm": {
+		"title": "Анкета користувача",
+		"login": "Логін",
+		"password": "Пароль",
+		"newPassword": "Новий пароль",
+		"contactPerson": "Контактна особа",
+		"phoneNumber": "Телефон для зв'зку",
+		"email": "Електронна пошта",
+		"textButtonSubmit": "Зберегти"
+	},
+	"Footer": {
+		"logoText": "Масові смс розсилки",
+		"company_part_1": "Компанія ТОВ ",
+		"company_part_2": "Інноваційні медіа рішення",
+		"company_part_3": "",
+		"e-mail": "Пошта",
+		"phone": "Телефон",
+		"address": "01033, Україна, м. Київ, вул. Сім'ї Прахових, 50",
+		"advertisingText": "Мобільний маркетинг, Масові SMS розсилки",
+		"feedback": "Зворотній зв’язок",
+		"feedbackButtonText": "Зв’язатись",
+		"legalAddress": "Юридична адреса",
+		"allRights": "Всі права захищені"
+	}
+}

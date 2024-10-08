@@ -1,6 +1,7 @@
 'use client';
 
 import RSC from "react-scrollbars-custom";
+import { useTranslations } from "next-intl";
 
 import { IGroupDatabase } from "@/globaltypes/types";
 import Group from "./Group";
@@ -16,14 +17,14 @@ type Props = {
 };
 
 const GroupsList: React.FC<Props> = ({ groups, getGroups, userId, isUpdated, LIMIT }) => {
-
+	const t = useTranslations('GroupsPage');
 	return (
 		<>
 			<div>
 				<div className="hidden lg:flex gap-x-0 xl:gap-x-2 w-full px-[26px] pt-[18px] pb-[13px] text-xl text-white font-roboto font-normal bg-headerTable">
-					<p className='w-1/6'>Група</p>
-					<p className='w-1/4'>Оновлення</p>
-					<p className="w-[12%]">Кількість</p>
+					<p className='w-1/6'>{t('nameCol_1GroupsList')}</p>
+					<p className='w-1/4'>{t('nameCol_2GroupsList')}</p>
+					<p className="w-[12%]">{t('nameCol_3GroupsList')}</p>
 					<p></p>
 				</div>
 				<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white text-base text-center font-normal bg-headerTable">Групи</p>

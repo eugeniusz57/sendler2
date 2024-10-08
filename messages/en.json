@@ -1,0 +1,260 @@
+{
+	"Nav": {
+		"logoText": "Mass SMS mailings"
+	},
+	"PublicNavigation": {
+		"title_1": "Home",
+		"title_2": "About",
+		"title_3": "Prices",
+		"title_4": "Questions",
+		"title_5": "Services",
+		"title_6": "Contacts"
+	},
+	"privateNavigation": {
+		"title_1": "Sending",
+		"title_2": "Contact management",
+		"title_3": "Statistic",
+		"title_4": "Account"
+	},
+	"privateNavigationAdmin": {
+		"title_1": "Admin Home Page",
+		"title_2": "Sender Name Approved",
+		"title_3": "General Statistics",
+		"title_4": "Debts"
+	},
+	"UserSmsInform": {
+		"text": "SMS"
+	},
+	"HomePage": {
+		"heroText": "Powerful mass SMS mailing for effective communication with your audience",
+		"enterButtonText": "Enter",
+		"registrationButtonText": "Registration",
+		"title_1": "How the SMS service works",
+		"title_2_part_1": "What is the",
+		"title_2_part_2": "Mass SMS Mailings",
+		"title_3_part_3": " service used for :",
+		"title_3": "Why clients choose us:"
+	},
+	"SmsServiseCard": {
+		"title_1": "Creation and management of SMS mailing",
+		"title_2": "Alpha name of the sender of the SMS message",
+		"title_3": "Reports on the delivery of your messages",
+		"title_4": "Creation and editing of subscriber groups",
+		"title_5": "Coverage of mobile operators",
+		"title_6": "The service does not require installation",
+		"description_1": "You specify the text of the message, select the groups of subscribers who will receive the message, and specify the time when the messages will be sent to the recipients.",
+		"description_2": "You yourself choose a signature (sender's name), which will be displayed instead of the SMS sender's number.",
+		"description_3": "You can view the report of each SMS-Mailings online on the website or download it in a convenient format (Excel).",
+		"description_4": "You specify the text of the message, select the groups of subscribers who will receive the message, and specify the time when the messages will be sent to the recipients.",
+		"description_5": "You can send messages to subscribers of all Ukrainian mobile operators. Other countries are available upon request.",
+		"description_6": "You will be able to send SMS messages from any computer connected to the Internet using our site.",
+		"linkText_1": "Instruction",
+		"linkText_2": "Registration"
+	},
+	"ServiceDescriptionList": {
+		"description_1": "This method has a personal character, because with the help of messages you deliver information directly to the client.",
+		"description_2": "Today, marketing is expanding its boundaries. If previously television and outdoor advertising were mainly used to advertise products and brands, now entrepreneurs have much more opportunities to make their products recognizable. A simple and affordable way to communicate with potential customers is SMS.",
+		"description_3": "SMS advertising will help make your brand recognizable. Of course, not all customers will respond to the first message, but most likely they will be interested in subsequent ones.",
+		"description_4": "SMS will help you find new customers and not lose old ones by notifying them about promotions, discounts and new offers. Buyers will be interested and want to learn more about your products and what you can offer them."
+	},
+	"SliderAdvantages": {
+		"textCard_1": "Convenient and easy-to-use service management interface",
+		"textCard_2": "You only pay for delivered messages, subject to contract signing!",
+		"textCard_3": "A high opening rate of SMS messages is the most effective advertising tool.",
+		"textCard_4": "SMS mailings are the future of your business, its success and development.",
+		"textCard_5_part_1": "BSender - ",
+		"textCard_5_part_2": "Fast, simple and reliable SMS service",
+		"textCard_6": "Happy birthday sms for regular customers"
+	},
+	"LoginButton": {
+		"text": "Enter"
+	},
+	"LogOutButton": {
+		"text": "Exit"
+	},
+	"MailList": {
+		"pageTitle": "SMS mailing",
+		"textUserNameBox": "Choose a signature (Name of the sender) that will be displayed instead of the number of the sender of the SMS message",
+		"titleUserNameInput": "Sender name",
+		"textUserNameInputButton": "Add name",
+		"titleNotAgreementUserNames": "Names that are on agreement",
+		"textAddAlfaNameFormBox": "The name of the sender must be no more than 11 Latin characters",
+		"titleInputAddAlfaNameForm": "New name",
+		"textButtonAddAlfaNameForm": "Add",
+		"textSmsSendBox": "Enter the SMS message. Watch the message size. Remember: for Cyrillic, one SMS can contain 70 characters, for Latin - 160 characters.",
+		"titleInputSmsSendBox": "Message text",
+		"charCount": "Characters:",
+		"tileOperations": "Add a template",
+		"operation_1": "Customer name",
+		"operation_2": "Parameter 1",
+		"operation_3": "Parameter 2",
+		"textRecipientsFormBox": "Select the group of contacts to which you want to send an SMS message. You can enter a new number or select one of the contacts.",
+		"titleRecipientsForm": "Groups and phone numbers to which the SMS message will be sent",
+		"textButtonInputRecipientPhone": "Add phone to list",
+		"textButtonInputRecipientsGroup": "Add group to list",
+		"textButtonDeleteRecipientsForm": "Delete selected",
+		"textButtonCleanUpRecipientsForm": "Clean up",
+		"titleScheduleMailingBox": "Schedule a mailing",
+		"titleInputDate": "Date",
+		"titleInputTimeBox": "Time",
+		"titleInputHours": "hours",
+		"titleInputMinutes": "min",
+		"titleInputSeconds": "sec",
+		"footnoteForOfferContract": "By clicking the Send button, you confirm that the form has been sent and that all the entered data is correct, as well as confirming that you have read the",
+		"textButtonForOfferContract": "contract offer.",
+		"textSendButton": "Send"
+	},
+	"OfferContract": {
+		"title": "Offer contract (service provision)"
+	},
+	"GroupsPage": {
+		"pageTitle": "Contact management",
+		"textPageBox": "To get started, you need to create a new Contact Group and add numbers to it. You can add contact phone numbers from an Excel or text file.",
+		"titleCreateGroupForm": "Group name",
+		"textButtonCreateGroupForm": "Create",
+		"nameCol_1GroupsList": "Group",
+		"nameCol_2GroupsList": "Updating",
+		"nameCol_3GroupsList": "Number",
+		"nameActionButton_1": "Edit",
+		"nameActionButton_2": "Delete",
+		"nameActionButton_3": "Import",
+		"nameActionButton_4": "Export",
+		"nameTransitionPage": "All contacts",
+		"textExplanation": "If you wish, you can view all your contacts",
+		"textButtonForTransition": "Review"
+	},
+	"ClientsPage": {
+		"pageTitle": "Contact management",
+		"titlePageBox": "All contacts",
+		"textTurnBackButton": "Return to the list of groups",
+		"textPageBox": "This table shows all your contacts. You can view detailed information and edit the contact."
+	},
+	"EditPage": {
+		"pageTitle": "Contact management",
+		"titlePageBox": "Edit group:",
+		"textTurnBackButton": "Return to the list of groups"
+	},
+	"InputSearchClientForm": {
+		"titleInputSearchClintForm": "Search by phone number",
+		"textInputSearchClientFormButton": "Reset"
+	},
+	"ClientsList": {
+		"nameCol_1ClientsTable": "Number",
+		"nameCol_2ClientsTable": "Name (P.I.B.))",
+		"nameCol_3ClientsTable": "Date of birth",
+		"nameCol_4ClientsTable": "Parameter 1",
+		"nameCol_5ClientsTable": "Parameter 2",
+		"textAddClientButton": "Add contact",
+		"textDeleteClientButton": "Delete",
+		"textEditClientButton": "Edit",
+		"nameMobileClientsTable": "Contacts",
+		"titleEditClientForm": "Editting contact",
+		"titleAddClientForm": "Add contact",
+		"phoneNumber": "Phone number",
+		"lastName": "Last name",
+		"firstName": "First name",
+		"middleName": "Middle name",
+		"birthday": "Date of birth",
+		"parameter_1": "Parameter 1",
+		"parameter_2": "Parameter 2",
+		"textButtonSubmit": "Save"
+	},
+	"UpdateGroupPage": {
+		"pageTitle": "Contact management",
+		"titlePageBox": "Edit group:",
+		"textPageBox": "You can add contact phone numbers from an Excel or text file. Select the file that contains your contacts:",
+		"tilteFileInput": "Add a contact from a file",
+		"textFileInputButton": "Add"
+	},
+	"StatisticsPage": {
+		"pageTitle": "Statistics",
+		"titleHistoryPeriodForm": "SMS sending period",
+		"textButtonHistoryPeriodForm": "View",
+		"nameMobileHistoryTable": "Mailings",
+		"nameCol_1HistoryTable": "Mailings method",
+		"nameCol_2HistoryTable": "Date",
+		"nameCol_3HistoryTable": "Sent",
+		"nameCol_4HistoryTable": "Received",
+		"total": "Total"
+	},
+	"DayHistory": {
+		"pageTitle": "Statistics by date",
+		"titlePageBox": "Mailings for",
+		"textTurnBackButton": "Return to general statistics for the period",
+		"nameMobileDayHistoryTable": "Mailings",
+		"nameCol_1DayHistoryTable": "Text sms",
+		"nameCol_2DayHistoryTable": "Sender",
+		"nameCol_3DayHistoryTable": "Status",
+		"nameCol_4DayHistoryTable": "SMS delivered",
+		"nameCol_5DayHistoryTable": "Delivered numbers",
+		"nameCol_6DayHistoryTable": "Actions"
+	},
+	"HistoryDetails": {
+		"pageTitle": "Detailed statistics",
+		"titlePageBox": "Mailings for",
+		"textTurnBackButton": "Return to general statistics for the day",
+		"sender": "Sender",
+		"malingStatus": "Mailing status",
+		"groupName": "Group name",
+		"messageText": "Message text",
+		"nameMobileHistoryDetailsTable": "Messages",
+		"nameCol_1HistoryDetailsTable": "Phone number",
+		"nameCol_2HistoryDetailsTable": "Sending date",
+		"nameCol_3HistoryDetailsTable": "SMS quantity",
+		"nameCol_4HistoryDetailsTable": "Status"
+	},
+	"UserAccountPage": {
+		"pageTitle": "Account",
+		"titleAccountInfoBox": "Number of SMS",
+		"info_1": "Paid",
+		"info_2": "Corrected",
+		"info_3": "Account balance",
+		"info_4": "All sent",
+		"info_5": "All delivered",
+		"info_6": "In the process of sending",
+		"info_7": "Rejected",
+		"titleLiveInform": "Status of SMS sending in real time:",
+		"titlePaymentHistoryBox": "Payment history",
+		"nameCol_1HistoryPaymentTable": "Replenishment date",
+		"nameCol_2HistoryPaymentTable": "Amount, UAH",
+		"nameCol_3HistoryPaymentTable": "Quantity, SMS",
+		"titleAccountTopUpBox": "Top up the account",
+		"titleInputAccountTopUp": "Enter the required number of SMS",
+		"footnoteInputAccountTopUp": "Quantity",
+		"sum": "Sum:",
+		"currency": "UAH",
+		"textCreateAccountButton": "Create an account",
+		"titleSmsPriceList": "View price per SMS",
+		"textExplaint": "If you work with LLC \"Innovative media solutions\" under the contract as a Legal Entity, then for invoicing you need to contact us or call us at (097) 678-12-59.",
+		"nameCol_1PriceSmsTable": "SMS",
+		"nameCol_2PriceSmsTable": "The price of one SMS, UAH.",
+		"textRowPriceSmsTable": "From",
+		"textLastRowPriceSmsTable": "and more",
+		"textInBrackets": "from",
+		"kindPrice": "contractual"
+	},
+	"UpdateUserForm": {
+		"title": "User questionnaire",
+		"login": "Login",
+		"password": "Password",
+		"newPassword": "New password",
+		"contactPerson": "Contact person",
+		"phoneNumber": "Conection phone number",
+		"email": "Email",
+		"textButtonSubmit": "Save"
+	},
+	"Footer": {
+		"logoText": "Mass SMS mailings",
+		"company_part_1": "Company ",
+		"company_part_2": "Innovative media solutions,",
+		"company_part_3": " LTD",
+		"e-mail": "E-mail",
+		"phone": "Phone",
+		"address": "01033, Ukraine, Kyiv, вул. Сім'ї Прахових, 50",
+		"advertisingText": "Mobile marketing, Mass SMS mailings",
+		"feedback": "Feedback",
+		"feedbackButtonText": "Get in touch",
+		"legalAddress": "Legal Address",
+		"allRights": "All rights reserved"
+	}
+}

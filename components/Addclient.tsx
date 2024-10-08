@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Modal from "./Modal/Modal";
 import GreenButton from "./buttons/GreenButton";
 import { CreateClientForm } from "./forms/CreateClientForm";
+import { useTranslations } from "next-intl";
 
 interface Props {
 	groupId?: number;
@@ -16,6 +17,7 @@ const AddClient: React.FC<Props> = ({ groupId, updateClients, getUpdate }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [isSelectOpen, setIsSelectOpen] = useState(false);
+	const t = useTranslations('ClientsList');
 
 	const openModal = () => {
 		setIsModalOpen(true);
@@ -42,7 +44,7 @@ const AddClient: React.FC<Props> = ({ groupId, updateClients, getUpdate }) => {
 				onClick={openModal}
 				isDisabled={isDisabled}
 			>
-				Додати контакт
+				{t('textAddClientButton')}
 			</GreenButton>
 			<Modal isOpen={isModalOpen} isSelectOpen={isSelectOpen} onClose={closeModal}>
 				<CreateClientForm
@@ -50,7 +52,7 @@ const AddClient: React.FC<Props> = ({ groupId, updateClients, getUpdate }) => {
 					openSelect={openSelect}
 					updateClients={updateClients}
 					groupId={groupId}
-					getUpdate={getUpdate} title='Додати контакт' />
+					getUpdate={getUpdate} title={t('titleAddClientForm')} />
 			</Modal>
 		</>
 	);

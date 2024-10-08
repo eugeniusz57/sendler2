@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Modal from "./Modal/Modal";
 import { CreateClientForm } from "./forms/CreateClientForm";
 import { IClientDatabase } from "@/globaltypes/types";
+import { useTranslations } from "next-intl";
 
 interface Props {
 	groupId?: number;
@@ -19,6 +20,7 @@ const EditClient: React.FC<Props> = ({ groupId,
 	getUpdate }) => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 	const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
+	const t = useTranslations('ClientsList');
 
 	const openModal = () => {
 		setIsModalOpen(true);
@@ -37,7 +39,7 @@ const EditClient: React.FC<Props> = ({ groupId,
 
 	return (
 		<>
-			<button type="button" onClick={openModal} className="row-table__btn">Редагувати</button>
+			<button type="button" onClick={openModal} className="row-table__btn">{t('textEditClientButton')}</button>
 			<Modal isOpen={isModalOpen} isSelectOpen={isSelectOpen} onClose={closeModal}>
 				{groupId ?
 					<CreateClientForm
@@ -47,7 +49,7 @@ const EditClient: React.FC<Props> = ({ groupId,
 						currentClient={client}
 						updateClients={updateClients}
 						getUpdate={getUpdate}
-						title='Редагування контакту'
+						title={t('titleEditClientForm')}
 					/> :
 					<CreateClientForm
 						onClose={closeModal}
@@ -55,7 +57,7 @@ const EditClient: React.FC<Props> = ({ groupId,
 						updateClients={updateClients}
 						currentClient={client}
 						getUpdate={getUpdate}
-						title='Редагування контакту' />}
+						title={t('titleEditClientForm')} />}
 			</Modal>
 		</>
 	);

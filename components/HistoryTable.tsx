@@ -7,6 +7,7 @@ import { getUserHistory } from '@/fetch-actions/historyFetchActions';
 import HistoryList from './HistoryList';
 import HistoryPeriodForm from './forms/HistoryPeriodForm';
 import { IHistoryResponce, IHistoryPeriod } from '@/globaltypes/historyTypes';
+import { useTranslations } from 'next-intl';
 
 const LIMIT = 120;
 
@@ -18,6 +19,7 @@ const HistoryTable: React.FC<Props> = ({ id }) => {
 	const searchParams = useSearchParams();
 	const startDate = searchParams.get('startDate');
 	const endDate = searchParams.get('endDate');
+	const t = useTranslations('StatisticsPage');
 
 	const [userHistory, setUserHistory] = useState<IHistoryResponce[] | undefined>([]);
 	const [historyPeriod, setHistoryPeriod] = useState<IHistoryPeriod | undefined>(undefined);
@@ -65,21 +67,21 @@ const HistoryTable: React.FC<Props> = ({ id }) => {
 		setOffset(offset + LIMIT)
 	};
 
-  return (
-    <>
-      <div className="content-block">
-        <HistoryPeriodForm />
-        <div className="justify-center lg:justify-start flex items-center gap-[100px] h-[40px] md:h-[58px] px-[26px] font-roboto text-base md:text-xl text-white bg-[#417D8A]">
-          <p className="lg:hidden">Розсилки</p>
-          <p className="hidden lg:block w-[194px]">Шлях відправлення</p>
-          <p className="hidden lg:block w-[184px]">Дата</p>
-          <p className="hidden lg:block w-[150px]">Відправленно </p>
-          <p className="hidden lg:block w-[150px]">Отримано</p>
-        </div>
-        <HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} visible={userHistory?.length && offset <= userHistory?.length + LIMIT ? true : false}/>
-      </div>
-    </>
-  );
+	return (
+		<>
+			<div className="content-block">
+				<HistoryPeriodForm />
+				<div className="justify-center lg:justify-start flex items-center gap-[100px] h-[40px] md:h-[58px] px-[26px] font-roboto text-base md:text-xl text-white bg-[#417D8A]">
+					<p className="lg:hidden">{t('nameMobileHistoryTable')}</p>
+					<p className="hidden lg:block w-[194px]">{t('nameCol_1HistoryTable')}</p>
+					<p className="hidden lg:block w-[184px]">{t('nameCol_2HistoryTable')}</p>
+					<p className="hidden lg:block w-[150px]">{t('nameCol_3HistoryTable')} </p>
+					<p className="hidden lg:block w-[150px]">{t('nameCol_4HistoryTable')}</p>
+				</div>
+				<HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} visible={userHistory?.length && offset <= userHistory?.length + LIMIT ? true : false} />
+			</div>
+		</>
+	);
 }
 
 export default HistoryTable;
