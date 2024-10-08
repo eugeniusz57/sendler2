@@ -29,7 +29,7 @@ const SearchUserForm: React.FC<Props> = ({ getFilter }) => {
 	return (
 		<form autoComplete="off" onSubmit={handleSubmit(onSubmit)} className='text-center'>
 			<label htmlFor="login" className="block mb-3.5 label">
-				Пошук за логінем користувача
+				Пошук за логіном користувача
 			</label>
 			<div className="flex">
 				<input
