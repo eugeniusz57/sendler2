@@ -29,6 +29,7 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 	const locale = useLocale();
 	const t = useTranslations('UpdateGroupPage');
 
+	// get list of clients and group name for current group
 	const getData = async () => {
 		if (groupId) {
 			const res = await getGroupClientsAndGroupName(groupId, '', null, 0);

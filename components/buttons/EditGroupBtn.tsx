@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { useSession } from "next-auth/react";
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 type Props = {
 	id: number;

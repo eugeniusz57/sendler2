@@ -24,7 +24,7 @@ const ContactManagmentPage: React.FC<Props> = ({ params }) => {
 	const locale = useLocale();
 	const t = useTranslations('GroupsPage');
 
-
+	// update page if list of groups or group in database are updated
 	const getUpdate = () => {
 		setIsUpdated(!isUpdated);
 	};

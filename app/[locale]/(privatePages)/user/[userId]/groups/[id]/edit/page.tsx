@@ -9,7 +9,7 @@ import SearchClientForm from "@/components/forms/SearchClientForm";
 import { getGroupClientsAndGroupName } from "@/fetch-actions/clientsFetchActions";
 import { IGroupId, IUserId, IClientDatabase } from "@/globaltypes/types";
 import EmailColorLinkBtn from "@/components/buttons/EmailColorLinkBtn";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const LIMIT = 5;
 
@@ -25,14 +25,16 @@ const EditGroupPage: React.FC<Props> = ({ params }) => {
 	const [filter, setFilter] = useState<string>('');
 	const [isUpdated, setIsUpdated] = useState<boolean>(false);
 	const [clients, setClients] = useState<IClientDatabase[] | undefined>([]);
+	const [locale, setLocale] = useState(useLocale());
 	const router = useRouter();
 	const groupId = Number(params.id);
 	const userId = Number(params.userId);
 	const t = useTranslations('EditPage');
 
+	//the function returns to the previos page
 	const handleClick = async () => {
 		try {
-			router.back();
+			router.push(`/${locale}/user/${params.userId}/groups`);
 		} catch (error: any) {
 			console.log(error.message);
 			router.push("/");
