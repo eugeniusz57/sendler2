@@ -33,7 +33,7 @@ const About: React.FC = () => {
 							return (
 								<li key={id} className=" md:w-[308px]">
 									<Image src={iconPath} alt={alt} width={60} height={60} />
-									<p className="mt-[22px] font-montserrat md:text-lg lg:text-xl text-[#1B1B30]">
+									<p className="mt-[22px] font-montserrat md:text-lg lg:text-xl text-[#1B1B30] dark:text-textColorDarkTheme">
 										{title}
 									</p>
 								</li>
@@ -50,17 +50,17 @@ const About: React.FC = () => {
 				</div>
 				<div className="container flex flex-col-reverse lg:items-center lg:flex-row gap-[28px] md:gap-[50px] lg:gap-[80px] xl:gap-[134px]">
 					<div className="flex flex-col items-center justify-center lg:max-w-[526px] w-full md:pr-[148px] lg:pr-0 gap-[32px]">
-						<p className="font-montserrat text-sm md:text-base text-[#1B1B30]">
+						<p className="font-montserrat text-sm md:text-base text-mainTextColor dark:text-textColorDarkTheme">
 							Якщо Вашій компанії потрібно розробити сервіс або провести акцію
 							мобільного маркетингу, яка міститиме одну або кілька наших послуг,
 							наша компанія готова до продуктивної співпраці.
 						</p>
-						<p className="font-montserrat text-sm md:text-base text-[#1B1B30]">
+						<p className="font-montserrat text-sm md:text-base text-mainTextColor dark:text-textColorDarkTheme">
 							Деталі розробки логіки сервісів чи акцій, питання відносності
 							вартості проектів ми готові обговорити під час зустрічі чи по
 							телефону.
 						</p>
-						<p className="font-roboto text-base md:text-xl text-[#1B1B30]">
+						<p className="font-roboto text-base md:text-xl text-mainTextColor dark:text-textColorDarkTheme">
 							Зв&apos;яжіться з нами — ми завжди раді допомогти Вам у будь-якому
 							питанні.
 						</p>

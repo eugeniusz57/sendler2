@@ -10,6 +10,8 @@ import { usePathname } from 'next/navigation';
 import ModalBurgerMenu from './Modal/ModalBurgerMenu';
 import SelectLanguage from './SelectLanguage';
 import { routing } from '@/i18n/routing';
+import SwitchTheme from './buttons/SwitchTheme';
+import useWindowWidth from '@/helpers/windowsSize';
 
 const Nav: React.FC = () => {
 	const { data: session, status } = useSession();
@@ -48,6 +50,7 @@ const Nav: React.FC = () => {
 		{ id: 3, title: t2('title_3'), path: '/general-statistics' },
 		{ id: 4, title: t2('title_4'), path: '/debts' },
 	];
+	const withWindow = useWindowWidth();
 
 	const toggleModal = () => {
 		if (isModalOpen) {
@@ -163,11 +166,13 @@ const Nav: React.FC = () => {
 			</nav>
 
 			<ModalBurgerMenu isOpen={isModalOpen} onClose={closeModal}>
+
 				<ul
 					className={`absolute top-0 left-0 z-10 py-5 pl-[84px] min-h-screen block w-[436px] bg-bgFooter  text-lg md:text-[22px] lg:text-2xl text-white burger-menu-overlay duration-500 transition-all `}
 				>
 					<div className=" mb-[120px] h-[49px]  ml-[-64px]">
 						<LogoNav onClose={closeModal} />
+						<SwitchTheme />
 					</div>
 					{status === 'authenticated' ? (
 						<>

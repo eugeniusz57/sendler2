@@ -1,14 +1,14 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
 import { useTranslations } from "next-intl";
-import { setSliderDisplacement } from "@/app/utils/setSliderDisplacement";
+import { setSliderDisplacement } from '@/app/utils/setSliderDisplacement';
 
 let count = 0;
 
 const SliderSmsService: React.FC = () => {
-	const [extra, setExtra] = useState<string>("");
+	const [extra, setExtra] = useState<string>('');
 	const [isActiveRight, setIsActiveRight] = useState(false);
 	const [isActiveLeft, setIsActiveLeft] = useState(true);
 	const t = useTranslations('SmsServiseCard');
@@ -16,7 +16,7 @@ const SliderSmsService: React.FC = () => {
 	const hanleClickLeft = (): void => {
 		if (count > 0) {
 			count = count - 1;
-		};
+		}
 		if (0 <= count && count <= 5) {
 			setIsActiveRight(false);
 			setSliderDisplacement(count, 352);
@@ -25,13 +25,13 @@ const SliderSmsService: React.FC = () => {
 		if (count === 0) {
 			setIsActiveLeft(true);
 			setIsActiveRight(false);
-		};
+		}
 	};
 
 	const hanleClickRight = (): void => {
 		if (count < 5) {
-			count = count + 1
-		};
+			count = count + 1;
+		}
 		if (0 <= count && count <= 5) {
 			setIsActiveLeft(false);
 			setSliderDisplacement(count, 352);
@@ -40,7 +40,7 @@ const SliderSmsService: React.FC = () => {
 		if (count === 5) {
 			setIsActiveLeft(false);
 			setIsActiveRight(true);
-		};
+		}
 	};
 
 	let xStart: number | null = null;
@@ -55,7 +55,7 @@ const SliderSmsService: React.FC = () => {
 	const handleTouchMove = (e: React.TouchEvent<HTMLUListElement>): void => {
 		if (!xStart || !yStart) {
 			return;
-		};
+		}
 
 		let xEnd = 0;
 		let yEnd = 0;
@@ -70,31 +70,31 @@ const SliderSmsService: React.FC = () => {
 			if (xDiff > 0) {
 				if (count > 0) {
 					count = count - 1;
-				};
+				}
 				if (0 <= count && count <= 5) {
 					setIsActiveRight(false);
 					setSliderDisplacement(count, 352);
 					setExtra('swiperOnMoveMobile');
-				};
+				}
 				if (count === 0) {
 					setIsActiveLeft(true);
 					setIsActiveRight(false);
-				};
+				}
 			} else {
 				if (count < 5) {
-					count = count + 1
-				};
+					count = count + 1;
+				}
 				if (0 <= count && count <= 5) {
 					setIsActiveLeft(false);
 					setSliderDisplacement(count, 352);
 					setExtra('swiperOnMoveMobile');
-				};
+				}
 				if (count === 5) {
 					setIsActiveLeft(false);
 					setIsActiveRight(true);
-				};
-			};
-		};
+				}
+			}
+		}
 		xStart = null;
 		yStart = null;
 	};
@@ -103,10 +103,9 @@ const SliderSmsService: React.FC = () => {
 		<>
 			<div className="container relative mx-auto">
 				<div className="flex gap-3 absolute right-[40px] top-[15px] z-10">
-
 					<button
 						type="button"
-						className={`md:hidden cursor-pointer ${isActiveLeft && "opacity-[0.3]"} `}
+						className={`md:hidden cursor-pointer ${isActiveLeft && 'opacity-[0.3]'} `}
 						onClick={hanleClickLeft}
 						disabled={isActiveLeft}
 					>
@@ -120,7 +119,7 @@ const SliderSmsService: React.FC = () => {
 
 					<button
 						type="button"
-						className={`md:hidden cursor - pointer ${isActiveRight && "opacity-[0.3]"} `}
+						className={`md:hidden cursor - pointer ${isActiveRight && 'opacity-[0.3]'} `}
 						onClick={hanleClickRight}
 						disabled={isActiveRight}
 					>
@@ -135,7 +134,12 @@ const SliderSmsService: React.FC = () => {
 			</div>
 
 			<div className="container lg:w-[1130px] xl:w-full overflow-hidden mx-auto  ">
-				<ul onTouchStart={handleTouchStart} onTouchEnd={handleTouchMove} id='sliderServices' className={`flex md:flex-wrap gap-6 ${extra} swiperTransition`}>
+				<ul
+					onTouchStart={handleTouchStart}
+					onTouchEnd={handleTouchMove}
+					id="sliderServices"
+					className={`flex md:flex-wrap gap-6 ${extra} swiperTransition`}
+				>
 					<SmsServiseCard
 						title={t('title_1')}
 						descr={t('description_1')}
@@ -177,25 +181,25 @@ interface ICardProps {
 	descr: string;
 	linkText?: string;
 	linkTo?: string;
-};
+}
 
 function SmsServiseCard({ title, descr, linkText, linkTo }: ICardProps) {
 	return (
-		<li className="smsServiseCard min-w-[328px] md:w-[328px] lg:min-w-[350.6px] xl:min-w-[416px] px-[14px] lg:px-[26px] pt-[54px] md:pt-10 pb-[26px] md:pb-3.5 lg:pb-[26px] rounde" key={title}>
-			<p className=" font-montserrat font-medium text-lg lg:text-xl leading-[30px] text-[#1B1B30] mb-[24px] lg:mb-7">
+		<li
+			className="smsServiseCard dark:bg-darkItems dark:shadow  min-w-[328px] md:w-[328px] lg:min-w-[350.6px] xl:min-w-[416px] px-[14px] lg:px-[26px] pt-[54px] md:pt-10 pb-[26px] md:pb-3.5 lg:pb-[26px] rounde"
+			key={title}
+		>
+			<p className=" font-montserrat font-medium text-lg lg:text-xl leading-[30px] dark:text-textColorDarkTheme text-[#1B1B30] mb-[24px] lg:mb-7">
 				{title}
 			</p>
-			<p className=" font-montserrat text-sm lg:text-lg lg:leading-[27px] text-[#1B1B30]">
+			<p className=" font-montserrat text-sm lg:text-lg lg:leading-[27px] dark:text-textColorDarkTheme text-[#1B1B30]">
 				{descr}
 				{linkTo && (
 					<Link href={linkTo} className="block text-[#2366E8] underline">
 						{linkText}
 					</Link>
-				)};
+				)}
 			</p>
 		</li>
 	);
-};
-
-
-
+}

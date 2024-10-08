@@ -25,13 +25,47 @@ body {
   background: #fefefe;
 }
 
+.dark body {
+  background: #091e36;
+  color: #F4F4F4;
+}
+
 main {
   flex: 1;
+}
+
+.dark main {
+  background: #091e36;
+  color: #F4F4F4;
 }
 
 footer {
   flex-shrink: 0;
 }
+
+.dark footer {
+  background: #011327;
+  color: #F4F4F4;
+}
+
+.dark header {
+  background: #011327;
+  color: #F4F4F4;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #F4F4F4;
+}
+
+.dark input{
+  background-color: #7D7D7D40;
+}
+
 
 @layer components {
   .container {
@@ -141,7 +175,7 @@ footer {
 }
 
 .input {
-  @apply bg-white border border-inputBorder rounded-[18px];
+  @apply bg-white dark:bg-darkInput border border-inputBorder dark:border-darkInput rounded-[18px];
 }
 
 .input:focus {
@@ -226,6 +260,9 @@ footer {
 
 .caruselBg {
   background: linear-gradient(101.12deg, #0d364c 12.98%, #136a83 48.23%, #0d2846 79.12%);
+}
+.dark .caruselBg {
+  background: linear-gradient(101.12deg, #162A39 12.98%, #0D343F 48.23%, #052035 79.12%);
 }
 
 .swiperCardText {

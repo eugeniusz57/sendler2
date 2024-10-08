@@ -47,7 +47,17 @@ const config: Config = {
 				rowBtnDisableBorder: '#6C6C6C',
 				disableAlfaName: '#372037',
 				smsServiceCardShadow: '#a3d6d94d',
-				smsServiceCardBg: '#cde8ea'
+				smsServiceCardBg: '#cde8ea',
+				bgDark: '#091E36',
+				darkItems: '#00162F',
+				darkInput: '#1E2737',
+				swetchThemeBgLight: '#72809B7A',
+				bgSwetch: '#EDEDED',
+				bgDarkInput: '#7D7D7D40',
+				textColorDarkTheme: '#F4F4F4',
+				tableCptionBG: '#132B41',
+				tableBorder: '#265863',
+
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -58,9 +68,20 @@ const config: Config = {
 			},
 			boxShadow: {
 				'3xl': '0 8px 8px 0 #a3d6d94d',
-			}
+				'shadow': '0px 2px 4px 0px rgba(146, 146, 146, 0.3)',
+				'custom-inset-light': 'inset -1px -1px 4px 0px rgba(255, 255, 255, 0.25)', // Pierwszy cień
+				'custom-inset-dark': 'inset 2px 2px 8px 0px rgba(255, 255, 255, 0.25)',   // Drugi cień
+
+			},
+			backdropFilter: {
+				'blur-20': 'blur(20px)',  // Używa efektu rozmycia tła
+			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('tailwindcss-filters'), // Plugin Tailwind dla efektów filtrów
+	],
+
+	darkMode: 'class',
 };
 export default config;
