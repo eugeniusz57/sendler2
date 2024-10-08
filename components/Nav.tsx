@@ -13,6 +13,7 @@ import { routing } from '@/i18n/routing';
 import SwitchTheme from './buttons/SwitchTheme';
 import useWindowWidth from '@/helpers/windowsSize';
 
+
 const Nav: React.FC = () => {
 	const { data: session, status } = useSession();
 	const [isOpen, setIsOpen] = useState(true);
@@ -51,6 +52,7 @@ const Nav: React.FC = () => {
 		{ id: 4, title: t2('title_4'), path: '/debts' },
 	];
 	const withWindow = useWindowWidth();
+
 
 	const toggleModal = () => {
 		if (isModalOpen) {
@@ -163,9 +165,11 @@ const Nav: React.FC = () => {
 						/>
 					</div>
 				</div>
+				{withWindow !== undefined && withWindow > 1160 && <SwitchTheme />}
 			</nav>
 
 			<ModalBurgerMenu isOpen={isModalOpen} onClose={closeModal}>
+
 
 				<ul
 					className={`absolute top-0 left-0 z-10 py-5 pl-[84px] min-h-screen block w-[436px] bg-bgFooter  text-lg md:text-[22px] lg:text-2xl text-white burger-menu-overlay duration-500 transition-all `}
