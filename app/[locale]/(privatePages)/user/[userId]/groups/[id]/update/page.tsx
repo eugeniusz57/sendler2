@@ -11,6 +11,8 @@ import GreenButton from '@/components/buttons/GreenButton';
 import { getGroupClientsAndGroupName } from '@/fetch-actions/clientsFetchActions';
 import updateGroup from '@/fetch-actions/updateGroup';
 import { IGroupId, IUserId } from '@/globaltypes/types';
+import EmailColorLinkBtn from "@/components/buttons/EmailColorLinkBtn";
+
 
 interface Props {
 	params: {
@@ -38,6 +40,16 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 				setGroupName(groupName);
 				setNumberClients(clients.length);
 			}
+		}
+	};
+
+	//the function returns to the previos page
+	const handleClick = async () => {
+		try {
+			router.push(`/${locale}/user/${params.userId}/groups`);
+		} catch (error: any) {
+			console.log(error.message);
+			router.push("/");
 		}
 	};
 
@@ -88,6 +100,7 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 						{t('titlePageBox')}
 						<span className="ml-4 text-headerTable">{`${groupName} (${numberClients})`}</span>
 					</Title>
+					<EmailColorLinkBtn isDisabled={false} onClick={handleClick}>{t('textTurnBackButton')}</EmailColorLinkBtn>
 				</div>
 				<p className="lg:w-[724px] md:mb-[50px] mb-[40px] leading-6">
 					{t('textPageBox')}

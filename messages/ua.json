@@ -164,7 +164,8 @@
 		"titlePageBox": "Редагування групи:",
 		"textPageBox": "Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу. Виберіть файл, який містить Ваші контакти:",
 		"tilteFileInput": "Додати контакт з файлу",
-		"textFileInputButton": "Додати"
+		"textFileInputButton": "Додати",
+		"textTurnBackButton": "Повернутись до списку груп"
 	},
 	"StatisticsPage": {
 		"pageTitle": "Статистика",

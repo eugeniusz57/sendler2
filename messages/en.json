@@ -164,7 +164,8 @@
 		"titlePageBox": "Edit group:",
 		"textPageBox": "You can add contact phone numbers from an Excel or text file. Select the file that contains your contacts:",
 		"tilteFileInput": "Add a contact from a file",
-		"textFileInputButton": "Add"
+		"textFileInputButton": "Add",
+		"textTurnBackButton": "Return to the list of groups"
 	},
 	"StatisticsPage": {
 		"pageTitle": "Statistics",
