@@ -187,7 +187,11 @@
 		"nameCol_3DayHistoryTable": "Status",
 		"nameCol_4DayHistoryTable": "SMS delivered",
 		"nameCol_5DayHistoryTable": "Delivered numbers",
-		"nameCol_6DayHistoryTable": "Actions"
+		"nameCol_6DayHistoryTable": "Actions",
+		"malingStatus_value_1": "Scheduled",
+		"malingStatus_value_2": "Stopped",
+		"malingStatus_value_3": "Sent",
+		"malingStatus_value_4": "Completed"
 	},
 	"HistoryDetails": {
 		"pageTitle": "Detailed statistics",
@@ -195,6 +199,10 @@
 		"textTurnBackButton": "Return to general statistics for the day",
 		"sender": "Sender",
 		"malingStatus": "Mailing status",
+		"malingStatus_value_1": "Scheduled",
+		"malingStatus_value_2": "Stopped",
+		"malingStatus_value_3": "Sent",
+		"malingStatus_value_4": "Completed",
 		"groupName": "Group name",
 		"messageText": "Message text",
 		"nameMobileHistoryDetailsTable": "Messages",

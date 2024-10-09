@@ -79,7 +79,7 @@ const EditGroupPage: React.FC<Props> = ({ params }) => {
 			</Title>
 			<div className="content-block md:mt-[60px] mt-[28px]">
 				<div className='md:mb-[50px] mb-[40px] lg:px-[26px] md:px-[20px] px-[10px]'>
-					<div className=" md:mb-[50px] mb-[28px">
+					<div className=" md:mb-[50px] mb-[28px]">
 						<div className="flex items-center gap-2 md:gap-4]">
 							<Title
 								type="title_block"

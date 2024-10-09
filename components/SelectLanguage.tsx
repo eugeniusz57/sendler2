@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Link } from '@/i18n/routing';
+import { useSearchParams } from 'next/navigation';
 
 type Props = {
 	selectOptions?: readonly ["ua", "en"];
@@ -22,6 +23,8 @@ const SelectLanguage: React.FC<Props> = ({
 	const selectBodyRef = useRef<HTMLDivElement | null>(null);
 	let key = 0;
 	const pathName: string = usePathname();
+	const searchParams = useSearchParams();
+	const historyDate = searchParams.get('date');
 
 	const deleteLocaleFromPathName = (path: string) => {
 		const segments = path.split('/');
@@ -33,8 +36,6 @@ const SelectLanguage: React.FC<Props> = ({
 		path = segments.join('/');
 		return path;
 	};
-
-	deleteLocaleFromPathName(pathName)
 
 	const onClose = () => {
 		setIsOpen(!isOpen);
@@ -99,9 +100,22 @@ const SelectLanguage: React.FC<Props> = ({
 				>
 					{selectOptions?.map(selectOption => (
 						<div key={key++} className='text-right leading-6 hover:opacity-70'>
-							<Link href={deleteLocaleFromPathName(pathName)} locale={selectOption}>
-								{selectOption.toUpperCase()}
-							</Link>
+							{searchParams.get('date') ?
+								<Link
+									href={{
+										pathname: deleteLocaleFromPathName(pathName),
+										query: { date: historyDate }
+									}}
+									locale={selectOption}
+								>
+									{selectOption.toUpperCase()}
+								</Link> :
+								<Link
+									href={deleteLocaleFromPathName(pathName)}
+									locale={selectOption}
+								>
+									{selectOption.toUpperCase()}
+								</Link>}
 						</div>
 					))}
 

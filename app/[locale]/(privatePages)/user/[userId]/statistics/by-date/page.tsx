@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 
 import { getUserHistory } from '@/fetch-actions/historyFetchActions';
 import Title from '@/components/Title';
@@ -10,7 +9,8 @@ import SendingPermissionBtn from '@/components/buttons/SendingPermissionBtn';
 import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
 import { countSuccessfullySentNumbers } from '@/helpers/getCountSuccessfullySentNumbers';
 import { IHistoryPeriod, IHistoryResponce } from '@/globaltypes/historyTypes';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface Props {
 	params: { userId: string };
@@ -21,7 +21,18 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 	const userId = Number(params.userId);
 	const searchParams = useSearchParams();
 	const historyDate = searchParams.get('date');
+	const router = useRouter();
+	const locale = useLocale();
 	const t = useTranslations('DayHistory');
+
+	const handleClick = async () => {
+		try {
+			router.push(`/${locale}/user/${userId}/statistics`);
+		} catch (error: any) {
+			console.log(error.message);
+			router.push("/");
+		}
+	};
 
 	const memoizedUserHistory = useCallback(async () => {
 		const historyPeriod: IHistoryPeriod = {
@@ -51,7 +62,7 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 						<p className="mb-[14px] md:mb-5 text-base md:text-lg font-roboto text-[#1B1B30] lg:text-xl">
 							{t('titlePageBox')} {historyDate ? `${String(new Date(historyDate).getDate()).padStart(2, '0')}.${String(new Date(historyDate).getMonth() + 1).padStart(2, '0')}.${new Date(historyDate).getFullYear()}` : '-'}
 						</p>
-						<BackStatisticsBtn>
+						<BackStatisticsBtn onClick={handleClick}>
 							<p className='text-left text-sm md:text-base'>{t('textTurnBackButton')}</p>
 						</BackStatisticsBtn>
 					</div>
@@ -84,28 +95,31 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 
 										<div className="flex flex-col gap-y-2 text-base md:gap-y-8 lg:flex-row lg:justify-between lg:items-center lg:grow">
 											<p className="font-medium md:hidden">{t('nameCol_1DayHistoryTable')}</p>
-											<p className="w-[130px] montserrat text-sm md:text-base text-[#2366E8] text-ellipsis whitespace-nowrap overflow-hidden">
-												<Link href={`by-date/${item.history_id}`}>{item.text_sms}</Link>
+											<p className="w-[130px] montserrat text-sm md:text-base text-emailColorLink text-ellipsis whitespace-nowrap overflow-hidden">
+												<Link href={{
+													pathname: `by-date/${item.history_id}`,
+													query: { date: historyDate },
+												}}>{item.text_sms}</Link>
 											</p>
 											<p className="font-medium mt-4 md:hidden">{t('nameCol_2DayHistoryTable')}</p>
 											<p className="w-[118px] montserrat text-sm md:text-base">{item.alfa_name}</p>
 											<p className="font-medium mt-4 md:hidden">{t('nameCol_3DayHistoryTable')}</p>
 											<p className="w-[126px] montserrat text-sm md:text-base">
 												{new Date(item.sending_group_date) >= new Date() && item.sending_permission === true
-													? 'Заплановано'
+													? t('malingStatus_value_1')
 													: item.sending_permission === false
-														? 'Зупинено'
+														? t('malingStatus_value_2')
 														: new Date(item.sending_group_date) < new Date() &&
 															item.recipient_status.some(item => item === 'pending')
-															? 'Відправлено'
-															: 'Завершено'}
+															? t('malingStatus_value_3')
+															: t('malingStatus_value_4')}
 											</p>
 											<p className="font-medium mt-4 md:hidden">{t('nameCol_4DayHistoryTable')}</p>
 											<p className="w-[160px] montserrat text-sm md:text-base">
 												{item.recipient_status.filter(item => item === 'fullfield').length}/
 												{item.recipient_status.length}
 											</p>
-											<p className="font-medium mt-4 md:hidden">{t('nameCol_5DayHistoryTable')}в</p>
+											<p className="font-medium mt-4 md:hidden">{t('nameCol_5DayHistoryTable')}</p>
 											<p className="w-[200px] montserrat text-sm md:text-base">
 												{countSuccessfullySentNumbers(item)}/
 												{Array.from(new Set(item.clients)).length}
