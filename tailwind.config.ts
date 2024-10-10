@@ -57,6 +57,7 @@ const config: Config = {
 				textColorDarkTheme: '#F4F4F4',
 				tableCptionBG: '#132B41',
 				tableBorder: '#265863',
+				darkLink:'#7FA9FA',
 
 			},
 			backgroundImage: {

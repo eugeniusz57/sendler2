@@ -78,7 +78,7 @@ const AddAlfaNameForm: React.FC<Props> = ({ userId, getUserNamesArray, getIsOpen
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
 			className='mt-8'>
-			<p className="hidden md:block mb-[22px] text-mainTextColor text-base font-montserrat">
+			<p className="hidden md:block mb-[22px] text-mainTextColor dark:text-textColorDarkTheme text-base font-montserrat">
 				{t('textAddAlfaNameFormBox')}
 			</p>
 			<label htmlFor='alfa_name' className='block mb-3.5 label'>

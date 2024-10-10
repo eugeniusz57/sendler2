@@ -143,7 +143,7 @@ footer {
 }
 
 .sms-page-box {
-  @apply md:py-[50px] py-[28px] lg:px-[26px] md:px-[20px] px-[10px] rounded-[14px] bg-formBg;
+  @apply md:py-[50px] py-[28px] lg:px-[26px] md:px-[20px] px-[10px] rounded-[14px] bg-formBg dark:bg-darkItems ;
 }
 
 .action__btn {
@@ -334,7 +334,7 @@ select::-ms-expand {
 }
 
 .select-wrap {
-  @apply relative h-12 border-[1px] justify-center cursor-pointer;
+  @apply relative h-12 border-[1px] justify-center cursor-pointer dark:border-none;
 }
 
 .select {
@@ -342,7 +342,7 @@ select::-ms-expand {
 }
 
 .select-body {
-  @apply w-full py-3 bg-white rounded-[18px] border-[1px] border-[#E6E6E6];
+  @apply w-full py-3 bg-white rounded-[18px] border-[1px] border-[#E6E6E6] dark:border-none;
 }
 
 .select-item {

@@ -20,7 +20,7 @@ const RootLayout: React.FC<Props> = async ({
 }) => {
 	const session: ISession | null = await getServerSession(options);
 	return (
-		<main className="w-full pt-6 md:pt-[50px] md:pb-20 pb-[50px] flex flex-col items-center bg-white">
+		<main className="w-full pt-6 md:pt-[50px] md:pb-20 pb-[50px] flex flex-col items-center bg-white dark:bg-bgDark">
 			<section className="container">
 				{session?.user.user_role === 'user' && <UserSmsBalansInform session={session} />}
 				{children}

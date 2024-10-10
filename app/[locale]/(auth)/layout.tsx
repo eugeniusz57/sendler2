@@ -15,7 +15,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
 				} flex items-left justify-left pt-[190px] mb-20}`}
 		>
 			<div className=" container mx-auto flex items-start justify-center lg:justify-start">
-				<div className=" w-[328px] md:w-[526px] py-7 lg:py-11  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700 px-[10px] lg:px-[26px] bg-formBg">
+				<div className=" w-[328px] md:w-[526px] py-7 lg:py-11  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700 px-[10px] lg:px-[26px] bg-formBg dark:bg-darkItems">
 					<h1 className="form-title mb-8">Особистий кабінет</h1>
 					<TitleAuthForm />
 					{children}

@@ -66,7 +66,7 @@ const Select: React.FC<Props> = ({
 			onClick={onClose}
 			className={`select-wrap ${widthValue ? ` w-[${widthValue}px]` : `w-full`}`}
 		>
-			<div className={`select bg-white ${isOpen ? ` rounded-t-[18px] border-[1px]` : `border-[#E6E6E6] border-[1px] rounded-[18px]`}`}>
+			<div className={`select bg-white dark:bg-darkInput ${isOpen ? ` rounded-t-[18px] border-[1px] dark:border-none` : `border-[#E6E6E6] border-[1px] rounded-[18px] dark:border-none`}`}>
 				<div className="absolute top-1/2 -translate-y-1/2 left-7 font-montserrat font-normal text-base md:text-base sm:text-sm leading-6">
 					{!isOpen && !selectedOption && <div>{defaultValue}</div>}
 					{isOpen && !selectedOption ? defaultValue : selectedOption}
@@ -77,7 +77,7 @@ const Select: React.FC<Props> = ({
 						alt="Arrov up icon"
 						width={32}
 						height={32}
-						className="absolute top-1/2 -translate-y-1/2 right-7 ml-auto cursor-pointer"
+						className="absolute top-1/2 -translate-y-1/2 right-7 ml-auto cursor-pointer dark:invert"
 					/>
 				) : (
 					<Image
@@ -85,13 +85,13 @@ const Select: React.FC<Props> = ({
 						alt="Arrov down icon"
 						width={32}
 						height={32}
-						className="absolute top-1/2 -translate-y-1/2 right-7 ml-auto cursor-pointer"
+						className="absolute top-1/2 -translate-y-1/2 right-7 ml-auto cursor-pointer dark:invert"
 					/>
 				)}
 			</div>
 			{isOpen && (
 				<div
-					className={`w-[${widthValue}px] overflow-auto h-32 sm:h-28 -mt-[2px] bg-white rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0`}
+					className={`w-[${widthValue}px] overflow-auto h-32 sm:h-28 -mt-[2px] bg-white dark:bg-darkInput rounded-b-[18px] border-[1px] border-[#E6E6E6] border-t-0 dark:border-none`}
 					ref={selectBodyRef}
 				>
 					<RSC>
