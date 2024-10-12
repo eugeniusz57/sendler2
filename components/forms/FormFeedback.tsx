@@ -7,6 +7,7 @@ import { FormInputFeedback } from '@/globaltypes/types';
 import GreenButton from '../buttons/GreenButton';
 import Image from 'next/image';
 import { EnterOnlyFigures } from '@/helpers/EnterOnlyFigures';
+import { useTranslations } from 'next-intl';
 
 interface Props {
 	onClose: (() => void) | undefined;
@@ -15,6 +16,7 @@ interface Props {
 };
 
 const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
+	const t = useTranslations('QuestionsPage');
 	const {
 		register,
 		handleSubmit,
@@ -73,7 +75,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 			{title && <h1 className="form-title mb-8 mt-[15px]">{title}</h1>}
 			<div className="text-left w-full mb-8">
 				<label htmlFor="name" className="font-roboto text-xs md:text-sm font-medium mb-2 block">
-					П.І.Б
+					{t('titleInput_1')}
 				</label>
 				<div className="flex relative">
 					{' '}
@@ -88,7 +90,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 				</div>
 
 				<label htmlFor="phone" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
-					Номер телефону
+					{t('titleInput_2')}
 				</label>
 				<div className="flex relative">
 					<span className="absolute left-3 top-[9px]">+380</span>
@@ -103,7 +105,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 				</div>
 
 				<label htmlFor="email" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
-					Електронна пошта<span className=" text-redStar">*</span>
+					{t('titleInput_3')}<span className=" text-redStar">*</span>
 				</label>
 
 				<div className="flex relative">
@@ -120,7 +122,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 				</div>
 
 				<label htmlFor="desc" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
-					Текст повідомлення<span className=" text-redStar">*</span>
+					{t('titleInput_4')}<span className=" text-redStar">*</span>
 				</label>
 				<div className="flex relative">
 					{' '}
@@ -134,7 +136,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 					{errors.desc && <span className="form-errors ">{errors.desc.message}</span>}
 				</div>
 			</div>
-			<GreenButton size="big">Відправити</GreenButton>
+			<GreenButton size="big">{t('textButton')}</GreenButton>
 		</form>
 	);
 };
