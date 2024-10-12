@@ -164,7 +164,8 @@
 		"titlePageBox": "Edit group:",
 		"textPageBox": "You can add contact phone numbers from an Excel or text file. Select the file that contains your contacts:",
 		"tilteFileInput": "Add a contact from a file",
-		"textFileInputButton": "Add"
+		"textFileInputButton": "Add",
+		"textTurnBackButton": "Return to the list of groups"
 	},
 	"StatisticsPage": {
 		"pageTitle": "Statistics",
@@ -187,7 +188,11 @@
 		"nameCol_3DayHistoryTable": "Status",
 		"nameCol_4DayHistoryTable": "SMS delivered",
 		"nameCol_5DayHistoryTable": "Delivered numbers",
-		"nameCol_6DayHistoryTable": "Actions"
+		"nameCol_6DayHistoryTable": "Actions",
+		"malingStatus_value_1": "Scheduled",
+		"malingStatus_value_2": "Stopped",
+		"malingStatus_value_3": "Sent",
+		"malingStatus_value_4": "Completed"
 	},
 	"HistoryDetails": {
 		"pageTitle": "Detailed statistics",
@@ -195,6 +200,10 @@
 		"textTurnBackButton": "Return to general statistics for the day",
 		"sender": "Sender",
 		"malingStatus": "Mailing status",
+		"malingStatus_value_1": "Scheduled",
+		"malingStatus_value_2": "Stopped",
+		"malingStatus_value_3": "Sent",
+		"malingStatus_value_4": "Completed",
 		"groupName": "Group name",
 		"messageText": "Message text",
 		"nameMobileHistoryDetailsTable": "Messages",

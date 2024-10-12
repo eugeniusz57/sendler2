@@ -115,10 +115,10 @@
 		"nameCol_1GroupsList": "Група",
 		"nameCol_2GroupsList": "Оновлення",
 		"nameCol_3GroupsList": "Кількість",
-		"nameActionButton-1": "Редагувати",
-		"nameActionButton-2": "Видалити",
-		"nameActionButton-3": "Імпорт",
-		"nameActionButton-4": "Експорт",
+		"nameActionButton_1": "Редагувати",
+		"nameActionButton_2": "Видалити",
+		"nameActionButton_3": "Імпорт",
+		"nameActionButton_4": "Експорт",
 		"nameTransitionPage": "Всі контакти",
 		"textExplanation": "За бажанням ви можете переглянути всі свої контакти",
 		"textButtonForTransition": "Переглянути"
@@ -164,7 +164,8 @@
 		"titlePageBox": "Редагування групи:",
 		"textPageBox": "Ви можете додати номери телефонів контактів з файлу у форматі Excel або текстового файлу. Виберіть файл, який містить Ваші контакти:",
 		"tilteFileInput": "Додати контакт з файлу",
-		"textFileInputButton": "Додати"
+		"textFileInputButton": "Додати",
+		"textTurnBackButton": "Повернутись до списку груп"
 	},
 	"StatisticsPage": {
 		"pageTitle": "Статистика",
@@ -187,14 +188,22 @@
 		"nameCol_3DayHistoryTable": "Статус",
 		"nameCol_4DayHistoryTable": "Доставлено смс",
 		"nameCol_5DayHistoryTable": "Доставлено номерів",
-		"nameCol_6DayHistoryTable": "Дії"
+		"nameCol_6DayHistoryTable": "Дії",
+		"malingStatus_value_1": "Заплановано",
+		"malingStatus_value_2": "Зупинено",
+		"malingStatus_value_3": "Відправлено",
+		"malingStatus_value_4": "Завершено"
 	},
 	"HistoryDetails": {
 		"pageTitle": "Детальна статистика",
 		"titlePageBox": "Розсилки за",
-		"textTurnBackButton": "Повернутись до загальної статистики за деньд",
+		"textTurnBackButton": "Повернутись до загальної статистики за день",
 		"sender": "Відправник",
 		"malingStatus": "Статус розсилки",
+		"malingStatus_value_1": "Заплановано",
+		"malingStatus_value_2": "Зупинено",
+		"malingStatus_value_3": "Відправлено",
+		"malingStatus_value_4": "Завершено",
 		"groupName": "Назва групи",
 		"messageText": "Текст повідомлення",
 		"nameMobileHistoryDetailsTable": "Повідомлення",
