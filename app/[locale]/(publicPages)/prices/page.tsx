@@ -1,20 +1,22 @@
 import TablePrices from '@/components/TablePrices';
 import Title from '@/components/Title';
 import HeroBtn from '@/components/buttons/HeroBtn';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 const Prices: React.FC = () => {
+	const t = useTranslations('PricesPage');
 	return (
 		<>
 			<section className="w-full bg-[url('/bg-prices-mobile.jpg')] md:bg-[url('/bg-prices-tablet.jpg')] lg:bg-[url('/bg-prices.jpg')] bg-cover flex flex-col items-center pt-[213px] pb-[248px] h-[400px]  md:h-[532px]  lg:h-[606px]">
 				<div className="container ">
 					<Title type="h1" color="light">
 						{' '}
-						Вартість послуг на SMS розсилку
+						{t('pageTitle')}
 					</Title>
 					<div className=" flex gap-[14px] mt-11 lg:mt-12 ">
 						<HeroBtn linkTo="/login">
-							Увійти{' '}
+							{t('enterButtonText')}{' '}
 							<Image
 								className="ml-1 text-white"
 								src="/svg/login.svg"
@@ -23,7 +25,7 @@ const Prices: React.FC = () => {
 								height={24}
 							/>
 						</HeroBtn>
-						<HeroBtn linkTo="/signup">Реєстрація</HeroBtn>
+						<HeroBtn linkTo="/signup">{t('registrationButtonText')}</HeroBtn>
 					</div>
 				</div>
 			</section>
@@ -31,18 +33,16 @@ const Prices: React.FC = () => {
 				<div className="container ">
 					<div className="lg:flex items-center w-full">
 						<div className="lg:w-5/12 md:w-[525px] mb-[50px] lg:mb-0">
-							<p className="font-roboto text-lg md:text-xl mb-2">Використання системи включає:</p>
+							<p className="font-roboto text-lg md:text-xl mb-2">{t('textTitle')}</p>
 							<p className=" text-sm md:text-base mb-6 md:mb-8">
-								Необмежену кількість відправлених СМС.
+								{t('text_part1')}
 							</p>
 							<p className="text-sm md:text-base mb-6 md:mb-8">
-								Вибір імені відправника (підпису). <br />
-								Завантажити заявку з активації імені.
+								{t('text_part2')} <br />
+								{t('text_part3')}
 							</p>
 							<p className="text-sm md:text-base">
-								У Вас може бути декілька імен відправника (підписів). Ви повинні мати право
-								використовувати ці імена. Кожне ім&apos;я відправника проходить попередню перевірку
-								нашої компанії.
+								{t('text_part4')}
 							</p>
 						</div>
 						<div className="flex  w-full">
@@ -50,9 +50,7 @@ const Prices: React.FC = () => {
 						</div>
 					</div>
 					<p className="font-roboto text-base md:text-lg lg:text-xl mt-[50px] md:mt-20">
-						Ваша компанія несе повну відповідальність за будь-які скарги Ваших клієнтів, яким було
-						надіслано СМС-Повідомлення. ТОВ &quot;Інноваційні медіа рішення&quot; залишає за собою
-						право змінити вищезгадані ціни, повідомивши Вас заздалегідь.
+						{t('text_part5')}
 					</p>
 				</div>
 			</section>

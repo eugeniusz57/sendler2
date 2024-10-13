@@ -8,7 +8,9 @@ import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
 import formatToDate from '@/app/utils//fotmatToDate';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 interface Props {
 	params: {
@@ -21,6 +23,10 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 	const [userHistoryDetails, setUserHistoryDetails] = useState<IHistoryDetailsResponce[]>([]);
 	const userId = Number(params.userId);
 	const historyId = String(params.historyId);
+	const searchParams = useSearchParams();
+	const [historyDate, setHistorydate] = useState(searchParams.get('date'));
+	const router = useRouter();
+	const locale = useLocale();
 	const t = useTranslations('HistoryDetails');
 
 	const memoizedUserHistoryDetails = useCallback(async () => {
@@ -85,9 +91,11 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 							<Image src="/svg/excel.svg" alt="Excel icon" width={30} height={30} className="md:hidden" />
 						</button>
 					</div>
-					<BackStatisticsBtn>
-						<p className='text-left text-sm md:text-base'>{t('textTurnBackButton')}</p>
-					</BackStatisticsBtn>
+					<Link href={{
+						pathname: `/${locale}/user/${userId}/statistics/by-date`,
+						query: { date: historyDate }
+					}} className='block mb-10 text-left text-sm font-roboto text-emailColorLink md:text-base'>{t('textTurnBackButton')}
+					</Link>
 					<div className="flex flex-wrap gap-y-[40px] lg:flex-nowrap mb-10 text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30]">
 						<div className="flex-none md:w-40 mr-8">
 							<p className="mb-4 ">{t('sender')}</p>
@@ -95,18 +103,18 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 							<p>{t('groupName')}</p>
 						</div>
 						<div className="w-2/5 font-montserrat self-stretch text-sm md:mr-28 md:text-base lg:text-lg">
-							<p className="mb-[22px] lg:mb-4 text-[#2366E8]">
+							<p className="mb-[22px] lg:mb-4 text-emailColorLink">
 								{userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
 							</p>
 							<p className="mb-[22px] lg:mb-4">
 								{userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime() >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
-									? 'Заплановано'
+									? t('malingStatus_value_1')
 									: userHistoryDetails[0]?.sending_permission === false
-										? 'Зупинено'
+										? t('malingStatus_value_2')
 										: new Date(userHistoryDetails[0]?.sending_group_date) < new Date() &&
 											userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
-											? 'Відправлено'
-											: 'Завершено'}
+											? t('malingStatus_value_3')
+											: t('malingStatus_value_4')}
 							</p>
 							<p className="max-w-[300px] break-words">{Array.from(new Set(userHistoryDetails.map(obj => obj.group_name))).join(', ')}</p>
 						</div>

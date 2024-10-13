@@ -169,8 +169,6 @@ const Nav: React.FC = () => {
 			</nav>
 
 			<ModalBurgerMenu isOpen={isModalOpen} onClose={closeModal}>
-
-
 				<ul
 					className={`absolute top-0 left-0 z-10 py-5 pl-[84px] min-h-screen block w-[436px] bg-bgFooter  text-lg md:text-[22px] lg:text-2xl text-white burger-menu-overlay duration-500 transition-all `}
 				>
