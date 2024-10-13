@@ -45,7 +45,7 @@ const AccountInPdf: React.FC<Props> = ({ summ }) => {
 	});
 
 	return (
-		<div className="w-[1000px]  bg-white p-12 font-semibold text-xl">
+		<div className="w-[1000px]  bg-white dark:bg-darkItems p-12 font-semibold text-xl dark:text-textColorDarkTheme">
 			<div ref={contentRef} className="py-12 border-b-2  border-t-2">
 				<ul className="flex mb-8">
 					<li className="mr-8">
@@ -90,14 +90,14 @@ const AccountInPdf: React.FC<Props> = ({ summ }) => {
 			</div>
 			<div className="flex justify-between items-center">
 				<button
-					className={`block mt-2 text-emailColorLink hover:opacity-80 focus:opacity-80`}
+					className={`block mt-2 text-emailColorLink dark:text-darkLink hover:opacity-80 focus:opacity-80`}
 					onClick={handleDownloadPDF}
 				>
 					Завантажити рахунок в PDF
 				</button>
 				<button
 					onClick={handlePrint}
-					className={`block mt-2 text-emailColorLink hover:opacity-80 focus:opacity-80`}
+					className={`block mt-2 text-emailColorLink dark:text-darkLink hover:opacity-80 focus:opacity-80`}
 				>
 					Роздрукувати рахунок
 				</button>

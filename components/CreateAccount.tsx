@@ -47,7 +47,7 @@ const CreateAccount: React.FC = () => {
 			<button
 				onClick={openModal}
 				disabled={!inputValue}
-				className={`block md:mt-2 lg:mt-0 text-emailColorLink  ${inputValue ? 'opacity-100 cursor-pointer hover:opacity-80 focus:opacity-80' : 'opacity-50'
+				className={`block md:mt-2 lg:mt-0 text-emailColorLink dark:text-darkLink ${inputValue ? 'opacity-100 cursor-pointer hover:opacity-80 focus:opacity-80' : 'opacity-50'
 					}  `}
 			>
 				{t('textCreateAccountButton')}
