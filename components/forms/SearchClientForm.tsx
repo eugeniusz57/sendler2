@@ -95,7 +95,7 @@ const SearchClientForm: React.FC<Props> = ({ getFilter, resetFilter }) => {
 						<span className="form-errors">{errors.tel.message}</span>
 					)}
 				</div>
-				<GreenButton size="normal" isDisabled={isDisabled}>{t('textInputSearchClientFormButton')}и</GreenButton>
+				<GreenButton size="normal" isDisabled={isDisabled}>{t('textInputSearchClientFormButton')}</GreenButton>
 			</div>
 		</form>
 	);
