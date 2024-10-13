@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import React from "react";
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl';
 import Feedback from "./Feedback";
 import LogoFooter from "./LogoFooter";
 
