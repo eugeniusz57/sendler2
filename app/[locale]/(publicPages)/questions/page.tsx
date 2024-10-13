@@ -146,7 +146,14 @@ const Question: React.FC = () => {
 							</p>
 						</li>
 					</ul>
-					<FormFeedback onClose={undefined} />
+					<FormFeedback
+						onClose={undefined}
+						titleInput_1={t('titleInput_1')}
+						titleInput_2={t('titleInput_2')}
+						titleInput_3={t('titleInput_3')}
+						titleInput_4={t('titleInput_4')}
+						textButton={t('textButton')}
+					/>
 				</div>
 			</section>
 		</>

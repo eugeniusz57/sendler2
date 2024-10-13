@@ -12,9 +12,22 @@ interface Props {
 	onClose: (() => void) | undefined;
 	title?: string;
 	cross?: boolean;
+	titleInput_1?: string;
+	titleInput_2?: string;
+	titleInput_3?: string;
+	titleInput_4?: string;
+	textButton?: string;
 };
 
-const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
+const FormFeedback: React.FC<Props> = ({
+	onClose,
+	title,
+	cross,
+	titleInput_1,
+	titleInput_2,
+	titleInput_3,
+	titleInput_4,
+	textButton }) => {
 	const {
 		register,
 		handleSubmit,
@@ -73,7 +86,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 			{title && <h1 className="form-title mb-8 mt-[15px]">{title}</h1>}
 			<div className="text-left w-full mb-8">
 				<label htmlFor="name" className="font-roboto text-xs md:text-sm font-medium mb-2 block">
-					П.І.Б
+					{titleInput_1}
 				</label>
 				<div className="flex relative">
 					{' '}
@@ -88,7 +101,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 				</div>
 
 				<label htmlFor="phone" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
-					Номер телефону
+					{titleInput_2}
 				</label>
 				<div className="flex relative">
 					<span className="absolute left-3 top-[9px]">+380</span>
@@ -103,7 +116,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 				</div>
 
 				<label htmlFor="email" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
-					Електронна пошта<span className=" text-redStar">*</span>
+					{titleInput_3}<span className=" text-redStar">*</span>
 				</label>
 
 				<div className="flex relative">
@@ -120,7 +133,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 				</div>
 
 				<label htmlFor="desc" className="font-roboto text-xs md:text-sm font-medium mb-2 mt-[22px] md:mt-8 block">
-					Текст повідомлення<span className=" text-redStar">*</span>
+					{titleInput_4}<span className=" text-redStar">*</span>
 				</label>
 				<div className="flex relative">
 					{' '}
@@ -134,7 +147,7 @@ const FormFeedback: React.FC<Props> = ({ onClose, title, cross }) => {
 					{errors.desc && <span className="form-errors ">{errors.desc.message}</span>}
 				</div>
 			</div>
-			<GreenButton size="big">Відправити</GreenButton>
+			<GreenButton size="big">{textButton}</GreenButton>
 		</form>
 	);
 };
