@@ -58,6 +58,7 @@ const config: Config = {
 				tableCptionBG: '#132B41',
 				tableBorder: '#265863',
 				darkLink:'#7FA9FA',
+				selectDarkHover:'#1A3A57',
 
 			},
 			backgroundImage: {

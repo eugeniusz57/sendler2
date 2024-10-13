@@ -93,7 +93,7 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className={`w-[328px] md:w-[526px] mx-auto p-[26px] ${isOpen ? "form-visible" : "form-hidden"} justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg overflow-hidden`}
+			className={`w-[328px] md:w-[526px] mx-auto p-[26px] ${isOpen ? "form-visible" : "form-hidden"} justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg dark:bg-darkItems overflow-hidden`}
 		>
 			<div className="relative w-full text-center mb-8">
 				<p color="dark" className="form-title">{t('title')}</p>
@@ -103,12 +103,14 @@ const UpdateUserForm: React.FC<Props> = ({ userId }) => {
 						alt="arrow down"
 						width={32}
 						height={32}
+						className='dark:invert'
 					/> :
 						<Image
 							src="/svg/arrow-down.svg"
 							alt="arrow down"
 							width={32}
 							height={32}
+							className='dark:invert'
 						/>}
 				</button>
 			</div>
