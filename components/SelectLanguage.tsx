@@ -99,7 +99,7 @@ const SelectLanguage: React.FC<Props> = ({
 					ref={selectBodyRef}
 				>
 					{selectOptions?.map(selectOption => (
-						<div key={key++} className='text-right leading-6 hover:opacity-70'>
+						<div key={key++} className='text-right leading-8 hover:opacity-70'>
 							{searchParams.get('date') ?
 								<Link
 									href={{
