@@ -109,7 +109,7 @@ const UpdateGroupPage: React.FC<Props> = ({ params }) => {
 				<div className="relative flex flex-col md:flex-row gap-6 md:gap-0 text-base  items-center justify-start">
 					<label
 						htmlFor="file"
-						className="flex items-center justify-between  md:w-[474px]  input w-8 h-[48px] md:mr-8 pr-[28px] pl-[28px] bg-slate-300 hover:cursor-pointer"
+						className="flex items-center justify-between w-full  md:w-[474px]  input w-8 h-[48px] md:mr-8 pr-[28px] pl-[28px] bg-slate-300 hover:cursor-pointer"
 					>
 						<div className="grow main_text">{file?.name}</div>
 						<Image src="/svg/paper-clip.svg" alt="paper clip" width={32} height={32} className="" />
