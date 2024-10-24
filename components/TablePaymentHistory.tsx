@@ -26,7 +26,7 @@ const TablePaymentHistory: React.FC<Props> = ({ userId }) => {
 	}, [userId]);
 
 	return (
-		<table className="w-full border bg-priceTableBg text-center mt-4 md:mt-0">
+		<table className="w-full border bg-priceTableBg dark:bg-darkItems text-center mt-4 md:mt-0">
 			<caption className="text-xl md:text-2xl text-right mb-2">Історія оплат користувача</caption>
 			<thead className='hidden md:table-header-group '>
 				<tr className="bg-headerTable text-white text-xl font-roboto leading-[30px]">

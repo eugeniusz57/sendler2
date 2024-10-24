@@ -13,7 +13,7 @@ const TableUserInfo: React.FC<TableUserInfoProps> = ({ user, handleDelete }) => 
 	const formattedDate = date.toISOString().split('T')[0];
 
 	return (
-		<table className="table-auto w-full md:w-1/2 border bg-priceTableBg  md:mr-5 mb-8 md:mb-0 ">
+		<table className="table-auto w-full md:w-1/2 border bg-priceTableBg dark:bg-darkItems  md:mr-5 mb-8 md:mb-0 ">
 			<caption className="text-lg md:text-2xl mb-2">Персональна інформація про користувача</caption>
 			<tbody className=" text-center text-base md:text-xl font-roboto  leading-[30px] rounded-[18px] ">
 				<tr>

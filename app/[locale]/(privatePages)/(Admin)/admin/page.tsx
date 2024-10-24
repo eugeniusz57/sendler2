@@ -54,9 +54,9 @@ const Admin: React.FC = () => {
 	return (
 		<div className="flex flex-col items-center justify-center">
 			<SearchUserForm getFilter={getFilter} />
-			<table className="mt-10 w-full border bg-priceTableBg text-center">
+			<table className="mt-10 w-full border bg-priceTableBg dark:bg-darkItems text-center">
 				<thead className="hidden md:table-header-group align-middle border-inherit">
-					<tr className="bg-headerTable text-white text-sm lg:text-xl font-roboto lg:leading-[30px]">
+					<tr className="bg-headerTable text-white dark:text-textColorDarkTheme text-sm lg:text-xl font-roboto lg:leading-[30px]">
 						<th className="w-1/8 border px-4 py-3 font-normal">ID клієнта</th>
 						<th className="w-1/4 border px-4 py-3 font-normal">Альфа ім&apos;я</th>
 						<th className="w-1/4 border px-4 py-3 font-normal">Логін</th>
