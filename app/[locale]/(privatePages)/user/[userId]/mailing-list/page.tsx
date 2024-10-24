@@ -362,11 +362,11 @@ const MailingList: React.FC<Props> = ({ params }) => {
                 user?.alfa_names_disable?.length === 0
               ) && (
                 <div className="lg:hidden text-mainTextColor dark:text-textColorDarkTheme text-base font-montserrat">
-                  <p className="mb-2 mt-4 xl:mt-0 font-normal">{t('titleNotAgreementUserNames')}</p>
+                  <p className="mb-2 mt-4 text-mainTextColor dark:text-textColorDarkTheme xl:mt-0 font-normal">{t('titleNotAgreementUserNames')}</p>
                   <ul className={`w-64 h-[80px] flex flex-wrap gap-2 overflow-auto`}>
                     <RSC>
                       {user?.alfa_names_disable.map((item, index) => (
-                        <li key={index} className="text-disableAlfaName">
+                        <li key={index} className="text-disableAlfaName  dark:text-textColorDarkTheme">
                           {item}
                         </li>
                       ))}

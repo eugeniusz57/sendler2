@@ -12,7 +12,7 @@ const OfferContract: React.FC = () => {
 		bodyClass: 'print-page',
 	});
 	return (
-		<div className="lg:w-[1000px] md:w-[650px] w-[358px] h-[900px] overflow-auto  bg-white p-12  text-xl flex  flex-col text-justify">
+		<div className="lg:w-[1000px] md:w-[650px] w-[358px] h-[900px] overflow-auto  bg-white dark:bg-darkItems p-12  text-xl flex dark:text-textColorDarkTheme flex-col text-justify">
 			<div ref={contentRef}>
 				<div className=" text-center">
 					{' '}

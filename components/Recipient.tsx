@@ -21,8 +21,9 @@ const Recipient: React.FC<Props> = ({
 				placeholder="bluebill1049@hotmail.com"
 				type="checkbox"
 				onChange={onSelect}
+				
 			/>
-			<label htmlFor={String(index)} className=""></label>
+			<label htmlFor={String(index)}  className="dark:invert"></label>
 			<div className="ml-[15px] text-left truncate">
 				{(typeof recipient) === 'number' ? `+${recipient}` : recipient}
 			</div>

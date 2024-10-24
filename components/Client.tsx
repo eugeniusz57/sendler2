@@ -33,7 +33,7 @@ const Client: React.FC<Props> = ({
 						type="checkbox"
 						onChange={onSelect}
 					/>
-					<label htmlFor={String(convertClient.client_id)}></label>
+					<label htmlFor={String(convertClient.client_id)} className=' dark:invert'></label>
 					<div className="lg:w-[128px] text-left overflow-hidden">
 						{convertClient.tel}
 					</div>
