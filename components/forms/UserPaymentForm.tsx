@@ -69,7 +69,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className="lg:w-[426px] flex justify-items-center h-auto py-3  md:py-4 items-center flex-col leading-6 px-3 md:px-[26px] border rounded-[18px] bg-priceTableBg"
+			className="lg:w-[426px] flex justify-items-center h-auto py-3  md:py-4 items-center flex-col leading-6 px-3 md:px-[26px] border rounded-[18px] dark:border-none bg-priceTableBg dark:bg-bgDark"
 		>
 			<div className="text-left w-full mb-8 ">
 				<p className=" text-center text-l mb-8 italic">
@@ -83,6 +83,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 							height={24}
 							alt="Check box"
 							onClick={handleClickCheckedCorect}
+							className='dark:invert'
 						/>
 					) : (
 						<Image
@@ -91,6 +92,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 							height={24}
 							alt="Check box checked"
 							onClick={handleClickCheckedCorect}
+							className='dark:invert'
 						/>
 					)}
 					Корегувати к-ть СМС
@@ -142,6 +144,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 								height={24}
 								alt="Check box"
 								onClick={handleClickChecked}
+									className='dark:invert'
 							/>
 						) : (
 							<Image
@@ -150,6 +153,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 								height={24}
 								alt="Check box checked"
 								onClick={handleClickChecked}
+									className='dark:invert'
 							/>
 						)}
 						Оплачено
