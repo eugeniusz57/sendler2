@@ -8,7 +8,7 @@ type Props = { userHistory: IHistoryResponce[] };
 
 const TableStatisticsPerDay: React.FC<Props> = ({ userHistory }) => {
 	return (
-		<table className="w-full border bg-priceTableBg text-center">
+		<table className="w-full border bg-priceTableBg dark:bg-darkItems text-center">
 			<thead className="bg-lightGreen">
 				<tr className="bg-headerTable text-white text-base lg:text-xl font-roboto leading-[30px] ">
 					<th className="md:hidden py-[10px] px-3 border font-roboto text-xl font-normal w-full">Розсилки</th>

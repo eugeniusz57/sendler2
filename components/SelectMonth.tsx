@@ -13,7 +13,7 @@ const SelectMonth: React.FC<SelectProps> = ({ options, value, onChange }) => {
 	};
 
 	return (
-		<select value={value} onChange={handleChange} className='border-spacing-1 w-40 py-3 px-4 rounded-lg text-base font-montserrat cursor-pointer'>
+		<select value={value} onChange={handleChange} className='border-spacing-1 w-40 py-3 px-4 rounded-lg text-base font-montserrat cursor-pointer dark:bg-bgDark'>
 			{options.map(option => (
 				<option key={option.value} value={option.value}>
 					{option.label}
