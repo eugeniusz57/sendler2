@@ -5,6 +5,7 @@ import SearchUserForm from '@/components/forms/SearchUserForm';
 import { combinedAlfaNameAndUser } from '@/globaltypes/types';
 import { CombinedAlfaNamesAndUser } from '@/fetch-actions/AlfaName';
 import { useEffect, useState } from 'react';
+import { useTranslations } from "next-intl";
 
 const Admin: React.FC = () => {
 	const [allUsersAlfaNames, setallUsersAlfaNames] = useState<combinedAlfaNameAndUser[]>([]);
@@ -12,8 +13,9 @@ const Admin: React.FC = () => {
 	const [filterallUsersAlfaNames, setFilterAllUsersAlfaNames] = useState<combinedAlfaNameAndUser[]>(
 		allUsersAlfaNames ? allUsersAlfaNames : []
 	);
-
 	const [isLoading, setIsLoading] = useState(false);
+	const t = useTranslations('AdminHomePage');
+
 	const getFilter = (e: any) => {
 		setFilter(e.target.value);
 	};
@@ -57,12 +59,12 @@ const Admin: React.FC = () => {
 			<table className="mt-10 w-full border bg-priceTableBg dark:bg-darkItems text-center">
 				<thead className="hidden md:table-header-group align-middle border-inherit">
 					<tr className="bg-headerTable text-white dark:text-textColorDarkTheme text-sm lg:text-xl font-roboto lg:leading-[30px]">
-						<th className="w-1/8 border px-4 py-3 font-normal">ID клієнта</th>
-						<th className="w-1/4 border px-4 py-3 font-normal">Альфа ім&apos;я</th>
-						<th className="w-1/4 border px-4 py-3 font-normal">Логін</th>
-						<th className="w-1/8 border px-4 py-3 font-normal">Баланс</th>
-						<th className="w-1/4 border px-4 py-3 font-normal">Управляти</th>
-						<th className="w-full border px-4 py-3 font-normal">Додаткова інформація</th>
+						<th className="w-1/8 border px-4 py-3 font-normal">{t('nameCol_1_Table')}</th>
+						<th className="w-1/4 border px-4 py-3 font-normal">{t('nameCol_2_Table')}</th>
+						<th className="w-1/4 border px-4 py-3 font-normal">{t('nameCol_3_Table')}</th>
+						<th className="w-1/8 border px-4 py-3 font-normal">{t('nameCol_4_Table')}</th>
+						<th className="w-1/4 border px-4 py-3 font-normal">{t('nameCol_5_Table')}</th>
+						<th className="w-full border px-4 py-3 font-normal">{t('nameCol_6_Table')}</th>
 					</tr>
 				</thead>
 				{!isLoading && (

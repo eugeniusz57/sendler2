@@ -3,6 +3,7 @@ import BackBtn from '@/components/buttons/BackBtn';
 import UserPaymentForm from '@/components/forms/UserPaymentForm';
 import Link from 'next/link';
 import React from 'react';
+import { getTranslations } from 'next-intl/server';
 
 interface Props {
 	params: { userId: string };
@@ -11,6 +12,8 @@ interface Props {
 const Edit: React.FC<Props> = async ({ params }) => {
 	const userId = Number(params.userId);
 	const userInfo = await fetchUser(params.userId);
+	const t = await getTranslations('AdminEditPage');
+
 
 	return (
 		<>
@@ -20,7 +23,7 @@ const Edit: React.FC<Props> = async ({ params }) => {
 				{userInfo?.user_active ? (
 					<>
 						<p className=" text-xl mb-8">
-							Ви працюєте з обліковим записом користувача:{' '}
+							{t('pageTitle')}{' '}
 							<span className=" text-2xl">{userInfo?.user_login}</span>
 						</p>
 						<div className="flex items-center justify-center">
@@ -29,10 +32,10 @@ const Edit: React.FC<Props> = async ({ params }) => {
 					</>
 				) : (
 					<p className=" text-center text-2xl">
-						Для роботи з користувачем <span className=" font-bold">{userInfo?.user_login}</span>,
-						його потрібно спочатку{' '}
+						{t('description_1')}<span className=" font-bold">{userInfo?.user_login}</span>
+						{t('description_2')}{' '}
 						<Link className=" italic hover:underline " href={`/admin/${userId}/detail`}>
-							активувати
+							{t('description_3')}
 						</Link>
 					</p>
 				)}
