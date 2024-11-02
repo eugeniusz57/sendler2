@@ -2,11 +2,13 @@
 import { allDebts, paydTransactiobByUserId } from '@/fetch-actions/debtsFetch';
 import { IDebts } from '@/globaltypes/types';
 import React, { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const TableDebts: React.FC = () => {
 	const [debts, setDebts] = useState<IDebts[]>();
 	const [isUpdated, setisUpdated] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
+	const t = useTranslations('DebtsPage');
 
 	const handlePaydTransaction = async (transaction_id: number) => {
 		await paydTransactiobByUserId(transaction_id);
@@ -31,11 +33,11 @@ const TableDebts: React.FC = () => {
 		<table className="w-full border bg-priceTableBg text-center">
 			<thead className="bg-lightGreen hidden md:table-header-group ">
 				<tr className="bg-headerTable text-white text-xl font-roboto leading-[30px] ">
-					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">Логін</th>
-					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">Сумма(грн).</th>
-					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">СМС</th>
-					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">Дата поповнення</th>
-					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">Оплачено</th>
+					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">{t('nameCol_1_Table')}</th>
+					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">{t('nameCol_2_Table')}</th>
+					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">{t('nameCol_3_Table')}</th>
+					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">{t('nameCol_4_Table')}</th>
+					<th className="py-[10px] px-3 border font-roboto text-xl font-normal">{t('nameCol_5_Table')}</th>
 				</tr>
 			</thead>
 			{debts && (
@@ -43,10 +45,10 @@ const TableDebts: React.FC = () => {
 					{debts.length !== 0 ? (
 						debts.map(elem => (
 							<tr className='block md:table-row text-center border border-zinc-800  md:border-none' key={elem.transaction_id}>
-								<td data-title="Логін :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.user_login}</td>
-								<td data-title="Сумма :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.money_count}</td>
-								<td data-title="СМС :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.sms_count}</td>
-								<td data-title="Дата :" className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
+								<td data-title={`${t('nameCol_1_Table')} :`} className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.user_login}</td>
+								<td data-title={`${t('nameCol_2_Table')} :`} className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.money_count}</td>
+								<td data-title={`${t('nameCol_3_Table')} :`} className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.sms_count}</td>
+								<td data-title={`${t('mobileNameCol_4_Table')} :`} className="block md:table-cell text-right md:text-center py-4 px-3 border font-montserrat text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 									{elem.transactions_date.toString().split('T')[0]}
 								</td>
 								<td className="block md:table-cell  md:text-center py-4 px-3 border font-montserrat text-xl ">

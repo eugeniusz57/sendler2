@@ -18,7 +18,7 @@
 	},
 	"privateNavigationAdmin": {
 		"title_1": "Домашня сторінка адміна",
-		"title_2": "Ім’я відправника схвалено",
+		"title_2": "Стан Альфа Ім'я",
 		"title_3": "Основна статистика",
 		"title_4": "Борги"
 	},
@@ -149,7 +149,7 @@
 		"tileOperations": "Додати шаблон",
 		"operation_1": "Ім'я клієнта",
 		"operation_2": "Параметр 1",
-		"operation_3": "Параметр 1",
+		"operation_3": "Параметр 2",
 		"textRecipientsFormBox": "Виберіть групу контактів, якій Ви бажаєте надіслати SMS-повідомлення. У Вас є можливість ввести новий номер або вибрати один із контактів.",
 		"titleRecipientsForm": "Групи та номери телефонів, яким буде надіслано SMS- повідомлення",
 		"textButtonInputRecipientPhone": "Додати телефон до списку",
@@ -183,7 +183,8 @@
 		"nameActionButton_4": "Експорт",
 		"nameTransitionPage": "Всі контакти",
 		"textExplanation": "За бажанням ви можете переглянути всі свої контакти",
-		"textButtonForTransition": "Переглянути"
+		"textButtonForTransition": "Переглянути",
+		"nameMobileGroupsTable": "Групи"
 	},
 	"ClientsPage": {
 		"pageTitle": "Управління контактами",
@@ -302,7 +303,10 @@
 		"textRowPriceSmsTable": "Від",
 		"textLastRowPriceSmsTable": "i бiльше",
 		"textInBrackets": "від",
-		"kindPrice": "договірна"
+		"kindPrice": "договірна",
+		"circleDiagram_text_1": "Відхилені",
+		"circleDiagram_text_2": "Усього доставлено",
+		"circleDiagram_text_3": "В процесі відправки"
 	},
 	"UpdateUserForm": {
 		"title": "Анкета користувача",
@@ -313,6 +317,86 @@
 		"phoneNumber": "Телефон для зв'зку",
 		"email": "Електронна пошта",
 		"textButtonSubmit": "Зберегти"
+	},
+	"AdminHomePage": {
+		"titleInput": "Пошук за логіном користувача",
+		"nameCol_1_Table": "ID клієнта",
+		"nameCol_2_Table": "Альфа ім'я",
+		"nameCol_3_Table": "Логін",
+		"nameCol_4_Table": "Баланс",
+		"nameCol_5_Table": "Управляти",
+		"nameCol_6_Table": "Додаткова інформація"
+	},
+	"AdminEditPage": {
+		"backBtnText": "<< Назад",
+		"pageTitle": "Ви працюєте з обліковим записом користувача:",
+		"description_1": "Для роботи з користувачем ",
+		"description_2": ", його потрібно спочатку",
+		"description_3": "активувати",
+		"formTitle": "Поточний баланс:",
+		"sms": "смс",
+		"checkbox_1_Lable": "Корегувати к-ть СМС",
+		"input_1_Lable": "Сумма:",
+		"input_1_placeholder": "Введіть сумму...",
+		"input_2_Lable": "Kількість СМС:",
+		"input_2_placeholder": "Введіть к-ть СМС яку потрібно відняти",
+		"input_3_Lable": "Додати додаткову інформацію про транзакцію:",
+		"input_3_placeholder": "Введіть текст...",
+		"checkbox_2_Lable": "Оплачено",
+		"buttonText_1": "Корегувати",
+		"buttonText_2": "Поповнити"
+	},
+	"SenderNameApprovedPage": {
+		"nameCol_1_Table": "Логін",
+		"nameCol_2_Table": "Альфа ім'я",
+		"nameCol_3_Table": "Email",
+		"nameCol_4_Table": "Телефон",
+		"nameCol_5_Table": "Активувати",
+		"nameCol_6_Table": "Видалити",
+		"description_1": "Ви не маєте жодних альфа-імен для активації",
+		"button_1_text": "Активувати",
+		"button_2_text": "Видалити"
+	},
+	"GeneralStatisticsPage": {
+		"title": "Сортувати по місяцю:",
+		"monthValue_1": "січень",
+		"monthValue_2": "лютий",
+		"monthValue_3": "березень",
+		"monthValue_4": "квітень",
+		"monthValue_5": "травень",
+		"monthValue_6": "червень",
+		"monthValue_7": "липень",
+		"monthValue_8": "серпень",
+		"monthValue_9": "вересень",
+		"monthValue_10": "жовтень",
+		"monthValue_11": "листопад",
+		"monthValue_12": "грудень",
+		"monthLabel_1": "Січень",
+		"monthLabel_2": "Лютий",
+		"monthLabel_3": "Березень",
+		"monthLabel_4": "Квітень",
+		"monthLabel_5": "Травень",
+		"monthLabel_6": "Червень",
+		"monthLabel_7": "Липень",
+		"monthLabel_8": "Серпень",
+		"monthLabel_9": "Вересень",
+		"monthLabel_10": "Жовтень",
+		"monthLabel_11": "Листопад",
+		"monthLabel_12": "Грудень",
+		"nameCol_1_Table": "Дата",
+		"nameCol_2_Table": "Кіл-ть номерів",
+		"nameCol_3_Table": "Кіл-ть відправленних СМС",
+		"nameCol_4_Table": "Кіл-ть доставленних СМС",
+		"result": "Всього",
+		"nameMobileTable": "Розсилки"
+	},
+	"DebtsPage": {
+		"nameCol_1_Table": "Логін",
+		"nameCol_2_Table": "Сумма(грн).",
+		"nameCol_3_Table": "СМС",
+		"nameCol_4_Table": "Дата поповнення",
+		"mobileNameCol_4_Table": "Дата",
+		"nameCol_5_Table": "Оплачено"
 	},
 	"Footer": {
 		"logoText": "Масові смс розсилки",

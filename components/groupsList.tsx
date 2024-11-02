@@ -27,7 +27,7 @@ const GroupsList: React.FC<Props> = ({ groups, getGroups, userId, isUpdated, LIM
 					<p className="w-[12%]">{t('nameCol_3GroupsList')}</p>
 					<p></p>
 				</div>
-				<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white dark:text-textColorDarkTheme text-base text-center font-normal bg-headerTable dark:bg-tableCptionBG">Групи</p>
+				<p className="lg:hidden block w-full md:pt-[18px] pt-2 md:pb-[13px] pb-2 md:text-lg text-white dark:text-textColorDarkTheme text-base text-center font-normal bg-headerTable dark:bg-tableCptionBG">{t('nameMobileGroupsTable')}</p>
 				<ul className='h-[520px] md:h-[432px] lg:h-[380px] overflow-auto'>
 					{groups?.length ? (
 						<RSC style={{ height: "100%" }}>

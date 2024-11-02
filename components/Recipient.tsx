@@ -14,16 +14,16 @@ const Recipient: React.FC<Props> = ({
 	onSelect
 }) => {
 	return (
-		<li className="flex w-max-full px-[26px] items-center h-[36px] text-base font-montserrat font-normal">
+		<li className="flex w-max-full mb-2 px-[26px] text-base font-montserrat font-normal">
 			<input
 				id={String(index)}
 				{...register(`${index}`)}
 				placeholder="bluebill1049@hotmail.com"
 				type="checkbox"
 				onChange={onSelect}
-				
+
 			/>
-			<label htmlFor={String(index)}  className="dark:invert"></label>
+			<label htmlFor={String(index)} className="dark:invert"></label>
 			<div className="ml-[15px] text-left truncate">
 				{(typeof recipient) === 'number' ? `+${recipient}` : recipient}
 			</div>

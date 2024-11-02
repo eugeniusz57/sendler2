@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react';
 import { userPaymant } from '@/helpers/fetchUserId';
 import { EnterOnlyFigures } from '@/helpers/EnterOnlyFigures';
 import { defineSmsCount } from '@/helpers/DefinSum';
-import { fetchUserBalance, updateUserBalance } from '@/api-actions';
 import { IUser } from '@/globaltypes/types';
 import { getUser } from '@/fetch-actions/usersFetchActions';
+import { useTranslations } from "next-intl";
+
 
 type Props = {
 	userId: number;
@@ -22,6 +23,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 	const [isPaid, setIsPaid] = useState(false);
 	const [inputValue, setInputValue] = useState<string>('');
 	const [isChecked, setIsChecked] = useState<boolean>(false);
+	const t = useTranslations('AdminEditPage');
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
@@ -73,7 +75,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 		>
 			<div className="text-left w-full mb-8 ">
 				<p className=" text-center text-l mb-8 italic">
-					Поточний баланс: <span className=" text-lg md:text-xl ">{user?.balance}</span>СМС
+					{t('formTitle')} <span className=" text-lg md:text-xl ">{user?.balance}</span>{t('sms')}
 				</p>
 				<span className="flex items-center gap-1 text-base md:text-lg">
 					{!isChecked ? (
@@ -95,23 +97,23 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 							className='dark:invert'
 						/>
 					)}
-					Корегувати к-ть СМС
+					{t('checkbox_1_Lable')}
 				</span>
 				<label htmlFor="summ" className="font-roboto text-sm font-medium mb-2 block mt-2">
-					Сумма:
+					{t('input_1_Lable')}
 				</label>
 				<input
 					id="summ"
 					{...register('summ')}
 					className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none"
-					placeholder={isChecked ? '' : 'Введіть сумму...'}
+					placeholder={isChecked ? '' : t('input_1_placeholder')}
 					onKeyPress={EnterOnlyFigures}
 					value={!isChecked ? inputValue : ''}
 					onChange={handleInputChange}
 					disabled={isChecked}
 				/>
 				<label htmlFor="countSms" className="font-roboto text-sm font-medium mb-2 block mt-4">
-					Kількість СМС:
+					{t('input_2_Lable')}
 				</label>
 				<div className="flex relative">
 					{isChecked && <span className="absolute left-3 top-[9px]">-</span>}
@@ -122,18 +124,18 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 						onKeyPress={EnterOnlyFigures}
 						value={isChecked ? inputValue : SMS}
 						onChange={handleInputChange}
-						placeholder={isChecked ? 'Введіть к-ть СМС яку потрібно відняти' : ''}
+						placeholder={isChecked ? t('input_2_placeholder') : ''}
 					/>
 				</div>
 				<label htmlFor="description" className="font-roboto text-sm font-medium mb-2 block  mt-4">
-					Додати додаткову інформацію про транзакцію:
+					{t('input_3_Lable')}
 				</label>
 				<textarea
 					id="description"
 					{...register('description')}
 					className="w-full border py-2 px-3 focus:outline-none focus:border-blue-500 rounded-[18px] input resize-none"
 					rows={4}
-					placeholder="Введіть текст..."
+					placeholder={t('input_3_placeholder')}
 				/>
 				{!isChecked && (
 					<span className="flex items-center justify-center mt-4">
@@ -144,7 +146,7 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 								height={24}
 								alt="Check box"
 								onClick={handleClickChecked}
-									className='dark:invert'
+								className='dark:invert'
 							/>
 						) : (
 							<Image
@@ -153,14 +155,14 @@ const UserPaymentForm: React.FC<Props> = ({ userId }) => {
 								height={24}
 								alt="Check box checked"
 								onClick={handleClickChecked}
-									className='dark:invert'
+								className='dark:invert'
 							/>
 						)}
-						Оплачено
+						{t('checkbox_2_Lable')}
 					</span>
 				)}
 			</div>
-			<GreenButton size="big">{isChecked ? 'Корегувати' : 'Поповнити'}</GreenButton>
+			<GreenButton size="big">{isChecked ? t('buttonText_1') : t('buttonText_2')}</GreenButton>
 		</form>
 	);
 };

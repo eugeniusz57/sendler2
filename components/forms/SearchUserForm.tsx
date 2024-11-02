@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-
 import { useForm } from 'react-hook-form';
+import { useTranslations } from "next-intl";
 
 interface Props {
 	getFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -10,6 +10,7 @@ interface Props {
 const SearchUserForm: React.FC<Props> = ({ getFilter }) => {
 	const [isDisabled, setIsDisabled] = useState(true);
 	const { register, handleSubmit, reset } = useForm();
+	const t = useTranslations('AdminHomePage');
 
 	const onSubmit = async () => {
 		setIsDisabled(true);
@@ -29,7 +30,7 @@ const SearchUserForm: React.FC<Props> = ({ getFilter }) => {
 	return (
 		<form autoComplete="off" onSubmit={handleSubmit(onSubmit)} className='text-center'>
 			<label htmlFor="login" className="block mb-3.5 label">
-				Пошук за логіном користувача
+				{t('titleInput')}
 			</label>
 			<div className="flex">
 				<input

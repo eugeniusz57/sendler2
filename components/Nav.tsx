@@ -111,7 +111,7 @@ const Nav: React.FC = () => {
 				)}
 				<div className='hidden lg:flex items-center'>
 					<ul
-						className={`mr-4 xl:mr-8lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
+						className={`mr-4 lg:mr-8 lg:py-0 lg:h-auto bg-bgFooter lg:flex lg:justify-center lg:items-center lg:gap-10 lg:static lg:bg-transparent lg:w-auto text-center lg:text-lg text-[22px] font-medium lg:font-normal leading-[33px] lg:leading-6 pt-[189px] pl-[84px] lg:pt-0 Lg:pl-0`}
 					>
 						{status === 'authenticated' && (
 							<>
