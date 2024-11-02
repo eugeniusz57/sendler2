@@ -321,6 +321,7 @@
 	"AdminHomePage": {
 		"titleInput": "Пошук за логіном користувача",
 		"nameCol_1_Table": "ID клієнта",
+		"mobileNameCol_1_Table": "ID",
 		"nameCol_2_Table": "Альфа ім'я",
 		"nameCol_3_Table": "Логін",
 		"nameCol_4_Table": "Баланс",

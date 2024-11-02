@@ -321,6 +321,7 @@
 	"AdminHomePage": {
 		"titleInput": "Search by user login",
 		"nameCol_1_Table": "Client ID",
+		"mobileNameCol_1_Table": "ID",
 		"nameCol_2_Table": "Alfa name",
 		"nameCol_3_Table": "Login",
 		"nameCol_4_Table": "Balance",
