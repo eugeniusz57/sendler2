@@ -82,20 +82,20 @@ const SelectLanguage: React.FC<Props> = ({
 						alt="Arrov down icon"
 						width={18}
 						height={18}
-						className="absolute top-1/2 -translate-y-1/2 right-4 ml-auto cursor-pointer"
+						className="absolute top-1/2 -translate-y-1/2 right-4 lg:right-2 xl:right-4 ml-auto cursor-pointer"
 					/> :
 					<Image
 						src="/svg/arrowPath-down.svg"
 						alt="Arrov down icon"
 						width={18}
 						height={18}
-						className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-4 ml-auto cursor-pointer origin-center rotate-180"
+						className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-4 lg:right-2 xl:right-4 ml-auto cursor-pointer origin-center rotate-180"
 					/>
 				}
 			</div>
 			{isOpen && (
 				<div
-					className={`absolute top-1/2 lg:top-2 -translate-y-1/2 lg:translate-y-0 right-0 lg:right-4 lg:h-18 px-1 lg:px-0 overflow-auto border-[1px] border-[#E6E6E6]  rounded-[4px] lg:border-none`}
+					className={`absolute top-1/2 lg:top-2 -translate-y-1/2 lg:translate-y-0 right-0 lg:right-1 xl:right-3 lg:h-18 px-1 lg:px-0 overflow-auto border-[1px] border-[#E6E6E6]  rounded-[4px] lg:border-none`}
 					ref={selectBodyRef}
 				>
 					{selectOptions?.map(selectOption => (
