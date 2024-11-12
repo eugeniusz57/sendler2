@@ -126,7 +126,7 @@ const CreateClientForm: React.FC<Props> = ({
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className="w-[328px] md:w-[526px] mx-auto pb-[28px] pt-11 px-[10px] md:px-[26px] flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg"
+			className="w-[328px] md:w-[526px] mx-auto pb-[28px] pt-11 px-[10px] md:px-[26px] flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg z-999"
 			ref={refForm}
 		>
 			<button

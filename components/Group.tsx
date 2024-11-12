@@ -15,7 +15,7 @@ const Group: React.FC<Props> = ({ group, getGroups }) => {
 
 	return (
 		<li className="block lg:flex w-full gap-x-6 lg:gap-x-2 px-[26px] items-center lg:h-[48px] text-base font-montserrat font-normal border-b border-rowUnderLine">
-			<div className="flex flex-wrap justify-between mr-1 sm:mr-0 mt-[22px] mb-[22px] lg:mb-0 items-center lg:w-1/6">
+			<div className="flex flex-wrap mr-1 sm:mr-0 mt-[22px] lg:mt-0 mb-[22px] lg:mb-0 lg:w-1/6">
 				<div className="lg:hidden sm:w-2/5 md:w-1/4 lg:w-1/6 lg:mt-0 font-bold">{t('nameCol_1GroupsList')}</div>
 				<div className="sm:w-3/5 md:w-3/4 lg:w-full truncate">{group.group_name}</div>
 			</div>
