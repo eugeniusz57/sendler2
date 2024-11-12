@@ -42,9 +42,7 @@ const Client: React.FC<Props> = ({
 			<div className='md:flex block mt-6 lg:mt-0 mb-6 lg:mb-0'>
 				<p className='lg:hidden w-full md:w-2/6 mb-2 md:mb-0 font-base md:font-lg font-roboto font-bold'>{t('nameCol_2ClientsTable')}</p>
 				<div className="flex w-full md:w-4/6 gap-x-2 flex-wrap lg:flex-nowrap lg:w-[195px] xl:w-[354px] text-left">
-					{convertClient.last_name
-						&& convertClient.first_name
-						&& convertClient.middle_name
+					{(convertClient.last_name || convertClient.first_name || convertClient.middle_name)
 						&& <div className='hidden lg:block lg:truncate'>{convertClient.last_name + ' ' + convertClient.first_name + ' ' + convertClient.middle_name}</div>}
 					<div className='truncate lg:hidden'>{convertClient.last_name}</div>
 					<div className='truncate lg:hidden'>{convertClient.first_name}</div>
