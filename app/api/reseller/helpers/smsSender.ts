@@ -16,5 +16,9 @@ export const smsSender = async (
 			},
 		}
 	);
+	console.log("ЗАПИТ", `${RESELLER_URL}/rest/Sms/${sendOption}?SessionID=${authRes}&SourceAddress=${userName}&${smsQuerystr}`);
+	console.log('ВІДПОВІДЬ', sendedSmsRes.data)
 	return sendedSmsRes.data;
 };
+
+// https://api.streamtools.com.ua/rest/Sms/SendBulk?SessionID=2D1CDD31DEE84BFAB84D739BFFC250A6D526&SourceAddress=legenda&DestinationAddresses=380675024820&Data=Сергій&DestinationAddresses=380994830669&Data=Serhii

@@ -5,10 +5,14 @@ export const createSmsUrlStr = (clients: (IClientDatabase)[], text: string): str
 	const distination =
 		clients.length > 1 ? "DestinationAddresses" : "DestinationAddress";
 
+
+	console.log('clients', clients);
 	const str = clients
 		.map((client) => {
-			return `${distination}=${client.tel}&Data=${adaptedText.replace('%ClientName%', client.first_name ? `${'+' + client.first_name}` : '').replace('+%Parametr1%', client.parameter_1 ? `${'+' + client.parameter_1}` : '').replace('+%Parametr2%', client.parameter_2 ? `${'+' + client.parameter_2}` : '')}&`;
+			return `${distination}=${client.tel}&Data=${adaptedText.replace('%ClientName%', client.first_name ? `${client.first_name}` : '').replace('%Parametr1%', client.parameter_1 ? `${client.parameter_1}` : '').replace('%Parametr2%', client.parameter_2 ? `${client.parameter_2}` : '')}&`;
 		})
 		.join("");
+	console.log('adaptedText', adaptedText);
+	console.log('string', str.slice(0, str.length - 1))
 	return str.slice(0, str.length - 1);
 };
