@@ -126,14 +126,14 @@ const CreateClientForm: React.FC<Props> = ({
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className="w-[328px] md:w-[526px] mx-auto pb-[28px] pt-11 px-[10px] md:px-[26px] flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg z-999"
+			className="w-[328px] md:w-[526px] mx-auto pb-[28px] pt-11 px-[10px] md:px-[26px] flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg z-999 dark:bg-darkItems dark:text-textColorDarkTheme "
 			ref={refForm}
 		>
 			<button
-				className=" absolute top-4 right-4 transform transition-transform hover:rotate-90 hover:scale-110"
+				className=" absolute top-4 right-4 transform transition-transform hover:rotate-90 hover:scale-110 "
 				onClick={onClose}
 			>
-				<Image src={'/svg/cross-circle.svg'} alt="close modal button" width={34} height={34} />
+				<Image src={'/svg/cross-circle.svg'} alt="close modal button" width={34} height={34} className=" dark:invert" />
 			</button>
 			{title && !groupName && <p className="form-title mb-[22px] md:mb-8">{title}</p>}
 			{title && groupName && <p className="form-title mb-[22px] md:mb-8">{`${title} - ${groupName}`}</p>}

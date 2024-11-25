@@ -66,14 +66,14 @@ const FormFeedback: React.FC<Props> = ({
 		<form
 			autoComplete="off"
 			onSubmit={handleSubmit(onSubmit)}
-			className=" relative md:w-[526px] w-full mx-auto pb-7 md:pb-11 pt-[29px]  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg dark:bg-darkItems px-[10px] md:px-[26px]"
+			className="dark:bg-darkItems dark:text-textColorDarkTheme relative md:w-[526px] w-full mx-auto pb-7 md:pb-11 pt-[29px]  flex justify-items-center  items-center flex-col leading-6 rounded-[18px] border-gray-700  bg-formBg px-[10px] md:px-[26px]"
 		>
 			{cross && (
 				<button
 					className=" absolute top-4 right-4 transform transition-transform hover:rotate-90 hover:scale-110"
 					onClick={onClose}
 				>
-					<Image src={'/svg/cross-circle.svg'} alt="close modal button" width={34} height={34} />
+					<Image src={'/svg/cross-circle.svg'} alt="close modal button" width={34} height={34} className=' dark:invert' />
 				</button>
 			)}
 			{title && <h1 className="form-title mb-8 mt-[15px]">{title}</h1>}

@@ -59,7 +59,7 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 			<div className="mt-[28px] md:mt-[60px]">
 				<div className="content-block">
 					<div className="pl-[10px] md:pl-[26px]">
-						<p className="mb-[14px] md:mb-5 text-base md:text-lg font-roboto text-[#1B1B30] lg:text-xl">
+						<p className="mb-[14px] md:mb-5 text-base md:text-lg font-roboto text-[#1B1B30] lg:text-xl dark:text-textColorDarkTheme ">
 							{t('titlePageBox')} {historyDate ? `${String(new Date(historyDate).getDate()).padStart(2, '0')}.${String(new Date(historyDate).getMonth() + 1).padStart(2, '0')}.${new Date(historyDate).getFullYear()}` : '-'}
 						</p>
 						<BackStatisticsBtn onClick={handleClick}>
@@ -82,7 +82,7 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 								return (
 									<li
 										key={item.history_id as number}
-										className="flex items-center mb-8 px-[10px] gap-x-8 py-3 md:px-[26px] font-roboto text-lg text-black border-b border-[#B5C9BE] lg:h-[47px] lg:mb-1 lg:py-0"
+										className="flex items-center mb-8 px-[10px] gap-x-8 py-3 md:px-[26px] font-roboto text-lg text-black dark:text-textColorDarkTheme border-b border-[#B5C9BE] lg:h-[47px] lg:mb-1 lg:py-0"
 									>
 										<div className="hidden md:flex flex-col gap-y-7 font-medium lg:hidden">
 											<p className="">{t('nameCol_1DayHistoryTable')}</p>

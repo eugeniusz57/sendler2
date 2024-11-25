@@ -30,7 +30,7 @@ export default function HistoryList({ userHistory, loadMoreHistory, visible }: P
 		<ul className="flex flex-col h-[740px] md:h-[800px] lg:h-[400px]">
 			<RSC style={{ height: "100%" }}>
 				{sortHistory && sortHistory.length > 0 && (
-					<li className="flex flex-wrap gap-y-1 items-center lg:h-[47px] w-full mb-3 md:mb-8 lg:mb-3 py-3 px-[10px] font-roboto font-medium text-sm md:px-[26px] md:text-lg text-black lg:border-b lg:border-[#B5C9BE] lg:text-xl lg:gap-[100px] lg:order-none lg:font-normal">
+					<li className="flex flex-wrap gap-y-1 items-center lg:h-[47px] w-full mb-3 md:mb-8 lg:mb-3 py-3 px-[10px] font-roboto font-medium text-sm md:px-[26px] md:text-lg text-black lg:border-b lg:border-[#B5C9BE] dark:text-textColorDarkTheme  lg:text-xl lg:gap-[100px] lg:order-none lg:font-normal">
 						<p className="grow w-4/12 md:grow-0 text-base md:text-lg lg:text-xlw-[202px] lg:w-[194px]">{t('total')}</p>
 						<p className="block md:hidden w-[184px] text-[#2366E8] lg:block"></p>
 						<p className="mr-3 md:mr-[18px] lg:hidden">{t('nameCol_3HistoryTable')}</p>
@@ -50,7 +50,7 @@ export default function HistoryList({ userHistory, loadMoreHistory, visible }: P
 						return (
 							<li
 								key={typeof item.history_id === 'number' ? item.history_id : item.history_id[0]}
-								className="flex mb-8 px-[10px] py-3 font-roboto text-[18px] text-black border-b border-[#B5C9BE] md:px-[26px] lg:h-[47px] lg:mb-0 lg:py-0 lg:text-[20px]"
+								className="flex mb-8 px-[10px] py-3 font-roboto text-[18px] text-black dark:text-textColorDarkTheme  border-b border-[#B5C9BE] md:px-[26px] lg:h-[47px] lg:mb-0 lg:py-0 lg:text-[20px]"
 							>
 								<div className="hidden md:flex flex-col gap-y-8 w-4/12 font-medium lg:hidden">
 									<p className="">{t('nameCol_1HistoryTable')}</p>
