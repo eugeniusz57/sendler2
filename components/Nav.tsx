@@ -87,9 +87,9 @@ const Nav: React.FC = () => {
 
   return (
     <>
-      <nav className={`flex justify-between lg:items-center container mx-auto relative z-10`}>
+      <nav className={`flex justify-between lg:items-center container mx-auto relative `}>
         {isOpen && (
-          <div className="z-20 w-[157px] h-[49px] lg:h-[51px]">
+          <div className=" w-[157px] h-[49px] lg:h-[51px]">
             <LogoNav />
           </div>
         )}
@@ -104,7 +104,7 @@ const Nav: React.FC = () => {
                 defaultValue={locale}
               />
             </div>
-            <button onClick={toggleModal} className="burger-menu z-20">
+            <button onClick={toggleModal} className="burger-menu ">
               <svg
                 width="46"
                 height="44"
@@ -252,7 +252,7 @@ const Nav: React.FC = () => {
         {!isOpen && (
           <button
             onClick={closeModal}
-            className="burger-menu z-20 absolute right-[20px] top-[24px]"
+            className="burger-menu  absolute right-[20px] top-[24px]"
           >
             <svg
               width="45"

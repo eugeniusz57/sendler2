@@ -123,7 +123,7 @@ const ClientsList: React.FC<Props> = ({
 						</>
 					)}
 				</ul>
-				<div className="flex gap-x-4 gap-x-3 lg:mr-[26px] md:mr-[20px] pt-6 md:pt-[50px] justify-center md:justify-end">
+				<div className="flex gap-x-3 lg:mr-[26px] md:mr-[20px] pt-6 md:pt-[50px] justify-center md:justify-end">
 					{groupId ?
 						<>
 							<div className="flex w-[144px] md:w-[198px]">

@@ -85,7 +85,7 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 			<div className="content-block mt-[28px] md:mt-[60px]">
 				<div className="mx-[10px] md:mx-[26px]">
 					<div className="flex items-center gap-3 mb-[14px] md:mb-5">
-						<p className="text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30]">{t('titlePageBox')}</p>
+						<p className="text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30] dark:text-textColorDarkTheme ">{t('titlePageBox')}</p>
 						<button type="button" onClick={handleClick}>
 							<Image src="/svg/excel.svg" alt="Excel icon" width={42} height={42} className="hidden md:block" />
 							<Image src="/svg/excel.svg" alt="Excel icon" width={30} height={30} className="md:hidden" />
@@ -96,7 +96,7 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 						query: { date: historyDate }
 					}} className='block mb-10 text-left text-sm font-roboto text-emailColorLink md:text-base'>{t('textTurnBackButton')}
 					</Link>
-					<div className="flex flex-wrap gap-y-[40px] lg:flex-nowrap mb-10 text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30]">
+					<div className="flex flex-wrap gap-y-[40px] lg:flex-nowrap mb-10 text-base md:text-lg lg:text-xl font-roboto text-[#1B1B30] dark:text-textColorDarkTheme ">
 						<div className="flex-none md:w-40 mr-8">
 							<p className="mb-4 ">{t('sender')}</p>
 							<p className="mb-4">{t('malingStatus')}</p>
@@ -142,7 +142,7 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 							return (
 								<li
 									key={index}
-									className="flex items-center gap-x-8 mb-8 py-3 px-[10px] font-roboto text-l text-black border-b border-[#B5C9BE] md:px-[26px] lg:h-[47px] lg:mb-0 lg:py-0 lg:gap-[100px]"
+									className="flex items-center gap-x-8 mb-8 py-3 px-[10px] font-roboto text-l text-black dark:text-textColorDarkTheme  border-b border-[#B5C9BE] md:px-[26px] lg:h-[47px] lg:mb-0 lg:py-0 lg:gap-[100px]"
 								>
 									<div className="hidden md:flex flex-col gap-y-8 font-medium lg:hidden">
 										<p className="">{t('nameCol_1HistoryDetailsTable')}</p>

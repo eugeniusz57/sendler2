@@ -381,7 +381,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 								<ul className={`w-64 h-32 flex flex-wrap gap-2 overflow-auto`}>
 									<RSC>
 										{user?.alfa_names_disable.map((item, index) => (
-											<li key={index} className="text-disableAlfaName">
+											<li key={index} className="text-disableAlfaName dark:text-textColorDarkTheme">
 												{item}
 											</li>
 										))}

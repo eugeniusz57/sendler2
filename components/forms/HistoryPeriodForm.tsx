@@ -78,7 +78,7 @@ const HistoryPeriodForm: React.FC = () => {
 
 	return (
 		<div className="px-[10px] md:px-[20px] lg:px-[26px]">
-			<p className="mb-10 text-base md:text-xl font-roboto text-[#1B1B30]">{t('titleHistoryPeriodForm')}</p>
+			<p className="mb-10 text-base md:text-xl font-roboto text-[#1B1B30] dark:text-textColorDarkTheme ">{t('titleHistoryPeriodForm')}</p>
 			<form onSubmit={handleSubmit(onSubmit)} className="flex md:justify-end flex-wrap lg:justify-start lg:items-center lg:flex-nowrap gap-x-1 gap-y-6 md:gap-8 w-full mb-10">
 				<label htmlFor="startDate" className="text-xl text-mainTextColor flex cursor-pointer">
 					<DatePicker
@@ -86,7 +86,7 @@ const HistoryPeriodForm: React.FC = () => {
 						selected={startDate ? new Date(startDate) : null}
 						onChange={handleChangeStartDate}
 						isClearable
-						className="w-[126px] md:w-[196px] h-12 rounded-[12px] md:rounded-[18px] border border-inputBorder outline-none text-sm md:text-xl text-mainTextColor px-3 cursor-pointer"
+						className="w-[126px] md:w-[196px] h-12 rounded-[12px] md:rounded-[18px] border border-inputBorder outline-none text-sm md:text-xl text-mainTextColor dark:text-textColorDarkTheme  px-3 cursor-pointer"
 						customInput={<input autoComplete="off" />}
 						placeholderText="дд.мм.рррр"
 						dateFormat="dd.MM.yyyy"
@@ -94,16 +94,16 @@ const HistoryPeriodForm: React.FC = () => {
 						endDate={endDate ? new Date(endDate) : null}
 						maxDate={endDate ? new Date(endDate) : null}
 					/>
-					<Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="hidden md:block ml-4" />
+					<Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="hidden md:block ml-4 dark:invert" />
 				</label>
-				<div className="h-px w-3 md:w-6 bg-black self-center"></div>
-				<label className="text-xl text-mainTextColor flex cursor-pointer">
+				<div className="h-px w-3 md:w-6 bg-black dark:bg-white self-center"></div>
+				<label className="text-xl text-mainTextColor dark:text-textColorDarkTheme  flex cursor-pointer">
 					<DatePicker
 						id="endDate"
 						selected={endDate ? new Date(endDate) : null}
 						onChange={handleChangeEndDate}
 						isClearable
-						className="w-[126px] md:w-[196px] h-12 rounded-[12px] md:rounded-[18px] border border-inputBorder outline-none text-sm md:text-xl text-mainTextColor px-3 cursor-pointer"
+						className="w-[126px] md:w-[196px] h-12 rounded-[12px] md:rounded-[18px] border border-inputBorder outline-none text-sm md:text-xl text-mainTextColor dark:text-textColorDarkTheme  px-3 cursor-pointer"
 						customInput={<input autoComplete="off" />}
 						placeholderText="дд.мм.рррр"
 						dateFormat="dd.MM.yyyy"
@@ -111,7 +111,7 @@ const HistoryPeriodForm: React.FC = () => {
 						endDate={endDate ? new Date(endDate) : null}
 						minDate={startDate ? new Date(startDate) : null}
 					/>
-					<Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="hidden md:block ml-4" />
+					<Image src="/svg/calendar.svg" width={24} height={24} alt="Check box" className="hidden md:block ml-4 dark:invert" />
 				</label>
 				<br />
 				<button className="grow md:grow-0 flex items-center justify-center py-2.5 px-9 h-[50px] font-roboto bg-[#32BB79] text-white rounded-[14px] text-base">

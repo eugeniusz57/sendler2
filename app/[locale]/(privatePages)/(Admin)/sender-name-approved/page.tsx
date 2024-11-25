@@ -43,7 +43,7 @@ const SenderNameApproved: React.FC = () => {
 	return (
 		<>
 			<BackBtn />
-			<table className="mt-10 w-full border bg-priceTableBg dark:bg-darkItems">
+			<table className="mt-10 w-full border bg-priceTableBg dark:bg-darkItems ">
 				<thead className='hidden md:table-header-group'>
 					<tr className="bg-headerTable text-white text-xl font-roboto  leading-[30px] ">
 						<th className="border px-4 py-3 font-normal">{t('nameCol_1_Table')}</th>
