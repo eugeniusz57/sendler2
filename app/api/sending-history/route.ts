@@ -23,7 +23,6 @@ export async function GET(
 		startDate?.setHours(0, 0, 0, 0);
 		endDate?.setHours(23, 59, 59, 999);
 
-
 		if (!userId) {
 			return HttpError(400, `ID required for getting user's history`);
 		}

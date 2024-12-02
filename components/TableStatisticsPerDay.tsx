@@ -1,12 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { countSuccessfullySentNumbers } from '@/helpers/getCountSuccessfullySentNumbers';
-import formatTableDate from '@/app/utils/formatTableDate';
 import { IHistoryResponce } from '@/globaltypes/historyTypes';
 
 type Props = { userHistory: IHistoryResponce[] };
 
 const TableStatisticsPerDay: React.FC<Props> = ({ userHistory }) => {
+	const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+
 	return (
 		<table className="w-full border bg-priceTableBg dark:bg-darkItems text-center">
 			<thead className="bg-lightGreen">
@@ -60,9 +61,7 @@ const TableStatisticsPerDay: React.FC<Props> = ({ userHistory }) => {
 							{elem.send_method === 'web' ? (
 								<Link
 									href={{
-										pathname: `/general-statistics/${formatTableDate(
-											elem.sending_group_date
-										)}/statistic-site`,
+										pathname: `${currentPath}/statistic-site`,
 										query: {
 											history_id: elem.history_id,
 										},

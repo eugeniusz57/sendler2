@@ -54,7 +54,7 @@ const TableAdminStatistics: React.FC<Props> = ({ userHistory }) => {
 							<Link
 								className="text-[#2366E8]"
 								href={{
-									pathname: `general-statistics/${formatTableDate(elem.sending_group_date)}/`,
+									pathname: `general-statistics/${formatTableDate(elem.sending_group_date).replace(/\./g, '_')}/`,
 								}}
 							>
 								{formatTableDate(elem.sending_group_date)}
