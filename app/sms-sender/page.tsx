@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { createSmsUrlStr } from "../api/reseller/helpers/createSmsQueryString";
+import { createSmsUrlStr } from "../api/reseller/helpers/createSmsUrlStr";
 import { addSmsIdentificators } from "../api/reseller/helpers/addSmsIdetificators";
 import { useEffect } from "react";
 

@@ -23,7 +23,7 @@ const LogOutButton: React.FC<LogOutButtonProps> = ({ onClick }) => {
 	return (
 		<button
 			onClick={handleLogOut}
-			className="flex justify-center items-center hover:underline hover:underline-offset-4 lg:py-4 lg:ml-11"
+			className="flex justify-center items-center hover:underline hover:underline-offset-4 lg:py-4"
 			type="button"
 		>
 			{t('text')}
