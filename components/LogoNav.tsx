@@ -14,17 +14,17 @@ const LogoNav: React.FC<LogoProps> = ({ onClose }) => {
 	const isLogin = status === "authenticated";
 	return isLogin ? (
 		<>
-			<span className="flex flex-col lg:items-center text-[26px] lg:text-[28px] font-medium text-white mb-1 leading-[39px] h-[30px] ">
+			<span className="flex flex-col md:items-center text-[26px] lg:text-[28px] font-medium text-white text-center mb-1 leading-[39px] h-[30px] ">
 				BSender
 			</span>
-			<span className="text-[12px] lg:text-[14px] leading-[18px] text-white block">
+			<span className="text-[12px] lg:text-[14px] leading-[18px] text-white text-center block">
 				{t('logoText')}
 			</span>
 		</>
 	) : (
 		<Link href={"/"} className="flex flex-col lg:items-center" onClick={onClose}>
 			<span className="text-[26px] lg:text-[28px] font-medium text-white mb-1 leading-[39px] h-[30px] ">BSender</span>
-			<span className="text-[12px] lg:text-[14px] text-white block">
+			<span className="text-[12px] lg:text-[14px] text-white text-center block">
 				{t('logoText')}
 			</span>
 		</Link>

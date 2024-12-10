@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import resellerAuth from "../helpers/resellerAuth";
-import { createSmsUrlStr } from "../helpers/createSmsQueryString";
+import { createSmsUrlStr } from "../helpers/createSmsUrlStr";
+import { createSmsUrlStrWithParameters } from "../helpers/createSmsUrlStrWithParameters";
 import { addSendingHistory } from "../helpers/addSendingHistory";
 import { addSmsIdentificators } from "../helpers/addSmsIdetificators";
+import { addSmsIdentificator } from "../helpers/addSmsIdetificator";
 import { smsSender } from "../helpers/smsSender";
 import { schemaSendSMS } from "@/models/send-sms";
 import {
@@ -181,13 +183,26 @@ export async function POST(request: Request): Promise<NextResponse<{
 		const { history_id } = res;
 
 		const sendSmsAgrigatorFunctions = async () => {
+			let identificators: string[];
 			const { sending_permission } = await fetchHistoryId(history_id);
 			if (sending_permission) {
-				const smsQuerystr = createSmsUrlStr(clientsInBalance, contentSMS);
-				const identificators = await smsSender(authRes, smsQuerystr, clientsInBalance.length, userName);
-				await addSmsIdentificators(history_id, clientsInBalance, identificators);
-				await correctUserBalance(userId, (-clientsInBalance.length));
-				await updateSmsStatusesInRealTime(172800000);
+				// Сheck the contentSMS for the presence of the parameters
+				if ((contentSMS.includes('%ClientName%') || contentSMS.includes('%Parametr1%') || contentSMS.includes('%Parametr2%')) && clientsInBalance.length > 1) {
+					clientsInBalance.map(async client => {
+						const smsQuerystr = createSmsUrlStrWithParameters(client, contentSMS);
+						identificators = await smsSender(authRes, smsQuerystr, 1, userName);
+						await addSmsIdentificator(history_id, client, identificators);
+						await correctUserBalance(userId, (-1));
+						await updateSmsStatusesInRealTime(172800000);
+					})
+				} else {
+					// If the contentSMS has no parameters
+					const smsQuerystr = createSmsUrlStr(clientsInBalance, contentSMS);
+					identificators = await smsSender(authRes, smsQuerystr, clientsInBalance.length, userName);
+					await addSmsIdentificators(history_id, clientsInBalance, identificators);
+					await correctUserBalance(userId, (-clientsInBalance.length));
+					await updateSmsStatusesInRealTime(172800000);
+				}
 				return;
 			};
 			await deleteHistoryId(history_id);
