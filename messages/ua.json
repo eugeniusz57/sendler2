@@ -28,6 +28,26 @@
 	"LogOutButton": {
 		"text": "Вихід"
 	},
+	"AuthForm": {
+		"title": "Особистий кабінет",
+		"subTitle_1": "Увійти",
+		"subTitle_2": "Реєстрація"
+	},
+	"LoginForm": {
+		"input_1": "Логін",
+		"input_2": "Пароль",
+		"button_text": "Увійти"
+	},
+	"SignUpForm": {
+		"input_1": "Ім’я",
+		"input_2": "Телефон",
+		"input_3": "Пошта",
+		"input_4": "Логін",
+		"input_5": "Пароль",
+		"input_6": "Підтвердіть пароль",
+		"consent": " Я даю згоду на обробку моїх персональних даних",
+		"button_text": "Реєстрація"
+	},
 	"UserSmsInform": {
 		"text": "СМС"
 	},
