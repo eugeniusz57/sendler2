@@ -72,6 +72,26 @@
 	"LogOutButton": {
 		"text": "Exit"
 	},
+	"AuthForm": {
+		"title": "Account",
+		"subTitle_1": "Enter",
+		"subTitle_2": "Registration"
+	},
+	"LoginForm": {
+		"input_1": "Login",
+		"input_2": "Password",
+		"button_text": "Enter"
+	},
+	"SignUpForm": {
+		"input_1": "Name",
+		"input_2": "Phone",
+		"input_3": "Email",
+		"input_4": "Login",
+		"input_5": "Password",
+		"input_6": "Repeat password",
+		"consent": " I consent to the processing of my personal data.",
+		"button_text": "Registration"
+	},
 	"AboutPage": {
 		"pageTitle": "About service",
 		"textPage_Part1": "The company \"Innovative media solutions\" was founded in 2000 in Kyiv. Since 2006, the Company began to develop the direction of additional services in mobile communication networks - VAS (English Value Added Services - services that bring additional income).",
