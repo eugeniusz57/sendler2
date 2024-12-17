@@ -40,12 +40,12 @@ const SingUpForm: React.FC = () => {
 							};
 						}
 					});
-				}
+				};
 				return {
 					values: {},
 					errors: validationErrors,
 				};
-			}
+			};
 		},
 	});
 

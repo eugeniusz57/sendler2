@@ -73,7 +73,6 @@ const LoginForm: React.FC = () => {
 					return router.push(`/${locale}/user/${userId}/mailing-list`);
 				}
 				router.push(`/admin`);
-
 				toast.success(`Ласкаво просимо ${data.login}`);
 			}
 		} catch (error) {

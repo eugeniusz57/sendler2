@@ -14,7 +14,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
 
 	return (
 		<div
-			className={`w-full h-[1162px] mb-20 overflow-y-auto  bg-cover bg-center ${width > 1160 ? "bg-[url('/bg-auth.jpg')]" : 'bg-[url("/bg-auth-tablet.jpg")]'
+			className={`w-full h-[1162px] mb-20 overflow-y-auto  bg-cover bg-center ${width < 1160 ? 'bg-[url("/bg-auth-tablet.jpg")]' : "bg-[url('/bg-auth.jpg')]"
 				} flex items-left justify-left pt-[190px] mb-20}`}
 		>
 			<div className=" container mx-auto flex items-start justify-center lg:justify-start">
