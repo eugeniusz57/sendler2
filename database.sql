@@ -70,7 +70,7 @@ CREATE TABLE groups_members (
 CREATE TABLE
     sending_history(
         history_id SERIAL,
-        sending_group_date TIMESTAMPTZ DEFAULT NOW():: timestamp(0),
+        sending_group_date TIMESTAMPTZ DEFAULT now() AT TIME ZONE 'Europe / Vilnius',
         PRIMARY KEY (history_id),
         send_method send_method_type DEFAULT 'api',
 				text_sms TEXT NOT NULL,
