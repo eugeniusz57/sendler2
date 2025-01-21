@@ -56,7 +56,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 	const [isOfferContractChecked, setIsOfferContractChecked] = useState(false);
 	const [isDisabled, setIsDisabled] = useState<boolean>(false);
 	const [user, setUser] = useState<IUser>();
-	const inputRef = useRef<HTMLTextAreaElement>(null);
+	const textareaRef = useRef<HTMLTextAreaElement>(null);
 	const t = useTranslations('MailList');
 
 	// update page after update database
@@ -180,17 +180,17 @@ const MailingList: React.FC<Props> = ({ params }) => {
 
 	const handleClickAddClientName = () => {
 		setContentSMS(contentSMS + `%ClientName%`);
-		inputRef.current?.focus();
+		textareaRef.current?.focus();
 	};
 
 	const handleClickAddParam1 = () => {
 		setContentSMS(contentSMS + `%Parametr1%`);
-		inputRef.current?.focus();
+		textareaRef.current?.focus();
 	};
 
 	const handleClickAddParam2 = () => {
 		setContentSMS(contentSMS + `%Parametr2%`);
-		inputRef.current?.focus();
+		textareaRef.current?.focus();
 	};
 
 	// reset date and time if input is closed
@@ -414,7 +414,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 								<span>SMS: {smsCount}</span>
 							</div>
 							<textarea
-								ref={inputRef}
+								ref={textareaRef}
 								value={contentSMS}
 								onChange={handleChangeTextSms}
 								placeholder="Text SMS"
