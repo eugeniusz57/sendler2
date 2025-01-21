@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
 import formatToDate from '@/app/utils//fotmatToDate';
+import TimeZoneMarker from '@/components/TimeZoneMarker';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
 
 const SiteHistoryDetails: React.FC = () => {
@@ -63,7 +64,7 @@ const SiteHistoryDetails: React.FC = () => {
 			<div className="justify-center md:justify-start flex items-center gap-2 lg:gap-[100px] h-[58px] px-[10px] lg:px-[26px] font-roboto text-base md:text-lg lg:text-xl text-white bg-[#417D8A]">
 				<p className="md:hidden">Повідомлення</p>
 				<p className="hidden md:block w-40">Номер телефону</p>
-				<p className="hidden md:block w-48">Дати відправки</p>
+				<div className="hidden md:block w-48"><TimeZoneMarker text="Дати відправки"/></div>
 				<p className="hidden md:block w-36">Кількість sms</p>
 				<p className="hidden md:block w-32">Статус</p>
 			</div>
