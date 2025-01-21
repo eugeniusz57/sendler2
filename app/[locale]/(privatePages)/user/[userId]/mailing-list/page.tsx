@@ -8,6 +8,7 @@ import RSC from 'react-scrollbars-custom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useTranslations } from 'next-intl';
+import { useRef } from 'react';
 
 import Title from '@/components/Title';
 import GreenButton from '@/components/buttons/GreenButton';
@@ -55,6 +56,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 	const [isOfferContractChecked, setIsOfferContractChecked] = useState(false);
 	const [isDisabled, setIsDisabled] = useState<boolean>(false);
 	const [user, setUser] = useState<IUser>();
+	const textareaRef = useRef<HTMLTextAreaElement>(null);
 	const t = useTranslations('MailList');
 
 	// update page after update database
@@ -178,14 +180,17 @@ const MailingList: React.FC<Props> = ({ params }) => {
 
 	const handleClickAddClientName = () => {
 		setContentSMS(contentSMS + `%ClientName%`);
+		textareaRef.current?.focus();
 	};
 
 	const handleClickAddParam1 = () => {
 		setContentSMS(contentSMS + `%Parametr1%`);
+		textareaRef.current?.focus();
 	};
 
 	const handleClickAddParam2 = () => {
 		setContentSMS(contentSMS + `%Parametr2%`);
+		textareaRef.current?.focus();
 	};
 
 	// reset date and time if input is closed
@@ -409,6 +414,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 								<span>SMS: {smsCount}</span>
 							</div>
 							<textarea
+								ref={textareaRef}
 								value={contentSMS}
 								onChange={handleChangeTextSms}
 								placeholder="Text SMS"
