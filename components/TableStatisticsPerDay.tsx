@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { countSuccessfullySentNumbers } from '@/helpers/getCountSuccessfullySentNumbers';
+import TimeZoneMarker from '@/components/TimeZoneMarker';
 import { IHistoryResponce } from '@/globaltypes/historyTypes';
 
 type Props = { userHistory: IHistoryResponce[] };
@@ -21,7 +22,7 @@ const TableStatisticsPerDay: React.FC<Props> = ({ userHistory }) => {
 					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-base lg:text-xl font-normal">Дост. смс</th>
 					<th className="hidden lg:table-cell py-[10px] px-3 border font-roboto text-base lg:text-xl font-normal">Кіл-ть номерів</th>
 					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-base lg:text-xl font-normal">Дост. номерів</th>
-					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-base lg:text-xl font-normal">Дата та час</th>
+					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-base lg:text-xl font-normal"><TimeZoneMarker text="Дата та час"/> </th>
 					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-base lg:text-xl font-normal">Деталі</th>
 				</tr>
 			</thead>
