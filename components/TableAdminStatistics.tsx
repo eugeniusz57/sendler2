@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { SmsStatusEnum } from '@/globaltypes/types';
 import formatTableDate from '@/app/utils/formatTableDate';
+import TimeZoneMarker from '@/components/TimeZoneMarker';
 import { IHistoryResponce } from '@/globaltypes/historyTypes';
 import { useTranslations } from 'next-intl';
 
@@ -15,7 +16,7 @@ const TableAdminStatistics: React.FC<Props> = ({ userHistory }) => {
 			<thead className="bg-lightGreen ">
 				<tr className="bg-headerTable text-white text-xl font-roboto leading-[30px] ">
 					<th className="md:hidden py-[10px] px-3 border font-roboto text-xl font-normal w-full">{t('nameMobileTable')}</th>
-					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-xl font-normal">{t('nameCol_1_Table')}</th>
+					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-xl font-normal"><TimeZoneMarker text={t('nameCol_1_Table')}/></th>
 					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-xl font-normal">{t('nameCol_2_Table')}</th>
 					<th className="hidden md:table-cell py-[10px] px-3 border font-roboto text-xl font-normal">
 						{t('nameCol_3_Table')}

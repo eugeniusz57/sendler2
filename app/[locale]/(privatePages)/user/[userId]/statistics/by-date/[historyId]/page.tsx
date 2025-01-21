@@ -5,6 +5,7 @@ import Image from 'next/image';
 import * as XLSX from 'xlsx/xlsx.mjs';
 import Title from '@/components/Title';
 import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
+import TimeZoneMarker from '@/components/TimeZoneMarker';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
 import formatToDate from '@/app/utils//fotmatToDate';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
@@ -130,7 +131,7 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 				<div className="justify-center lg:justify-start flex items-center gap-[100px] h-[58px] px-[26px] font-roboto text-lg lg:text-xl text-white bg-[#417D8A]">
 					<p className="lg:hidden">{t('nameMobileHistoryDetailsTable')}</p>
 					<p className="hidden lg:block w-[166px]">{t('nameCol_1HistoryDetailsTable')}</p>
-					<p className="hidden lg:block w-[196px]">{t('nameCol_2HistoryDetailsTable')}</p>
+					<p className="hidden lg:block w-[196px]"><TimeZoneMarker text={t('nameCol_2HistoryDetailsTable')} /></p>
 					<p className="hidden lg:block w-[130px]">{t('nameCol_3HistoryDetailsTable')}</p>
 					<p className="hidden lg:block w-[130px]">{t('nameCol_4HistoryDetailsTable')}</p>
 				</div>

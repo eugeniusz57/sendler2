@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { getUserHistory } from '@/fetch-actions/historyFetchActions';
 import HistoryList from './HistoryList';
 import HistoryPeriodForm from './forms/HistoryPeriodForm';
+import TimeZoneMarker from '@/components/TimeZoneMarker';
 import { IHistoryResponce, IHistoryPeriod } from '@/globaltypes/historyTypes';
 import { useTranslations } from 'next-intl';
 
@@ -74,8 +75,8 @@ const HistoryTable: React.FC<Props> = ({ id }) => {
 				<div className="justify-center lg:justify-start flex items-center gap-[100px] h-[40px] md:h-[58px] px-[26px] font-roboto text-base md:text-xl text-white bg-[#417D8A]">
 					<p className="lg:hidden">{t('nameMobileHistoryTable')}</p>
 					<p className="hidden lg:block w-[194px]">{t('nameCol_1HistoryTable')}</p>
-					<p className="hidden lg:block w-[184px]">{t('nameCol_2HistoryTable')}</p>
-					<p className="hidden lg:block w-[150px]">{t('nameCol_3HistoryTable')} </p>
+					<p className="hidden lg:block w-[184px]"><TimeZoneMarker text={t('nameCol_2HistoryTable')}/></p>
+					<p className="hidden lg:block w-[150px]">{t('nameCol_3HistoryTable')}</p>
 					<p className="hidden lg:block w-[150px]">{t('nameCol_4HistoryTable')}</p>
 				</div>
 				<HistoryList userHistory={userHistory} loadMoreHistory={loadMoreHistory} visible={userHistory?.length && offset <= userHistory?.length + LIMIT ? true : false} />
