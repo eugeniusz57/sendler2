@@ -67,6 +67,7 @@ const UserAccountPage: React.FC = () => {
 			socket.on('message', user => {
 				if (user) {
 					setUser(user);
+					console.log('USER', user?.sendingSms)
 				}
 			});
 			socket.on('connect_error', error => {
