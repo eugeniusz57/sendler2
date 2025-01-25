@@ -6,16 +6,13 @@ import { ISendHistoryDatabase } from "@/globaltypes/types";
 export const addSendingHistory = async (idArray: number[], text: string, method: 'api' | 'web', userName: string, date?: string): Promise<ISendHistoryDatabase> => {
 
 	let res: QueryResult<ISendHistoryDatabase>;
-	let time: QueryResult<Date>;
-	if (date) {
-		await db.query(`SET TIME ZONE 'Europe/Vilnius'`);
-		time = await db.query(`SELECT to_char(now(),'DD.MM.YYYY HH24: MI: SS')`)
-		console.log('TIME', time.rows[0])
-		console.log('date', date)
+	if (second) {
 		res = await db.query(
 			`INSERT INTO sending_history (send_method, text_sms, sending_group_date, alfa_name) VALUES ('${method}', '${text}','${date}'::timestamp(0),'${userName}') RETURNING *`
 		);
-		console.log('RES', res.rows[0])
+		// res = await db.query(
+		// 	`INSERT INTO sending_history (send_method, text_sms, sending_group_date, alfa_name) VALUES ('${method}', '${text}', now()::timestamptz(0) + interval '${second} second','${userName}') RETURNING *`
+		// );
 	} else {
 		res = await db.query(
 			`INSERT INTO sending_history (send_method, text_sms, alfa_name) VALUES ('${method}', '${text}', '${userName}') RETURNING *`,
