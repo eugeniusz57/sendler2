@@ -69,7 +69,10 @@ export async function POST(request: Request): Promise<NextResponse<{
 		};
 
 		const { userName, recipients, date, time, contentSMS, send_method } = value;
+		console.log('DATE', date)
+		console.log('TIME', time)
 		const dateString = date + ' ' + time;
+		console.log('dateString', dateString);
 		let diff = 0;
 		let diffSecond = 0;
 
@@ -175,7 +178,7 @@ export async function POST(request: Request): Promise<NextResponse<{
 
 		let res;
 		if (diff > 0) {
-			res = await addSendingHistory(groupIdArray, contentSMS, send_method, userName, diffSecond);
+			res = await addSendingHistory(groupIdArray, contentSMS, send_method, userName, dateString);
 		} else {
 			res = await addSendingHistory(groupIdArray, contentSMS, send_method, userName);
 		};
