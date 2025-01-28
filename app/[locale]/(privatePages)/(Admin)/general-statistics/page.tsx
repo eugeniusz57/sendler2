@@ -1,13 +1,13 @@
 'use client';
 
 import SelectMonth from '@/components/SelectMonth';
+import SelectYear from '@/components/SelectYear';
 import TableAdminStatistics from '@/components/TableAdminStatistics';
 import Link from 'next/link';
 import { useState, useCallback, useEffect } from 'react';
 import { IHistoryPeriod, IHistoryResponce } from '@/globaltypes/historyTypes';
 import { getUserHistory } from '@/fetch-actions/historyFetchActions';
 import { summarizeHistoryByDate } from '@/helpers/SortHistoryByDate';
-import BackBtn from '@/components/buttons/BackBtn';
 import { useTranslations } from 'next-intl';
 
 const ALL_USERS = -1;
@@ -32,8 +32,11 @@ const GeneralStatistics: React.FC = () => {
 	const currentDate = new Date();
 	const currentMonth = currentDate.getMonth() + 1;
 	const defaultMonth = months.find(month => month.id === currentMonth);
+	const currentYear = currentDate.getFullYear();
+	const years = Array.from({ length: currentYear - 2000 + 1 }, (_, i) => 2000 + i);
 	const day = '5';
 	const [selectedMonth, setSelectedMonth] = useState<string | undefined>(defaultMonth?.value);
+	const [selectedYear, setselectedYear] = useState<number>(currentYear);
 
 	function getDaysInMonth(year: any, month: any) {
 		return new Date(year, month + 1, 0).getDate();
@@ -44,26 +47,19 @@ const GeneralStatistics: React.FC = () => {
 		return month ? month.id - 1 : -1;
 	}
 
-	function getMonthDateRange(monthValue: any) {
+	function getMonthDateRange(monthValue: any, selectedYear: any) {
 		const currentMonthIndex = new Date().getMonth();
 		const currentYear = new Date().getFullYear();
 		const selectedMonthIndex = getMonthIndex(monthValue);
 
-		let year;
-		if (selectedMonthIndex <= currentMonthIndex) {
-			year = currentYear;
-		} else {
-			year = currentYear - 1;
-		}
-
-		const startDate = new Date(year, selectedMonthIndex, 1);
-		const endDate = new Date(year, selectedMonthIndex, getDaysInMonth(year, selectedMonthIndex));
+		const startDate = new Date(Date.UTC(selectedYear, selectedMonthIndex, 1));
+		const endDate = new Date(Date.UTC(selectedYear, selectedMonthIndex, getDaysInMonth(selectedYear, selectedMonthIndex), 23, 59, 59, 999));
 
 		return { startDate, endDate };
 	}
 
 	const memoizedUserHistory = useCallback(async () => {
-		const historyPeriod: IHistoryPeriod = getMonthDateRange(selectedMonth);
+		const historyPeriod: IHistoryPeriod = getMonthDateRange(selectedMonth, selectedYear);
 		const userHistory: IHistoryResponce[] | undefined = await getUserHistory({
 			id: ALL_USERS,
 			historyPeriod,
@@ -72,7 +68,7 @@ const GeneralStatistics: React.FC = () => {
 		if (userHistory) {
 			setUserHistory(summarizeHistoryByDate(userHistory));
 		}
-	}, [selectedMonth]);
+	}, [selectedMonth, selectedYear]);
 
 	useEffect(() => {
 		memoizedUserHistory();
@@ -82,10 +78,13 @@ const GeneralStatistics: React.FC = () => {
 		setSelectedMonth(value);
 	};
 
+	const handleYearChange = (year: string) => {
+    setselectedYear(+year);
+  };
+
 	return (
 		<>
-			<BackBtn />
-			<div className="flex flex-wrap gap-y-4 md:flex-nowrap items-center mb-8 mt-4">
+			<div className="flex flex-wrap gap-y-4 md:flex-nowrap items-center mb-8">
 				<Link
 					href={{
 						pathname: `general-statistics/${day}/`,
@@ -96,7 +95,10 @@ const GeneralStatistics: React.FC = () => {
 				>
 				</Link>
 				<h2 className="text-medium md:text-xl mr-4">{t('title')} </h2>
-				<SelectMonth options={months} value={selectedMonth} onChange={handleMonthChange} />
+				<div className="flex gap-3">
+					<SelectMonth options={months} value={selectedMonth} onChange={handleMonthChange} /> 
+					<SelectYear options={years} value={selectedYear} onChange={handleYearChange} />
+				</div>
 			</div>
 			<TableAdminStatistics userHistory={userHistory} />
 		</>

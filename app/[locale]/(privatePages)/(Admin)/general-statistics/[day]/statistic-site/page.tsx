@@ -10,6 +10,9 @@ import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
 const SiteHistoryDetails: React.FC = () => {
 	const [userHistoryDetails, setUserHistoryDetails] = useState<IHistoryDetailsResponce[]>([]);
 
+	const kyivTime = new Date().toLocaleString("en-US", { timeZone: "Europe/Kyiv", hour12: false });
+	const kyivDate = new Date(kyivTime);
+
 	const searchParams = useSearchParams();
 	const historyId = searchParams.get('history_id');
 	const sendingGroups = Object.keys(
@@ -28,6 +31,9 @@ const SiteHistoryDetails: React.FC = () => {
 		memoizedUserHistoryDetails();
 	}, [memoizedUserHistoryDetails]);
 
+	console.log(new Date(userHistoryDetails[0]?.sending_group_date) < kyivDate &&
+	userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending')))
+
 	return (
 		<div className="content-block mx-auto">
 			<div className="lg:ml-[26px]">
@@ -42,11 +48,11 @@ const SiteHistoryDetails: React.FC = () => {
 							{userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
 						</p>
 						<p className="mb-4">
-							{userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime() >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
+							{userHistoryDetails[0] && new Date(userHistoryDetails[0].sending_group_date)?.getTime() >= kyivDate.getTime() && userHistoryDetails[0]?.sending_permission === true
 								? 'Заплановано'
 								: userHistoryDetails[0]?.sending_permission === false
 									? 'Зупинено'
-									: new Date(userHistoryDetails[0]?.sending_group_date) < new Date() &&
+									: new Date(userHistoryDetails[0]?.sending_group_date) < kyivDate &&
 										userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
 										? 'Відправлено'
 										: 'Завершено'}
@@ -79,7 +85,7 @@ const SiteHistoryDetails: React.FC = () => {
 								className="flex flex-col  md:py-3 md:px-[10px] text-sm bg-[#fefefe] md:bg-inherit md:text-base md:gap-y-8 md:flex-row md:items-center md:gap-2 lg:gap-[100px] lg:px-[26px] font-roboto lg:text-lg text-black border border-zinc-800  md:border-x-0 md:border-t-0 md:border-[#B5C9BE]"
 							>
 								<p data-title="Номер телефону :" className="md:w-40 px-[10px] py-3 md:p-0 text-right md:text-left border-b-2 border-[#B5C9BE] md:border-none before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{item.tel}</p>
-								<p data-title="Дати відправки :" className="md:w-48 px-[10px] py-3 md:p-0 text-right md:text-left border-b-2 border-[#B5C9BE] md:border-none before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{item.sending_group_date.toLocaleString()}</p>
+								<p data-title="Дати відправки :" className="md:w-48 px-[10px] py-3 md:p-0 text-right md:text-left border-b-2 border-[#B5C9BE] md:border-none before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{new Date(item.sending_group_date).toLocaleString('uk-UA')}</p>
 								<p data-title="Кількість sms :" className="md:w-36 px-[10px] py-3 md:p-0 text-right md:text-left border-b-2 border-[#B5C9BE] md:border-none before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{item.recipient_status.length}</p>
 								<p data-title="Статус :" className="md:w-32 py-3 px-[10px] md:p-0 text-right md:text-left border-b-2 border-[#B5C9BE] md:border-none before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
 									{item.recipient_status.every(item => item === 'fullfield')

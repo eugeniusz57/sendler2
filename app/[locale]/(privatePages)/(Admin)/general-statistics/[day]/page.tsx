@@ -4,6 +4,7 @@ import React from 'react';
 import { useState, useCallback, useEffect } from 'react';
 import TableStatisticsPerDay from '@/components/TableStatisticsPerDay';
 import GreenButton from '@/components/buttons/GreenButton';
+import BackBtn from '@/components/buttons/BackBtn';
 import { getUserHistory } from '@/fetch-actions/historyFetchActions';
 import { IHistoryPeriod, IHistoryResponce } from '@/globaltypes/historyTypes';
 import { SendMethodType } from '@/globaltypes/types';
@@ -20,7 +21,7 @@ const DayHistory: React.FC<Props> = ({ params: { day } }) => {
 
 	function parseDateString(dateString: string) {
 		const [day, month, year] = dateString.split('.').map(Number);
-		return new Date(year, month - 1, day);
+		return new Date(Date.UTC(year, month - 1, day));
 	}
 
 	const memoizedUserHistory = useCallback(async () => {
@@ -48,7 +49,8 @@ const DayHistory: React.FC<Props> = ({ params: { day } }) => {
 
 	return (
 		<>
-			<p>Statistics for {day?.replace(/_/g, '.') ?? ''}</p>
+			<BackBtn />
+			<p className="mt-4">Statistics for {day?.replace(/_/g, '.') ?? ''}</p>
 			<div className="flex gap-4 mb-4 mt-4">
 				<GreenButton type="button" size="normal" onClick={() => handleSendMethod('web')} isActive={sendMethod === "web"}>
 					Site
