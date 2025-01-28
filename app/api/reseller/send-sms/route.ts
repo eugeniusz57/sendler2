@@ -8,6 +8,7 @@ import { addSendingHistory } from "../helpers/addSendingHistory";
 import { addSmsIdentificators } from "../helpers/addSmsIdetificators";
 import { addSmsIdentificator } from "../helpers/addSmsIdetificator";
 import { smsSender } from "../helpers/smsSender";
+import getKyivTime from "../helpers/getKyivTime";
 import { schemaSendSMS } from "@/models/send-sms";
 import {
 	deleteHistoryId,
@@ -40,6 +41,7 @@ export async function POST(request: Request): Promise<NextResponse<{
 }>> {
 	const session: ISession | null = await getServerSession(options);
 	const userId = session?.user.user_id;
+
 	if (!userId) {
 		return NextResponse.json(
 			{ message: "The userId doesn't exist." },
@@ -69,17 +71,16 @@ export async function POST(request: Request): Promise<NextResponse<{
 		};
 
 		const { userName, recipients, date, time, contentSMS, send_method } = value;
-		console.log('DATE', date)
-		console.log('TIME', time)
 		const dateString = date + ' ' + time;
 		console.log('dateString', dateString);
+		console.log('getKyivTime', getKyivTime())
 		let diff = 0;
 		let diffSecond = 0;
 
 		if (!(dateString === ' ')) {
-			const now = new Date();
 			const dateSending = new Date(dateString);
-			diff = dateSending.getTime() - now.getTime();
+			const dateKiev = new Date(getKyivTime());
+			diff = dateSending.getTime() - dateKiev.getTime();
 			diffSecond = Math.round(diff / 1000);
 		};
 
@@ -214,13 +215,12 @@ export async function POST(request: Request): Promise<NextResponse<{
 
 		if (diff > 0) {
 			setTimeout(sendSmsAgrigatorFunctions, diff);
-			sendSmsAgrigatorFunctions()
-			return NextResponse.json({ message: `SMS messages will be sent ${date} timeout ${diff} at ${time}.` });
+			return NextResponse.json({ message: `SMS messages will be sent ${dateString} timeout ${diff} at ${time}. Kyiv time ${getKyivTime()}` });
 		} else {
 			await sendSmsAgrigatorFunctions();
 		};
 
-		return NextResponse.json({ message: "SMS messages have been sent successfully." });
+		return NextResponse.json({ message: `SMS messages have been sent successfully.` });
 	} catch (error: any) {
 		return NextResponse.json(
 			{ message: "Failed to send SMS masseges.", error: error.message },
