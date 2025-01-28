@@ -16,8 +16,6 @@ export const smsSender = async (
 			},
 		}
 	);
-	console.log("ЗАПИТ", `${RESELLER_URL}/rest/Sms/${sendOption}?SessionID=${authRes}&SourceAddress=${userName}&${smsQuerystr}`);
-	console.log('ВІДПОВІДЬ', sendedSmsRes.data)
 	return sendedSmsRes.data;
 };
 
