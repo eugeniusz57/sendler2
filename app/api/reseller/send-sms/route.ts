@@ -215,7 +215,7 @@ export async function POST(request: Request): Promise<NextResponse<{
 
 		if (diff > 0) {
 			setTimeout(sendSmsAgrigatorFunctions, diff);
-			return NextResponse.json({ message: `SMS messages will be sent ${dateString} timeout ${diff} at ${time}. Kyiv time ${getKyivTime()}` });
+			return NextResponse.json({ message: `SMS messages will be sent ${date} at ${time}.` });
 		} else {
 			await sendSmsAgrigatorFunctions();
 		};
