@@ -195,13 +195,11 @@ const MailingList: React.FC<Props> = ({ params }) => {
 
 	// reset date and time if input is closed
 	const handleClickChecked = () => {
+		setDate(new Date());
+		setHour('');
+		setMinute('');
+		setSecond('');
 		setIsChecked(isChecked => !isChecked);
-		if (isChecked === false) {
-			setDate(new Date());
-			setHour('');
-			setMinute('');
-			setSecond('');
-		}
 	};
 
 	const handleChekedOfferContract = () => {
@@ -214,8 +212,7 @@ const MailingList: React.FC<Props> = ({ params }) => {
 		const dateSelected = new Date(
 			`${dateString[1]} ${dateString[2]}, ${dateString[3]} ${hour}:${minute}:${second}`
 		).getTime();
-		console.log('dateString', `${dateString[1]} ${dateString[2]}, ${dateString[3]} ${hour}:${minute}:${second}`)
-		console.log('dateSelected', dateSelected)
+
 		if (dateSelected - new Date().getTime() < 0 && isChecked === true) {
 			toast.error('Ви ввели не вірну дату та час.', {
 				position: 'bottom-center',
