@@ -35,8 +35,7 @@ CREATE TABLE
         user_password TEXT NOT NULL,
         balance INT NOT NULL DEFAULT 0,
         user_token TEXT,
-        user_create_date TIMESTAMPTZ DEFAULT NOW():: timestamp(0)
-    );
+        user_create_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP)
 
 CREATE TABLE clients (
     client_id SERIAL,
@@ -57,7 +56,7 @@ CREATE TABLE
         group_name TEXT NOT NULL,
         user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
         PRIMARY KEY (group_id),
-        group_create_date TIMESTAMPTZ DEFAULT NOW():: timestamp(0),
+        group_create_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP),
 				automatically_generated BOOLEAN DEFAULT FALSE
 				);
 
@@ -70,7 +69,7 @@ CREATE TABLE groups_members (
 CREATE TABLE
     sending_history(
         history_id SERIAL,
-        sending_group_date TIMESTAMPTZ DEFAULT now() AT TIME ZONE 'Europe / Vilnius',
+        sending_group_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP),
         PRIMARY KEY (history_id),
         send_method send_method_type DEFAULT 'api',
 				text_sms TEXT NOT NULL,
@@ -100,7 +99,7 @@ CREATE TABLE
         recipient_status status_type,
 				identificator TEXT NOT NULL,
         PRIMARY KEY (recipient_id),
-        status_changing_date TIMESTAMPTZ DEFAULT NOW():: timestamp(0)
+        status_changing_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP)
     );
 
 ALTER TABLE recipients_status
@@ -115,7 +114,7 @@ CREATE TABLE
         sms_count INT NOT NULL,
         money_count MONEY NOT NULL,
         PRIMARY KEY (transaction_id),
-        transactions_date TIMESTAMPTZ DEFAULT NOW():: timestamp(0)
+        transactions_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP)
     );
 
 CREATE TABLE sms_identificators (
@@ -136,7 +135,7 @@ CREATE TABLE sendler_name (
 
 CREATE TABLE user_sms_adjustments (
 	adjustment_id SERIAL NOT NULL,
-	create_time TIMESTAMPTZ DEFAULT NOW():: timestamp(0),
+	create_time timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP),
 	user_id INT REFERENCES users (user_id) ON DELETE CASCADE,
 	sms_count INTEGER
 );
@@ -194,22 +193,6 @@ $$
 	    AND recipient_status = 'fullfield' $$ LANGUAGE
 SQL;
 
--- CREATE OR REPLACE FUNCTION get_delivered_sms_by_user
--- (id bigint) RETURNS bigint AS
--- $$
--- 	SELECT COUNT(*)
--- 	FROM
--- 	    send_groups sg
--- 	    INNER JOIN users u ON u.user_id = sg.user_id
--- 	    INNER JOIN groups_members gm ON gm.group_id = sg.group_id
--- 	    INNER JOIN sending_members sm ON sm.group_id = sg.group_id
--- 	    INNER JOIN recipients_status rs ON rs.client_id = gm.client_id
--- 	    AND rs.history_id = sm.history_id
--- 	WHERE
--- 	    u.user_id = id
--- 	    AND recipient_status = 'fullfield' $$ LANGUAGE
--- SQL;
-
 CREATE OR REPLACE FUNCTION get_rejected_sms_by_user_and_history_id
 (id bigint, historyId bigint) RETURNS bigint AS 
 $$
@@ -227,22 +210,6 @@ $$
 	    AND recipient_status = 'rejected' $$ LANGUAGE
 SQL;
 
--- CREATE OR REPLACE FUNCTION get_rejected_sms_by_user_id
--- (id bigint) RETURNS bigint AS
--- $$
--- 	SELECT COUNT(*)
--- 	FROM
--- 	    send_groups sg
--- 	    INNER JOIN users u ON u.user_id = sg.user_id
--- 	    INNER JOIN groups_members gm ON gm.group_id = sg.group_id
--- 	    INNER JOIN sending_members sm ON sm.group_id = sg.group_id
--- 	    INNER JOIN recipients_status rs ON rs.client_id = gm.client_id
--- 	    AND rs.history_id = sm.history_id
--- 	WHERE
--- 	    u.user_id = id
--- 	    AND recipient_status = 'rejected' $$ LANGUAGE
--- SQL;
-
 CREATE OR REPLACE FUNCTION get_pending_sms_by_user_and_history_id
 (id bigint, historyId bigint) RETURNS bigint AS 
 $$
@@ -259,23 +226,6 @@ $$
 	    AND rs.history_id = historyId
 	    AND recipient_status = 'pending' $$ LANGUAGE
 SQL;
-
--- CREATE OR REPLACE FUNCTION get_pending_sms_by_user(
--- id bigint) RETURNS bigint AS
--- $$
--- 	SELECT COUNT(*)
--- 	FROM
--- 	    send_groups sg
--- 	    INNER JOIN users u ON u.user_id = sg.user_id
--- 	    INNER JOIN groups_members gm ON gm.group_id = sg.group_id
--- 	    INNER JOIN sending_members sm ON sm.group_id = sg.group_id
--- 	    INNER JOIN recipients_status rs ON rs.client_id = gm.client_id
--- 	    AND rs.history_id = sm.history_id
--- 	WHERE
--- 	    u.user_id = id
--- 	    -- AND rs.history_id = historyId
--- 	    AND recipient_status = 'pending' $$ LANGUAGE
--- SQL;
 
 CREATE OR REPLACE FUNCTION get_paid_sms_by_user(id 
 bigint) RETURNS bigint AS 
