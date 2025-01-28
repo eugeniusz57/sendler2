@@ -195,13 +195,11 @@ const MailingList: React.FC<Props> = ({ params }) => {
 
 	// reset date and time if input is closed
 	const handleClickChecked = () => {
+		setDate(new Date());
+		setHour('');
+		setMinute('');
+		setSecond('');
 		setIsChecked(isChecked => !isChecked);
-		if (isChecked === false) {
-			setDate(new Date());
-			setHour('');
-			setMinute('');
-			setSecond('');
-		}
 	};
 
 	const handleChekedOfferContract = () => {
