@@ -16,6 +16,19 @@ type Props = {
 	id: number | undefined;
 };
 
+function parseStartUTCDateString(dateString: string): Date {
+	const date = new Date(dateString);
+	const utcDate = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0, 0));
+	return utcDate;
+}
+
+function parseEndUTCDateString(dateString: string): Date {
+	const date = new Date(dateString);
+	const utcDate = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 23, 59, 59, 999));
+	return utcDate;
+}
+
+
 const HistoryTable: React.FC<Props> = ({ id }) => {
 	const searchParams = useSearchParams();
 	const startDate = searchParams.get('startDate');
@@ -30,8 +43,8 @@ const HistoryTable: React.FC<Props> = ({ id }) => {
 	useEffect(() => {
 		if (startDate && endDate) {
 			setHistoryPeriod({
-				startDate: new Date(startDate),
-				endDate: new Date(endDate),
+				startDate: parseStartUTCDateString(startDate),
+				endDate: parseEndUTCDateString(endDate),
 			});
 		} else {
 			setHistoryPeriod(undefined);
@@ -71,7 +84,7 @@ const HistoryTable: React.FC<Props> = ({ id }) => {
 	return (
 		<>
 			<div className="content-block">
-				<HistoryPeriodForm />
+				<HistoryPeriodForm selectedStartDate={startDate} selectedEndDate={endDate}/>
 				<div className="justify-center lg:justify-start flex items-center gap-[100px] h-[40px] md:h-[58px] px-[26px] font-roboto text-base md:text-xl text-white bg-[#417D8A]">
 					<p className="lg:hidden">{t('nameMobileHistoryTable')}</p>
 					<p className="hidden lg:block w-[194px]">{t('nameCol_1HistoryTable')}</p>

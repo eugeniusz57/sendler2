@@ -6,6 +6,20 @@ import { getUserHistory, createUserHistory } from '@/app/api/controllers/sending
 import { IErrorResponse, SmsStatusEnum, SendMethodType } from '@/globaltypes/types';
 import { IHistoryProps, IHistoryResponce } from '@/globaltypes/historyTypes';
 
+function parseStartUTCDateString(dateString: string): Date {
+  const date = new Date(dateString);
+  const utcDate = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0, 0));
+
+  return utcDate;
+}
+
+function parseEndUTCDateString(dateString: string): Date {
+  const date = new Date(dateString);
+  const utcDate = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 23, 59, 59, 999));
+
+  return utcDate;
+}
+
 export async function GET(
 	req: NextRequest
 ): Promise<NextResponse<IErrorResponse> | NextResponse<IHistoryProps>> {
@@ -18,10 +32,13 @@ export async function GET(
 		const visible = searchParams.get('visible') ? Number(searchParams.get('visible')) : null;
 		const sendMethod: any = searchParams.get('send_method') ?? null;
 
-		const startDate = start_date ? new Date(start_date) : undefined;
-		const endDate = end_date ? new Date(end_date) : undefined;
-		startDate?.setHours(0, 0, 0, 0);
-		endDate?.setHours(23, 59, 59, 999);
+		const startDate = start_date ? parseStartUTCDateString(start_date) : undefined;
+		const endDate = end_date ? parseEndUTCDateString(end_date) : undefined;
+
+		console.log("startDate", startDate)
+		console.log("endDate", endDate)
+		console.log("start_date", start_date)
+		console.log("end_date", end_date)
 
 		if (!userId) {
 			return HttpError(400, `ID required for getting user's history`);

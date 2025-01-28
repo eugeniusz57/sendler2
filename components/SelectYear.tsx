@@ -1,9 +1,8 @@
-import { Option } from '@/fetch-actions/types';
 import React, { ChangeEvent } from 'react'
 
 interface SelectProps {
-	options: Option[];
-	value: string | undefined;
+	options: number[];
+	value: number | undefined;
 	onChange: (value: string ) => void;
 };
 
@@ -15,8 +14,8 @@ const SelectMonth: React.FC<SelectProps> = ({ options, value, onChange }) => {
 	return (
 		<select value={value} onChange={handleChange} className='border-spacing-1 w-40 py-3 px-4 rounded-lg text-base font-montserrat cursor-pointer dark:bg-bgDark'>
 			{options.map(option => (
-				<option key={option.value} value={option.value}>
-					{option.label}
+				<option key={option} value={option}>
+					{option}
 				</option>
 			))}
 		</select>

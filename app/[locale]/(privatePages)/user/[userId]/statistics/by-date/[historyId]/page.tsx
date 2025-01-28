@@ -108,7 +108,7 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 								{userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
 							</p>
 							<p className="mb-[22px] lg:mb-4">
-								{userHistoryDetails[0] && formatToDate(userHistoryDetails[0].sending_group_date)?.getTime() >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
+								{userHistoryDetails[0] && new Date(userHistoryDetails[0].sending_group_date)?.getTime() >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
 									? t('malingStatus_value_1')
 									: userHistoryDetails[0]?.sending_permission === false
 										? t('malingStatus_value_2')
@@ -157,7 +157,7 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 										<p className="w-[166px] montserrat text-sm md:text-lg">{item.tel}</p>
 										<p className="font-medium mt-4 md:hidden">{t('nameCol_2HistoryDetailsTable')}</p>
 										<p className="w-[196px] montserrat text-sm md:text-lg">
-											{String(item.sending_group_date)}
+										{new Date(item.sending_group_date).toLocaleString('uk-UA')}
 										</p>
 										<p className="font-medium mt-4 md:hidden">{t('nameCol_3HistoryDetailsTable')}</p>
 										<p className="w-[130px] montserrat text-sm md:text-lg">{item.recipient_status.length}</p>

@@ -16,15 +16,16 @@ export interface FormInputsPeriod {
 };
 
 export interface IHistoryPeriodFormProps {
-	setHistoryPeriod: (startDate: Date, endDate: Date) => void;
+	selectedStartDate: string | null, 
+	selectedEndDate: string | null
 };
 
-const HistoryPeriodForm: React.FC = () => {
+const HistoryPeriodForm: React.FC<IHistoryPeriodFormProps> = ({ selectedStartDate, selectedEndDate }) => {
 	const router = useRouter();
 	const pathname = usePathname();
 	const searchParams = useSearchParams();
-	const selectedStartDate = searchParams.get('startDate');
-	const selectedEndDate = searchParams.get('endDate');
+	// const selectedStartDate = searchParams.get('startDate');
+	// const selectedEndDate = searchParams.get('endDate');
 	const t = useTranslations('StatisticsPage');
 
 	const [startDate, setStartDate] = useState<string | null>(selectedStartDate);
@@ -69,11 +70,11 @@ const HistoryPeriodForm: React.FC = () => {
 	};
 
 	const handleChangeStartDate = (date: Date | null) => {
-		setStartDate(date ? date.toString() : null);
+		setStartDate(date ? date.toISOString() : null);
 	};
 
 	const handleChangeEndDate = (date: Date | null) => {
-		setEndDate(date ? date.toString() : null);
+		setEndDate(date ? date.toISOString() : null);
 	};
 
 	return (

@@ -6,7 +6,7 @@ export function summarizeHistoryByDate(userHistory: IHistoryResponce[]) {
 
   userHistory.forEach(entry => {
     const dateKey: string = new Date(entry.sending_group_date).toLocaleString().split(',')[0];
-
+    
     if (!mergedData[dateKey]) {
       mergedData[dateKey] = {
         sending_group_date: entry.sending_group_date,

@@ -41,7 +41,7 @@ SELECT
     sh.alfa_name, 
     sh.sending_permission, 
     sh.text_sms, 
-    to_char(sh.sending_group_date, 'DD.MM.YYYY HH24:MI:SS') AS sending_group_date, 
+   sh.sending_group_date,
     sg.group_name, 
     u.user_name,
     ARRAY_AGG(DISTINCT COALESCE(combined.recipient_status)) AS recipient_status
