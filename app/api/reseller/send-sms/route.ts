@@ -72,8 +72,6 @@ export async function POST(request: Request): Promise<NextResponse<{
 
 		const { userName, recipients, date, time, contentSMS, send_method } = value;
 		const dateString = date + ' ' + time;
-		console.log('dateString', dateString);
-		console.log('getKyivTime', getKyivTime())
 		let diff = 0;
 		let diffSecond = 0;
 

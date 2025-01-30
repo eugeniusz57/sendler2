@@ -35,7 +35,7 @@ CREATE TABLE
         user_password TEXT NOT NULL,
         balance INT NOT NULL DEFAULT 0,
         user_token TEXT,
-        user_create_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP)
+        user_create_date timestamp with time zone DEFAULT timezone('Europe/Kiev'::text, now())
 
 CREATE TABLE clients (
     client_id SERIAL,
@@ -56,7 +56,7 @@ CREATE TABLE
         group_name TEXT NOT NULL,
         user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
         PRIMARY KEY (group_id),
-        group_create_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP),
+        group_create_date timestamp with time zone DEFAULT timezone('Europe/Kiev'::text, now()),
 				automatically_generated BOOLEAN DEFAULT FALSE
 				);
 
@@ -69,7 +69,7 @@ CREATE TABLE groups_members (
 CREATE TABLE
     sending_history(
         history_id SERIAL,
-        sending_group_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP),
+        sending_group_date timestamp with time zone DEFAULT timezone('Europe/Kiev'::text, now()),
         PRIMARY KEY (history_id),
         send_method send_method_type DEFAULT 'api',
 				text_sms TEXT NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE
         recipient_status status_type,
 				identificator TEXT NOT NULL,
         PRIMARY KEY (recipient_id),
-        status_changing_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP)
+        status_changing_date timestamp with time zone DEFAULT timezone('Europe/Kiev'::text, now())
     );
 
 ALTER TABLE recipients_status
@@ -114,7 +114,7 @@ CREATE TABLE
         sms_count INT NOT NULL,
         money_count MONEY NOT NULL,
         PRIMARY KEY (transaction_id),
-        transactions_date timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP)
+        transactions_date timestamp with time zone DEFAULT timezone('Europe/Kiev'::text, now())
     );
 
 CREATE TABLE sms_identificators (
@@ -135,7 +135,7 @@ CREATE TABLE sendler_name (
 
 CREATE TABLE user_sms_adjustments (
 	adjustment_id SERIAL NOT NULL,
-	create_time timestamp with time zone DEFAULT timezone('Europe/Vilnius'::text, CURRENT_TIMESTAMP),
+	create_time timestamp with time zone DEFAULT timezone('Europe/Kiev'::text, now()),
 	user_id INT REFERENCES users (user_id) ON DELETE CASCADE,
 	sms_count INTEGER
 );
