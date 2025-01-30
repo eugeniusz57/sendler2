@@ -10,7 +10,6 @@ export const addSendingHistory = async (idArray: number[], text: string, method:
 		res = await db.query(
 			`INSERT INTO sending_history (send_method, text_sms, sending_group_date, alfa_name) VALUES ('${method}', '${text}','${date}'::timestamp(0),'${userName}') RETURNING *`
 		);
-
 	} else {
 		res = await db.query(
 			`INSERT INTO sending_history (send_method, text_sms, alfa_name) VALUES ('${method}', '${text}', '${userName}') RETURNING *`,
