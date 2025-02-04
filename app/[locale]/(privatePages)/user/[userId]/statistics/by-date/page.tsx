@@ -8,6 +8,8 @@ import Title from '@/components/Title';
 import SendingPermissionBtn from '@/components/buttons/SendingPermissionBtn';
 import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
 import { countSuccessfullySentNumbers } from '@/helpers/getCountSuccessfullySentNumbers';
+import { formatToDate } from '@/app/utils';
+import formatTableDate from '@/app/utils/formatTableDate';
 import { IHistoryPeriod, IHistoryResponce } from '@/globaltypes/historyTypes';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -51,6 +53,15 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 		memoizedUserHistory();
 	}, [memoizedUserHistory]);
 
+	function formatDate(dateString: string) {
+		const date = new Date(dateString);
+    let day = String(date.getDate()).padStart(2, '0');
+    let month = String(date.getMonth() + 1).padStart(2, '0'); 
+    let year = date.getFullYear(); 
+
+    return `${day}.${month}.${year}`; 
+}
+
 	return (
 		<section className="container mx-auto">
 			<Title type="h1" color="dark">
@@ -60,7 +71,7 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 				<div className="content-block">
 					<div className="pl-[10px] md:pl-[26px]">
 						<p className="mb-[14px] md:mb-5 text-base md:text-lg font-roboto text-[#1B1B30] lg:text-xl dark:text-textColorDarkTheme ">
-							{t('titlePageBox')} {historyDate ? `${String(new Date(historyDate).getDate()).padStart(2, '0')}.${String(new Date(historyDate).getMonth() + 1).padStart(2, '0')}.${new Date(historyDate).getFullYear()}` : '-'}
+							{t('titlePageBox')} {historyDate ? `${formatDate(historyDate)}` : '-'}
 						</p>
 						<BackStatisticsBtn onClick={handleClick}>
 							<p className='text-left text-sm md:text-base'>{t('textTurnBackButton')}</p>

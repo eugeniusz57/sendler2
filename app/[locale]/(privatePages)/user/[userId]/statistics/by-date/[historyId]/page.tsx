@@ -157,7 +157,7 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 										<p className="w-[166px] montserrat text-sm md:text-lg">{item.tel}</p>
 										<p className="font-medium mt-4 md:hidden">{t('nameCol_2HistoryDetailsTable')}</p>
 										<p className="w-[196px] montserrat text-sm md:text-lg">
-										{new Date(item.sending_group_date).toLocaleString('uk-UA')}
+										{item.sending_group_date}
 										</p>
 										<p className="font-medium mt-4 md:hidden">{t('nameCol_3HistoryDetailsTable')}</p>
 										<p className="w-[130px] montserrat text-sm md:text-lg">{item.recipient_status.length}</p>

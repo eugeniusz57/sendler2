@@ -35,10 +35,10 @@ export async function GET(
 		const startDate = start_date ? parseStartUTCDateString(start_date) : undefined;
 		const endDate = end_date ? parseEndUTCDateString(end_date) : undefined;
 
-		console.log("startDate", startDate)
-		console.log("endDate", endDate)
-		console.log("start_date", start_date)
-		console.log("end_date", end_date)
+		// console.log("startDate", startDate)
+		// console.log("endDate", endDate)
+		// console.log("start_date", start_date)
+		// console.log("end_date", end_date)
 
 		if (!userId) {
 			return HttpError(400, `ID required for getting user's history`);
