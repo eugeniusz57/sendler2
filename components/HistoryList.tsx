@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import RSC from "react-scrollbars-custom";
 
 import formatTableDate from '@/app/utils/formatTableDate';
+import { formatToDate } from '@/app/utils';
 import { summarizeHistoryByDate } from '@/helpers/SortHistoryByDate';
 import { IHistoryResponce } from '@/globaltypes/historyTypes';
 import { SmsStatusEnum } from '@/globaltypes/types';
@@ -68,7 +69,7 @@ export default function HistoryList({ userHistory, loadMoreHistory, visible }: P
 											href={{
 												pathname: `statistics/by-date/`,
 												query: {
-													date: new Date(item.sending_group_date).toString(),
+													date: formatToDate(item.sending_group_date).toString(),
 												},
 											}}
 										>

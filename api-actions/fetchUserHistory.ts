@@ -21,7 +21,7 @@ SELECT
     sh.sending_permission,
     sh.send_method,
     sh.text_sms,
-    sh.sending_group_date,
+    to_char(sh.sending_group_date::timestamptz AT TIME ZONE 'Europe/Kiev', 'DD.MM.YYYY HH24:MI:SS') AS sending_group_date, 
     COALESCE(
         (SELECT ARRAY_AGG(COALESCE(rs.recipient_status, 'pending'))
          FROM recipients_status rs

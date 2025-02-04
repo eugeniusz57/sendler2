@@ -5,7 +5,7 @@ export interface IHistoryId {
 }
 
 export interface IHistoryResponce extends IGroupName {
-  sending_group_date: Date;
+  sending_group_date: string;
   send_method: string;
   recipient_status: SmsStatusEnum[];
   text_sms: string;
