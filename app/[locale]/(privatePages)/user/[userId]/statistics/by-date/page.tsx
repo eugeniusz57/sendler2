@@ -10,6 +10,8 @@ import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
 import { countSuccessfullySentNumbers } from '@/helpers/getCountSuccessfullySentNumbers';
 import { formatToDate } from '@/app/utils';
 import formatTableDate from '@/app/utils/formatTableDate';
+import formatDateTime from '@/app/utils/formatDateTime';
+import getKyivTime from '@/app/api/reseller/helpers/getKyivTime';
 import { IHistoryPeriod, IHistoryResponce } from '@/globaltypes/historyTypes';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -116,11 +118,11 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 											<p className="w-[118px] montserrat text-sm md:text-base">{item.alfa_name}</p>
 											<p className="font-medium mt-4 md:hidden">{t('nameCol_3DayHistoryTable')}</p>
 											<p className="w-[126px] montserrat text-sm md:text-base">
-												{new Date(item.sending_group_date) >= new Date() && item.sending_permission === true
+												{new Date(formatDateTime(item.sending_group_date)).getTime() >= new Date(getKyivTime()).getTime() && item.sending_permission === true
 													? t('malingStatus_value_1')
 													: item.sending_permission === false
 														? t('malingStatus_value_2')
-														: new Date(item.sending_group_date) < new Date() &&
+														: new Date(formatDateTime(item.sending_group_date)).getTime() < new Date(getKyivTime()).getTime() &&
 															item.recipient_status.some(item => item === 'pending')
 															? t('malingStatus_value_3')
 															: t('malingStatus_value_4')}
@@ -137,7 +139,7 @@ const DayHistory: React.FC<Props> = ({ params }) => {
 											</p>
 											<p className="font-medium mt-4 md:hidden">{t('nameCol_6DayHistoryTable')}</p>
 											<p className="w-[113px] montserrat text-sm md:text-base">
-												{new Date(item.sending_group_date) > new Date() ? (
+												{new Date(formatDateTime(item.sending_group_date)).getTime() > new Date(getKyivTime()).getTime() ? (
 													<SendingPermissionBtn history={item} />
 												) : (
 													<>&#8212;</>

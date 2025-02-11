@@ -1,3 +1,4 @@
+import formatDateTime from '@/app/utils/formatDateTime';
 import { IHistoryResponce } from '@/globaltypes/historyTypes';
 import { SmsStatusEnum } from '@/globaltypes/types';
 
@@ -5,7 +6,7 @@ export function summarizeHistoryByDate(userHistory: IHistoryResponce[]) {
   const mergedData: Record<string, IHistoryResponce> = {};
 
   userHistory.forEach(entry => {
-    const dateKey: string = new Date(entry.sending_group_date).toLocaleString().split(',')[0];
+    const dateKey: string = new Date(formatDateTime(entry.sending_group_date)).toLocaleString().split(',')[0];
     
     if (!mergedData[dateKey]) {
       mergedData[dateKey] = {
@@ -37,5 +38,11 @@ export function summarizeHistoryByDate(userHistory: IHistoryResponce[]) {
 
   const mergedArray = Object.values(mergedData);
 
-  return mergedArray;
+  const sortData = mergedArray.sort((a, b) => {
+    const dateA = formatDateTime(a.sending_group_date);
+    const dateB = formatDateTime(b.sending_group_date);
+    return new Date(dateB).getTime() - new Date(dateA).getTime() ; 
+  });
+
+  return sortData;
 }

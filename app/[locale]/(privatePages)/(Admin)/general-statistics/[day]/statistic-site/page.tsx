@@ -4,6 +4,8 @@ import { useState, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
 import formatToDate from '@/app/utils//fotmatToDate';
+import formatDateTime from '@/app/utils/formatDateTime';
+import getKyivTime from '@/app/api/reseller/helpers/getKyivTime';
 import TimeZoneMarker from '@/components/TimeZoneMarker';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
 
@@ -31,9 +33,6 @@ const SiteHistoryDetails: React.FC = () => {
 		memoizedUserHistoryDetails();
 	}, [memoizedUserHistoryDetails]);
 
-	console.log(new Date(userHistoryDetails[0]?.sending_group_date) < kyivDate &&
-	userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending')))
-
 	return (
 		<div className="content-block mx-auto">
 			<div className="lg:ml-[26px]">
@@ -48,11 +47,11 @@ const SiteHistoryDetails: React.FC = () => {
 							{userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
 						</p>
 						<p className="mb-4">
-							{userHistoryDetails[0] && new Date(userHistoryDetails[0].sending_group_date)?.getTime() >= kyivDate.getTime() && userHistoryDetails[0]?.sending_permission === true
+							{userHistoryDetails[0] && new Date(formatDateTime(userHistoryDetails[0].sending_group_date))?.getTime() >= new Date(getKyivTime()).getTime() && userHistoryDetails[0]?.sending_permission === true
 								? 'Заплановано'
 								: userHistoryDetails[0]?.sending_permission === false
 									? 'Зупинено'
-									: new Date(userHistoryDetails[0]?.sending_group_date) < kyivDate &&
+									: userHistoryDetails[0] && new Date(formatDateTime(userHistoryDetails[0].sending_group_date))?.getTime() < new Date(getKyivTime()).getTime() &&
 										userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
 										? 'Відправлено'
 										: 'Завершено'}

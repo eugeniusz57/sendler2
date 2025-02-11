@@ -1,5 +1,4 @@
 export default function formatToDate(dateString: string): Date {
-  console.log(dateString)
   const [datePart, timePart] = dateString.split(' ');
   const [day, month, year] = datePart.split('.');
   const [hours, minutes, seconds] = timePart.split(':');
