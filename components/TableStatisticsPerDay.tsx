@@ -2,24 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { countSuccessfullySentNumbers } from '@/helpers/getCountSuccessfullySentNumbers';
 import TimeZoneMarker from '@/components/TimeZoneMarker';
+import formatDateTime from '@/app/utils/formatDateTime';
+import getKyivTime from '@/app/api/reseller/helpers/getKyivTime';
 import { IHistoryResponce } from '@/globaltypes/historyTypes';
 
 type Props = { userHistory: IHistoryResponce[] };
 
 const TableStatisticsPerDay: React.FC<Props> = ({ userHistory }) => {
 	const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
-
-	const kyivTime = new Date().toLocaleString("en-US", { timeZone: "Europe/Kyiv", hour12: false });
-	const kyivDate = new Date(kyivTime);
-
-	function parseISODateString(isoDateString: string) {
-		console.log(isoDateString);
-		const [datePart, timePart] = isoDateString.split('T'); 
-		const [year, month, day] = datePart.split('-'); 
-		const [hours, minutes, seconds] = timePart.split(':');
-	
-		return `${day}.${month}.${year}, ${hours}:${minutes}:${seconds.replace('Z', '')}`;
-	}
 
 	return (
 		<table className="w-full border bg-priceTableBg dark:bg-darkItems text-center">
@@ -46,11 +36,11 @@ const TableStatisticsPerDay: React.FC<Props> = ({ userHistory }) => {
 						<td data-title="Текст :" className="block md:table-cell text-right md:text-center py-3 px-1 lg:py-4 lg:px-3 border font-montserrat text-sm lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold"><p className="line-clamp-3 md:w-[80px] lg:w-[100px] break-words">{elem.text_sms}</p></td>
 						<td data-title="СМС імя :" className="block md:table-cell text-right md:text-center py-3 px-1 lg:py-4 lg:px-3 border font-montserrat text-sm lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">{elem.alfa_name}</td>
 						<td data-title="Статус :" className="block md:table-cell text-right md:text-center py-3 px-1 lg:py-4 lg:px-3 border font-montserrat text-sm lg:text-xl before:content-[attr(data-title)] before:float-left md:before:content-none before:font-bold">
-							{new Date(elem.sending_group_date) >= kyivDate && elem.sending_permission === true
+							{new Date(formatDateTime(elem.sending_group_date)).getTime() >= new Date(getKyivTime()).getTime() && elem.sending_permission === true
 								? 'Заплановано'
 								: elem.sending_permission === false
 									? 'Зупинено'
-									: new Date(elem.sending_group_date) < kyivDate &&
+									: new Date(formatDateTime(elem.sending_group_date)).getTime() < new Date(getKyivTime()).getTime() &&
 										elem.recipient_status.some(item => item === 'pending')
 										? 'Відправлено'
 										: 'Завершено'}

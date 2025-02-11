@@ -8,6 +8,8 @@ import BackStatisticsBtn from '@/components/buttons/BackStatisticsBtn';
 import TimeZoneMarker from '@/components/TimeZoneMarker';
 import { getUserHistoryDetails } from '@/fetch-actions/historyFetchActions';
 import formatToDate from '@/app/utils//fotmatToDate';
+import formatDateTime from '@/app/utils/formatDateTime';
+import getKyivTime from '@/app/api/reseller/helpers/getKyivTime';
 import { IHistoryDetailsResponce } from '@/globaltypes/historyTypes';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -108,11 +110,11 @@ const HistoryDetails: React.FC<Props> = ({ params }) => {
 								{userHistoryDetails[0] ? userHistoryDetails[0]?.alfa_name : '-'}
 							</p>
 							<p className="mb-[22px] lg:mb-4">
-								{userHistoryDetails[0] && new Date(userHistoryDetails[0].sending_group_date)?.getTime() >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
+								{userHistoryDetails[0] && new Date(formatDateTime(userHistoryDetails[0].sending_group_date))?.getTime() >= new Date().getTime() && userHistoryDetails[0]?.sending_permission === true
 									? t('malingStatus_value_1')
 									: userHistoryDetails[0]?.sending_permission === false
 										? t('malingStatus_value_2')
-										: new Date(userHistoryDetails[0]?.sending_group_date) < new Date() &&
+										: userHistoryDetails[0] && new Date(formatDateTime(userHistoryDetails[0]?.sending_group_date))?.getTime() < new Date(getKyivTime()).getTime() &&
 											userHistoryDetails.some(history => history.recipient_status.some(status => status === 'pending'))
 											? t('malingStatus_value_3')
 											: t('malingStatus_value_4')}

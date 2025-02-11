@@ -70,11 +70,11 @@ const HistoryPeriodForm: React.FC<IHistoryPeriodFormProps> = ({ selectedStartDat
 	};
 
 	const handleChangeStartDate = (date: Date | null) => {
-		setStartDate(date ? date.toISOString() : null);
+		setStartDate(date ? date.toString() : null);
 	};
 
 	const handleChangeEndDate = (date: Date | null) => {
-		setEndDate(date ? date.toISOString() : null);
+		setEndDate(date ? date.toString() : null);
 	};
 
 	return (
