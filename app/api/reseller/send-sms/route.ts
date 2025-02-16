@@ -74,10 +74,12 @@ export async function POST(request: Request): Promise<NextResponse<{
 		const dateString = date + ' ' + time;
 		let diff = 0;
 		let diffSecond = 0;
+		let dateKiev: Date = new Date();
+		let dateSending: Date = new Date();
 
 		if (!(dateString === ' ')) {
-			const dateSending = new Date(dateString);
-			const dateKiev = new Date(getKyivTime());
+			dateSending = new Date(dateString);
+			dateKiev = new Date(getKyivTime());
 			diff = dateSending.getTime() - dateKiev.getTime();
 			diffSecond = Math.round(diff / 1000);
 		};
@@ -176,7 +178,7 @@ export async function POST(request: Request): Promise<NextResponse<{
 		};
 
 		let res;
-		if (diff > 0) {
+		if (diffSecond > 0) {
 			res = await addSendingHistory(groupIdArray, contentSMS, send_method, userName, dateString);
 		} else {
 			res = await addSendingHistory(groupIdArray, contentSMS, send_method, userName);
@@ -211,12 +213,12 @@ export async function POST(request: Request): Promise<NextResponse<{
 			return;
 		};
 
-		if (diff > 0) {
+		if (diffSecond > 0) {
 			setTimeout(sendSmsAgrigatorFunctions, diff);
-			return NextResponse.json({ message: `SMS messages will be sent ${date} at ${time}.` });
-		} else {
-			await sendSmsAgrigatorFunctions();
+			return NextResponse.json({ message: `SMS messages will be sent ${dateSending} Kiyv ${dateKiev} diffSecond ${diffSecond} diff ${diff}.` });
 		};
+
+		await sendSmsAgrigatorFunctions();
 
 		return NextResponse.json({ message: `SMS messages have been sent successfully.` });
 	} catch (error: any) {
